@@ -8,7 +8,7 @@ Make sure you create a Travel Seller account at the [Katanox Platform](https://a
 Via Composer
 
 ``` bash
-$ composer require katanox/sdk
+$ composer require katanox/katanox-php
 ```
 
 ## Documentation
