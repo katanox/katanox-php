@@ -88,7 +88,7 @@ class Property implements JsonSerializable
             'facilities' => $this->facilities,
             'units' => $this->units,
             'rate_plans' => $this->rate_plans,
-						'prices' => $this->prices
+            'prices' => $this->prices,
         ];
     }
 
