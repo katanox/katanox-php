@@ -83,11 +83,11 @@ class AvailabilityResourceTest extends TestCase
         $this->assertObjectHasAttribute('prices', $res->getData()->properties[0]);
         $this->assertObjectHasAttribute('units', $res->getData()->properties[0]);
         $this->assertObjectHasAttribute('rate_plans', $res->getData()->properties[0]);
-        $this->assertEquals('ABC456FG', $res->getData()->properties[0]->prices[0]->unit_id);
-        $this->assertEquals('REW2H24G', $res->getData()->properties[0]->prices[0]->rate_plan_id);
-        $this->assertEquals('ABCDEFG', $res->getData()->properties[0]->prices[0]->property_id);
-        $this->assertEquals(156, $res->getData()->properties[0]->prices[0]->price->amount);
-        $this->assertEquals('EUR', $res->getData()->properties[0]->prices[0]->price->currency);
+        $this->assertEquals('ABC456FG', $res->getData()->properties[0]->getPrices()[0]->unit_id);
+        $this->assertEquals('REW2H24G', $res->getData()->properties[0]->getPrices()[0]->rate_plan_id);
+        $this->assertEquals('ABCDEFG', $res->getData()->properties[0]->getPrices()[0]->property_id);
+        $this->assertEquals(156, $res->getData()->properties[0]->getPrices()[0]->price->getAmount());
+        $this->assertEquals('EUR', $res->getData()->properties[0]->getPrices()[0]->price->getCurrency());
     }
 
     /**
@@ -122,7 +122,7 @@ class AvailabilityResourceTest extends TestCase
             ->andReturn(new Response(
                 200,
                 [],
-                json_encode(['data' => ['properties' => [$property]], 'metas' => [], 'link' => []]) . 'invalidjsonline'
+                json_encode(['data' => ['properties' => [$property]], 'metas' => [], 'link' => []]).'invalidjsonline'
             ))
         ;
         $this->availabilityResource = new AvailabilityResource($mockHttpClient, 'https://api.katanox.com', 'abc');
@@ -170,7 +170,7 @@ class AvailabilityResourceTest extends TestCase
             ->andReturn(new Response(
                 200,
                 [],
-                json_encode(['data' => ['properties' => [$property]], 'metas' => [], 'link' => []]) . 'invalidjsonline'
+                json_encode(['data' => ['properties' => [$property]], 'metas' => [], 'link' => []]).'invalidjsonline'
             ))
         ;
         $this->availabilityResource = new AvailabilityResource($mockHttpClient, 'https://api.katanox.com', 'abc');

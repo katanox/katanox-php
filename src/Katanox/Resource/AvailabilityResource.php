@@ -43,6 +43,7 @@ class AvailabilityResource
         $this->apiKey = $apiKey;
         $this->mapper = new JsonMapper();
         $this->mapper->bStrictNullTypes = false;
+        $this->mapper->bIgnoreVisibility = true;
     }
 
     /**

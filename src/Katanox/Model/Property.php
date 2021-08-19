@@ -2,102 +2,95 @@
 
 namespace Katanox\Model;
 
-class Property
+use JsonSerializable;
+
+class Property implements JsonSerializable
 {
-    /**
-     * @var string
-     */
-    public $id;
+    private ?string $id = null;
 
-    /**
-     * @var string
-     */
-    public $name;
+    private ?string $name = null;
 
-    /**
-     * @var string
-     */
-    public $description;
+    private ?string $description = null;
 
-    /**
-     * @var int
-     */
-    public $stars;
+    private ?string $stars = null;
 
-    /**
-     * @var string
-     */
-    public $address_line_1;
+    private ?string $address_line_1 = null;
 
-    /**
-     * @var string
-     */
-    public $address_line_2;
+    private ?string $address_line_2 = null;
 
-    /**
-     * @var string
-     */
-    public $city;
+    private ?string $city = null;
 
-    /**
-     * @var string
-     */
-    public $postcode;
+    private ?string $postcode = null;
 
-    /**
-     * @var string
-     */
-    public $country;
+    private ?string $country = null;
 
-    /**
-     * @var Location
-     */
-    public $location;
+    private ?Location $location = null;
 
-    /**
-     * @var string
-     */
-    public $phone_number;
+    private ?string $phone_number = null;
 
-    /**
-     * @var string
-     */
-    public $email;
+    private ?string $email = null;
 
-    /**
-     * @var string
-     */
-    public $currency;
+    private ?string $currency = null;
 
     /**
      * @var Image[]
      */
-    public $images;
+    private array $images = [];
 
     /**
      * @var Translation[]
      */
-    public $translations;
+    private array $translations = [];
 
     /**
      * @var Facility[]
      */
-    public $facilities;
+    private array $facilities = [];
 
     /**
      * @var Unit[]
      */
-    public $units;
+    private array $units = [];
 
     /**
      * @var RatePlan[]
      */
-    public $rate_plans;
+    private array $rate_plans = [];
 
     /**
      * @var AvailabilityAndPrice[]
      */
-    public $prices;
+    private array $prices = [];
+
+    public function jsonSerialize()
+    {
+        return $this->toArray();
+    }
+
+    public function toArray()
+    {
+        return [
+            'id' => $this->id,
+            'name' => $this->name,
+            'description' => $this->description,
+            'stars' => $this->stars,
+            'address_line_1' => $this->address_line_1,
+            'address_line_2' => $this->address_line_2,
+            'city' => $this->city,
+            'postcode' => $this->postcode,
+            'country' => $this->country,
+            'location' => $this->location,
+            'phone_number' => $this->phone_number,
+            'email' => $this->email,
+            'currency' => $this->currency,
+            'images' => $this->images,
+            'translations' => $this->translations,
+            'facilities' => $this->facilities,
+            'units' => $this->units,
+            'rate_plans' => $this->rate_plans,
+						'prices' => $this->prices
+        ];
+    }
 
     public function getId(): string
     {
