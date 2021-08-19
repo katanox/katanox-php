@@ -1,4 +1,12 @@
+<p align="center">
+  <img src="https://katanox.com/images/logo-white.png" />
+</p>
+
 # Katanox PHP SDK
+![test workflow](https://github.com/katanox/katanox-php/actions/workflows/test.yaml/badge.svg)
+![StyleCI](https://github.styleci.io/repos/397629408/shield?branch=master)
+
+
 Welcome to the official PHP SDK of the [Katanox API](https://docs.katanox.com). You can simply install the SDK using Composer and after providing your API key you can start calling the API. 
 
 Make sure you create a Travel Seller account at the [Katanox Platform](https://app.katanox.com/register) first so that you can receive a sandbox API key.
