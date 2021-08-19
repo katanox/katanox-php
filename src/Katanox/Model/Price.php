@@ -4,8 +4,8 @@ namespace Katanox\Model;
 
 class Price
 {
-    private float $amount;
-    private string $currency;
+    public float $amount;
+    public string $currency;
 
     public function __construct(float $amount, string $currency)
     {

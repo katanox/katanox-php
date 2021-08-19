@@ -23,7 +23,7 @@
         }
     ],
     "require": {
-        "php": ">=7.3",
+        "php": ">=7.4",
         "ext-json": "*",
         "doctrine/collections": "^1.6.1",
         "guzzlehttp/guzzle": "^7.3",
