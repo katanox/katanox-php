@@ -42,7 +42,7 @@ $response = $availabilityResource->search($q);
 $properties = $response->getData()->getProperties();
 
 // Get the next page
-$nextPage = $katanox->availability->next($response);
+$nextPage = $availabilityResource->next($response);
 $properties = $nextPage->getData()->getProperties();
 ```
 ### Create a new booking

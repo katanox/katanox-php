@@ -92,10 +92,10 @@ class AvailabilityResource
      */
     public function next(Availability $availability): ?Availability
     {
-        if (null != $availability->links->getNext()) {
+        if (null != $availability->getLinks()->getNext()) {
             $req = $availability->getRequest();
-            $req->setUrl($availability->links->getNext()->getUrl());
-            $req->setMethod($availability->links->getNext()->getMethod());
+            $req->setUrl($availability->getLinks()->getNext()->getUrl());
+            $req->setMethod($availability->getLinks()->getNext()->getMethod());
             $res = $this->client->request(
                 $req->method,
                 $req->url,
@@ -125,10 +125,10 @@ class AvailabilityResource
      */
     public function previous(Availability $availability): ?Availability
     {
-        if (null != $availability->links->getPrevious()) {
+        if (null != $availability->getLinks()->getPrevious()) {
             $req = $availability->getRequest();
-            $req->setUrl($availability->links->getPrevious()->getUrl());
-            $req->setMethod($availability->links->getPrevious()->getMethod());
+            $req->setUrl($availability->getLinks()->getPrevious()->getUrl());
+            $req->setMethod($availability->getLinks()->getPrevious()->getMethod());
             $res = $this->client->request(
                 $req->getMethod(),
                 $req->getUrl(),
