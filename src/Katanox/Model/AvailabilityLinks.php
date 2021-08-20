@@ -7,22 +7,22 @@ class AvailabilityLinks
     /**
      * @var null|Link
      */
-    public $next;
+    private $next;
 
     /**
      * @var null|Link
      */
-    public $previous;
+    private $previous;
 
     /**
      * @var null|Link
      */
-    public $first;
+    private $first;
 
     /**
      * @var null|Link
      */
-    public $last;
+    private $last;
 
     /**
      * AvailabilityLinks constructor.

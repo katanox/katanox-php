@@ -2,17 +2,13 @@
 
 namespace Katanox\Model;
 
-class Translation
-{
-    /**
-     * @var string
-     */
-    public $description;
+use JsonSerializable;
 
-    /**
-     * @var string
-     */
-    public $locale;
+class Translation implements JsonSerializable
+{
+    private ?string $description = null;
+
+    private ?string $locale = null;
 
     /**
      * Translation constructor.
@@ -21,5 +17,42 @@ class Translation
     {
         $this->description = $description;
         $this->locale = $locale;
+    }
+
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
+
+    public function setDescription(string $description): Translation
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    public function getLocale(): ?string
+    {
+        return $this->description;
+    }
+
+    public function setLocale(string $locale): Translation
+    {
+        $this->locale = $locale;
+
+        return $this;
+    }
+
+    public function jsonSerialize()
+    {
+        return $this->toArray();
+    }
+
+    public function toArray(): array
+    {
+        return [
+            'description' => $this->description,
+            'locale' => $this->locale,
+        ];
     }
 }

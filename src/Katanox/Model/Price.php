@@ -2,10 +2,12 @@
 
 namespace Katanox\Model;
 
-class Price
+use JsonSerializable;
+
+class Price implements JsonSerializable
 {
-    private float $amount;
-    private string $currency;
+    private ?float $amount = null;
+    private ?string $currency = null;
 
     public function __construct(float $amount, string $currency)
     {
@@ -18,7 +20,7 @@ class Price
         $this->currency = $currency;
     }
 
-    public function getCurrency(): string
+    public function getCurrency(): ?string
     {
         return $this->currency;
     }
@@ -28,7 +30,7 @@ class Price
         $this->amount = $amount;
     }
 
-    public function getAmount(): float
+    public function getAmount(): ?float
     {
         return $this->amount;
     }
@@ -39,5 +41,10 @@ class Price
             'amount' => $this->amount,
             'currency' => $this->currency,
         ];
+    }
+
+    public function jsonSerialize()
+    {
+        return $this->toArray();
     }
 }

@@ -9,17 +9,17 @@ class Availability implements \JsonSerializable
     /**
      * @var AvailabilityData
      */
-    public $data;
+    private $data;
 
     /**
      * @var AvailabilityMetaData
      */
-    public $meta;
+    private $meta;
 
     /**
      * @var AvailabilityLinks
      */
-    public $links;
+    private $links;
 
     /**
      * @var KatanoxRequest the original request that generated this data

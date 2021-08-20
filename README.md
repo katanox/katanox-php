@@ -1,4 +1,12 @@
+<p align="center">
+  <img src="https://katanox.com/images/logo-white.png" />
+</p>
+
 # Katanox PHP SDK
+![test workflow](https://github.com/katanox/katanox-php/actions/workflows/test.yaml/badge.svg)
+![StyleCI](https://github.styleci.io/repos/397629408/shield?branch=master)
+
+
 Welcome to the official PHP SDK of the [Katanox API](https://docs.katanox.com). You can simply install the SDK using Composer and after providing your API key you can start calling the API. 
 
 Make sure you create a Travel Seller account at the [Katanox Platform](https://app.katanox.com/register) first so that you can receive a sandbox API key.
@@ -8,7 +16,7 @@ Make sure you create a Travel Seller account at the [Katanox Platform](https://a
 Via Composer
 
 ``` bash
-$ composer require katanox/sdk
+$ composer require katanox/katanox-php
 ```
 
 ## Documentation
@@ -29,13 +37,13 @@ $q->setLat(52.0356)
     ->setPage(1)
     ->setLimit(25);
 
-// Getting the first page    
+// Get the first page    
 $response = $availabilityResource->search($q);
-$properties = $response->data->properties;
+$properties = $response->getData()->getProperties();
 
-// get the next page
-$nextPage = $katanox->availability->next($response);
-$properties = $nextPage->data->properties;
+// Get the next page
+$nextPage = $availabilityResource->next($response);
+$properties = $nextPage->getData()->getProperties();
 ```
 ### Create a new booking
 ``` php
