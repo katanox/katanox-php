@@ -122,7 +122,7 @@ class AvailabilityResourceTest extends TestCase
             ->andReturn(new Response(
                 200,
                 [],
-                json_encode(['data' => ['properties' => [$property]], 'metas' => [], 'link' => []]).'invalidjsonline'
+                json_encode(['data' => ['properties' => [$property]], 'metas' => [], 'link' => []]) . 'invalidjsonline'
             ))
         ;
         $this->availabilityResource = new AvailabilityResource($mockHttpClient, 'https://api.katanox.com', 'abc');
@@ -170,7 +170,7 @@ class AvailabilityResourceTest extends TestCase
             ->andReturn(new Response(
                 200,
                 [],
-                json_encode(['data' => ['properties' => [$property]], 'metas' => [], 'link' => []]).'invalidjsonline'
+                json_encode(['data' => ['properties' => [$property]], 'metas' => [], 'link' => []]) . 'invalidjsonline'
             ))
         ;
         $this->availabilityResource = new AvailabilityResource($mockHttpClient, 'https://api.katanox.com', 'abc');
