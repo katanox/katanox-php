@@ -2,24 +2,54 @@
 
 namespace Katanox\Model;
 
-class Image
+use JsonSerializable;
+
+class Image implements JsonSerializable
 {
-    /**
-     * @var string
-     */
-    public $tag;
+    public ?string $tag = null;
 
-    /**
-     * @var string
-     */
-    public $url;
+    public ?string $url = null;
 
-    /**
-     * Image constructor.
-     */
     public function __construct(string $tag, string $url)
     {
         $this->tag = $tag;
         $this->url = $url;
+    }
+
+    public function getTag(): ?string
+    {
+        return $this->tag;
+    }
+
+    public function setTag(string $tag): Image
+    {
+        $this->tag = $tag;
+
+        return $this;
+    }
+
+    public function getUrl(): ?string
+    {
+        return $this->url;
+    }
+
+    public function setUrl(string $url): Image
+    {
+        $this->url = $url;
+
+        return $this;
+    }
+
+    public function jsonSerialize()
+    {
+        return $this->toArray();
+    }
+
+    public function toArray(): array
+    {
+        return [
+            'tag' => $this->tag,
+            'url' => $this->url,
+        ];
     }
 }
