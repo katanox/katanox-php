@@ -1,10 +1,5 @@
 <p align="center">
-<picture>
-  <source 
-    srcset="https://katanox.com/images/logo-white.png" 
-    media="(prefers-color-scheme: dark)">
-  <img src="https://static.katanox.com/blog/icons/katanox-logo-navy.png">
-</picture>
+  <img src="https://static.katanox.com/blog/icons/ktnx-logo-white-bg.png" />
 </p>
 
 # Katanox PHP SDK
