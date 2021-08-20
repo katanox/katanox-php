@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://katanox.com/images/logo-white.png" />
+  <img src="https://static.katanox.com/blog/icons/ktnx-logo-white-bg.png" />
 </p>
 
 # Katanox PHP SDK
