@@ -39,11 +39,11 @@ $q->setLat(52.0356)
 
 // Get the first page    
 $response = $availabilityResource->search($q);
-$properties = $response->data->properties;
+$properties = $response->getData()->getProperties();
 
 // Get the next page
 $nextPage = $katanox->availability->next($response);
-$properties = $nextPage->data->properties;
+$properties = $nextPage->getData()->getProperties();
 ```
 ### Create a new booking
 ``` php
