@@ -80,14 +80,14 @@ class AvailabilityResourceTest extends TestCase
         ;
         $res = $this->availabilityResource->search($q);
 
-        $this->assertObjectHasAttribute('prices', $res->getData()->properties[0]);
-        $this->assertObjectHasAttribute('units', $res->getData()->properties[0]);
-        $this->assertObjectHasAttribute('rate_plans', $res->getData()->properties[0]);
-        $this->assertEquals('ABC456FG', $res->getData()->properties[0]->getPrices()[0]->unit_id);
-        $this->assertEquals('REW2H24G', $res->getData()->properties[0]->getPrices()[0]->rate_plan_id);
-        $this->assertEquals('ABCDEFG', $res->getData()->properties[0]->getPrices()[0]->property_id);
-        $this->assertEquals(156, $res->getData()->properties[0]->getPrices()[0]->price->getAmount());
-        $this->assertEquals('EUR', $res->getData()->properties[0]->getPrices()[0]->price->getCurrency());
+        $this->assertObjectHasAttribute('prices', $res->getData()->getProperties()[0]);
+        $this->assertObjectHasAttribute('units', $res->getData()->getProperties()[0]);
+        $this->assertObjectHasAttribute('rate_plans', $res->getData()->getProperties()[0]);
+        $this->assertEquals('ABC456FG', $res->getData()->getProperties()[0]->getPrices()[0]->getUnitId());
+        $this->assertEquals('REW2H24G', $res->getData()->getProperties()[0]->getPrices()[0]->getRatePlanId());
+        $this->assertEquals('ABCDEFG', $res->getData()->getProperties()[0]->getPrices()[0]->getPropertyId());
+        $this->assertEquals(156, $res->getData()->getProperties()[0]->getPrices()[0]->getPrice()->getAmount());
+        $this->assertEquals('EUR', $res->getData()->getProperties()[0]->getPrices()[0]->getPrice()->getCurrency());
     }
 
     /**

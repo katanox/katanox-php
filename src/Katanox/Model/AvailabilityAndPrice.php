@@ -6,13 +6,13 @@ use JsonSerializable;
 
 class AvailabilityAndPrice implements JsonSerializable
 {
-    public ?string $unit_id = null;
+    private ?string $unit_id = null;
 
-    public ?string $rate_plan_id = null;
+    private ?string $rate_plan_id = null;
 
-    public ?string $property_id = null;
+    private ?string $property_id = null;
 
-    public ?Price $price = null;
+    private ?Price $price = null;
 
     /**
      * AvailabilityAndPrice constructor.

@@ -7,11 +7,11 @@ class Link
     /**
      * @var string
      */
-    public $method;
+    private $method;
     /**
      * @var string
      */
-    public $url;
+    private $url;
 
     /**
      * Link constructor.

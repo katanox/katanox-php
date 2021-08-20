@@ -4,9 +4,9 @@ namespace Katanox\Model;
 
 class Facility
 {
-    public ?string $category = null;
+    private ?string $category = null;
 
-    public ?string $name = null;
+    private ?string $name = null;
 
     public function __construct(string $category, string $name)
     {

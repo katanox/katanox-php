@@ -2,39 +2,32 @@
 
 namespace Katanox\Model;
 
-class Unit
+use JsonSerializable;
+
+class Unit implements JsonSerializable
 {
-    /**
-     * @var string
-     */
-    public $id;
+    private ?string $id = null;
 
-    /**
-     * @var string
-     */
-    public $name;
+    private ?string $name = null;
 
-    /**
-     * @var string
-     */
-    public $description;
+    private ?string $description = null;
 
     /**
      * @var Image[]
      */
-    public $images;
+    private array $images;
 
     /**
      * @var null|Translation[]
      */
-    public $translations;
+    private ?array $translations = [];
 
     /**
      * @var Facility[]
      */
-    public $amenities;
+    private array $amenities;
 
-    public function getId(): string
+    public function getId(): ?string
     {
         return $this->id;
     }
@@ -46,7 +39,7 @@ class Unit
         return $this;
     }
 
-    public function getName(): string
+    public function getName(): ?string
     {
         return $this->name;
     }
@@ -58,7 +51,7 @@ class Unit
         return $this;
     }
 
-    public function getDescription(): string
+    public function getDescription(): ?string
     {
         return $this->description;
     }
@@ -122,5 +115,22 @@ class Unit
         $this->amenities = $amenities;
 
         return $this;
+    }
+
+    public function toArray(): array
+    {
+        return [
+            'id' => $this->id,
+            'name' => $this->name,
+            'description' => $this->description,
+            'images' => $this->images,
+            'translations' => $this->translations,
+            'amenities' => $this->amenities
+        ];
+    }
+
+    public function jsonSerialize()
+    {
+        return $this->toArray();
     }
 }

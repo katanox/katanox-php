@@ -6,9 +6,9 @@ use JsonSerializable;
 
 class Image implements JsonSerializable
 {
-    public ?string $tag = null;
+    private ?string $tag = null;
 
-    public ?string $url = null;
+    private ?string $url = null;
 
     public function __construct(string $tag, string $url)
     {

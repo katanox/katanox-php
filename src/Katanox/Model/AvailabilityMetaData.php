@@ -7,12 +7,12 @@ class AvailabilityMetaData
     /**
      * @var int
      */
-    public $total_properties;
+    private $total_properties;
 
     /**
      * @var int
      */
-    public $total_pages;
+    private $total_pages;
 
     /**
      * AvailabilityMetaData constructor.

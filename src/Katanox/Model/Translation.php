@@ -6,9 +6,9 @@ use JsonSerializable;
 
 class Translation implements JsonSerializable
 {
-    public ?string $description = null;
+    private ?string $description = null;
 
-    public ?string $locale = null;
+    private ?string $locale = null;
 
     /**
      * Translation constructor.

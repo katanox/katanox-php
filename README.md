@@ -37,11 +37,11 @@ $q->setLat(52.0356)
     ->setPage(1)
     ->setLimit(25);
 
-// Getting the first page    
+// Get the first page    
 $response = $availabilityResource->search($q);
 $properties = $response->data->properties;
 
-// get the next page
+// Get the next page
 $nextPage = $katanox->availability->next($response);
 $properties = $nextPage->data->properties;
 ```

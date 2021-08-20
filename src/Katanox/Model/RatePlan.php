@@ -2,39 +2,26 @@
 
 namespace Katanox\Model;
 
-class RatePlan
+use JsonSerializable;
+
+class RatePlan implements JsonSerializable
 {
-    /**
-     * @var string
-     */
-    public $id;
+    private ?string $id = null;
 
-    /**
-     * @var string
-     */
-    public $name;
+    private string $name;
 
-    /**
-     * @var string
-     */
-    public $description;
+    private ?string $description;
 
-    /**
-     * @var RatePlanPolicy
-     */
-    public $cancellation_policy;
+    private RatePlanPolicy $cancellation_policy;
 
-    /**
-     * @var RatePlanPolicy
-     */
-    public $no_show_policy;
+    private RatePlanPolicy $no_show_policy;
 
     /**
      * @var Translation[]
      */
-    public $translations;
+    private array $translations = [];
 
-    public function getId(): string
+    public function getId(): ?string
     {
         return $this->id;
     }
@@ -110,5 +97,22 @@ class RatePlan
         $this->translations = $translations;
 
         return $this;
+    }
+
+    public function jsonSerialize()
+    {
+        return $this->toArray();
+    }
+
+    public function toArray()
+    {
+        return [
+            'id' => $this->id,
+            'name' => $this->name,
+            'description' => $this->description,
+            'cancellation_policy' => $this->cancellation_policy,
+            'no_show_policy' => $this->no_show_policy,
+            'translations' => $this->translations,
+        ];
     }
 }

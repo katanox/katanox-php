@@ -46,8 +46,7 @@ class PropertyResourceTest extends TestCase
                     [],
                     json_encode(['data' => ['property' => [$this->buildPropertyObject()]]])
                 )
-            )
-                             ;
+            );
 
         $res = $this->propertyResource->getProperties();
         $this->assertCount(1, $res->getProperties());
@@ -195,7 +194,7 @@ class PropertyResourceTest extends TestCase
     private function buildUnit(): Unit
     {
         $unit = new Unit();
-        $unit->setId('ABC456FG')
+        return $unit->setId('ABC456FG')
             ->setName('Room with a Balcony')
             ->setDescription('Great room with sea view')
             ->setImages([
@@ -204,16 +203,13 @@ class PropertyResourceTest extends TestCase
             ])
             ->setAmenities([
                 new Facility('Room amenities', 'Sofa Bed'),
-            ])
-             ;
-
-        return $unit;
+            ]);
     }
 
     private function buildRatePlan(): RatePlan
     {
         $ratePlan = new RatePlan();
-        $ratePlan->setId('REW2H24G')
+        return $ratePlan->setId('REW2H24G')
             ->setName('Best Available Rate')
             ->setDescription('Best rate for this room')
             ->setCancellationPolicy(
@@ -221,10 +217,7 @@ class PropertyResourceTest extends TestCase
             )
             ->setNoShowPolicy(
                 new RatePlanPolicy('No Show Policy', 'The full rate is charged in case of a no show', 'percentage', 100)
-            )
-                 ;
-
-        return $ratePlan;
+            );
     }
 
     private function buildPropertyObject(): Property
@@ -262,7 +255,5 @@ class PropertyResourceTest extends TestCase
             ])->setPrices([
                 new AvailabilityAndPrice('ABC456FG', 'REW2H24G', 'ABCDEFG', new Price(156, 'EUR')),
             ]);
-
-        return $property;
     }
 }
