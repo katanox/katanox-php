@@ -30,7 +30,7 @@ class BookingResourceTest extends TestCase
     public function setUp(): void
     {
         $this->mockHttpClient = \Mockery::mock(Client::class);
-        $this->bookingResource = new BookingResource($this->mockHttpClient, 'https://api.katanox.com', 'abc');
+        $this->bookingResource = new BookingResource($this->mockHttpClient, 'abc');
     }
 
     /**
@@ -54,7 +54,7 @@ class BookingResourceTest extends TestCase
         $this->mockHttpClient->shouldReceive('request')
             ->withArgs([
                 'POST',
-                'https://api.katanox.com/v1/bookings',
+                'https://api.pci-proxy.com/v1/push/5775c7cf3b3e5dc0/v1/bookings',
                 'abc',
                 [
                     'total_price' => 1.0,
@@ -139,7 +139,7 @@ class BookingResourceTest extends TestCase
         $this->mockHttpClient->shouldReceive('request')
             ->withArgs([
                 'POST',
-                'https://api.katanox.com/v1/bookings',
+                'https://api.pci-proxy.com/v1/push/5775c7cf3b3e5dc0/v1/bookings',
                 'abc',
                 [
                     'total_price' => 1.0,
@@ -226,7 +226,7 @@ class BookingResourceTest extends TestCase
         $this->mockHttpClient->shouldReceive('request')
             ->withArgs([
                 'GET',
-                'https://api.katanox.com/v1/bookings/ABCDE',
+                'https://api.pci-proxy.com/v1/push/5775c7cf3b3e5dc0/v1/bookings/ABCDE',
                 'abc',
                 [],
             ])
@@ -253,7 +253,7 @@ class BookingResourceTest extends TestCase
         $this->mockHttpClient->shouldReceive('request')
             ->withArgs([
                 'GET',
-                'https://api.katanox.com/v1/bookings/ABCDE',
+                'https://api.pci-proxy.com/v1/push/5775c7cf3b3e5dc0/v1/bookings/ABCDE',
                 'abc',
                 [],
             ])
@@ -275,7 +275,7 @@ class BookingResourceTest extends TestCase
         $this->mockHttpClient->shouldReceive('request')
             ->withArgs([
                 'DELETE',
-                'https://api.katanox.com/v1/bookings/ABCDE',
+                'https://api.pci-proxy.com/v1/push/5775c7cf3b3e5dc0/v1/bookings/ABCDE',
                 'abc',
                 [],
             ])
@@ -295,7 +295,7 @@ class BookingResourceTest extends TestCase
         $this->mockHttpClient->shouldReceive('request')
             ->withArgs([
                 'DELETE',
-                'https://api.katanox.com/v1/bookings/ABCDE',
+                'https://api.pci-proxy.com/v1/push/5775c7cf3b3e5dc0/v1/bookings/ABCDE',
                 'abc',
                 [],
             ])
@@ -330,7 +330,7 @@ class BookingResourceTest extends TestCase
         $this->mockHttpClient->shouldReceive('request')
             ->withArgs([
                 'POST',
-                'https://api.katanox.com/v1/bookings/ABCDE/reservations',
+                'https://api.pci-proxy.com/v1/push/5775c7cf3b3e5dc0/v1/bookings/ABCDE/reservations',
                 'abc',
                 [
                     'guests' => [
@@ -402,7 +402,7 @@ class BookingResourceTest extends TestCase
         $this->mockHttpClient->shouldReceive('request')
             ->withArgs([
                 'POST',
-                'https://api.katanox.com/v1/bookings/ABCDE/reservations/ABCDE',
+                'https://api.pci-proxy.com/v1/push/5775c7cf3b3e5dc0/v1/bookings/ABCDE/reservations/ABCDE',
                 'abc',
                 [
                     'guests' => [
@@ -469,7 +469,7 @@ class BookingResourceTest extends TestCase
         $this->mockHttpClient->shouldReceive('request')
             ->withArgs([
                 'GET',
-                'https://api.katanox.com/v1/bookings/ABCDE/reservations/ABCDE',
+                'https://api.pci-proxy.com/v1/push/5775c7cf3b3e5dc0/v1/bookings/ABCDE/reservations/ABCDE',
                 'abc',
                 [],
             ])
@@ -500,7 +500,7 @@ class BookingResourceTest extends TestCase
         $this->mockHttpClient->shouldReceive('request')
             ->withArgs([
                 'GET',
-                'https://api.katanox.com/v1/bookings/ABCDE/reservations/ABCDE',
+                'https://api.pci-proxy.com/v1/push/5775c7cf3b3e5dc0/v1/bookings/ABCDE/reservations/ABCDE',
                 'abc',
                 [],
             ])
@@ -523,7 +523,7 @@ class BookingResourceTest extends TestCase
         $this->mockHttpClient->shouldReceive('request')
             ->withArgs([
                 'DELETE',
-                'https://api.katanox.com/v1/bookings/ABCDE/reservations/ABCDE',
+                'https://api.pci-proxy.com/v1/push/5775c7cf3b3e5dc0/v1/bookings/ABCDE/reservations/ABCDE',
                 'abc',
                 [],
             ])
@@ -543,7 +543,7 @@ class BookingResourceTest extends TestCase
         $this->mockHttpClient->shouldReceive('request')
             ->withArgs([
                 'DELETE',
-                'https://api.katanox.com/v1/bookings/ABCDE/reservations/ABCDE',
+                'https://api.pci-proxy.com/v1/push/5775c7cf3b3e5dc0/v1/bookings/ABCDE/reservations/ABCDE',
                 'abc',
                 [],
             ])

@@ -66,7 +66,7 @@ class AvailabilityResourceTest extends TestCase
                 new Response(200, [], json_encode(['data' => ['properties' => [$property]], 'meta' => $metaData, 'links' => $link]))
             )
         ;
-        $this->availabilityResource = new AvailabilityResource($mockHttpClient, 'https://api.katanox.com', 'abc');
+        $this->availabilityResource = new AvailabilityResource($mockHttpClient, 'abc');
         $q = new AvailabilityQuery();
         $q->setCheckIn('2021-07-08')
             ->setCheckOut('2021-07-10')
@@ -125,7 +125,7 @@ class AvailabilityResourceTest extends TestCase
                 json_encode(['data' => ['properties' => [$property]], 'metas' => [], 'link' => []]) . 'invalidjsonline'
             ))
         ;
-        $this->availabilityResource = new AvailabilityResource($mockHttpClient, 'https://api.katanox.com', 'abc');
+        $this->availabilityResource = new AvailabilityResource($mockHttpClient, 'abc');
         $q = new AvailabilityQuery();
         $q->setCheckIn('2021-07-08')
             ->setCheckOut('2021-07-10')
@@ -171,9 +171,10 @@ class AvailabilityResourceTest extends TestCase
                 200,
                 [],
                 json_encode(['data' => ['properties' => [$property]], 'metas' => [], 'link' => []]) . 'invalidjsonline'
+                json_encode(['data' => ['properties' => [$property]], 'metas' => [], 'link' => []]).'invalidjsonline'
             ))
         ;
-        $this->availabilityResource = new AvailabilityResource($mockHttpClient, 'https://api.katanox.com', 'abc');
+        $this->availabilityResource = new AvailabilityResource($mockHttpClient, 'abc');
         $q = new AvailabilityQuery();
         $q->setCheckIn('2021-07-08')
             ->setChildren(0)

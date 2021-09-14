@@ -14,18 +14,16 @@ use Katanox\Model\Unit;
 
 class PropertyResource
 {
-    public const RESOURCE_ENDPOINT = 'v1/properties';
+    public const BASE_URL = 'https://api.katanox.com/v1/properties';
 
-    private string $baseUrl;
     private string $apiKey;
     private Client $client;
     private JsonMapper $mapper;
 
-    public function __construct(Client $client, string $baseUrl, string $apiKey)
+    public function __construct(Client $client, string $apiKey)
     {
         $this->client = $client;
         $this->apiKey = $apiKey;
-        $this->baseUrl = $baseUrl;
         $this->mapper = new JsonMapper();
         $this->mapper->bStrictNullTypes = false;
         $this->mapper->bIgnoreVisibility = true;
@@ -41,7 +39,7 @@ class PropertyResource
     {
         $req = new KatanoxRequest(
             'GET',
-            sprintf('%s/%s', $this->baseUrl, self::RESOURCE_ENDPOINT),
+            self::BASE_URL,
             $this->apiKey,
             []
         );
@@ -78,7 +76,7 @@ class PropertyResource
     {
         $req = new KatanoxRequest(
             'GET',
-            sprintf('%s/%s/%s', $this->baseUrl, self::RESOURCE_ENDPOINT, $propertyId),
+            sprintf('%s/%s', self::BASE_URL, $propertyId),
             $this->apiKey,
             []
         );
@@ -113,7 +111,7 @@ class PropertyResource
     {
         $req = new KatanoxRequest(
             'GET',
-            sprintf('%s/%s/%s/units/%s', $this->baseUrl, self::RESOURCE_ENDPOINT, $propertyId, $unitId),
+            sprintf('%s/%s/units/%s', self::BASE_URL, $propertyId, $unitId),
             $this->apiKey,
             []
         );
@@ -148,7 +146,7 @@ class PropertyResource
     {
         $req = new KatanoxRequest(
             'GET',
-            sprintf('%s/%s/%s/rate-plans/%s', $this->baseUrl, self::RESOURCE_ENDPOINT, $propertyId, $ratePlanId),
+            sprintf('%s/%s/rate-plans/%s', self::BASE_URL, $propertyId, $ratePlanId),
             $this->apiKey,
             []
         );

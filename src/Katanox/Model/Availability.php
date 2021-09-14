@@ -7,6 +7,10 @@ use Katanox\KatanoxRequest;
 class Availability implements \JsonSerializable
 {
     /**
+     * @var KatanoxRequest the original request that generated this data
+     */
+    protected $request;
+    /**
      * @var AvailabilityData
      */
     private $data;
@@ -20,11 +24,6 @@ class Availability implements \JsonSerializable
      * @var AvailabilityLinks
      */
     private $links;
-
-    /**
-     * @var KatanoxRequest the original request that generated this data
-     */
-    protected $request;
 
     public function __construct()
     {

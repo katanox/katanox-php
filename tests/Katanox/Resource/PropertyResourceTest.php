@@ -28,7 +28,7 @@ class PropertyResourceTest extends TestCase
     public function setUp(): void
     {
         $this->mockHttpClient = \Mockery::mock(Client::class);
-        $this->propertyResource = new PropertyResource($this->mockHttpClient, 'https://api.katanox.com', 'abc');
+        $this->propertyResource = new PropertyResource($this->mockHttpClient, 'abc');
     }
 
     public function testFetchPropertiesSuccess()
@@ -46,7 +46,8 @@ class PropertyResourceTest extends TestCase
                     [],
                     json_encode(['data' => ['property' => [$this->buildPropertyObject()]]])
                 )
-            );
+            )
+        ;
 
         $res = $this->propertyResource->getProperties();
         $this->assertCount(1, $res->getProperties());
@@ -194,6 +195,7 @@ class PropertyResourceTest extends TestCase
     private function buildUnit(): Unit
     {
         $unit = new Unit();
+
         return $unit->setId('ABC456FG')
             ->setName('Room with a Balcony')
             ->setDescription('Great room with sea view')
@@ -203,12 +205,14 @@ class PropertyResourceTest extends TestCase
             ])
             ->setAmenities([
                 new Facility('Room amenities', 'Sofa Bed'),
-            ]);
+            ])
+        ;
     }
 
     private function buildRatePlan(): RatePlan
     {
         $ratePlan = new RatePlan();
+
         return $ratePlan->setId('REW2H24G')
             ->setName('Best Available Rate')
             ->setDescription('Best rate for this room')
@@ -217,7 +221,8 @@ class PropertyResourceTest extends TestCase
             )
             ->setNoShowPolicy(
                 new RatePlanPolicy('No Show Policy', 'The full rate is charged in case of a no show', 'percentage', 100)
-            );
+            )
+        ;
     }
 
     private function buildPropertyObject(): Property
