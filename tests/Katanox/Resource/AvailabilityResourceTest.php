@@ -122,7 +122,7 @@ class AvailabilityResourceTest extends TestCase
             ->andReturn(new Response(
                 200,
                 [],
-                json_encode(['data' => ['properties' => [$property]], 'metas' => [], 'link' => []]) . 'invalidjsonline'
+                json_encode(['data' => ['properties' => [$property]], 'metas' => [], 'link' => []]).'invalidjsonline'
             ))
         ;
         $this->availabilityResource = new AvailabilityResource($mockHttpClient, 'abc');
@@ -167,12 +167,14 @@ class AvailabilityResourceTest extends TestCase
                     'property_ids' => null,
                 ],
             ])
-            ->andReturn(new Response(
+            ->andReturn(
+                new Response(
                 200,
                 [],
                 json_encode(['data' => ['properties' => [$property]], 'metas' => [], 'link' => []]) . 'invalidjsonline'
-                json_encode(['data' => ['properties' => [$property]], 'metas' => [], 'link' => []]).'invalidjsonline'
-            ))
+            ),
+                json_encode(['data' => ['properties' => [$property]], 'metas' => [], 'link' => []]) . 'invalidjsonline'
+            )
         ;
         $this->availabilityResource = new AvailabilityResource($mockHttpClient, 'abc');
         $q = new AvailabilityQuery();

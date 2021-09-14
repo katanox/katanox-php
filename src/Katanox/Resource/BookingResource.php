@@ -19,7 +19,7 @@ use Katanox\Model\RequestResult\GetReservationResult;
 
 class BookingResource
 {
-    public const BASE_URL = 'https://api.pci-proxy.com/v1/push/5775c7cf3b3e5dc0/v1/bookings';
+    public const BASE_URL = 'https://api.pci-proxy.com/v1/push/5775c7cf3b3e5dc0';
 
     private string $apiKey;
     private Client $client;
