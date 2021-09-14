@@ -64,8 +64,7 @@ class AvailabilityResourceTest extends TestCase
             ])
             ->andReturn(
                 new Response(200, [], json_encode(['data' => ['properties' => [$property]], 'meta' => $metaData, 'links' => $link]))
-            )
-        ;
+            );
         $this->availabilityResource = new AvailabilityResource($mockHttpClient, 'abc');
         $q = new AvailabilityQuery();
         $q->setCheckIn('2021-07-08')
@@ -76,8 +75,7 @@ class AvailabilityResourceTest extends TestCase
             ->setLng(0.00002)
             ->setRadius(10000)
             ->setPage(1)
-            ->setLimit(25)
-        ;
+            ->setLimit(25);
         $res = $this->availabilityResource->search($q);
 
         $this->assertObjectHasAttribute('prices', $res->getData()->getProperties()[0]);
@@ -99,6 +97,11 @@ class AvailabilityResourceTest extends TestCase
         $this->expectException(KatanoxException::class);
         $property = $this->buildPropertyObject();
         $mockHttpClient = \Mockery::mock(Client::class);
+        $responseBody = json_encode([
+                'data' => ['properties' => [$property]],
+                'metas' => [],
+                'links' => []
+            ]).'invalidjsonline';
         $mockHttpClient->shouldReceive('request')
             ->withArgs([
                 'GET',
@@ -122,9 +125,8 @@ class AvailabilityResourceTest extends TestCase
             ->andReturn(new Response(
                 200,
                 [],
-                json_encode(['data' => ['properties' => [$property]], 'metas' => [], 'link' => []]).'invalidjsonline'
-            ))
-        ;
+                $responseBody
+            ));
         $this->availabilityResource = new AvailabilityResource($mockHttpClient, 'abc');
         $q = new AvailabilityQuery();
         $q->setCheckIn('2021-07-08')
@@ -133,8 +135,7 @@ class AvailabilityResourceTest extends TestCase
             ->setChildren(0)
             ->setLat(0.00001)
             ->setLng(0.00002)
-            ->setRadius(10000)
-        ;
+            ->setRadius(10000);
         $this->availabilityResource->search($q);
     }
 
@@ -147,6 +148,11 @@ class AvailabilityResourceTest extends TestCase
         $this->expectException(MissingParametersException::class);
         $property = $this->buildPropertyObject();
         $mockHttpClient = \Mockery::mock(Client::class);
+        $responseBody = json_encode([
+                'data' => ['properties' => [$property]],
+                'metas' => [],
+                'links' => []
+            ]).'invalidjsonline';
         $mockHttpClient->shouldReceive('request')
             ->withArgs([
                 'GET',
@@ -168,20 +174,13 @@ class AvailabilityResourceTest extends TestCase
                 ],
             ])
             ->andReturn(
-                new Response(
-                200,
-                [],
-                json_encode(['data' => ['properties' => [$property]], 'metas' => [], 'link' => []]) . 'invalidjsonline'
-            ),
-                json_encode(['data' => ['properties' => [$property]], 'metas' => [], 'link' => []]) . 'invalidjsonline'
-            )
-        ;
+                new Response(200, [], $responseBody)
+            );
         $this->availabilityResource = new AvailabilityResource($mockHttpClient, 'abc');
         $q = new AvailabilityQuery();
         $q->setCheckIn('2021-07-08')
             ->setChildren(0)
-            ->setRadius(10000)
-        ;
+            ->setRadius(10000);
         $this->availabilityResource->search($q);
     }
 
@@ -197,8 +196,7 @@ class AvailabilityResourceTest extends TestCase
             ])
             ->setAmenities([
                 new Facility('Room amenities', 'Sofa Bed'),
-            ])
-        ;
+            ]);
         $ratePlan = new RatePlan();
         $ratePlan->setId('REW2H24G')
             ->setName('Best Available Rate')
@@ -208,8 +206,7 @@ class AvailabilityResourceTest extends TestCase
             )
             ->setNoShowPolicy(
                 new RatePlanPolicy('No Show Policy', 'The full rate is charged in case of a no show', 'percentage', 100)
-            )
-        ;
+            );
         $property = new Property();
 
         return $property->setId('ABCDEFG')
