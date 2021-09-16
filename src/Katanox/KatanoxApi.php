@@ -19,16 +19,12 @@ class KatanoxApi
     private ?BookingResource $bookingResource = null;
     private ?PropertyResource $propertyResource = null;
 
-    public function __construct(string $apiKey, bool $isSandbox = false)
+    public function __construct(string $apiKey)
     {
         $httpClient = new GuzzleClient(new Client());
-        $baseUrl = 'https://api.katanox.com';
-        if ($isSandbox) {
-            $baseUrl = 'https://api-sandbox.katanox.com';
-        }
-        $this->availabilityResource = new AvailabilityResource($httpClient, $baseUrl, $apiKey);
-        $this->bookingResource = new BookingResource($httpClient, $baseUrl, $apiKey);
-        $this->propertyResource = new PropertyResource($httpClient, $baseUrl, $apiKey);
+        $this->availabilityResource = new AvailabilityResource($httpClient, $apiKey);
+        $this->bookingResource = new BookingResource($httpClient, $apiKey);
+        $this->propertyResource = new PropertyResource($httpClient, $apiKey);
     }
 
     public function getAvailabilityResource(): AvailabilityResource

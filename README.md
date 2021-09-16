@@ -21,9 +21,13 @@ $ composer require katanox/katanox-php
 
 ## Documentation
 
+### Setup
+First create a KatanoxApi Object
+```php 
+$katanox = new Katanox\KatanoxApi('your-api-key-here');
+```
 ### Get Availability
 ``` php
-$katanox = new Katanox\KatanoxApi('your-api-key-here', true);
 $availabilityResource = $katanox->getAvailabilityResource();
 
 $q = new AvailabilityQuery();
@@ -44,10 +48,10 @@ $properties = $response->getData()->getProperties();
 // Get the next page
 $nextPage = $availabilityResource->next($response);
 $properties = $nextPage->getData()->getProperties();
+
 ```
 ### Create a new booking
 ``` php
-$katanox = new Katanox\KatanoxApi('your-api-key-here', true);
 $bookingResource = $katanox->getBookingResource();
 
 $booking = new Booking();
@@ -72,8 +76,8 @@ $reservation = new Reservation();
 $reservation->setCheckIn('2020-02-20')
 ->setCheckOut('2020-02-22')
 ->setPrice(new Price(1.0, 'EUR'))
-->setRatePlanId(1)
-->setUnitId(1)
+->setRatePlanId('ABCDEFGE')
+->setUnitId('TRCDNHGE')
 ->setGuests([$person]);
 
 $booking->setTotalPrice(1.0)
@@ -89,29 +93,26 @@ $newBooking = $createBookingResult->getBooking();
 
 ### Get a booking
 ``` php
-$katanox = new Katanox\KatanoxApi('your-api-key-here', true);
 $bookingResource = $katanox->getBookingResource();
 
-$booking = $bookingResource->getBooking('BOOKING_ID');
+$booking = $bookingResource->getBooking('<BOOKING_ID>');
 ```
 
 ### Cancel a booking
 ``` php
-$katanox = new Katanox\KatanoxApi('your-api-key-here', true);
 $bookingResource = $katanox->getBookingResource();
 
-$isCancelled = $bookingResource->cancelBooking('BOOKING_ID');
+$isCancelled = $bookingResource->cancelBooking('<BOOKING_ID>');
 ```
 
 ### Create a reservation
 ``` php
-$katanox = new Katanox\KatanoxApi('your-api-key-here', true);
 $bookingResource = $katanox->getBookingResource();
 
 $createReservationRequest = new CreateReservationRequest();
 
 $person = new Person();
-$person->setFirstName('fisrtName')
+$person->setFirstName('firstName')
 ->setLastName('lastName')
 ->setTitle('Mr')
 ->setBirthDate('2020-02-20')
@@ -122,12 +123,12 @@ $reservation = new Reservation();
 $reservation->setCheckIn('2020-02-20')
 ->setCheckOut('2020-02-22')
 ->setPrice(new Price(1.0, 'EUR'))
-->setRatePlanId(1)
-->setUnitId(1)
+->setRatePlanId('ABCDEFGE')
+->setUnitId('TRCDNHGE')
 ->setGuests([$person]);
 
 $createReservationRequest->setReservation($reservation)
-->setBookingId('BOOKING_ID');
+->setBookingId('<BOOKING_ID>');
 
 $createReservationResult = $bookingResource->createReservation($createReservationRequest);
 
@@ -137,16 +138,14 @@ $newReservation = $createReservationResult->getReservation();
 
 ### Update a reservation
 ``` php
-$katanox = new Katanox\KatanoxApi('your-api-key-here', true);
 $bookingResource = $katanox->getBookingResource();
 
 $updateReservation = new UpdateReservationRequest();
 
 
 // update the reservation
-
 $updateReservationRequest->setReservation($reservation);
-$updateReservationRequest->setBookingId('BOOKING_ID');
+$updateReservationRequest->setBookingId('<BOOKING_ID>');
 
 $updateReservationResult = $bookingResource->updateReservation($updateReservationRequestt);
 
@@ -159,23 +158,20 @@ You can ensure if a booking/reservation was created with:
 
 ### Get a reservation
 ``` php
-$katanox = new Katanox\KatanoxApi('your-api-key-here', true);
 $bookingResource = $katanox->getBookingResource();
 
-$reservation = $bookingResource->getReservation('RESERVATION_ID');
+$reservation = $bookingResource->getReservation('<BOOKING_ID>','<RESERVATION_ID>');
 ```
 
 ### Cancel a reservation
 ``` php
-$katanox = new Katanox\KatanoxApi('your-api-key-here', true);
 $bookingResource = $katanox->getBookingResource();
 
-$isCancelled = $bookingResource->cancelReservation('RESERVATION_ID');
+$isCancelled = $bookingResource->cancelReservation('<BOOKING_ID>','<RESERVATION_ID>');
 ```
 
 ### Get connected properties
 ``` php
-$katanox = new Katanox\KatanoxApi('your-api-key-here', true);
 $propertyResource = $katanox->getPropertyResource();
 
 $properties = $propertyResource->getProperties();
@@ -184,34 +180,30 @@ These are the properties you are connected with.
 
 ### Get a property
 ``` php
-$katanox = new Katanox\KatanoxApi('your-api-key-here', true);
 $propertyResource = $katanox->getPropertyResource();
 
-$property= $propertyResource->getProperty('PROPERTY_ID');
+$property= $propertyResource->getProperty('<PROPERTY_ID>');
 ```
 
 ### Get a property 
 ``` php
-$katanox = new Katanox\KatanoxApi('your-api-key-here', true)
 $propertyResource = $katanox->getPropertyResource();
 
-$property= $propertyResource->getProperty('PROPERTY_ID');
+$property= $propertyResource->getProperty('<PROPERTY_ID>');
 ```
 
 ### Get a property unit
 ``` php
-$katanox = new Katanox\KatanoxApi('your-api-key-here', true);
 $propertyResource = $katanox->getPropertyResource();
 
-$unit = $propertyResource->getUnit('PROPERTY_ID', 'UNIT_ID');
+$unit = $propertyResource->getUnit('<PROPERTY_ID>', '<UNIT_ID>');
 ```
 
 ### Get a property rate plan
 ``` php
-$katanox = new Katanox\KatanoxApi('your-api-key-here', true);
 $propertyResource = $katanox->getPropertyResource();
 
-$ratePlan = $propertyResource->getRatePlan('PROPERTY_ID', 'RATE_PLAN_ID');
+$ratePlan = $propertyResource->getRatePlan('<PROPERTY_ID>', '<RATE_PLAN_ID>');
 ```
 
 ## Change log

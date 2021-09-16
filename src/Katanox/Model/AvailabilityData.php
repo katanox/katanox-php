@@ -19,11 +19,11 @@ class AvailabilityData
 
     /**
      * @param Property[] $properties
-     * @return AvailabilityData
      */
     public function setProperties(array $properties): AvailabilityData
     {
         $this->properties = $properties;
+
         return $this;
     }
 }

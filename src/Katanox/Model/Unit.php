@@ -125,7 +125,7 @@ class Unit implements JsonSerializable
             'description' => $this->description,
             'images' => $this->images,
             'translations' => $this->translations,
-            'amenities' => $this->amenities
+            'amenities' => $this->amenities,
         ];
     }
 
