@@ -33,14 +33,14 @@ class AvailabilityQuery
         }
 
         if ($this->hasPropertyIds()) {
-            $valid = null != $this->getCheckIn()
-                && null != $this->getCheckOut()
-                && 0 != $this->getAdults();
+            $valid = null !== $this->getCheckIn()
+                && null !== $this->getCheckOut()
+                && 0 !== $this->getAdults();
         } else {
-            $valid = null != $this->getCheckIn()
-                && null != $this->getCheckOut()
-                && 0 != $this->getAdults()
-                && (0 != $this->getLat() && 0 != $this->getLng());
+            $valid = null !== $this->getCheckIn()
+                && null !== $this->getCheckOut()
+                && 0 !== $this->getAdults()
+                && (0 !== $this->getLat() && 0 !== $this->getLng());
         }
 
         if (!$valid) {
