@@ -32,7 +32,22 @@ class AvailabilityQuery
             return $this;
         }
 
-        throw new MissingParametersException();
+        if ($this->hasPropertyIds()) {
+            $valid = null != $this->getCheckIn()
+                && null != $this->getCheckOut()
+                && 0 != $this->getAdults();
+        } else {
+            $valid = null != $this->getCheckIn()
+                && null != $this->getCheckOut()
+                && 0 != $this->getAdults()
+                && (0 != $this->getLat() && 0 != $this->getLng());
+        }
+
+        if (!$valid) {
+            throw new MissingParametersException();
+        }
+
+        return $this;
     }
 
     /**
@@ -265,7 +280,12 @@ class AvailabilityQuery
             'limit' => $this->getLimit(),
             'include' => $this->getInclude(),
             'locale' => $this->getLocale(),
-            'property_ids' => $this->getPropertyIds(),
+            'property_ids' => implode(',', $this->getPropertyIds()),
         ];
+    }
+
+    private function hasPropertyIds()
+    {
+        return isset($this->getPropertyIds()) && count($this->getPropertyIds()) > 0;
     }
 }
