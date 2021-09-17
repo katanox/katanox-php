@@ -280,7 +280,7 @@ class AvailabilityQuery
             'limit' => $this->getLimit(),
             'include' => $this->getInclude(),
             'locale' => $this->getLocale(),
-            'property_ids' => implode(',', $this->getPropertyIds()),
+            'property_ids' => $this->getPropertyIds() !== null ?  implode(',', $this->getPropertyIds()) : null,
         ];
     }
 
