@@ -286,6 +286,6 @@ class AvailabilityQuery
 
     private function hasPropertyIds()
     {
-        return isset($this->getPropertyIds()) && count($this->getPropertyIds()) > 0;
+        return $this->getPropertyIds() !== null && count($this->getPropertyIds()) > 0;
     }
 }
