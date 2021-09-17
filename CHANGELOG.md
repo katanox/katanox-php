@@ -4,6 +4,16 @@ All notable changes to `katanox-php` will be documented in this file.
 
 Updates should follow the [Keep a CHANGELOG](https://keepachangelog.com/) principles.
 
+## [3.0.1] - 2021-09-20
+### Bugfix
+- Property Ids in AvailabilityQuery are now properly used as query parameters
+### Changed
+- Lat and Lng are not required if Property Ids are set in AvailabilityQuery
+
+## [3.0.0] - 2021-09-16
+### Changed
+ - The KatanoxAPI class doesn't need the isSandbox boolean in its constructor since there is no need for a separate endpoint anymore.
+ - The Booking Resource now sends the bookings via the PCI Proxy url to ensure PCI Compliance
 
 ## [2.0.0] - 2021-08-20
 ### Added
