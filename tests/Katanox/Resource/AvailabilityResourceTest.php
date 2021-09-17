@@ -156,7 +156,7 @@ class AvailabilityResourceTest extends TestCase
             'data' => ['properties' => [$property]],
             'metas' => [],
             'links' => [],
-        ]).'invalidjsonline';
+        ]) . 'invalidjsonline';
         $mockHttpClient->shouldReceive('request')
             ->withArgs([
                 'GET',
