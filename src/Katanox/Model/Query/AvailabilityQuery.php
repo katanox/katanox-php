@@ -9,7 +9,7 @@ class AvailabilityQuery
     private $check_in;
     private $check_out;
     private $adults;
-    private $children;
+    private $children = 0;
     private $lat;
     private $lng;
     private $radius;
