@@ -98,9 +98,6 @@ class Payment implements Validatable
      */
     public function setCVV(string $cvv): Payment
     {
-        if (3 !== strlen($cvv)) {
-            throw new InvalidArgumentException('Invalid CVV');
-        }
         $this->cvv = $cvv;
 
         return $this;
