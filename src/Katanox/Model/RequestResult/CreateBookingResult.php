@@ -16,7 +16,7 @@ class CreateBookingResult implements \JsonSerializable
 
     private $created;
 
-    private array $errors = [];
+    private ?string $errors = null;
 
     public function __construct()
     {
@@ -57,12 +57,12 @@ class CreateBookingResult implements \JsonSerializable
         $this->created = $isCreated;
     }
 
-    public function setErrors(array $errors)
+    public function setErrors(string $errors)
     {
         $this->errors = $errors;
     }
 
-    public function getErrors()
+    public function getErrors(): string
     {
         return $this->errors;
     }
