@@ -130,14 +130,8 @@ class Reservation implements Validatable, JsonSerializable
         return $this->price;
     }
 
-    /**
-     * @throws InvalidArgumentException
-     */
-    public function setRatePlanId(int $ratePlanId): Reservation
+    public function setRatePlanId(string $ratePlanId): Reservation
     {
-        if ($ratePlanId <= 0) {
-            throw new InvalidArgumentException('value must be > 0');
-        }
         $this->rate_plan_id = $ratePlanId;
 
         return $this;
@@ -148,14 +142,8 @@ class Reservation implements Validatable, JsonSerializable
         return $this->rate_plan_id;
     }
 
-    /**
-     * @throws InvalidArgumentException
-     */
-    public function setUnitId(int $unitId): Reservation
+    public function setUnitId(string $unitId): Reservation
     {
-        if ($unitId <= 0) {
-            throw new InvalidArgumentException('value must be > 0');
-        }
         $this->unit_id = $unitId;
 
         return $this;
