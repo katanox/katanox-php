@@ -22,7 +22,7 @@ class Payment implements Validatable
 
     public function __construct()
     {
-        $this->allowedCardTypes = new ArrayCollection(['VISA', 'MASTER_CARD', 'AMERICAN_EXPRESS']);
+        $this->allowedCardTypes = new ArrayCollection(['VISA', 'MASTER_CARD', 'AMERICAN_EXPRESS', 'VISA_CREDIT']);
     }
 
     public function validate(): Payment
@@ -93,9 +93,6 @@ class Payment implements Validatable
         return $this->cvv;
     }
 
-    /**
-     * @throws InvalidArgumentException
-     */
     public function setCVV(string $cvv): Payment
     {
         $this->cvv = $cvv;
