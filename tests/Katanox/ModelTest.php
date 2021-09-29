@@ -61,16 +61,6 @@ class ModelTest extends TestCase
         $this->assertEquals($payment, $payment->validate());
     }
 
-    public function testPaymentThrowsInvalidArgumentExceptionInvalidType()
-    {
-        $payment = new Payment();
-
-        $this->expectException(InvalidArgumentException::class);
-        $this->expectExceptionMessage('Allowed card types are: VISA,MASTER_CARD,AMERICAN_EXPRESS');
-
-        $payment->setType('invalid');
-    }
-
     public function testPaymentValidateThrowsMissingParametersException()
     {
         $payment = new Payment();
@@ -230,7 +220,7 @@ class ModelTest extends TestCase
                     'first_name' => 'fisrtName',
                     'title' => 'Mr',
                     'birth_date' => '2020-02-20',
-                    'post_code' => null,
+                    'postcode' => null,
                     'city' => 'Amsterdam',
                     'country' => 'Netherlands',
                     'email' => null,
@@ -264,7 +254,7 @@ class ModelTest extends TestCase
                 'first_name' => 'fisrtName',
                 'title' => 'Mr',
                 'birth_date' => '2020-02-20',
-                'post_code' => null,
+                'postcode' => null,
                 'city' => 'Amsterdam',
                 'country' => 'Netherlands',
                 'email' => null,
@@ -278,7 +268,7 @@ class ModelTest extends TestCase
                             'first_name' => 'fisrtName',
                             'title' => 'Mr',
                             'birth_date' => '2020-02-20',
-                            'post_code' => null,
+                            'postcode' => null,
                             'city' => 'Amsterdam',
                             'country' => 'Netherlands',
                             'email' => null,

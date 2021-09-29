@@ -63,7 +63,7 @@ class BookingResourceTest extends TestCase
                         'first_name' => 'fisrtName',
                         'title' => 'Mr',
                         'birth_date' => '2020-02-20',
-                        'post_code' => null,
+                        'postcode' => null,
                         'city' => 'Amsterdam',
                         'country' => 'Netherlands',
                         'email' => null,
@@ -77,7 +77,7 @@ class BookingResourceTest extends TestCase
                                     'first_name' => 'fisrtName',
                                     'title' => 'Mr',
                                     'birth_date' => '2020-02-20',
-                                    'post_code' => null,
+                                    'postcode' => null,
                                     'city' => 'Amsterdam',
                                     'country' => 'Netherlands',
                                     'email' => null,
@@ -148,7 +148,7 @@ class BookingResourceTest extends TestCase
                         'first_name' => 'fisrtName',
                         'title' => 'Mr',
                         'birth_date' => '2020-02-20',
-                        'post_code' => null,
+                        'postcode' => null,
                         'city' => 'Amsterdam',
                         'country' => 'Netherlands',
                         'email' => null,
@@ -162,7 +162,7 @@ class BookingResourceTest extends TestCase
                                     'first_name' => 'fisrtName',
                                     'title' => 'Mr',
                                     'birth_date' => '2020-02-20',
-                                    'post_code' => null,
+                                    'postcode' => null,
                                     'city' => 'Amsterdam',
                                     'country' => 'Netherlands',
                                     'email' => null,
@@ -193,7 +193,7 @@ class BookingResourceTest extends TestCase
                 new Response(
                     422,
                     [],
-                    json_encode(['errors' => ['rate plan does not exist']])
+                    json_encode(['errors' => 'rate plan does not exist'])
                 )
             )
                              ;
@@ -206,7 +206,7 @@ class BookingResourceTest extends TestCase
 
         $this->assertFalse($res->isCreated());
         $this->assertNull($res->getBooking());
-        $this->assertEquals(['rate plan does not exist'], $res->getErrors());
+        $this->assertEquals('rate plan does not exist', $res->getErrors());
     }
 
     public function testFetchBookingSuccess()
@@ -339,7 +339,7 @@ class BookingResourceTest extends TestCase
                             'first_name' => 'fisrtName',
                             'title' => 'Mr',
                             'birth_date' => '2020-02-20',
-                            'post_code' => null,
+                            'postcode' => null,
                             'city' => 'Amsterdam',
                             'country' => 'Netherlands',
                             'email' => null,
@@ -411,7 +411,7 @@ class BookingResourceTest extends TestCase
                             'first_name' => 'fisrtName',
                             'title' => 'Mr',
                             'birth_date' => '2020-02-20',
-                            'post_code' => null,
+                            'postcode' => null,
                             'city' => 'Amsterdam',
                             'country' => 'Netherlands',
                             'email' => null,
