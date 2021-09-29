@@ -20,7 +20,7 @@ class Booking implements Validatable, JsonSerializable
      * @var Reservation[]
      */
     private array $reservations = [];
-    private array $comments = [];
+    private ?array $comments = [];
     private ?Payment $payment = null;
     private ?string $id = null;
 
@@ -78,7 +78,7 @@ class Booking implements Validatable, JsonSerializable
 
     public function setComments(?array $comments = []): Booking
     {
-        $this->comments = $comments;
+        $this->comments = $comments ?? [];
 
         return $this;
     }
