@@ -3,7 +3,6 @@
 namespace Katanox\Model\Booking;
 
 use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use InvalidArgumentException;
 use JsonSerializable;
 use Katanox\Exceptions\MissingParametersException;
@@ -29,12 +28,6 @@ class Reservation implements Validatable, JsonSerializable
     private ?string $status = null;
     private ?string $id = null;
 
-    private Collection $allowedReservationStatuses;
-
-    public function __construct()
-    {
-        $this->allowedReservationStatuses = new ArrayCollection(['Confirmed', 'Processing', 'Cancelled']);
-    }
 
     public function validate(): Reservation
     {
@@ -190,16 +183,8 @@ class Reservation implements Validatable, JsonSerializable
         return $this->children;
     }
 
-    /**
-     * @throws InvalidArgumentException
-     */
     public function setStatus(string $status): Reservation
     {
-        if (!$this->allowedReservationStatuses->contains($status)) {
-            $allowedStatuses = implode(',', $this->allowedReservationStatuses->getValues());
-
-            throw new InvalidArgumentException(sprintf('Allowed types are: %s', $allowedStatuses));
-        }
         $this->status = $status;
 
         return $this;
