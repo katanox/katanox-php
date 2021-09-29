@@ -85,7 +85,7 @@ class ModelTest extends TestCase
     public function testBookingValidateThrowsMissingParametersExceptionZeroResrvations()
     {
         $booking = new Booking();
-        $booking->setTotalPrice(1.0);
+        $booking->setTotalPrice(new Price(1.0, 'EUR'));
         $booking->setCustomer(new Person());
         $booking->setPayment(new Payment());
 
@@ -100,7 +100,7 @@ class ModelTest extends TestCase
         $booking = new Booking();
         $person = $this->createPerson();
 
-        $booking->setTotalPrice(1.0);
+        $booking->setTotalPrice(new Price(1.0, 'EUR'));
         $booking->setCustomer($person);
         $booking->setPayment(new Payment());
         $booking->setReservations([$this->createReservation()]);
@@ -117,7 +117,7 @@ class ModelTest extends TestCase
         $person = new Person();
         $person->setFirstName('fisrtName');
 
-        $booking->setTotalPrice(1.0);
+        $booking->setTotalPrice(new Price(1.0, 'EUR'));
         $booking->setCustomer($person);
         $booking->setPayment($this->createPayment());
         $booking->setReservations([$this->createReservation()]);
@@ -131,7 +131,7 @@ class ModelTest extends TestCase
     {
         $booking = new Booking();
 
-        $booking->setTotalPrice(1.0);
+        $booking->setTotalPrice(new Price(1.0, 'EUR'));
         $booking->setCustomer($this->createPerson());
         $booking->setPayment($this->createPayment());
 
@@ -145,7 +145,7 @@ class ModelTest extends TestCase
     {
         $booking = new Booking();
 
-        $booking->setTotalPrice(1.0);
+        $booking->setTotalPrice(new Price(1.0, 'EUR'));
         $booking->setCustomer($this->createPerson());
         $booking->setPayment($this->createPayment());
         $booking->setReservations([$this->createReservation()]);
@@ -242,13 +242,13 @@ class ModelTest extends TestCase
     public function testBookingToArray()
     {
         $booking = new Booking();
-        $booking->setTotalPrice(1.0);
+        $booking->setTotalPrice(new Price(1.0, 'EUR'));
         $booking->setCustomer($this->createPerson());
         $booking->setPayment($this->createPayment());
         $booking->setReservations([$this->createReservation()]);
 
         $expectedResult = [
-            'total_price' => 1.0,
+            'total_price' => ['amount' => 1.0, 'currency' => 'EUR'],
             'customer' => [
                 'last_name' => 'lastName',
                 'first_name' => 'fisrtName',

@@ -57,7 +57,7 @@ class BookingResourceTest extends TestCase
                 'https://api.pci-proxy.com/v1/push/5775c7cf3b3e5dc0/v1/bookings',
                 'abc',
                 [
-                    'total_price' => 1.0,
+                    'total_price' => ['amount' => 1.0, 'currency' => 'EUR'],
                     'customer' => [
                         'last_name' => 'lastName',
                         'first_name' => 'fisrtName',
@@ -113,17 +113,17 @@ class BookingResourceTest extends TestCase
             )
                              ;
         $booking = new Booking();
-        $booking->setTotalPrice(1.0);
-        $booking->setCustomer($this->createPerson());
-        $booking->setPayment($this->createPayment());
-        $booking->setReservations([$this->createReservation()]);
+        $booking->setTotalPrice(new Price(1.0, 'EUR'))
+            ->setCustomer($this->createPerson())
+            ->setPayment($this->createPayment())
+            ->setReservations([$this->createReservation()]);
         $res = $this->bookingResource->createBooking($booking);
 
         $this->assertTrue($res->isCreated());
         $this->assertInstanceOf(Booking::class, $res->getBooking());
         $this->assertEquals('ABCDE', $res->getBooking()->getId());
         $this->assertCount(1, $res->getBooking()->getReservations());
-        $this->assertEquals(1.0, $res->getBooking()->getTotalPrice());
+        $this->assertEquals(1.0, $res->getBooking()->getTotalPrice()->getAmount());
         $this->assertEquals('fisrtName', $res->getBooking()->getCustomer()->getFirstName());
     }
 
@@ -142,7 +142,7 @@ class BookingResourceTest extends TestCase
                 'https://api.pci-proxy.com/v1/push/5775c7cf3b3e5dc0/v1/bookings',
                 'abc',
                 [
-                    'total_price' => 1.0,
+                    'total_price' => ['amount' => 1.0, 'currency' => 'EUR'],
                     'customer' => [
                         'last_name' => 'lastName',
                         'first_name' => 'fisrtName',
@@ -198,7 +198,7 @@ class BookingResourceTest extends TestCase
             )
                              ;
         $booking = new Booking();
-        $booking->setTotalPrice(1.0);
+        $booking->setTotalPrice(new Price(1.0, 'EUR'));
         $booking->setCustomer($this->createPerson());
         $booking->setPayment($this->createPayment());
         $booking->setReservations([$this->createReservation()]);
@@ -244,7 +244,7 @@ class BookingResourceTest extends TestCase
         $this->assertInstanceOf(Booking::class, $res->getBooking());
         $this->assertEquals('ABCDE', $res->getBooking()->getId());
         $this->assertCount(1, $res->getBooking()->getReservations());
-        $this->assertEquals(1.0, $res->getBooking()->getTotalPrice());
+        $this->assertEquals(['amount' => 1.0, 'currency' => 'EUR'], $res->getBooking()->getTotalPrice()->toArray());
         $this->assertEquals('fisrtName', $res->getBooking()->getCustomer()->getFirstName());
     }
 
@@ -561,7 +561,7 @@ class BookingResourceTest extends TestCase
     private function buildBooking()
     {
         $booking = new Booking();
-        $booking->setTotalPrice(1.0)
+        $booking->setTotalPrice(new Price(1.0, 'EUR'))
             ->setCustomer($this->createPerson())
             ->setPayment($this->createPayment())
             ->setReservations([$this->createReservation()])
