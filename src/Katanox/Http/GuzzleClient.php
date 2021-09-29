@@ -4,7 +4,6 @@ namespace Katanox\Http;
 
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Exception\BadResponseException;
-use GuzzleHttp\Psr7\Query;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\Psr7\Response;
 use Katanox\Exceptions\HttpException;
@@ -32,11 +31,9 @@ final class GuzzleClient implements Client
         int $timeout = 30
     ): Response {
         try {
-            $body = Query::build($data, PHP_QUERY_RFC1738);
-
             $options = [
                 'timeout' => $timeout,
-                'body' => $body,
+                'body' => $data,
             ];
 
             if ($params) {
