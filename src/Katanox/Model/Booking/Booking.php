@@ -45,7 +45,7 @@ class Booking implements Validatable, JsonSerializable
     {
         $reservations = modelsCollectionToArray($this->reservations);
         $baseRepresentation = [
-            'total_price' => $this->total_price?->toArray(),
+            'total_price' => $this->total_price->toArray(),
             'customer' => $this->customer->toArray(),
             'reservations' => $reservations,
             'comments' => $this->comments,
