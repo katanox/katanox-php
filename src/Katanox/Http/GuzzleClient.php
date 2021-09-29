@@ -38,8 +38,7 @@ final class GuzzleClient implements Client
 
             if ($method === 'GET') {
                 $options['body'] = Query::build($data, PHP_QUERY_RFC1738);
-            }
-            else {
+            } else {
                 $options['json'] = $data;
             }
 
