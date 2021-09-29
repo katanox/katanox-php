@@ -6,13 +6,15 @@ use Doctrine\Common\Collections\ArrayCollection;
 use InvalidArgumentException;
 use JsonSerializable;
 use Katanox\Exceptions\MissingParametersException;
+use Katanox\Model\Price;
+
 use function Katanox\Model\Helpers\areRequiredFieldsSet;
 use function Katanox\Model\Helpers\modelsCollectionToArray;
 use Katanox\Model\Validatable;
 
 class Booking implements Validatable, JsonSerializable
 {
-    private ?float $total_price = null;
+    private ?Price $total_price = null;
     private ?Person $customer = null;
     /**
      * @var Reservation[]
@@ -43,7 +45,7 @@ class Booking implements Validatable, JsonSerializable
     {
         $reservations = modelsCollectionToArray($this->reservations);
         $baseRepresentation = [
-            'total_price' => $this->total_price,
+            'total_price' => $this->total_price->toArray(),
             'customer' => $this->customer->toArray(),
             'reservations' => $reservations,
             'comments' => $this->comments,
@@ -86,7 +88,7 @@ class Booking implements Validatable, JsonSerializable
         return $this->comments;
     }
 
-    public function setTotalPrice(float $totalPrice): Booking
+    public function setTotalPrice(Price $totalPrice): Booking
     {
         $this->total_price = $totalPrice;
 
