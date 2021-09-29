@@ -56,6 +56,7 @@ class BookingResourceTest extends TestCase
                 'POST',
                 'https://api.pci-proxy.com/v1/push/5775c7cf3b3e5dc0/v1/bookings',
                 'abc',
+                [],
                 [
                     'total_price' => ['amount' => 1.0, 'currency' => 'EUR'],
                     'customer' => [
@@ -103,6 +104,7 @@ class BookingResourceTest extends TestCase
                         'expiry_year' => '22',
                     ],
                 ],
+                ['Content-Type' => 'application/json']
             ])
             ->andReturn(
                 new Response(
@@ -141,6 +143,7 @@ class BookingResourceTest extends TestCase
                 'POST',
                 'https://api.pci-proxy.com/v1/push/5775c7cf3b3e5dc0/v1/bookings',
                 'abc',
+                [],
                 [
                     'total_price' => ['amount' => 1.0, 'currency' => 'EUR'],
                     'customer' => [
@@ -188,6 +191,7 @@ class BookingResourceTest extends TestCase
                         'expiry_year' => '22',
                     ],
                 ],
+                ['Content-Type' => 'application/json']
             ])
             ->andReturn(
                 new Response(
