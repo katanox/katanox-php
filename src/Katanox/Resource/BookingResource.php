@@ -19,7 +19,7 @@ use Katanox\Model\RequestResult\GetReservationResult;
 
 class BookingResource
 {
-    protected $BASE_URL;
+    protected $baseUrl;
 
     private string $apiKey;
     private Client $client;
@@ -27,7 +27,7 @@ class BookingResource
 
     public function __construct(Client $client, string $apiKey)
     {
-        $this->BASE_URL = 'https://api.pci-proxy.com/v1/push/5775c7cf3b3e5dc0/v1/bookings';
+        $this->baseUrl = 'https://api.pci-proxy.com/v1/push/5775c7cf3b3e5dc0/v1/bookings';
         $this->client = $client;
         $this->apiKey = $apiKey;
         $this->mapper = new JsonMapper();
@@ -47,7 +47,7 @@ class BookingResource
         $booking->validate();
         $req = new KatanoxRequest(
             'POST',
-            $this->BASE_URL,
+            $this->baseUrl,
             $this->apiKey,
             $booking->toArray()
         );
@@ -91,7 +91,7 @@ class BookingResource
     {
         $req = new KatanoxRequest(
             'GET',
-            sprintf('%s/%s', $this->BASE_URL, $bookingId),
+            sprintf('%s/%s', $this->baseUrl, $bookingId),
             $this->apiKey,
             []
         );
@@ -131,7 +131,7 @@ class BookingResource
     {
         $req = new KatanoxRequest(
             'DELETE',
-            sprintf('%s/%s', $this->BASE_URL, $bookingId),
+            sprintf('%s/%s', $this->baseUrl, $bookingId),
             $this->apiKey,
             []
         );
@@ -156,7 +156,7 @@ class BookingResource
         $createReservationRequest->validate();
         $req = new KatanoxRequest(
             'POST',
-            sprintf('%s/%s/reservations', $this->BASE_URL, $createReservationRequest->getBookingId()),
+            sprintf('%s/%s/reservations', $this->baseUrl, $createReservationRequest->getBookingId()),
             $this->apiKey,
             $createReservationRequest->getReservation()->toArray()
         );
@@ -201,7 +201,7 @@ class BookingResource
         $updateReservationRequest->validate();
         $url = sprintf(
             '%s/%s/reservations/%s',
-            $this->BASE_URL,
+            $this->baseUrl,
             $updateReservationRequest->getBookingId(),
             $updateReservationRequest->getReservation()->getId()
         );
@@ -251,7 +251,7 @@ class BookingResource
     {
         $req = new KatanoxRequest(
             'GET',
-            sprintf('%s/%s/reservations/%s', $this->BASE_URL, $bookingId, $reservationId),
+            sprintf('%s/%s/reservations/%s', $this->baseUrl, $bookingId, $reservationId),
             $this->apiKey,
             []
         );
@@ -291,7 +291,7 @@ class BookingResource
     {
         $req = new KatanoxRequest(
             'DELETE',
-            sprintf('%s/%s/reservations/%s', $this->BASE_URL, $bookingId, $reservationId),
+            sprintf('%s/%s/reservations/%s', $this->baseUrl, $bookingId, $reservationId),
             $this->apiKey,
             []
         );

@@ -13,7 +13,7 @@ use Katanox\Model\Query\AvailabilityQuery;
 
 class AvailabilityResource
 {
-    protected $BASE_URL;
+    protected $baseUrl;
     /**
      * @var null|Availability stores the last request made to Endpoint
      */
@@ -34,7 +34,7 @@ class AvailabilityResource
 
     public function __construct(Client $client, string $apiKey)
     {
-        $this->BASE_URL = 'https://api.katanox.com/v1/availability';
+        $this->baseUrl = 'https://api.katanox.com/v1/availability';
         $this->client = $client;
         $this->apiKey = $apiKey;
         $this->mapper = new JsonMapper();
@@ -56,7 +56,7 @@ class AvailabilityResource
         $query->validate();
         $req = new KatanoxRequest(
             'GET',
-            $this->BASE_URL,
+            $this->baseUrl,
             $this->apiKey,
             $query->toArray()
         );
