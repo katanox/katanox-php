@@ -3,7 +3,6 @@
 namespace Katanox\Model\Booking;
 
 use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use InvalidArgumentException;
 use JsonSerializable;
 use Katanox\Exceptions\MissingParametersException;
@@ -29,12 +28,6 @@ class Reservation implements Validatable, JsonSerializable
     private ?string $status = null;
     private ?string $id = null;
 
-    private Collection $allowedReservationStatuses;
-
-    public function __construct()
-    {
-        $this->allowedReservationStatuses = new ArrayCollection(['Confirmed', 'Processing', 'Cancelled']);
-    }
 
     public function validate(): Reservation
     {
@@ -130,14 +123,8 @@ class Reservation implements Validatable, JsonSerializable
         return $this->price;
     }
 
-    /**
-     * @throws InvalidArgumentException
-     */
-    public function setRatePlanId(int $ratePlanId): Reservation
+    public function setRatePlanId(string $ratePlanId): Reservation
     {
-        if ($ratePlanId <= 0) {
-            throw new InvalidArgumentException('value must be > 0');
-        }
         $this->rate_plan_id = $ratePlanId;
 
         return $this;
@@ -148,14 +135,8 @@ class Reservation implements Validatable, JsonSerializable
         return $this->rate_plan_id;
     }
 
-    /**
-     * @throws InvalidArgumentException
-     */
-    public function setUnitId(int $unitId): Reservation
+    public function setUnitId(string $unitId): Reservation
     {
-        if ($unitId <= 0) {
-            throw new InvalidArgumentException('value must be > 0');
-        }
         $this->unit_id = $unitId;
 
         return $this;
@@ -202,16 +183,8 @@ class Reservation implements Validatable, JsonSerializable
         return $this->children;
     }
 
-    /**
-     * @throws InvalidArgumentException
-     */
     public function setStatus(string $status): Reservation
     {
-        if (!$this->allowedReservationStatuses->contains($status)) {
-            $allowedStatuses = implode(',', $this->allowedReservationStatuses->getValues());
-
-            throw new InvalidArgumentException(sprintf('Allowed types are: %s', $allowedStatuses));
-        }
         $this->status = $status;
 
         return $this;

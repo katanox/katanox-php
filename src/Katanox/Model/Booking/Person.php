@@ -39,7 +39,7 @@ class Person implements Validatable
             'first_name' => $this->first_name,
             'title' => $this->title,
             'birth_date' => $this->birth_date,
-            'post_code' => $this->post_code,
+            'postcode' => $this->post_code,
             'city' => $this->city,
             'country' => $this->country,
             'email' => $this->email,

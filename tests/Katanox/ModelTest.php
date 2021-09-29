@@ -61,16 +61,6 @@ class ModelTest extends TestCase
         $this->assertEquals($payment, $payment->validate());
     }
 
-    public function testPaymentThrowsInvalidArgumentExceptionInvalidType()
-    {
-        $payment = new Payment();
-
-        $this->expectException(InvalidArgumentException::class);
-        $this->expectExceptionMessage('Allowed card types are: VISA,MASTER_CARD,AMERICAN_EXPRESS');
-
-        $payment->setType('invalid');
-    }
-
     public function testPaymentValidateThrowsMissingParametersException()
     {
         $payment = new Payment();
@@ -95,7 +85,7 @@ class ModelTest extends TestCase
     public function testBookingValidateThrowsMissingParametersExceptionZeroResrvations()
     {
         $booking = new Booking();
-        $booking->setTotalPrice(1.0);
+        $booking->setTotalPrice(new Price(1.0, 'EUR'));
         $booking->setCustomer(new Person());
         $booking->setPayment(new Payment());
 
@@ -110,7 +100,7 @@ class ModelTest extends TestCase
         $booking = new Booking();
         $person = $this->createPerson();
 
-        $booking->setTotalPrice(1.0);
+        $booking->setTotalPrice(new Price(1.0, 'EUR'));
         $booking->setCustomer($person);
         $booking->setPayment(new Payment());
         $booking->setReservations([$this->createReservation()]);
@@ -127,7 +117,7 @@ class ModelTest extends TestCase
         $person = new Person();
         $person->setFirstName('fisrtName');
 
-        $booking->setTotalPrice(1.0);
+        $booking->setTotalPrice(new Price(1.0, 'EUR'));
         $booking->setCustomer($person);
         $booking->setPayment($this->createPayment());
         $booking->setReservations([$this->createReservation()]);
@@ -141,7 +131,7 @@ class ModelTest extends TestCase
     {
         $booking = new Booking();
 
-        $booking->setTotalPrice(1.0);
+        $booking->setTotalPrice(new Price(1.0, 'EUR'));
         $booking->setCustomer($this->createPerson());
         $booking->setPayment($this->createPayment());
 
@@ -155,7 +145,7 @@ class ModelTest extends TestCase
     {
         $booking = new Booking();
 
-        $booking->setTotalPrice(1.0);
+        $booking->setTotalPrice(new Price(1.0, 'EUR'));
         $booking->setCustomer($this->createPerson());
         $booking->setPayment($this->createPayment());
         $booking->setReservations([$this->createReservation()]);
@@ -230,7 +220,7 @@ class ModelTest extends TestCase
                     'first_name' => 'fisrtName',
                     'title' => 'Mr',
                     'birth_date' => '2020-02-20',
-                    'post_code' => null,
+                    'postcode' => null,
                     'city' => 'Amsterdam',
                     'country' => 'Netherlands',
                     'email' => null,
@@ -252,19 +242,19 @@ class ModelTest extends TestCase
     public function testBookingToArray()
     {
         $booking = new Booking();
-        $booking->setTotalPrice(1.0);
+        $booking->setTotalPrice(new Price(1.0, 'EUR'));
         $booking->setCustomer($this->createPerson());
         $booking->setPayment($this->createPayment());
         $booking->setReservations([$this->createReservation()]);
 
         $expectedResult = [
-            'total_price' => 1.0,
+            'total_price' => ['amount' => 1.0, 'currency' => 'EUR'],
             'customer' => [
                 'last_name' => 'lastName',
                 'first_name' => 'fisrtName',
                 'title' => 'Mr',
                 'birth_date' => '2020-02-20',
-                'post_code' => null,
+                'postcode' => null,
                 'city' => 'Amsterdam',
                 'country' => 'Netherlands',
                 'email' => null,
@@ -278,7 +268,7 @@ class ModelTest extends TestCase
                             'first_name' => 'fisrtName',
                             'title' => 'Mr',
                             'birth_date' => '2020-02-20',
-                            'post_code' => null,
+                            'postcode' => null,
                             'city' => 'Amsterdam',
                             'country' => 'Netherlands',
                             'email' => null,

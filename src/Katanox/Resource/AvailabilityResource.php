@@ -55,7 +55,7 @@ class AvailabilityResource
         $query->validate();
         $req = new KatanoxRequest(
             'GET',
-            self::BASE_URL,
+            static::BASE_URL,
             $this->apiKey,
             $query->toArray()
         );

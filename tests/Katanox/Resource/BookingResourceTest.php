@@ -56,14 +56,15 @@ class BookingResourceTest extends TestCase
                 'POST',
                 'https://api.pci-proxy.com/v1/push/5775c7cf3b3e5dc0/v1/bookings',
                 'abc',
+                [],
                 [
-                    'total_price' => 1.0,
+                    'total_price' => ['amount' => 1.0, 'currency' => 'EUR'],
                     'customer' => [
                         'last_name' => 'lastName',
                         'first_name' => 'fisrtName',
                         'title' => 'Mr',
                         'birth_date' => '2020-02-20',
-                        'post_code' => null,
+                        'postcode' => null,
                         'city' => 'Amsterdam',
                         'country' => 'Netherlands',
                         'email' => null,
@@ -77,7 +78,7 @@ class BookingResourceTest extends TestCase
                                     'first_name' => 'fisrtName',
                                     'title' => 'Mr',
                                     'birth_date' => '2020-02-20',
-                                    'post_code' => null,
+                                    'postcode' => null,
                                     'city' => 'Amsterdam',
                                     'country' => 'Netherlands',
                                     'email' => null,
@@ -103,6 +104,7 @@ class BookingResourceTest extends TestCase
                         'expiry_year' => '22',
                     ],
                 ],
+                ['Content-Type' => 'application/json']
             ])
             ->andReturn(
                 new Response(
@@ -113,17 +115,17 @@ class BookingResourceTest extends TestCase
             )
                              ;
         $booking = new Booking();
-        $booking->setTotalPrice(1.0);
-        $booking->setCustomer($this->createPerson());
-        $booking->setPayment($this->createPayment());
-        $booking->setReservations([$this->createReservation()]);
+        $booking->setTotalPrice(new Price(1.0, 'EUR'))
+            ->setCustomer($this->createPerson())
+            ->setPayment($this->createPayment())
+            ->setReservations([$this->createReservation()]);
         $res = $this->bookingResource->createBooking($booking);
 
         $this->assertTrue($res->isCreated());
         $this->assertInstanceOf(Booking::class, $res->getBooking());
         $this->assertEquals('ABCDE', $res->getBooking()->getId());
         $this->assertCount(1, $res->getBooking()->getReservations());
-        $this->assertEquals(1.0, $res->getBooking()->getTotalPrice());
+        $this->assertEquals(1.0, $res->getBooking()->getTotalPrice()->getAmount());
         $this->assertEquals('fisrtName', $res->getBooking()->getCustomer()->getFirstName());
     }
 
@@ -141,14 +143,15 @@ class BookingResourceTest extends TestCase
                 'POST',
                 'https://api.pci-proxy.com/v1/push/5775c7cf3b3e5dc0/v1/bookings',
                 'abc',
+                [],
                 [
-                    'total_price' => 1.0,
+                    'total_price' => ['amount' => 1.0, 'currency' => 'EUR'],
                     'customer' => [
                         'last_name' => 'lastName',
                         'first_name' => 'fisrtName',
                         'title' => 'Mr',
                         'birth_date' => '2020-02-20',
-                        'post_code' => null,
+                        'postcode' => null,
                         'city' => 'Amsterdam',
                         'country' => 'Netherlands',
                         'email' => null,
@@ -162,7 +165,7 @@ class BookingResourceTest extends TestCase
                                     'first_name' => 'fisrtName',
                                     'title' => 'Mr',
                                     'birth_date' => '2020-02-20',
-                                    'post_code' => null,
+                                    'postcode' => null,
                                     'city' => 'Amsterdam',
                                     'country' => 'Netherlands',
                                     'email' => null,
@@ -188,17 +191,18 @@ class BookingResourceTest extends TestCase
                         'expiry_year' => '22',
                     ],
                 ],
+                ['Content-Type' => 'application/json']
             ])
             ->andReturn(
                 new Response(
                     422,
                     [],
-                    json_encode(['errors' => ['rate plan does not exist']])
+                    json_encode(['errors' => 'rate plan does not exist'])
                 )
             )
                              ;
         $booking = new Booking();
-        $booking->setTotalPrice(1.0);
+        $booking->setTotalPrice(new Price(1.0, 'EUR'));
         $booking->setCustomer($this->createPerson());
         $booking->setPayment($this->createPayment());
         $booking->setReservations([$this->createReservation()]);
@@ -206,7 +210,7 @@ class BookingResourceTest extends TestCase
 
         $this->assertFalse($res->isCreated());
         $this->assertNull($res->getBooking());
-        $this->assertEquals(['rate plan does not exist'], $res->getErrors());
+        $this->assertEquals('rate plan does not exist', $res->getErrors());
     }
 
     public function testFetchBookingSuccess()
@@ -244,7 +248,7 @@ class BookingResourceTest extends TestCase
         $this->assertInstanceOf(Booking::class, $res->getBooking());
         $this->assertEquals('ABCDE', $res->getBooking()->getId());
         $this->assertCount(1, $res->getBooking()->getReservations());
-        $this->assertEquals(1.0, $res->getBooking()->getTotalPrice());
+        $this->assertEquals(['amount' => 1.0, 'currency' => 'EUR'], $res->getBooking()->getTotalPrice()->toArray());
         $this->assertEquals('fisrtName', $res->getBooking()->getCustomer()->getFirstName());
     }
 
@@ -339,7 +343,7 @@ class BookingResourceTest extends TestCase
                             'first_name' => 'fisrtName',
                             'title' => 'Mr',
                             'birth_date' => '2020-02-20',
-                            'post_code' => null,
+                            'postcode' => null,
                             'city' => 'Amsterdam',
                             'country' => 'Netherlands',
                             'email' => null,
@@ -411,7 +415,7 @@ class BookingResourceTest extends TestCase
                             'first_name' => 'fisrtName',
                             'title' => 'Mr',
                             'birth_date' => '2020-02-20',
-                            'post_code' => null,
+                            'postcode' => null,
                             'city' => 'Amsterdam',
                             'country' => 'Netherlands',
                             'email' => null,
@@ -561,7 +565,7 @@ class BookingResourceTest extends TestCase
     private function buildBooking()
     {
         $booking = new Booking();
-        $booking->setTotalPrice(1.0)
+        $booking->setTotalPrice(new Price(1.0, 'EUR'))
             ->setCustomer($this->createPerson())
             ->setPayment($this->createPayment())
             ->setReservations([$this->createReservation()])

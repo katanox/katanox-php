@@ -3,7 +3,6 @@
 namespace Katanox\Model\Booking;
 
 use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use InvalidArgumentException;
 use Katanox\Exceptions\MissingParametersException;
 use function Katanox\Model\Helpers\areRequiredFieldsSet;
@@ -11,19 +10,12 @@ use Katanox\Model\Validatable;
 
 class Payment implements Validatable
 {
-    private Collection $allowedCardTypes;
-
     private ?string $type = null;
     private ?string $card_number = null;
     private ?string $cvv = null;
     private ?string $card_holder = null;
     private ?string $expiry_month = null;
     private ?string $expiry_year = null;
-
-    public function __construct()
-    {
-        $this->allowedCardTypes = new ArrayCollection(['VISA', 'MASTER_CARD', 'AMERICAN_EXPRESS']);
-    }
 
     public function validate(): Payment
     {
@@ -60,17 +52,8 @@ class Payment implements Validatable
         return $this->type;
     }
 
-    /**
-     * @throws InvalidArgumentException
-     */
     public function setType(string $type)
     {
-        if (!$this->allowedCardTypes->contains($type)) {
-            $allowedTypes = implode(',', $this->allowedCardTypes->getValues());
-
-            throw new InvalidArgumentException(sprintf('Allowed card types are: %s', $allowedTypes));
-        }
-
         $this->type = $type;
 
         return $this;
@@ -93,9 +76,6 @@ class Payment implements Validatable
         return $this->cvv;
     }
 
-    /**
-     * @throws InvalidArgumentException
-     */
     public function setCVV(string $cvv): Payment
     {
         $this->cvv = $cvv;
