@@ -32,19 +32,19 @@ final class GuzzleClient implements Client
         int $timeout = 30
     ): Response {
         try {
+            $options = [
+                'timeout' => $timeout,
+            ];
+
             if ($method === 'GET')
             {
-                $body = Query::build($data, PHP_QUERY_RFC1738);
+                $options['body'] = Query::build($data, PHP_QUERY_RFC1738);
             }
             else
             {
-                $body = json_encode($data);
+                $options['json'] = $data;
             }
 
-            $options = [
-                'timeout' => $timeout,
-                'body' => $body,
-            ];
 
             if ($params) {
                 $options['query'] = $params;
