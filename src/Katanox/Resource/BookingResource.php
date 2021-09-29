@@ -55,7 +55,8 @@ class BookingResource
             $req->url,
             $req->apiKey,
             [],
-            $req->params
+            $req->getParams(),
+            ['Content-Type' => 'application/json'],
         );
 
         try {
