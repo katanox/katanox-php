@@ -76,7 +76,7 @@ class Booking implements Validatable, JsonSerializable
         return $this->customer;
     }
 
-    public function setComments(array $comments): Booking
+    public function setComments(array $comments = []): Booking
     {
         $this->comments = $comments;
 
