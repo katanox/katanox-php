@@ -4,6 +4,18 @@ All notable changes to `katanox-php` will be documented in this file.
 
 Updates should follow the [Keep a CHANGELOG](https://keepachangelog.com/) principles.
 
+## [3.1.0] - 2021-09-29
+### Bugfix
+- Include parameters of AvailabilityQuery are now used as expected in query string
+- Change `post_code` to `postcode` in query string when searching availability
+### Changed
+- Validation removed from following fields:
+ - Payment.type
+ - Resevation.rate_plan_id
+ - Resevation.unit_id
+- KatanoxRequest uses `static::BASE_URL` instead of `self::BASE_URL`
+- Booking.price is a `Price` object instead of `float`
+
 ## [3.0.1] - 2021-09-20
 ### Bugfix
 - Property Ids in AvailabilityQuery are now properly used as query parameters
