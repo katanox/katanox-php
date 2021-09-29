@@ -54,6 +54,7 @@ class BookingResource
             $req->method,
             $req->url,
             $req->apiKey,
+            [],
             $req->params
         );
 
