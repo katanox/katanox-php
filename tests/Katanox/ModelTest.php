@@ -291,7 +291,7 @@ class ModelTest extends TestCase
                 'cvv' => '111',
                 'card_holder' => 'Holder',
                 'expiry_month' => '08',
-                'expiry_year' => '22',
+                'expiry_year' => '2022',
             ],
         ];
 
