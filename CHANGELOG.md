@@ -4,6 +4,14 @@ All notable changes to `katanox-php` will be documented in this file.
 
 Updates should follow the [Keep a CHANGELOG](https://keepachangelog.com/) principles.
 
+## [3.2.0] - 2021-10-11
+### Changed
+- The expiry year should now be a 4 digit number
+
+## [3.1.1] - 2021-09-29
+### Changed
+- Resource url is now a variable instead of const
+
 ## [3.1.0] - 2021-09-29
 ### Bugfix
 - Include parameters of AvailabilityQuery are now used as expected in query string
