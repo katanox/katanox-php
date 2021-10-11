@@ -329,8 +329,8 @@ class ModelTest extends TestCase
         $payment->setCardHolder('Holder');
         $payment->setCVV('111');
         $payment->setType('VISA');
-        $payment->setExpirtyMonth('08');
-        $payment->setExpiryYear('22');
+        $payment->setExpiryMonth('08');
+        $payment->setExpiryYear('2022');
         $payment->setCardNumber('11111111111111111111');
 
         return $payment;

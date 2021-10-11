@@ -103,7 +103,7 @@ class Payment implements Validatable
     /**
      * @throws InvalidArgumentException
      */
-    public function setExpirtyMonth(string $expiryMonth): Payment
+    public function setExpiryMonth(string $expiryMonth): Payment
     {
         if (2 !== strlen($expiryMonth)) {
             throw new InvalidArgumentException('Invalid expiry month.  Format must be: xx');
@@ -118,8 +118,8 @@ class Payment implements Validatable
      */
     public function setExpiryYear(string $expiryYear): Payment
     {
-        if (2 !== strlen($expiryYear)) {
-            throw new InvalidArgumentException('Invalid expiry year.  Format must be: xx');
+        if (4 !== strlen($expiryYear)) {
+            throw new InvalidArgumentException('Invalid expiry year.  Format must be: xxxx');
         }
         $this->expiry_year = $expiryYear;
 

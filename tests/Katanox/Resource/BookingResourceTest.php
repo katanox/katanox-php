@@ -581,8 +581,8 @@ class BookingResourceTest extends TestCase
         $payment->setCardHolder('Holder')
             ->setCVV('111')
             ->setType('VISA')
-            ->setExpirtyMonth('08')
-            ->setExpiryYear('22')
+            ->setExpiryMonth('08')
+            ->setExpiryYear('2022')
             ->setCardNumber('11111111111111111111')
         ;
 
