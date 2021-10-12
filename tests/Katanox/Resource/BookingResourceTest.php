@@ -101,7 +101,7 @@ class BookingResourceTest extends TestCase
                         'cvv' => '111',
                         'card_holder' => 'Holder',
                         'expiry_month' => '08',
-                        'expiry_year' => '22',
+                        'expiry_year' => '2022',
                     ],
                 ],
                 ['Content-Type' => 'application/json']
@@ -188,7 +188,7 @@ class BookingResourceTest extends TestCase
                         'cvv' => '111',
                         'card_holder' => 'Holder',
                         'expiry_month' => '08',
-                        'expiry_year' => '22',
+                        'expiry_year' => '2022',
                     ],
                 ],
                 ['Content-Type' => 'application/json']
@@ -581,8 +581,8 @@ class BookingResourceTest extends TestCase
         $payment->setCardHolder('Holder')
             ->setCVV('111')
             ->setType('VISA')
-            ->setExpirtyMonth('08')
-            ->setExpiryYear('22')
+            ->setExpiryMonth('08')
+            ->setExpiryYear('2022')
             ->setCardNumber('11111111111111111111')
         ;
 
