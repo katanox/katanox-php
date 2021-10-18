@@ -4,7 +4,6 @@ namespace Katanox\Http;
 
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Exception\BadResponseException;
-use GuzzleHttp\Psr7\Query;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\Psr7\Response;
 use Katanox\Exceptions\HttpException;
@@ -38,7 +37,7 @@ final class GuzzleClient implements Client
 
             if ($method === 'GET') {
                 $query = http_build_query($data, null, '&');
-                $options['body'] = preg_replace('/%5B(?:[0-9]|[1-9][0-9]+)%5D=/', '=', $query);
+                $options['body'] = preg_replace('/%5B(?:\d|[1-9]\d+)%5D=/', '=', $query);
             } else {
                 $options['json'] = $data;
             }
