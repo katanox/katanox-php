@@ -37,7 +37,8 @@ final class GuzzleClient implements Client
             ];
 
             if ($method === 'GET') {
-                $options['body'] = Query::build($data, PHP_QUERY_RFC1738);
+                $query = http_build_query($data, null, '&');
+                $options['body'] = preg_replace('/%5B(?:[0-9]|[1-9][0-9]+)%5D=/', '=', $query);
             } else {
                 $options['json'] = $data;
             }
