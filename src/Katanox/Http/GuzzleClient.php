@@ -44,7 +44,7 @@ final class GuzzleClient implements Client
 
 
             if ($params) {
-                $options['query'] = $params;
+                $options['query'] = Query::build($params, PHP_QUERY_RFC1738);
             }
 
             $headers['Authorization'] = sprintf('Bearer %s', $apiKey);

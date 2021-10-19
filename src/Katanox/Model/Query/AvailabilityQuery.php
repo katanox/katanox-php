@@ -278,9 +278,9 @@ class AvailabilityQuery
             'radius' => $this->getRadius(),
             'page' => $this->getPage(),
             'limit' => $this->getLimit(),
-            'include' => $this->getInclude() !== null ? implode(',', $this->getInclude()) : null,
+            'include' => $this->getInclude(),
             'locale' => $this->getLocale(),
-            'property_ids' => $this->getPropertyIds() !== null ? implode(',', $this->getPropertyIds()) : null,
+            'property_ids' => $this->getPropertyIds(),
         ];
     }
 
