@@ -4,9 +4,9 @@ namespace Katanox;
 
 class Version
 {
-    public const MAJOR = 0;
-    public const MINOR = 0;
-    public const PATCH = 1;
+    public const MAJOR = 3;
+    public const MINOR = 2;
+    public const PATCH = 2;
 
     public static function get()
     {
