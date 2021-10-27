@@ -207,7 +207,7 @@ class BookingResource
         );
 
         $req = new KatanoxRequest(
-            'POST',
+            'PUT',
             $url,
             $this->apiKey,
             $updateReservationRequest->getReservation()->toArray()
