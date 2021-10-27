@@ -28,7 +28,6 @@ class Reservation implements Validatable, JsonSerializable
     private ?string $status = null;
     private ?string $id = null;
 
-
     public function validate(): Reservation
     {
         $requiredFields = [
@@ -62,7 +61,7 @@ class Reservation implements Validatable, JsonSerializable
             'unit_id' => $this->unit_id,
             'adults' => $this->adults,
             'children' => $this->children,
-            'comments' => $this->comments
+            'comments' => $this->comments,
         ];
         if (null !== $this->id) {
             $data['id'] = $this->id;

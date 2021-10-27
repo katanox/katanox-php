@@ -36,19 +36,18 @@ final class GuzzleClient implements Client
                 'timeout' => $timeout,
             ];
 
-            if ($method === 'GET') {
+            if ('GET' === $method) {
                 $options['body'] = Query::build($data, PHP_QUERY_RFC1738);
             } else {
                 $options['json'] = $data;
             }
-
 
             if ($params) {
                 $options['query'] = Query::build($params, PHP_QUERY_RFC1738);
             }
 
             $headers['Authorization'] = sprintf('Bearer %s', $apiKey);
-            $headers['User-Agent'] = 'katanox-php/' . Version::get();
+            $headers['User-Agent'] = 'katanox-php/'.Version::get();
 
             $response = $this->client->send(new Request($method, $url, $headers), $options);
         } catch (BadResponseException $exception) {

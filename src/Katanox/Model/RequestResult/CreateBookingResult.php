@@ -16,7 +16,7 @@ class CreateBookingResult implements \JsonSerializable
 
     private $created;
 
-    private $errors = null;
+    private $errors;
 
     public function __construct()
     {

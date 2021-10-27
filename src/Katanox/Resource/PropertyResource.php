@@ -22,7 +22,7 @@ class PropertyResource
 
     public function __construct(Client $client, string $apiKey)
     {
-        $this->baseUrl= 'https://api.katanox.com/v1/properties';
+        $this->baseUrl = 'https://api.katanox.com/v1/properties';
         $this->client = $client;
         $this->apiKey = $apiKey;
         $this->mapper = new JsonMapper();
