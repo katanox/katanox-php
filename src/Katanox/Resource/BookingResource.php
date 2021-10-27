@@ -212,11 +212,14 @@ class BookingResource
             $this->apiKey,
             $updateReservationRequest->getReservation()->toArray()
         );
+
         $res = $this->client->request(
             $req->method,
             $req->url,
             $req->apiKey,
-            $req->params
+            [],
+            $req->getParams(),
+            ['Content-Type' => 'application/json'],
         );
 
         try {
