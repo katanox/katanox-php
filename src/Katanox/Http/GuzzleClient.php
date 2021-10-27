@@ -47,7 +47,7 @@ final class GuzzleClient implements Client
             }
 
             $headers['Authorization'] = sprintf('Bearer %s', $apiKey);
-            $headers['User-Agent'] = 'katanox-php/'.Version::get();
+            $headers['User-Agent'] = 'katanox-php/' . Version::get();
 
             $response = $this->client->send(new Request($method, $url, $headers), $options);
         } catch (BadResponseException $exception) {
