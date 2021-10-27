@@ -405,7 +405,7 @@ class BookingResourceTest extends TestCase
 
         $this->mockHttpClient->shouldReceive('request')
             ->withArgs([
-                'POST',
+                'PUT',
                 'https://api.pci-proxy.com/v1/push/5775c7cf3b3e5dc0/v1/bookings/ABCDE/reservations/ABCDE',
                 'abc',
                 [
