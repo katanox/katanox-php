@@ -90,6 +90,7 @@ class BookingResourceTest extends TestCase
                             'price' => ['amount' => 1.0, 'currency' => 'EUR'],
                             'rate_plan_id' => '1',
                             'unit_id' => '1',
+                            'comments' => [],
                             'adults' => 0,
                             'children' => 0,
                         ],
@@ -104,7 +105,7 @@ class BookingResourceTest extends TestCase
                         'expiry_year' => '2022',
                     ],
                 ],
-                ['Content-Type' => 'application/json']
+                ['Content-Type' => 'application/json'],
             ])
             ->andReturn(
                 new Response(
@@ -118,7 +119,9 @@ class BookingResourceTest extends TestCase
         $booking->setTotalPrice(new Price(1.0, 'EUR'))
             ->setCustomer($this->createPerson())
             ->setPayment($this->createPayment())
-            ->setReservations([$this->createReservation()]);
+            ->setReservations([$this->createReservation()])
+        ;
+
         $res = $this->bookingResource->createBooking($booking);
 
         $this->assertTrue($res->isCreated());
@@ -172,6 +175,7 @@ class BookingResourceTest extends TestCase
                                     'phone_number' => null,
                                 ],
                             ],
+                            'comments' => [],
                             'check_in' => '2020-02-20',
                             'check_out' => '2020-02-22',
                             'price' => ['amount' => 1.0, 'currency' => 'EUR'],
@@ -191,7 +195,7 @@ class BookingResourceTest extends TestCase
                         'expiry_year' => '2022',
                     ],
                 ],
-                ['Content-Type' => 'application/json']
+                ['Content-Type' => 'application/json'],
             ])
             ->andReturn(
                 new Response(
@@ -350,6 +354,7 @@ class BookingResourceTest extends TestCase
                             'phone_number' => null,
                         ],
                     ],
+                    'comments' => [],
                     'check_in' => '2020-02-20',
                     'check_out' => '2020-02-22',
                     'price' => ['amount' => 1.0, 'currency' => 'EUR'],
@@ -396,18 +401,22 @@ class BookingResourceTest extends TestCase
         ];
 
         $reservation = $this->createReservation();
-        $reservation->setId('ABCDE');
+        $reservation->setId('ABCDE')
+            ->setComments([])
+        ;
 
-        $updatedReservation = $this->createReservation();
-        $updatedReservation->setId('ABCDE');
-        $updatedReservation->setCheckOut('2020-02-25');
-        $updatedReservation->setRatePlanId('2');
+        $updatedReservation = $this->createReservation()
+            ->setId('ABCDE')
+            ->setCheckOut('2020-02-25')
+            ->setRatePlanId('2')
+        ;
 
         $this->mockHttpClient->shouldReceive('request')
             ->withArgs([
-                'POST',
+                'PUT',
                 'https://api.pci-proxy.com/v1/push/5775c7cf3b3e5dc0/v1/bookings/ABCDE/reservations/ABCDE',
                 'abc',
+                [],
                 [
                     'guests' => [
                         [
@@ -422,6 +431,7 @@ class BookingResourceTest extends TestCase
                             'phone_number' => null,
                         ],
                     ],
+                    'comments' => [],
                     'check_in' => '2020-02-20',
                     'check_out' => '2020-02-22',
                     'price' => ['amount' => 1.0, 'currency' => 'EUR'],
@@ -431,6 +441,7 @@ class BookingResourceTest extends TestCase
                     'children' => 0,
                     'id' => 'ABCDE',
                 ],
+                ['Content-Type' => 'application/json'],
             ])
             ->andReturn(
                 new Response(
@@ -611,6 +622,7 @@ class BookingResourceTest extends TestCase
             ->setCheckOut('2020-02-22')
             ->setPrice(new Price(1.0, 'EUR'))
             ->setRatePlanId(1)
+            ->setComments([])
             ->setUnitId(1)
         ;
 

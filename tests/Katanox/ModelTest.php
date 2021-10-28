@@ -234,6 +234,7 @@ class ModelTest extends TestCase
             'unit_id' => '1',
             'adults' => 0,
             'children' => 0,
+            'comments' => [],
         ];
 
         $this->assertEquals($expectedResult, $reservation->toArray());
@@ -282,6 +283,7 @@ class ModelTest extends TestCase
                     'unit_id' => '1',
                     'adults' => 0,
                     'children' => 0,
+                    'comments' => [],
                 ],
             ],
             'comments' => [],
@@ -353,14 +355,16 @@ class ModelTest extends TestCase
     {
         $reservation = new Reservation();
 
-        $reservation->setCheckIn('2020-02-20');
-        $reservation->setCheckOut('2020-02-22');
-        $reservation->setPrice(new Price(1.0, 'EUR'));
-        $reservation->setRatePlanId(1);
-        $reservation->setUnitId(1);
-
         $guest = $this->createPerson();
-        $reservation->setGuests([$guest]);
+
+        $reservation->setCheckIn('2020-02-20')
+            ->setCheckOut('2020-02-22')
+            ->setPrice(new Price(1.0, 'EUR'))
+            ->setRatePlanId(1)
+            ->setComments([])
+            ->setUnitId(1)
+            ->setGuests([$guest])
+        ;
 
         return $reservation;
     }

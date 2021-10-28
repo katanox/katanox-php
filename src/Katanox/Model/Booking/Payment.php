@@ -2,7 +2,6 @@
 
 namespace Katanox\Model\Booking;
 
-use Doctrine\Common\Collections\ArrayCollection;
 use InvalidArgumentException;
 use Katanox\Exceptions\MissingParametersException;
 use function Katanox\Model\Helpers\areRequiredFieldsSet;

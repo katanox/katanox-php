@@ -6,10 +6,9 @@ use Doctrine\Common\Collections\ArrayCollection;
 use InvalidArgumentException;
 use JsonSerializable;
 use Katanox\Exceptions\MissingParametersException;
-use Katanox\Model\Price;
-
 use function Katanox\Model\Helpers\areRequiredFieldsSet;
 use function Katanox\Model\Helpers\modelsCollectionToArray;
+use Katanox\Model\Price;
 use Katanox\Model\Validatable;
 
 class Booking implements Validatable, JsonSerializable
