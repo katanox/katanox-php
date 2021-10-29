@@ -23,10 +23,11 @@ class Person implements Validatable
         $requiredFields = [
             $this->first_name,
             $this->last_name,
+            $this->title,
         ];
 
         if (!areRequiredFieldsSet($requiredFields)) {
-            throw new MissingParametersException('Invalid Person.  First and last name parameters are required for a person');
+            throw new MissingParametersException('First, Last name and Title parameters are required for a person');
         }
 
         return $this;
@@ -71,7 +72,7 @@ class Person implements Validatable
         return $this->last_name;
     }
 
-    public function setTitle(?string $title): Person
+    public function setTitle(string $title): Person
     {
         $this->title = $title;
 
