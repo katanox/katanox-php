@@ -24,6 +24,7 @@ class ModelTest extends TestCase
 
         $person->setFirstName('first_name');
         $person->setLastName('last_name');
+        $person->setTitle('MR');
 
         $this->assertSame($person, $person->validate());
     }
@@ -35,7 +36,19 @@ class ModelTest extends TestCase
         $person->setFirstName('first_name');
 
         $this->expectException(MissingParametersException::class);
-        $this->expectExceptionMessage('First and last name parameters are required for a person');
+        $this->expectExceptionMessage('First, Last name and Title parameters are required for a person');
+        $person->validate();
+    }
+
+    public function testPersonValidateThrowsMissingParametersExceptionMissingTitle()
+    {
+        $person = new Person();
+
+        $person->setFirstName('first_name');
+        $person->setFirstName('last_name');
+
+        $this->expectException(MissingParametersException::class);
+        $this->expectExceptionMessage('First, Last name and Title parameters are required for a person');
         $person->validate();
     }
 
@@ -45,13 +58,16 @@ class ModelTest extends TestCase
 
         $person->setFirstName('first_name');
         $person->setLastName('last_name');
+        $person->setTitle('MR');
 
         $personAsArray = $person->toArray();
 
         $this->assertArrayHasKey('first_name', $personAsArray);
         $this->assertArrayHasKey('last_name', $personAsArray);
+        $this->assertArrayHasKey('title', $personAsArray);
         $this->assertEquals($person->getFirstName(), $personAsArray['first_name']);
         $this->assertEquals($person->getLastName(), $personAsArray['last_name']);
+        $this->assertEquals($person->getTitle(), $personAsArray['title']);
     }
 
     public function testPaymentValidateSuccess()
@@ -123,7 +139,7 @@ class ModelTest extends TestCase
         $booking->setReservations([$this->createReservation()]);
 
         $this->expectException(MissingParametersException::class);
-        $this->expectExceptionMessage('Invalid Person.  First and last name parameters are required for a person');
+        $this->expectExceptionMessage('First, Last name and Title parameters are required for a person');
         $booking->validate();
     }
 
