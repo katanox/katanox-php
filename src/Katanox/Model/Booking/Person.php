@@ -71,7 +71,7 @@ class Person implements Validatable
         return $this->last_name;
     }
 
-    public function setTitle(string $title)
+    public function setTitle(?string $title)
     {
         $this->title = $title;
 
@@ -107,7 +107,7 @@ class Person implements Validatable
         return $this->email;
     }
 
-    public function setCity(string $city): Person
+    public function setCity(?string $city): Person
     {
         $this->city = $city;
 
