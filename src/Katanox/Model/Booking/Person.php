@@ -71,7 +71,7 @@ class Person implements Validatable
         return $this->last_name;
     }
 
-    public function setTitle(?string $title)
+    public function setTitle(?string $title): Person
     {
         $this->title = $title;
 
