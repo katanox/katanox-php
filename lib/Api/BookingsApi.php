@@ -4,7 +4,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Katanox
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -25,7 +25,7 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Api;
+namespace Katanox\Api;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -34,16 +34,16 @@ use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
-use OpenAPI\Client\ApiException;
-use OpenAPI\Client\Configuration;
-use OpenAPI\Client\HeaderSelector;
-use OpenAPI\Client\ObjectSerializer;
+use Katanox\ApiException;
+use Katanox\Configuration;
+use Katanox\HeaderSelector;
+use Katanox\ObjectSerializer;
 
 /**
  * BookingsApi Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Katanox
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -149,7 +149,7 @@ class BookingsApi
      * @param  string $authorization Type &#39;Bearer&#39; and then your API Token (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cancelBookingById'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Katanox\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
@@ -167,7 +167,7 @@ class BookingsApi
      * @param  string $authorization Type &#39;Bearer&#39; and then your API Token (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cancelBookingById'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Katanox\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
@@ -217,7 +217,7 @@ class BookingsApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\ModelApiError',
+                        '\Katanox\Model\ModelApiError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -225,7 +225,7 @@ class BookingsApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\ModelInternalServerError',
+                        '\Katanox\Model\ModelInternalServerError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -411,7 +411,7 @@ class BookingsApi
      * @param  string $authorization Type &#39;Bearer&#39; and then your API Token (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cancelReservation'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Katanox\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
@@ -430,7 +430,7 @@ class BookingsApi
      * @param  string $authorization Type &#39;Bearer&#39; and then your API Token (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cancelReservation'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Katanox\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
@@ -480,7 +480,7 @@ class BookingsApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\ModelApiError',
+                        '\Katanox\Model\ModelApiError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -488,7 +488,7 @@ class BookingsApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\ModelApiError',
+                        '\Katanox\Model\ModelApiError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -496,7 +496,7 @@ class BookingsApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\ModelInternalServerError',
+                        '\Katanox\Model\ModelInternalServerError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -696,12 +696,12 @@ class BookingsApi
      * Create a booking
      *
      * @param  string $authorization Type &#39;Bearer&#39; and then your API Token (required)
-     * @param  \OpenAPI\Client\Model\HttpBookingCreationRequest $booking Booking body (required)
+     * @param  \Katanox\Model\HttpBookingCreationRequest $booking Booking body (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createBooking'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Katanox\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\HttpBookingResponse|\OpenAPI\Client\Model\ModelApiError|\OpenAPI\Client\Model\ModelApiError|\OpenAPI\Client\Model\ModelInternalServerError
+     * @return \Katanox\Model\HttpBookingResponse|\Katanox\Model\ModelApiError|\Katanox\Model\ModelApiError|\Katanox\Model\ModelInternalServerError
      */
     public function createBooking($authorization, $booking, string $contentType = self::contentTypes['createBooking'][0])
     {
@@ -715,12 +715,12 @@ class BookingsApi
      * Create a booking
      *
      * @param  string $authorization Type &#39;Bearer&#39; and then your API Token (required)
-     * @param  \OpenAPI\Client\Model\HttpBookingCreationRequest $booking Booking body (required)
+     * @param  \Katanox\Model\HttpBookingCreationRequest $booking Booking body (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createBooking'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Katanox\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\HttpBookingResponse|\OpenAPI\Client\Model\ModelApiError|\OpenAPI\Client\Model\ModelApiError|\OpenAPI\Client\Model\ModelInternalServerError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Katanox\Model\HttpBookingResponse|\Katanox\Model\ModelApiError|\Katanox\Model\ModelApiError|\Katanox\Model\ModelInternalServerError, HTTP status code, HTTP response headers (array of strings)
      */
     public function createBookingWithHttpInfo($authorization, $booking, string $contentType = self::contentTypes['createBooking'][0])
     {
@@ -763,68 +763,68 @@ class BookingsApi
 
             switch($statusCode) {
                 case 201:
-                    if ('\OpenAPI\Client\Model\HttpBookingResponse' === '\SplFileObject') {
+                    if ('\Katanox\Model\HttpBookingResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\HttpBookingResponse' !== 'string') {
+                        if ('\Katanox\Model\HttpBookingResponse' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\HttpBookingResponse', []),
+                        ObjectSerializer::deserialize($content, '\Katanox\Model\HttpBookingResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('\OpenAPI\Client\Model\ModelApiError' === '\SplFileObject') {
+                    if ('\Katanox\Model\ModelApiError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\ModelApiError' !== 'string') {
+                        if ('\Katanox\Model\ModelApiError' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ModelApiError', []),
+                        ObjectSerializer::deserialize($content, '\Katanox\Model\ModelApiError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 422:
-                    if ('\OpenAPI\Client\Model\ModelApiError' === '\SplFileObject') {
+                    if ('\Katanox\Model\ModelApiError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\ModelApiError' !== 'string') {
+                        if ('\Katanox\Model\ModelApiError' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ModelApiError', []),
+                        ObjectSerializer::deserialize($content, '\Katanox\Model\ModelApiError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 500:
-                    if ('\OpenAPI\Client\Model\ModelInternalServerError' === '\SplFileObject') {
+                    if ('\Katanox\Model\ModelInternalServerError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\ModelInternalServerError' !== 'string') {
+                        if ('\Katanox\Model\ModelInternalServerError' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ModelInternalServerError', []),
+                        ObjectSerializer::deserialize($content, '\Katanox\Model\ModelInternalServerError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\HttpBookingResponse';
+            $returnType = '\Katanox\Model\HttpBookingResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -845,7 +845,7 @@ class BookingsApi
                 case 201:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\HttpBookingResponse',
+                        '\Katanox\Model\HttpBookingResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -853,7 +853,7 @@ class BookingsApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\ModelApiError',
+                        '\Katanox\Model\ModelApiError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -861,7 +861,7 @@ class BookingsApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\ModelApiError',
+                        '\Katanox\Model\ModelApiError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -869,7 +869,7 @@ class BookingsApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\ModelInternalServerError',
+                        '\Katanox\Model\ModelInternalServerError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -885,7 +885,7 @@ class BookingsApi
      * Create a booking
      *
      * @param  string $authorization Type &#39;Bearer&#39; and then your API Token (required)
-     * @param  \OpenAPI\Client\Model\HttpBookingCreationRequest $booking Booking body (required)
+     * @param  \Katanox\Model\HttpBookingCreationRequest $booking Booking body (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createBooking'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -907,7 +907,7 @@ class BookingsApi
      * Create a booking
      *
      * @param  string $authorization Type &#39;Bearer&#39; and then your API Token (required)
-     * @param  \OpenAPI\Client\Model\HttpBookingCreationRequest $booking Booking body (required)
+     * @param  \Katanox\Model\HttpBookingCreationRequest $booking Booking body (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createBooking'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -915,7 +915,7 @@ class BookingsApi
      */
     public function createBookingAsyncWithHttpInfo($authorization, $booking, string $contentType = self::contentTypes['createBooking'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\HttpBookingResponse';
+        $returnType = '\Katanox\Model\HttpBookingResponse';
         $request = $this->createBookingRequest($authorization, $booking, $contentType);
 
         return $this->client
@@ -958,7 +958,7 @@ class BookingsApi
      * Create request for operation 'createBooking'
      *
      * @param  string $authorization Type &#39;Bearer&#39; and then your API Token (required)
-     * @param  \OpenAPI\Client\Model\HttpBookingCreationRequest $booking Booking body (required)
+     * @param  \Katanox\Model\HttpBookingCreationRequest $booking Booking body (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createBooking'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1064,12 +1064,12 @@ class BookingsApi
      *
      * @param  string $booking_id The id of the booking (required)
      * @param  string $authorization Type &#39;Bearer&#39; and then your API Token (required)
-     * @param  \OpenAPI\Client\Model\HttpReservationCreationRequest $reservation Reservation body (required)
+     * @param  \Katanox\Model\HttpReservationCreationRequest $reservation Reservation body (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createReservation'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Katanox\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\HttpReservationResponse|\OpenAPI\Client\Model\ModelApiError|\OpenAPI\Client\Model\ModelApiError|\OpenAPI\Client\Model\ModelApiError|\OpenAPI\Client\Model\ModelInternalServerError
+     * @return \Katanox\Model\HttpReservationResponse|\Katanox\Model\ModelApiError|\Katanox\Model\ModelApiError|\Katanox\Model\ModelApiError|\Katanox\Model\ModelInternalServerError
      */
     public function createReservation($booking_id, $authorization, $reservation, string $contentType = self::contentTypes['createReservation'][0])
     {
@@ -1084,12 +1084,12 @@ class BookingsApi
      *
      * @param  string $booking_id The id of the booking (required)
      * @param  string $authorization Type &#39;Bearer&#39; and then your API Token (required)
-     * @param  \OpenAPI\Client\Model\HttpReservationCreationRequest $reservation Reservation body (required)
+     * @param  \Katanox\Model\HttpReservationCreationRequest $reservation Reservation body (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createReservation'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Katanox\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\HttpReservationResponse|\OpenAPI\Client\Model\ModelApiError|\OpenAPI\Client\Model\ModelApiError|\OpenAPI\Client\Model\ModelApiError|\OpenAPI\Client\Model\ModelInternalServerError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Katanox\Model\HttpReservationResponse|\Katanox\Model\ModelApiError|\Katanox\Model\ModelApiError|\Katanox\Model\ModelApiError|\Katanox\Model\ModelInternalServerError, HTTP status code, HTTP response headers (array of strings)
      */
     public function createReservationWithHttpInfo($booking_id, $authorization, $reservation, string $contentType = self::contentTypes['createReservation'][0])
     {
@@ -1132,83 +1132,83 @@ class BookingsApi
 
             switch($statusCode) {
                 case 201:
-                    if ('\OpenAPI\Client\Model\HttpReservationResponse' === '\SplFileObject') {
+                    if ('\Katanox\Model\HttpReservationResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\HttpReservationResponse' !== 'string') {
+                        if ('\Katanox\Model\HttpReservationResponse' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\HttpReservationResponse', []),
+                        ObjectSerializer::deserialize($content, '\Katanox\Model\HttpReservationResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('\OpenAPI\Client\Model\ModelApiError' === '\SplFileObject') {
+                    if ('\Katanox\Model\ModelApiError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\ModelApiError' !== 'string') {
+                        if ('\Katanox\Model\ModelApiError' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ModelApiError', []),
+                        ObjectSerializer::deserialize($content, '\Katanox\Model\ModelApiError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 404:
-                    if ('\OpenAPI\Client\Model\ModelApiError' === '\SplFileObject') {
+                    if ('\Katanox\Model\ModelApiError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\ModelApiError' !== 'string') {
+                        if ('\Katanox\Model\ModelApiError' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ModelApiError', []),
+                        ObjectSerializer::deserialize($content, '\Katanox\Model\ModelApiError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 422:
-                    if ('\OpenAPI\Client\Model\ModelApiError' === '\SplFileObject') {
+                    if ('\Katanox\Model\ModelApiError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\ModelApiError' !== 'string') {
+                        if ('\Katanox\Model\ModelApiError' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ModelApiError', []),
+                        ObjectSerializer::deserialize($content, '\Katanox\Model\ModelApiError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 500:
-                    if ('\OpenAPI\Client\Model\ModelInternalServerError' === '\SplFileObject') {
+                    if ('\Katanox\Model\ModelInternalServerError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\ModelInternalServerError' !== 'string') {
+                        if ('\Katanox\Model\ModelInternalServerError' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ModelInternalServerError', []),
+                        ObjectSerializer::deserialize($content, '\Katanox\Model\ModelInternalServerError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\HttpReservationResponse';
+            $returnType = '\Katanox\Model\HttpReservationResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -1229,7 +1229,7 @@ class BookingsApi
                 case 201:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\HttpReservationResponse',
+                        '\Katanox\Model\HttpReservationResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1237,7 +1237,7 @@ class BookingsApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\ModelApiError',
+                        '\Katanox\Model\ModelApiError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1245,7 +1245,7 @@ class BookingsApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\ModelApiError',
+                        '\Katanox\Model\ModelApiError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1253,7 +1253,7 @@ class BookingsApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\ModelApiError',
+                        '\Katanox\Model\ModelApiError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1261,7 +1261,7 @@ class BookingsApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\ModelInternalServerError',
+                        '\Katanox\Model\ModelInternalServerError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1278,7 +1278,7 @@ class BookingsApi
      *
      * @param  string $booking_id The id of the booking (required)
      * @param  string $authorization Type &#39;Bearer&#39; and then your API Token (required)
-     * @param  \OpenAPI\Client\Model\HttpReservationCreationRequest $reservation Reservation body (required)
+     * @param  \Katanox\Model\HttpReservationCreationRequest $reservation Reservation body (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createReservation'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1301,7 +1301,7 @@ class BookingsApi
      *
      * @param  string $booking_id The id of the booking (required)
      * @param  string $authorization Type &#39;Bearer&#39; and then your API Token (required)
-     * @param  \OpenAPI\Client\Model\HttpReservationCreationRequest $reservation Reservation body (required)
+     * @param  \Katanox\Model\HttpReservationCreationRequest $reservation Reservation body (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createReservation'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1309,7 +1309,7 @@ class BookingsApi
      */
     public function createReservationAsyncWithHttpInfo($booking_id, $authorization, $reservation, string $contentType = self::contentTypes['createReservation'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\HttpReservationResponse';
+        $returnType = '\Katanox\Model\HttpReservationResponse';
         $request = $this->createReservationRequest($booking_id, $authorization, $reservation, $contentType);
 
         return $this->client
@@ -1353,7 +1353,7 @@ class BookingsApi
      *
      * @param  string $booking_id The id of the booking (required)
      * @param  string $authorization Type &#39;Bearer&#39; and then your API Token (required)
-     * @param  \OpenAPI\Client\Model\HttpReservationCreationRequest $reservation Reservation body (required)
+     * @param  \Katanox\Model\HttpReservationCreationRequest $reservation Reservation body (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createReservation'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1476,9 +1476,9 @@ class BookingsApi
      * @param  string $authorization Type &#39;Bearer&#39; and then your API Token (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBookingById'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Katanox\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\HttpBookingResponse|\OpenAPI\Client\Model\ModelApiError|\OpenAPI\Client\Model\ModelInternalServerError
+     * @return \Katanox\Model\HttpBookingResponse|\Katanox\Model\ModelApiError|\Katanox\Model\ModelInternalServerError
      */
     public function getBookingById($booking_id, $authorization, string $contentType = self::contentTypes['getBookingById'][0])
     {
@@ -1495,9 +1495,9 @@ class BookingsApi
      * @param  string $authorization Type &#39;Bearer&#39; and then your API Token (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBookingById'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Katanox\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\HttpBookingResponse|\OpenAPI\Client\Model\ModelApiError|\OpenAPI\Client\Model\ModelInternalServerError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Katanox\Model\HttpBookingResponse|\Katanox\Model\ModelApiError|\Katanox\Model\ModelInternalServerError, HTTP status code, HTTP response headers (array of strings)
      */
     public function getBookingByIdWithHttpInfo($booking_id, $authorization, string $contentType = self::contentTypes['getBookingById'][0])
     {
@@ -1540,53 +1540,53 @@ class BookingsApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\HttpBookingResponse' === '\SplFileObject') {
+                    if ('\Katanox\Model\HttpBookingResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\HttpBookingResponse' !== 'string') {
+                        if ('\Katanox\Model\HttpBookingResponse' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\HttpBookingResponse', []),
+                        ObjectSerializer::deserialize($content, '\Katanox\Model\HttpBookingResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 404:
-                    if ('\OpenAPI\Client\Model\ModelApiError' === '\SplFileObject') {
+                    if ('\Katanox\Model\ModelApiError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\ModelApiError' !== 'string') {
+                        if ('\Katanox\Model\ModelApiError' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ModelApiError', []),
+                        ObjectSerializer::deserialize($content, '\Katanox\Model\ModelApiError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 500:
-                    if ('\OpenAPI\Client\Model\ModelInternalServerError' === '\SplFileObject') {
+                    if ('\Katanox\Model\ModelInternalServerError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\ModelInternalServerError' !== 'string') {
+                        if ('\Katanox\Model\ModelInternalServerError' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ModelInternalServerError', []),
+                        ObjectSerializer::deserialize($content, '\Katanox\Model\ModelInternalServerError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\HttpBookingResponse';
+            $returnType = '\Katanox\Model\HttpBookingResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -1607,7 +1607,7 @@ class BookingsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\HttpBookingResponse',
+                        '\Katanox\Model\HttpBookingResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1615,7 +1615,7 @@ class BookingsApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\ModelApiError',
+                        '\Katanox\Model\ModelApiError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1623,7 +1623,7 @@ class BookingsApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\ModelInternalServerError',
+                        '\Katanox\Model\ModelInternalServerError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1669,7 +1669,7 @@ class BookingsApi
      */
     public function getBookingByIdAsyncWithHttpInfo($booking_id, $authorization, string $contentType = self::contentTypes['getBookingById'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\HttpBookingResponse';
+        $returnType = '\Katanox\Model\HttpBookingResponse';
         $request = $this->getBookingByIdRequest($booking_id, $authorization, $contentType);
 
         return $this->client
@@ -1822,9 +1822,9 @@ class BookingsApi
      * @param  string $authorization Type &#39;Bearer&#39; and then your API Token (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getReservationById'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Katanox\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\HttpReservationResponse|\OpenAPI\Client\Model\ModelApiError|\OpenAPI\Client\Model\ModelInternalServerError
+     * @return \Katanox\Model\HttpReservationResponse|\Katanox\Model\ModelApiError|\Katanox\Model\ModelInternalServerError
      */
     public function getReservationById($booking_id, $reservation_id, $authorization, string $contentType = self::contentTypes['getReservationById'][0])
     {
@@ -1842,9 +1842,9 @@ class BookingsApi
      * @param  string $authorization Type &#39;Bearer&#39; and then your API Token (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getReservationById'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Katanox\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\HttpReservationResponse|\OpenAPI\Client\Model\ModelApiError|\OpenAPI\Client\Model\ModelInternalServerError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Katanox\Model\HttpReservationResponse|\Katanox\Model\ModelApiError|\Katanox\Model\ModelInternalServerError, HTTP status code, HTTP response headers (array of strings)
      */
     public function getReservationByIdWithHttpInfo($booking_id, $reservation_id, $authorization, string $contentType = self::contentTypes['getReservationById'][0])
     {
@@ -1887,53 +1887,53 @@ class BookingsApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\HttpReservationResponse' === '\SplFileObject') {
+                    if ('\Katanox\Model\HttpReservationResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\HttpReservationResponse' !== 'string') {
+                        if ('\Katanox\Model\HttpReservationResponse' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\HttpReservationResponse', []),
+                        ObjectSerializer::deserialize($content, '\Katanox\Model\HttpReservationResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 404:
-                    if ('\OpenAPI\Client\Model\ModelApiError' === '\SplFileObject') {
+                    if ('\Katanox\Model\ModelApiError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\ModelApiError' !== 'string') {
+                        if ('\Katanox\Model\ModelApiError' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ModelApiError', []),
+                        ObjectSerializer::deserialize($content, '\Katanox\Model\ModelApiError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 500:
-                    if ('\OpenAPI\Client\Model\ModelInternalServerError' === '\SplFileObject') {
+                    if ('\Katanox\Model\ModelInternalServerError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\ModelInternalServerError' !== 'string') {
+                        if ('\Katanox\Model\ModelInternalServerError' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ModelInternalServerError', []),
+                        ObjectSerializer::deserialize($content, '\Katanox\Model\ModelInternalServerError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\HttpReservationResponse';
+            $returnType = '\Katanox\Model\HttpReservationResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -1954,7 +1954,7 @@ class BookingsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\HttpReservationResponse',
+                        '\Katanox\Model\HttpReservationResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1962,7 +1962,7 @@ class BookingsApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\ModelApiError',
+                        '\Katanox\Model\ModelApiError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1970,7 +1970,7 @@ class BookingsApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\ModelInternalServerError',
+                        '\Katanox\Model\ModelInternalServerError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2018,7 +2018,7 @@ class BookingsApi
      */
     public function getReservationByIdAsyncWithHttpInfo($booking_id, $reservation_id, $authorization, string $contentType = self::contentTypes['getReservationById'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\HttpReservationResponse';
+        $returnType = '\Katanox\Model\HttpReservationResponse';
         $request = $this->getReservationByIdRequest($booking_id, $reservation_id, $authorization, $contentType);
 
         return $this->client
@@ -2185,12 +2185,12 @@ class BookingsApi
      * @param  string $booking_id The id of the booking (required)
      * @param  string $reservation_id The id of the reservation (required)
      * @param  string $authorization Type &#39;Bearer&#39; and then your API Token (required)
-     * @param  \OpenAPI\Client\Model\HttpReservationUpdateRequest $reservation The reservation body (required)
+     * @param  \Katanox\Model\HttpReservationUpdateRequest $reservation The reservation body (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateReservation'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Katanox\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\HttpReservationResponse|\OpenAPI\Client\Model\ModelApiError|\OpenAPI\Client\Model\ModelApiError|\OpenAPI\Client\Model\ModelApiError|\OpenAPI\Client\Model\ModelInternalServerError
+     * @return \Katanox\Model\HttpReservationResponse|\Katanox\Model\ModelApiError|\Katanox\Model\ModelApiError|\Katanox\Model\ModelApiError|\Katanox\Model\ModelInternalServerError
      */
     public function updateReservation($booking_id, $reservation_id, $authorization, $reservation, string $contentType = self::contentTypes['updateReservation'][0])
     {
@@ -2206,12 +2206,12 @@ class BookingsApi
      * @param  string $booking_id The id of the booking (required)
      * @param  string $reservation_id The id of the reservation (required)
      * @param  string $authorization Type &#39;Bearer&#39; and then your API Token (required)
-     * @param  \OpenAPI\Client\Model\HttpReservationUpdateRequest $reservation The reservation body (required)
+     * @param  \Katanox\Model\HttpReservationUpdateRequest $reservation The reservation body (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateReservation'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Katanox\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\HttpReservationResponse|\OpenAPI\Client\Model\ModelApiError|\OpenAPI\Client\Model\ModelApiError|\OpenAPI\Client\Model\ModelApiError|\OpenAPI\Client\Model\ModelInternalServerError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Katanox\Model\HttpReservationResponse|\Katanox\Model\ModelApiError|\Katanox\Model\ModelApiError|\Katanox\Model\ModelApiError|\Katanox\Model\ModelInternalServerError, HTTP status code, HTTP response headers (array of strings)
      */
     public function updateReservationWithHttpInfo($booking_id, $reservation_id, $authorization, $reservation, string $contentType = self::contentTypes['updateReservation'][0])
     {
@@ -2254,83 +2254,83 @@ class BookingsApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\HttpReservationResponse' === '\SplFileObject') {
+                    if ('\Katanox\Model\HttpReservationResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\HttpReservationResponse' !== 'string') {
+                        if ('\Katanox\Model\HttpReservationResponse' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\HttpReservationResponse', []),
+                        ObjectSerializer::deserialize($content, '\Katanox\Model\HttpReservationResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('\OpenAPI\Client\Model\ModelApiError' === '\SplFileObject') {
+                    if ('\Katanox\Model\ModelApiError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\ModelApiError' !== 'string') {
+                        if ('\Katanox\Model\ModelApiError' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ModelApiError', []),
+                        ObjectSerializer::deserialize($content, '\Katanox\Model\ModelApiError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 404:
-                    if ('\OpenAPI\Client\Model\ModelApiError' === '\SplFileObject') {
+                    if ('\Katanox\Model\ModelApiError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\ModelApiError' !== 'string') {
+                        if ('\Katanox\Model\ModelApiError' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ModelApiError', []),
+                        ObjectSerializer::deserialize($content, '\Katanox\Model\ModelApiError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 422:
-                    if ('\OpenAPI\Client\Model\ModelApiError' === '\SplFileObject') {
+                    if ('\Katanox\Model\ModelApiError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\ModelApiError' !== 'string') {
+                        if ('\Katanox\Model\ModelApiError' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ModelApiError', []),
+                        ObjectSerializer::deserialize($content, '\Katanox\Model\ModelApiError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 500:
-                    if ('\OpenAPI\Client\Model\ModelInternalServerError' === '\SplFileObject') {
+                    if ('\Katanox\Model\ModelInternalServerError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\ModelInternalServerError' !== 'string') {
+                        if ('\Katanox\Model\ModelInternalServerError' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ModelInternalServerError', []),
+                        ObjectSerializer::deserialize($content, '\Katanox\Model\ModelInternalServerError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\HttpReservationResponse';
+            $returnType = '\Katanox\Model\HttpReservationResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -2351,7 +2351,7 @@ class BookingsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\HttpReservationResponse',
+                        '\Katanox\Model\HttpReservationResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2359,7 +2359,7 @@ class BookingsApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\ModelApiError',
+                        '\Katanox\Model\ModelApiError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2367,7 +2367,7 @@ class BookingsApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\ModelApiError',
+                        '\Katanox\Model\ModelApiError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2375,7 +2375,7 @@ class BookingsApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\ModelApiError',
+                        '\Katanox\Model\ModelApiError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2383,7 +2383,7 @@ class BookingsApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\ModelInternalServerError',
+                        '\Katanox\Model\ModelInternalServerError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2401,7 +2401,7 @@ class BookingsApi
      * @param  string $booking_id The id of the booking (required)
      * @param  string $reservation_id The id of the reservation (required)
      * @param  string $authorization Type &#39;Bearer&#39; and then your API Token (required)
-     * @param  \OpenAPI\Client\Model\HttpReservationUpdateRequest $reservation The reservation body (required)
+     * @param  \Katanox\Model\HttpReservationUpdateRequest $reservation The reservation body (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateReservation'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2425,7 +2425,7 @@ class BookingsApi
      * @param  string $booking_id The id of the booking (required)
      * @param  string $reservation_id The id of the reservation (required)
      * @param  string $authorization Type &#39;Bearer&#39; and then your API Token (required)
-     * @param  \OpenAPI\Client\Model\HttpReservationUpdateRequest $reservation The reservation body (required)
+     * @param  \Katanox\Model\HttpReservationUpdateRequest $reservation The reservation body (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateReservation'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2433,7 +2433,7 @@ class BookingsApi
      */
     public function updateReservationAsyncWithHttpInfo($booking_id, $reservation_id, $authorization, $reservation, string $contentType = self::contentTypes['updateReservation'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\HttpReservationResponse';
+        $returnType = '\Katanox\Model\HttpReservationResponse';
         $request = $this->updateReservationRequest($booking_id, $reservation_id, $authorization, $reservation, $contentType);
 
         return $this->client
@@ -2478,7 +2478,7 @@ class BookingsApi
      * @param  string $booking_id The id of the booking (required)
      * @param  string $reservation_id The id of the reservation (required)
      * @param  string $authorization Type &#39;Bearer&#39; and then your API Token (required)
-     * @param  \OpenAPI\Client\Model\HttpReservationUpdateRequest $reservation The reservation body (required)
+     * @param  \Katanox\Model\HttpReservationUpdateRequest $reservation The reservation body (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateReservation'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException

@@ -5,7 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Katanox
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace Katanox\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \Katanox\ObjectSerializer;
 
 /**
  * HttpBookingData Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Katanox
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -57,7 +57,7 @@ class HttpBookingData implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'booking' => '\OpenAPI\Client\Model\DtoCreatedBooking'
+        'booking' => '\Katanox\Model\DtoCreatedBooking'
     ];
 
     /**
@@ -292,7 +292,7 @@ class HttpBookingData implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets booking
      *
-     * @return \OpenAPI\Client\Model\DtoCreatedBooking|null
+     * @return \Katanox\Model\DtoCreatedBooking|null
      */
     public function getBooking()
     {
@@ -302,7 +302,7 @@ class HttpBookingData implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets booking
      *
-     * @param \OpenAPI\Client\Model\DtoCreatedBooking|null $booking booking
+     * @param \Katanox\Model\DtoCreatedBooking|null $booking booking
      *
      * @return self
      */

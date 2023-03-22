@@ -5,7 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Katanox
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace Katanox\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \Katanox\ObjectSerializer;
 
 /**
  * DtoCreatedBooking Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Katanox
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -58,10 +58,10 @@ class DtoCreatedBooking implements ModelInterface, ArrayAccess, \JsonSerializabl
       */
     protected static $openAPITypes = [
         'comments' => 'string[]',
-        'customer' => '\OpenAPI\Client\Model\DtoPerson',
-        'payment' => '\OpenAPI\Client\Model\DtoPayment',
-        'reservations' => '\OpenAPI\Client\Model\DtoCreatedReservation[]',
-        'total_price' => '\OpenAPI\Client\Model\DtoPrice'
+        'customer' => '\Katanox\Model\DtoPerson',
+        'payment' => '\Katanox\Model\DtoPayment',
+        'reservations' => '\Katanox\Model\DtoCreatedReservation[]',
+        'total_price' => '\Katanox\Model\DtoPrice'
     ];
 
     /**
@@ -347,7 +347,7 @@ class DtoCreatedBooking implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Gets customer
      *
-     * @return \OpenAPI\Client\Model\DtoPerson|null
+     * @return \Katanox\Model\DtoPerson|null
      */
     public function getCustomer()
     {
@@ -357,7 +357,7 @@ class DtoCreatedBooking implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets customer
      *
-     * @param \OpenAPI\Client\Model\DtoPerson|null $customer customer
+     * @param \Katanox\Model\DtoPerson|null $customer customer
      *
      * @return self
      */
@@ -374,7 +374,7 @@ class DtoCreatedBooking implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Gets payment
      *
-     * @return \OpenAPI\Client\Model\DtoPayment|null
+     * @return \Katanox\Model\DtoPayment|null
      */
     public function getPayment()
     {
@@ -384,7 +384,7 @@ class DtoCreatedBooking implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets payment
      *
-     * @param \OpenAPI\Client\Model\DtoPayment|null $payment payment
+     * @param \Katanox\Model\DtoPayment|null $payment payment
      *
      * @return self
      */
@@ -401,7 +401,7 @@ class DtoCreatedBooking implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Gets reservations
      *
-     * @return \OpenAPI\Client\Model\DtoCreatedReservation[]|null
+     * @return \Katanox\Model\DtoCreatedReservation[]|null
      */
     public function getReservations()
     {
@@ -411,7 +411,7 @@ class DtoCreatedBooking implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets reservations
      *
-     * @param \OpenAPI\Client\Model\DtoCreatedReservation[]|null $reservations reservations
+     * @param \Katanox\Model\DtoCreatedReservation[]|null $reservations reservations
      *
      * @return self
      */
@@ -428,7 +428,7 @@ class DtoCreatedBooking implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Gets total_price
      *
-     * @return \OpenAPI\Client\Model\DtoPrice|null
+     * @return \Katanox\Model\DtoPrice|null
      */
     public function getTotalPrice()
     {
@@ -438,7 +438,7 @@ class DtoCreatedBooking implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets total_price
      *
-     * @param \OpenAPI\Client\Model\DtoPrice|null $total_price total_price
+     * @param \Katanox\Model\DtoPrice|null $total_price total_price
      *
      * @return self
      */

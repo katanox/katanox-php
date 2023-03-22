@@ -5,7 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Katanox
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace Katanox\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \Katanox\ObjectSerializer;
 
 /**
  * HttpBookingResponse Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Katanox
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -57,8 +57,8 @@ class HttpBookingResponse implements ModelInterface, ArrayAccess, \JsonSerializa
       * @var string[]
       */
     protected static $openAPITypes = [
-        'data' => '\OpenAPI\Client\Model\HttpBookingData',
-        'links' => '\OpenAPI\Client\Model\HttpBookingAndReservationLinks'
+        'data' => '\Katanox\Model\HttpBookingData',
+        'links' => '\Katanox\Model\HttpBookingAndReservationLinks'
     ];
 
     /**
@@ -299,7 +299,7 @@ class HttpBookingResponse implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Gets data
      *
-     * @return \OpenAPI\Client\Model\HttpBookingData|null
+     * @return \Katanox\Model\HttpBookingData|null
      */
     public function getData()
     {
@@ -309,7 +309,7 @@ class HttpBookingResponse implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets data
      *
-     * @param \OpenAPI\Client\Model\HttpBookingData|null $data data
+     * @param \Katanox\Model\HttpBookingData|null $data data
      *
      * @return self
      */
@@ -326,7 +326,7 @@ class HttpBookingResponse implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Gets links
      *
-     * @return \OpenAPI\Client\Model\HttpBookingAndReservationLinks|null
+     * @return \Katanox\Model\HttpBookingAndReservationLinks|null
      */
     public function getLinks()
     {
@@ -336,7 +336,7 @@ class HttpBookingResponse implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets links
      *
-     * @param \OpenAPI\Client\Model\HttpBookingAndReservationLinks|null $links links
+     * @param \Katanox\Model\HttpBookingAndReservationLinks|null $links links
      *
      * @return self
      */

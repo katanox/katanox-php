@@ -5,7 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Katanox
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace Katanox\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \Katanox\ObjectSerializer;
 
 /**
  * ModelGetPropertyByIdResponse Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Katanox
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -57,7 +57,7 @@ class ModelGetPropertyByIdResponse implements ModelInterface, ArrayAccess, \Json
       * @var string[]
       */
     protected static $openAPITypes = [
-        'data' => '\OpenAPI\Client\Model\ModelPropertyData'
+        'data' => '\Katanox\Model\ModelPropertyData'
     ];
 
     /**
@@ -292,7 +292,7 @@ class ModelGetPropertyByIdResponse implements ModelInterface, ArrayAccess, \Json
     /**
      * Gets data
      *
-     * @return \OpenAPI\Client\Model\ModelPropertyData|null
+     * @return \Katanox\Model\ModelPropertyData|null
      */
     public function getData()
     {
@@ -302,7 +302,7 @@ class ModelGetPropertyByIdResponse implements ModelInterface, ArrayAccess, \Json
     /**
      * Sets data
      *
-     * @param \OpenAPI\Client\Model\ModelPropertyData|null $data data
+     * @param \Katanox\Model\ModelPropertyData|null $data data
      *
      * @return self
      */

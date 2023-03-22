@@ -5,7 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Katanox
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace Katanox\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \Katanox\ObjectSerializer;
 
 /**
  * HttpReservationResponse Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Katanox
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -57,8 +57,8 @@ class HttpReservationResponse implements ModelInterface, ArrayAccess, \JsonSeria
       * @var string[]
       */
     protected static $openAPITypes = [
-        'data' => '\OpenAPI\Client\Model\HttpReservationData',
-        'links' => '\OpenAPI\Client\Model\HttpBookingAndReservationLinks'
+        'data' => '\Katanox\Model\HttpReservationData',
+        'links' => '\Katanox\Model\HttpBookingAndReservationLinks'
     ];
 
     /**
@@ -299,7 +299,7 @@ class HttpReservationResponse implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Gets data
      *
-     * @return \OpenAPI\Client\Model\HttpReservationData|null
+     * @return \Katanox\Model\HttpReservationData|null
      */
     public function getData()
     {
@@ -309,7 +309,7 @@ class HttpReservationResponse implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets data
      *
-     * @param \OpenAPI\Client\Model\HttpReservationData|null $data data
+     * @param \Katanox\Model\HttpReservationData|null $data data
      *
      * @return self
      */
@@ -326,7 +326,7 @@ class HttpReservationResponse implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Gets links
      *
-     * @return \OpenAPI\Client\Model\HttpBookingAndReservationLinks|null
+     * @return \Katanox\Model\HttpBookingAndReservationLinks|null
      */
     public function getLinks()
     {
@@ -336,7 +336,7 @@ class HttpReservationResponse implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets links
      *
-     * @param \OpenAPI\Client\Model\HttpBookingAndReservationLinks|null $links links
+     * @param \Katanox\Model\HttpBookingAndReservationLinks|null $links links
      *
      * @return self
      */

@@ -5,7 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Katanox
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace Katanox\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \Katanox\ObjectSerializer;
 
 /**
  * DtoReservation Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Katanox
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -58,14 +58,14 @@ class DtoReservation implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPITypes = [
         'adults' => 'int',
-        'cancellation_policies' => '\OpenAPI\Client\Model\DtoCancellationPolicy[]',
+        'cancellation_policies' => '\Katanox\Model\DtoCancellationPolicy[]',
         'check_in' => '\DateTime',
         'check_out' => '\DateTime',
         'children' => 'int',
         'comments' => 'string[]',
-        'guests' => '\OpenAPI\Client\Model\DtoPerson[]',
-        'no_show_policy' => '\OpenAPI\Client\Model\DtoNoShowPolicy',
-        'price' => '\OpenAPI\Client\Model\DtoPrice',
+        'guests' => '\Katanox\Model\DtoPerson[]',
+        'no_show_policy' => '\Katanox\Model\DtoNoShowPolicy',
+        'price' => '\Katanox\Model\DtoPrice',
         'status' => 'string'
     ];
 
@@ -418,7 +418,7 @@ class DtoReservation implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets cancellation_policies
      *
-     * @return \OpenAPI\Client\Model\DtoCancellationPolicy[]|null
+     * @return \Katanox\Model\DtoCancellationPolicy[]|null
      */
     public function getCancellationPolicies()
     {
@@ -428,7 +428,7 @@ class DtoReservation implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets cancellation_policies
      *
-     * @param \OpenAPI\Client\Model\DtoCancellationPolicy[]|null $cancellation_policies cancellation_policies
+     * @param \Katanox\Model\DtoCancellationPolicy[]|null $cancellation_policies cancellation_policies
      *
      * @return self
      */
@@ -553,7 +553,7 @@ class DtoReservation implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets guests
      *
-     * @return \OpenAPI\Client\Model\DtoPerson[]|null
+     * @return \Katanox\Model\DtoPerson[]|null
      */
     public function getGuests()
     {
@@ -563,7 +563,7 @@ class DtoReservation implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets guests
      *
-     * @param \OpenAPI\Client\Model\DtoPerson[]|null $guests guests
+     * @param \Katanox\Model\DtoPerson[]|null $guests guests
      *
      * @return self
      */
@@ -580,7 +580,7 @@ class DtoReservation implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets no_show_policy
      *
-     * @return \OpenAPI\Client\Model\DtoNoShowPolicy|null
+     * @return \Katanox\Model\DtoNoShowPolicy|null
      */
     public function getNoShowPolicy()
     {
@@ -590,7 +590,7 @@ class DtoReservation implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets no_show_policy
      *
-     * @param \OpenAPI\Client\Model\DtoNoShowPolicy|null $no_show_policy no_show_policy
+     * @param \Katanox\Model\DtoNoShowPolicy|null $no_show_policy no_show_policy
      *
      * @return self
      */
@@ -607,7 +607,7 @@ class DtoReservation implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets price
      *
-     * @return \OpenAPI\Client\Model\DtoPrice|null
+     * @return \Katanox\Model\DtoPrice|null
      */
     public function getPrice()
     {
@@ -617,7 +617,7 @@ class DtoReservation implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets price
      *
-     * @param \OpenAPI\Client\Model\DtoPrice|null $price price
+     * @param \Katanox\Model\DtoPrice|null $price price
      *
      * @return self
      */

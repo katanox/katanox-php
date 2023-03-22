@@ -5,7 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Katanox
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace Katanox\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \Katanox\ObjectSerializer;
 
 /**
  * ModelGetPropertiesResponse Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Katanox
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -57,9 +57,9 @@ class ModelGetPropertiesResponse implements ModelInterface, ArrayAccess, \JsonSe
       * @var string[]
       */
     protected static $openAPITypes = [
-        'data' => '\OpenAPI\Client\Model\ModelPropertiesData',
-        'links' => '\OpenAPI\Client\Model\ModelPage',
-        'meta' => '\OpenAPI\Client\Model\ModelPropertiesMeta'
+        'data' => '\Katanox\Model\ModelPropertiesData',
+        'links' => '\Katanox\Model\ModelPage',
+        'meta' => '\Katanox\Model\ModelPropertiesMeta'
     ];
 
     /**
@@ -306,7 +306,7 @@ class ModelGetPropertiesResponse implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets data
      *
-     * @return \OpenAPI\Client\Model\ModelPropertiesData|null
+     * @return \Katanox\Model\ModelPropertiesData|null
      */
     public function getData()
     {
@@ -316,7 +316,7 @@ class ModelGetPropertiesResponse implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets data
      *
-     * @param \OpenAPI\Client\Model\ModelPropertiesData|null $data data
+     * @param \Katanox\Model\ModelPropertiesData|null $data data
      *
      * @return self
      */
@@ -333,7 +333,7 @@ class ModelGetPropertiesResponse implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets links
      *
-     * @return \OpenAPI\Client\Model\ModelPage|null
+     * @return \Katanox\Model\ModelPage|null
      */
     public function getLinks()
     {
@@ -343,7 +343,7 @@ class ModelGetPropertiesResponse implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets links
      *
-     * @param \OpenAPI\Client\Model\ModelPage|null $links links
+     * @param \Katanox\Model\ModelPage|null $links links
      *
      * @return self
      */
@@ -360,7 +360,7 @@ class ModelGetPropertiesResponse implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets meta
      *
-     * @return \OpenAPI\Client\Model\ModelPropertiesMeta|null
+     * @return \Katanox\Model\ModelPropertiesMeta|null
      */
     public function getMeta()
     {
@@ -370,7 +370,7 @@ class ModelGetPropertiesResponse implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets meta
      *
-     * @param \OpenAPI\Client\Model\ModelPropertiesMeta|null $meta meta
+     * @param \Katanox\Model\ModelPropertiesMeta|null $meta meta
      *
      * @return self
      */

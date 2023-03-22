@@ -1,4 +1,4 @@
-# OpenAPI\Client\PropertiesApi
+# Katanox\PropertiesApi
 
 All URIs are relative to https://api.katanox.com/v2, except if the operation defines another base path.
 
@@ -13,7 +13,7 @@ All URIs are relative to https://api.katanox.com/v2, except if the operation def
 ## `getProperties()`
 
 ```php
-getProperties($authorization, $property_ids): \OpenAPI\Client\Model\ModelGetPropertiesResponse
+getProperties($authorization, $property_ids): \Katanox\Model\ModelGetPropertiesResponse
 ```
 
 Retrieve the list of contracted properties
@@ -26,7 +26,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\PropertiesApi(
+$apiInstance = new Katanox\Api\PropertiesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -51,7 +51,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\ModelGetPropertiesResponse**](../Model/ModelGetPropertiesResponse.md)
+[**\Katanox\Model\ModelGetPropertiesResponse**](../Model/ModelGetPropertiesResponse.md)
 
 ### Authorization
 
@@ -69,7 +69,7 @@ No authorization required
 ## `getPropertyById()`
 
 ```php
-getPropertyById($id, $authorization): \OpenAPI\Client\Model\ModelGetPropertyByIdResponse
+getPropertyById($id, $authorization): \Katanox\Model\ModelGetPropertyByIdResponse
 ```
 
 Retrieve a property by id
@@ -82,7 +82,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\PropertiesApi(
+$apiInstance = new Katanox\Api\PropertiesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -107,7 +107,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\ModelGetPropertyByIdResponse**](../Model/ModelGetPropertyByIdResponse.md)
+[**\Katanox\Model\ModelGetPropertyByIdResponse**](../Model/ModelGetPropertyByIdResponse.md)
 
 ### Authorization
 
@@ -125,7 +125,7 @@ No authorization required
 ## `getRateplanById()`
 
 ```php
-getRateplanById($property_id, $id, $authorization): \OpenAPI\Client\Model\ModelGetRatePlanByIdResponse
+getRateplanById($property_id, $id, $authorization): \Katanox\Model\ModelGetRatePlanByIdResponse
 ```
 
 Retrieve a rate plan by id
@@ -138,7 +138,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\PropertiesApi(
+$apiInstance = new Katanox\Api\PropertiesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -165,7 +165,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\ModelGetRatePlanByIdResponse**](../Model/ModelGetRatePlanByIdResponse.md)
+[**\Katanox\Model\ModelGetRatePlanByIdResponse**](../Model/ModelGetRatePlanByIdResponse.md)
 
 ### Authorization
 
@@ -183,7 +183,7 @@ No authorization required
 ## `getUnitById()`
 
 ```php
-getUnitById($property_id, $id, $authorization): \OpenAPI\Client\Model\ModelGetUnitByIdResponse
+getUnitById($property_id, $id, $authorization): \Katanox\Model\ModelGetUnitByIdResponse
 ```
 
 Retrieve a unit by id
@@ -196,7 +196,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\PropertiesApi(
+$apiInstance = new Katanox\Api\PropertiesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -223,7 +223,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\ModelGetUnitByIdResponse**](../Model/ModelGetUnitByIdResponse.md)
+[**\Katanox\Model\ModelGetUnitByIdResponse**](../Model/ModelGetUnitByIdResponse.md)
 
 ### Authorization
 

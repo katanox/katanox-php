@@ -4,7 +4,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Katanox
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -25,7 +25,7 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Api;
+namespace Katanox\Api;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -34,16 +34,16 @@ use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
-use OpenAPI\Client\ApiException;
-use OpenAPI\Client\Configuration;
-use OpenAPI\Client\HeaderSelector;
-use OpenAPI\Client\ObjectSerializer;
+use Katanox\ApiException;
+use Katanox\Configuration;
+use Katanox\HeaderSelector;
+use Katanox\ObjectSerializer;
 
 /**
  * OfferApi Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Katanox
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -134,7 +134,7 @@ class OfferApi
      * @param  string $authorization Type &#39;Bearer&#39; and then your API Token (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['offerRefresh'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Katanox\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
@@ -152,7 +152,7 @@ class OfferApi
      * @param  string $authorization Type &#39;Bearer&#39; and then your API Token (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['offerRefresh'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Katanox\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
@@ -202,7 +202,7 @@ class OfferApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\ModelApiError',
+                        '\Katanox\Model\ModelApiError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -210,7 +210,7 @@ class OfferApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\ModelInternalServerError',
+                        '\Katanox\Model\ModelInternalServerError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -395,9 +395,9 @@ class OfferApi
      * @param  string $authorization Type &#39;Bearer&#39; and then your API Token (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['offerValidate'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Katanox\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\OfferGetOfferResponse|\OpenAPI\Client\Model\ModelApiError|\OpenAPI\Client\Model\ModelInternalServerError
+     * @return \Katanox\Model\OfferGetOfferResponse|\Katanox\Model\ModelApiError|\Katanox\Model\ModelInternalServerError
      */
     public function offerValidate($offer_id, $authorization, string $contentType = self::contentTypes['offerValidate'][0])
     {
@@ -414,9 +414,9 @@ class OfferApi
      * @param  string $authorization Type &#39;Bearer&#39; and then your API Token (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['offerValidate'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Katanox\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\OfferGetOfferResponse|\OpenAPI\Client\Model\ModelApiError|\OpenAPI\Client\Model\ModelInternalServerError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Katanox\Model\OfferGetOfferResponse|\Katanox\Model\ModelApiError|\Katanox\Model\ModelInternalServerError, HTTP status code, HTTP response headers (array of strings)
      */
     public function offerValidateWithHttpInfo($offer_id, $authorization, string $contentType = self::contentTypes['offerValidate'][0])
     {
@@ -459,53 +459,53 @@ class OfferApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\OfferGetOfferResponse' === '\SplFileObject') {
+                    if ('\Katanox\Model\OfferGetOfferResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\OfferGetOfferResponse' !== 'string') {
+                        if ('\Katanox\Model\OfferGetOfferResponse' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\OfferGetOfferResponse', []),
+                        ObjectSerializer::deserialize($content, '\Katanox\Model\OfferGetOfferResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 404:
-                    if ('\OpenAPI\Client\Model\ModelApiError' === '\SplFileObject') {
+                    if ('\Katanox\Model\ModelApiError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\ModelApiError' !== 'string') {
+                        if ('\Katanox\Model\ModelApiError' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ModelApiError', []),
+                        ObjectSerializer::deserialize($content, '\Katanox\Model\ModelApiError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 500:
-                    if ('\OpenAPI\Client\Model\ModelInternalServerError' === '\SplFileObject') {
+                    if ('\Katanox\Model\ModelInternalServerError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\ModelInternalServerError' !== 'string') {
+                        if ('\Katanox\Model\ModelInternalServerError' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ModelInternalServerError', []),
+                        ObjectSerializer::deserialize($content, '\Katanox\Model\ModelInternalServerError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\OfferGetOfferResponse';
+            $returnType = '\Katanox\Model\OfferGetOfferResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -526,7 +526,7 @@ class OfferApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\OfferGetOfferResponse',
+                        '\Katanox\Model\OfferGetOfferResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -534,7 +534,7 @@ class OfferApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\ModelApiError',
+                        '\Katanox\Model\ModelApiError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -542,7 +542,7 @@ class OfferApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\ModelInternalServerError',
+                        '\Katanox\Model\ModelInternalServerError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -588,7 +588,7 @@ class OfferApi
      */
     public function offerValidateAsyncWithHttpInfo($offer_id, $authorization, string $contentType = self::contentTypes['offerValidate'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\OfferGetOfferResponse';
+        $returnType = '\Katanox\Model\OfferGetOfferResponse';
         $request = $this->offerValidateRequest($offer_id, $authorization, $contentType);
 
         return $this->client

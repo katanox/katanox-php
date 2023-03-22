@@ -5,7 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Katanox
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace Katanox\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \Katanox\ObjectSerializer;
 
 /**
  * DtoProperty Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Katanox
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -59,7 +59,7 @@ class DtoProperty implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPITypes = [
         'address_line_1' => 'string',
         'address_line_2' => 'string',
-        'cancellation_policies' => '\OpenAPI\Client\Model\DtoCancellationPolicy[]',
+        'cancellation_policies' => '\Katanox\Model\DtoCancellationPolicy[]',
         'check_in_time' => 'string',
         'check_out_time' => 'string',
         'city' => 'string',
@@ -67,20 +67,20 @@ class DtoProperty implements ModelInterface, ArrayAccess, \JsonSerializable
         'currency' => 'string',
         'description' => 'string',
         'email' => 'string',
-        'facilities' => '\OpenAPI\Client\Model\DtoFacility[]',
+        'facilities' => '\Katanox\Model\DtoFacility[]',
         'id' => 'string',
-        'images' => '\OpenAPI\Client\Model\DtoPropertyImage[]',
-        'location' => '\OpenAPI\Client\Model\GeopointGeoPoint',
+        'images' => '\Katanox\Model\DtoPropertyImage[]',
+        'location' => '\Katanox\Model\GeopointGeoPoint',
         'name' => 'string',
-        'no_show_policies' => '\OpenAPI\Client\Model\DtoNoShowPolicy[]',
+        'no_show_policies' => '\Katanox\Model\DtoNoShowPolicy[]',
         'number_of_units' => 'int',
         'phone_number' => 'string',
         'postcode' => 'string',
-        'prices' => '\OpenAPI\Client\Model\AvailabilityAvailabilityAndPrice[]',
-        'rate_plans' => '\OpenAPI\Client\Model\DtoRatePlan[]',
+        'prices' => '\Katanox\Model\AvailabilityAvailabilityAndPrice[]',
+        'rate_plans' => '\Katanox\Model\DtoRatePlan[]',
         'star_rating' => 'int',
-        'translations' => '\OpenAPI\Client\Model\DtoI18NProperty[]',
-        'units' => '\OpenAPI\Client\Model\DtoUnit[]'
+        'translations' => '\Katanox\Model\DtoI18NProperty[]',
+        'units' => '\Katanox\Model\DtoUnit[]'
     ];
 
     /**
@@ -507,7 +507,7 @@ class DtoProperty implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets cancellation_policies
      *
-     * @return \OpenAPI\Client\Model\DtoCancellationPolicy[]|null
+     * @return \Katanox\Model\DtoCancellationPolicy[]|null
      */
     public function getCancellationPolicies()
     {
@@ -517,7 +517,7 @@ class DtoProperty implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets cancellation_policies
      *
-     * @param \OpenAPI\Client\Model\DtoCancellationPolicy[]|null $cancellation_policies cancellation_policies
+     * @param \Katanox\Model\DtoCancellationPolicy[]|null $cancellation_policies cancellation_policies
      *
      * @return self
      */
@@ -723,7 +723,7 @@ class DtoProperty implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets facilities
      *
-     * @return \OpenAPI\Client\Model\DtoFacility[]|null
+     * @return \Katanox\Model\DtoFacility[]|null
      */
     public function getFacilities()
     {
@@ -733,7 +733,7 @@ class DtoProperty implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets facilities
      *
-     * @param \OpenAPI\Client\Model\DtoFacility[]|null $facilities facilities
+     * @param \Katanox\Model\DtoFacility[]|null $facilities facilities
      *
      * @return self
      */
@@ -777,7 +777,7 @@ class DtoProperty implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets images
      *
-     * @return \OpenAPI\Client\Model\DtoPropertyImage[]|null
+     * @return \Katanox\Model\DtoPropertyImage[]|null
      */
     public function getImages()
     {
@@ -787,7 +787,7 @@ class DtoProperty implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets images
      *
-     * @param \OpenAPI\Client\Model\DtoPropertyImage[]|null $images images
+     * @param \Katanox\Model\DtoPropertyImage[]|null $images images
      *
      * @return self
      */
@@ -804,7 +804,7 @@ class DtoProperty implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets location
      *
-     * @return \OpenAPI\Client\Model\GeopointGeoPoint|null
+     * @return \Katanox\Model\GeopointGeoPoint|null
      */
     public function getLocation()
     {
@@ -814,7 +814,7 @@ class DtoProperty implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets location
      *
-     * @param \OpenAPI\Client\Model\GeopointGeoPoint|null $location location
+     * @param \Katanox\Model\GeopointGeoPoint|null $location location
      *
      * @return self
      */
@@ -858,7 +858,7 @@ class DtoProperty implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets no_show_policies
      *
-     * @return \OpenAPI\Client\Model\DtoNoShowPolicy[]|null
+     * @return \Katanox\Model\DtoNoShowPolicy[]|null
      */
     public function getNoShowPolicies()
     {
@@ -868,7 +868,7 @@ class DtoProperty implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets no_show_policies
      *
-     * @param \OpenAPI\Client\Model\DtoNoShowPolicy[]|null $no_show_policies no_show_policies
+     * @param \Katanox\Model\DtoNoShowPolicy[]|null $no_show_policies no_show_policies
      *
      * @return self
      */
@@ -966,7 +966,7 @@ class DtoProperty implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets prices
      *
-     * @return \OpenAPI\Client\Model\AvailabilityAvailabilityAndPrice[]|null
+     * @return \Katanox\Model\AvailabilityAvailabilityAndPrice[]|null
      */
     public function getPrices()
     {
@@ -976,7 +976,7 @@ class DtoProperty implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets prices
      *
-     * @param \OpenAPI\Client\Model\AvailabilityAvailabilityAndPrice[]|null $prices prices
+     * @param \Katanox\Model\AvailabilityAvailabilityAndPrice[]|null $prices prices
      *
      * @return self
      */
@@ -993,7 +993,7 @@ class DtoProperty implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets rate_plans
      *
-     * @return \OpenAPI\Client\Model\DtoRatePlan[]|null
+     * @return \Katanox\Model\DtoRatePlan[]|null
      */
     public function getRatePlans()
     {
@@ -1003,7 +1003,7 @@ class DtoProperty implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets rate_plans
      *
-     * @param \OpenAPI\Client\Model\DtoRatePlan[]|null $rate_plans rate_plans
+     * @param \Katanox\Model\DtoRatePlan[]|null $rate_plans rate_plans
      *
      * @return self
      */
@@ -1047,7 +1047,7 @@ class DtoProperty implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets translations
      *
-     * @return \OpenAPI\Client\Model\DtoI18NProperty[]|null
+     * @return \Katanox\Model\DtoI18NProperty[]|null
      */
     public function getTranslations()
     {
@@ -1057,7 +1057,7 @@ class DtoProperty implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets translations
      *
-     * @param \OpenAPI\Client\Model\DtoI18NProperty[]|null $translations translations
+     * @param \Katanox\Model\DtoI18NProperty[]|null $translations translations
      *
      * @return self
      */
@@ -1074,7 +1074,7 @@ class DtoProperty implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets units
      *
-     * @return \OpenAPI\Client\Model\DtoUnit[]|null
+     * @return \Katanox\Model\DtoUnit[]|null
      */
     public function getUnits()
     {
@@ -1084,7 +1084,7 @@ class DtoProperty implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets units
      *
-     * @param \OpenAPI\Client\Model\DtoUnit[]|null $units units
+     * @param \Katanox\Model\DtoUnit[]|null $units units
      *
      * @return self
      */

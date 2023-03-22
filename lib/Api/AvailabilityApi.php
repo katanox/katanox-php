@@ -4,7 +4,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Katanox
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -25,7 +25,7 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Api;
+namespace Katanox\Api;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -34,16 +34,16 @@ use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
-use OpenAPI\Client\ApiException;
-use OpenAPI\Client\Configuration;
-use OpenAPI\Client\HeaderSelector;
-use OpenAPI\Client\ObjectSerializer;
+use Katanox\ApiException;
+use Katanox\Configuration;
+use Katanox\HeaderSelector;
+use Katanox\ObjectSerializer;
 
 /**
  * AvailabilityApi Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Katanox
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -142,9 +142,9 @@ class AvailabilityApi
      * @param  int $limit Number of results per page. The maximum value of the limit is 50. (optional, default to 10)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAvailableProperties'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Katanox\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\ModelGetAvailabilityResponse|\OpenAPI\Client\Model\ModelApiError|\OpenAPI\Client\Model\ModelInternalServerError
+     * @return \Katanox\Model\ModelGetAvailabilityResponse|\Katanox\Model\ModelApiError|\Katanox\Model\ModelInternalServerError
      */
     public function getAvailableProperties($check_in, $check_out, $authorization, $adults = 1, $children = 0, $lat = null, $lng = null, $radius = 2000, $property_ids = null, $negotiated_rate_plans = null, $number_of_units = 1, $page = 0, $limit = 10, string $contentType = self::contentTypes['getAvailableProperties'][0])
     {
@@ -172,9 +172,9 @@ class AvailabilityApi
      * @param  int $limit Number of results per page. The maximum value of the limit is 50. (optional, default to 10)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAvailableProperties'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Katanox\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\ModelGetAvailabilityResponse|\OpenAPI\Client\Model\ModelApiError|\OpenAPI\Client\Model\ModelInternalServerError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Katanox\Model\ModelGetAvailabilityResponse|\Katanox\Model\ModelApiError|\Katanox\Model\ModelInternalServerError, HTTP status code, HTTP response headers (array of strings)
      */
     public function getAvailablePropertiesWithHttpInfo($check_in, $check_out, $authorization, $adults = 1, $children = 0, $lat = null, $lng = null, $radius = 2000, $property_ids = null, $negotiated_rate_plans = null, $number_of_units = 1, $page = 0, $limit = 10, string $contentType = self::contentTypes['getAvailableProperties'][0])
     {
@@ -217,53 +217,53 @@ class AvailabilityApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\ModelGetAvailabilityResponse' === '\SplFileObject') {
+                    if ('\Katanox\Model\ModelGetAvailabilityResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\ModelGetAvailabilityResponse' !== 'string') {
+                        if ('\Katanox\Model\ModelGetAvailabilityResponse' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ModelGetAvailabilityResponse', []),
+                        ObjectSerializer::deserialize($content, '\Katanox\Model\ModelGetAvailabilityResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('\OpenAPI\Client\Model\ModelApiError' === '\SplFileObject') {
+                    if ('\Katanox\Model\ModelApiError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\ModelApiError' !== 'string') {
+                        if ('\Katanox\Model\ModelApiError' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ModelApiError', []),
+                        ObjectSerializer::deserialize($content, '\Katanox\Model\ModelApiError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 500:
-                    if ('\OpenAPI\Client\Model\ModelInternalServerError' === '\SplFileObject') {
+                    if ('\Katanox\Model\ModelInternalServerError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\ModelInternalServerError' !== 'string') {
+                        if ('\Katanox\Model\ModelInternalServerError' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ModelInternalServerError', []),
+                        ObjectSerializer::deserialize($content, '\Katanox\Model\ModelInternalServerError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\ModelGetAvailabilityResponse';
+            $returnType = '\Katanox\Model\ModelGetAvailabilityResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -284,7 +284,7 @@ class AvailabilityApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\ModelGetAvailabilityResponse',
+                        '\Katanox\Model\ModelGetAvailabilityResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -292,7 +292,7 @@ class AvailabilityApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\ModelApiError',
+                        '\Katanox\Model\ModelApiError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -300,7 +300,7 @@ class AvailabilityApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\ModelInternalServerError',
+                        '\Katanox\Model\ModelInternalServerError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -368,7 +368,7 @@ class AvailabilityApi
      */
     public function getAvailablePropertiesAsyncWithHttpInfo($check_in, $check_out, $authorization, $adults = 1, $children = 0, $lat = null, $lng = null, $radius = 2000, $property_ids = null, $negotiated_rate_plans = null, $number_of_units = 1, $page = 0, $limit = 10, string $contentType = self::contentTypes['getAvailableProperties'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\ModelGetAvailabilityResponse';
+        $returnType = '\Katanox\Model\ModelGetAvailabilityResponse';
         $request = $this->getAvailablePropertiesRequest($check_in, $check_out, $authorization, $adults, $children, $lat, $lng, $radius, $property_ids, $negotiated_rate_plans, $number_of_units, $page, $limit, $contentType);
 
         return $this->client

@@ -5,7 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Katanox
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace Katanox\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \Katanox\ObjectSerializer;
 
 /**
  * DtoRatePlan Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Katanox
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -57,15 +57,15 @@ class DtoRatePlan implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'cancellation_policies' => '\OpenAPI\Client\Model\DtoCancellationPolicy[]',
+        'cancellation_policies' => '\Katanox\Model\DtoCancellationPolicy[]',
         'description' => 'string',
         'id' => 'string',
         'meals' => 'string',
         'name' => 'string',
-        'no_show_policy' => '\OpenAPI\Client\Model\DtoNoShowPolicy',
+        'no_show_policy' => '\Katanox\Model\DtoNoShowPolicy',
         'property_id' => 'string',
-        'services' => '\OpenAPI\Client\Model\DtoRatePlanService[]',
-        'translations' => '\OpenAPI\Client\Model\DtoI18NRatePlan[]'
+        'services' => '\Katanox\Model\DtoRatePlanService[]',
+        'translations' => '\Katanox\Model\DtoI18NRatePlan[]'
     ];
 
     /**
@@ -348,7 +348,7 @@ class DtoRatePlan implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets cancellation_policies
      *
-     * @return \OpenAPI\Client\Model\DtoCancellationPolicy[]|null
+     * @return \Katanox\Model\DtoCancellationPolicy[]|null
      */
     public function getCancellationPolicies()
     {
@@ -358,7 +358,7 @@ class DtoRatePlan implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets cancellation_policies
      *
-     * @param \OpenAPI\Client\Model\DtoCancellationPolicy[]|null $cancellation_policies cancellation_policies
+     * @param \Katanox\Model\DtoCancellationPolicy[]|null $cancellation_policies cancellation_policies
      *
      * @return self
      */
@@ -483,7 +483,7 @@ class DtoRatePlan implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets no_show_policy
      *
-     * @return \OpenAPI\Client\Model\DtoNoShowPolicy|null
+     * @return \Katanox\Model\DtoNoShowPolicy|null
      */
     public function getNoShowPolicy()
     {
@@ -493,7 +493,7 @@ class DtoRatePlan implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets no_show_policy
      *
-     * @param \OpenAPI\Client\Model\DtoNoShowPolicy|null $no_show_policy no_show_policy
+     * @param \Katanox\Model\DtoNoShowPolicy|null $no_show_policy no_show_policy
      *
      * @return self
      */
@@ -537,7 +537,7 @@ class DtoRatePlan implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets services
      *
-     * @return \OpenAPI\Client\Model\DtoRatePlanService[]|null
+     * @return \Katanox\Model\DtoRatePlanService[]|null
      */
     public function getServices()
     {
@@ -547,7 +547,7 @@ class DtoRatePlan implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets services
      *
-     * @param \OpenAPI\Client\Model\DtoRatePlanService[]|null $services services
+     * @param \Katanox\Model\DtoRatePlanService[]|null $services services
      *
      * @return self
      */
@@ -564,7 +564,7 @@ class DtoRatePlan implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets translations
      *
-     * @return \OpenAPI\Client\Model\DtoI18NRatePlan[]|null
+     * @return \Katanox\Model\DtoI18NRatePlan[]|null
      */
     public function getTranslations()
     {
@@ -574,7 +574,7 @@ class DtoRatePlan implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets translations
      *
-     * @param \OpenAPI\Client\Model\DtoI18NRatePlan[]|null $translations translations
+     * @param \Katanox\Model\DtoI18NRatePlan[]|null $translations translations
      *
      * @return self
      */

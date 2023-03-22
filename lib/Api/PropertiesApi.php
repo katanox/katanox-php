@@ -4,7 +4,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Katanox
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -25,7 +25,7 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Api;
+namespace Katanox\Api;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -34,16 +34,16 @@ use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
-use OpenAPI\Client\ApiException;
-use OpenAPI\Client\Configuration;
-use OpenAPI\Client\HeaderSelector;
-use OpenAPI\Client\ObjectSerializer;
+use Katanox\ApiException;
+use Katanox\Configuration;
+use Katanox\HeaderSelector;
+use Katanox\ObjectSerializer;
 
 /**
  * PropertiesApi Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Katanox
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -140,9 +140,9 @@ class PropertiesApi
      * @param  string[] $property_ids List of property IDs to be included. When specified, only these properties will be included in the response. The maximum size of this list is 50. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProperties'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Katanox\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\ModelGetPropertiesResponse|\OpenAPI\Client\Model\ModelApiError|\OpenAPI\Client\Model\ModelInternalServerError
+     * @return \Katanox\Model\ModelGetPropertiesResponse|\Katanox\Model\ModelApiError|\Katanox\Model\ModelInternalServerError
      */
     public function getProperties($authorization, $property_ids = null, string $contentType = self::contentTypes['getProperties'][0])
     {
@@ -159,9 +159,9 @@ class PropertiesApi
      * @param  string[] $property_ids List of property IDs to be included. When specified, only these properties will be included in the response. The maximum size of this list is 50. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProperties'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Katanox\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\ModelGetPropertiesResponse|\OpenAPI\Client\Model\ModelApiError|\OpenAPI\Client\Model\ModelInternalServerError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Katanox\Model\ModelGetPropertiesResponse|\Katanox\Model\ModelApiError|\Katanox\Model\ModelInternalServerError, HTTP status code, HTTP response headers (array of strings)
      */
     public function getPropertiesWithHttpInfo($authorization, $property_ids = null, string $contentType = self::contentTypes['getProperties'][0])
     {
@@ -204,53 +204,53 @@ class PropertiesApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\ModelGetPropertiesResponse' === '\SplFileObject') {
+                    if ('\Katanox\Model\ModelGetPropertiesResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\ModelGetPropertiesResponse' !== 'string') {
+                        if ('\Katanox\Model\ModelGetPropertiesResponse' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ModelGetPropertiesResponse', []),
+                        ObjectSerializer::deserialize($content, '\Katanox\Model\ModelGetPropertiesResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('\OpenAPI\Client\Model\ModelApiError' === '\SplFileObject') {
+                    if ('\Katanox\Model\ModelApiError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\ModelApiError' !== 'string') {
+                        if ('\Katanox\Model\ModelApiError' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ModelApiError', []),
+                        ObjectSerializer::deserialize($content, '\Katanox\Model\ModelApiError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 500:
-                    if ('\OpenAPI\Client\Model\ModelInternalServerError' === '\SplFileObject') {
+                    if ('\Katanox\Model\ModelInternalServerError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\ModelInternalServerError' !== 'string') {
+                        if ('\Katanox\Model\ModelInternalServerError' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ModelInternalServerError', []),
+                        ObjectSerializer::deserialize($content, '\Katanox\Model\ModelInternalServerError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\ModelGetPropertiesResponse';
+            $returnType = '\Katanox\Model\ModelGetPropertiesResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -271,7 +271,7 @@ class PropertiesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\ModelGetPropertiesResponse',
+                        '\Katanox\Model\ModelGetPropertiesResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -279,7 +279,7 @@ class PropertiesApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\ModelApiError',
+                        '\Katanox\Model\ModelApiError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -287,7 +287,7 @@ class PropertiesApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\ModelInternalServerError',
+                        '\Katanox\Model\ModelInternalServerError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -333,7 +333,7 @@ class PropertiesApi
      */
     public function getPropertiesAsyncWithHttpInfo($authorization, $property_ids = null, string $contentType = self::contentTypes['getProperties'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\ModelGetPropertiesResponse';
+        $returnType = '\Katanox\Model\ModelGetPropertiesResponse';
         $request = $this->getPropertiesRequest($authorization, $property_ids, $contentType);
 
         return $this->client
@@ -480,9 +480,9 @@ class PropertiesApi
      * @param  string $authorization Type &#39;Bearer&#39; and then your API Token (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPropertyById'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Katanox\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\ModelGetPropertyByIdResponse|\OpenAPI\Client\Model\ModelApiError|\OpenAPI\Client\Model\ModelApiError|\OpenAPI\Client\Model\ModelInternalServerError
+     * @return \Katanox\Model\ModelGetPropertyByIdResponse|\Katanox\Model\ModelApiError|\Katanox\Model\ModelApiError|\Katanox\Model\ModelInternalServerError
      */
     public function getPropertyById($id, $authorization, string $contentType = self::contentTypes['getPropertyById'][0])
     {
@@ -499,9 +499,9 @@ class PropertiesApi
      * @param  string $authorization Type &#39;Bearer&#39; and then your API Token (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPropertyById'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Katanox\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\ModelGetPropertyByIdResponse|\OpenAPI\Client\Model\ModelApiError|\OpenAPI\Client\Model\ModelApiError|\OpenAPI\Client\Model\ModelInternalServerError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Katanox\Model\ModelGetPropertyByIdResponse|\Katanox\Model\ModelApiError|\Katanox\Model\ModelApiError|\Katanox\Model\ModelInternalServerError, HTTP status code, HTTP response headers (array of strings)
      */
     public function getPropertyByIdWithHttpInfo($id, $authorization, string $contentType = self::contentTypes['getPropertyById'][0])
     {
@@ -544,68 +544,68 @@ class PropertiesApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\ModelGetPropertyByIdResponse' === '\SplFileObject') {
+                    if ('\Katanox\Model\ModelGetPropertyByIdResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\ModelGetPropertyByIdResponse' !== 'string') {
+                        if ('\Katanox\Model\ModelGetPropertyByIdResponse' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ModelGetPropertyByIdResponse', []),
+                        ObjectSerializer::deserialize($content, '\Katanox\Model\ModelGetPropertyByIdResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 403:
-                    if ('\OpenAPI\Client\Model\ModelApiError' === '\SplFileObject') {
+                    if ('\Katanox\Model\ModelApiError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\ModelApiError' !== 'string') {
+                        if ('\Katanox\Model\ModelApiError' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ModelApiError', []),
+                        ObjectSerializer::deserialize($content, '\Katanox\Model\ModelApiError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 404:
-                    if ('\OpenAPI\Client\Model\ModelApiError' === '\SplFileObject') {
+                    if ('\Katanox\Model\ModelApiError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\ModelApiError' !== 'string') {
+                        if ('\Katanox\Model\ModelApiError' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ModelApiError', []),
+                        ObjectSerializer::deserialize($content, '\Katanox\Model\ModelApiError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 500:
-                    if ('\OpenAPI\Client\Model\ModelInternalServerError' === '\SplFileObject') {
+                    if ('\Katanox\Model\ModelInternalServerError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\ModelInternalServerError' !== 'string') {
+                        if ('\Katanox\Model\ModelInternalServerError' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ModelInternalServerError', []),
+                        ObjectSerializer::deserialize($content, '\Katanox\Model\ModelInternalServerError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\ModelGetPropertyByIdResponse';
+            $returnType = '\Katanox\Model\ModelGetPropertyByIdResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -626,7 +626,7 @@ class PropertiesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\ModelGetPropertyByIdResponse',
+                        '\Katanox\Model\ModelGetPropertyByIdResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -634,7 +634,7 @@ class PropertiesApi
                 case 403:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\ModelApiError',
+                        '\Katanox\Model\ModelApiError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -642,7 +642,7 @@ class PropertiesApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\ModelApiError',
+                        '\Katanox\Model\ModelApiError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -650,7 +650,7 @@ class PropertiesApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\ModelInternalServerError',
+                        '\Katanox\Model\ModelInternalServerError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -696,7 +696,7 @@ class PropertiesApi
      */
     public function getPropertyByIdAsyncWithHttpInfo($id, $authorization, string $contentType = self::contentTypes['getPropertyById'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\ModelGetPropertyByIdResponse';
+        $returnType = '\Katanox\Model\ModelGetPropertyByIdResponse';
         $request = $this->getPropertyByIdRequest($id, $authorization, $contentType);
 
         return $this->client
@@ -849,9 +849,9 @@ class PropertiesApi
      * @param  string $authorization Type &#39;Bearer&#39; and then your API Token (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRateplanById'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Katanox\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\ModelGetRatePlanByIdResponse|\OpenAPI\Client\Model\ModelApiError|\OpenAPI\Client\Model\ModelApiError|\OpenAPI\Client\Model\ModelInternalServerError
+     * @return \Katanox\Model\ModelGetRatePlanByIdResponse|\Katanox\Model\ModelApiError|\Katanox\Model\ModelApiError|\Katanox\Model\ModelInternalServerError
      */
     public function getRateplanById($property_id, $id, $authorization, string $contentType = self::contentTypes['getRateplanById'][0])
     {
@@ -869,9 +869,9 @@ class PropertiesApi
      * @param  string $authorization Type &#39;Bearer&#39; and then your API Token (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRateplanById'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Katanox\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\ModelGetRatePlanByIdResponse|\OpenAPI\Client\Model\ModelApiError|\OpenAPI\Client\Model\ModelApiError|\OpenAPI\Client\Model\ModelInternalServerError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Katanox\Model\ModelGetRatePlanByIdResponse|\Katanox\Model\ModelApiError|\Katanox\Model\ModelApiError|\Katanox\Model\ModelInternalServerError, HTTP status code, HTTP response headers (array of strings)
      */
     public function getRateplanByIdWithHttpInfo($property_id, $id, $authorization, string $contentType = self::contentTypes['getRateplanById'][0])
     {
@@ -914,68 +914,68 @@ class PropertiesApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\ModelGetRatePlanByIdResponse' === '\SplFileObject') {
+                    if ('\Katanox\Model\ModelGetRatePlanByIdResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\ModelGetRatePlanByIdResponse' !== 'string') {
+                        if ('\Katanox\Model\ModelGetRatePlanByIdResponse' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ModelGetRatePlanByIdResponse', []),
+                        ObjectSerializer::deserialize($content, '\Katanox\Model\ModelGetRatePlanByIdResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 403:
-                    if ('\OpenAPI\Client\Model\ModelApiError' === '\SplFileObject') {
+                    if ('\Katanox\Model\ModelApiError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\ModelApiError' !== 'string') {
+                        if ('\Katanox\Model\ModelApiError' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ModelApiError', []),
+                        ObjectSerializer::deserialize($content, '\Katanox\Model\ModelApiError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 404:
-                    if ('\OpenAPI\Client\Model\ModelApiError' === '\SplFileObject') {
+                    if ('\Katanox\Model\ModelApiError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\ModelApiError' !== 'string') {
+                        if ('\Katanox\Model\ModelApiError' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ModelApiError', []),
+                        ObjectSerializer::deserialize($content, '\Katanox\Model\ModelApiError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 500:
-                    if ('\OpenAPI\Client\Model\ModelInternalServerError' === '\SplFileObject') {
+                    if ('\Katanox\Model\ModelInternalServerError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\ModelInternalServerError' !== 'string') {
+                        if ('\Katanox\Model\ModelInternalServerError' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ModelInternalServerError', []),
+                        ObjectSerializer::deserialize($content, '\Katanox\Model\ModelInternalServerError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\ModelGetRatePlanByIdResponse';
+            $returnType = '\Katanox\Model\ModelGetRatePlanByIdResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -996,7 +996,7 @@ class PropertiesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\ModelGetRatePlanByIdResponse',
+                        '\Katanox\Model\ModelGetRatePlanByIdResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1004,7 +1004,7 @@ class PropertiesApi
                 case 403:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\ModelApiError',
+                        '\Katanox\Model\ModelApiError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1012,7 +1012,7 @@ class PropertiesApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\ModelApiError',
+                        '\Katanox\Model\ModelApiError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1020,7 +1020,7 @@ class PropertiesApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\ModelInternalServerError',
+                        '\Katanox\Model\ModelInternalServerError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1068,7 +1068,7 @@ class PropertiesApi
      */
     public function getRateplanByIdAsyncWithHttpInfo($property_id, $id, $authorization, string $contentType = self::contentTypes['getRateplanById'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\ModelGetRatePlanByIdResponse';
+        $returnType = '\Katanox\Model\ModelGetRatePlanByIdResponse';
         $request = $this->getRateplanByIdRequest($property_id, $id, $authorization, $contentType);
 
         return $this->client
@@ -1237,9 +1237,9 @@ class PropertiesApi
      * @param  string $authorization Type &#39;Bearer&#39; and then your API Token (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getUnitById'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Katanox\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\ModelGetUnitByIdResponse|\OpenAPI\Client\Model\ModelApiError|\OpenAPI\Client\Model\ModelApiError
+     * @return \Katanox\Model\ModelGetUnitByIdResponse|\Katanox\Model\ModelApiError|\Katanox\Model\ModelApiError
      */
     public function getUnitById($property_id, $id, $authorization, string $contentType = self::contentTypes['getUnitById'][0])
     {
@@ -1257,9 +1257,9 @@ class PropertiesApi
      * @param  string $authorization Type &#39;Bearer&#39; and then your API Token (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getUnitById'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Katanox\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\ModelGetUnitByIdResponse|\OpenAPI\Client\Model\ModelApiError|\OpenAPI\Client\Model\ModelApiError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Katanox\Model\ModelGetUnitByIdResponse|\Katanox\Model\ModelApiError|\Katanox\Model\ModelApiError, HTTP status code, HTTP response headers (array of strings)
      */
     public function getUnitByIdWithHttpInfo($property_id, $id, $authorization, string $contentType = self::contentTypes['getUnitById'][0])
     {
@@ -1302,53 +1302,53 @@ class PropertiesApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\ModelGetUnitByIdResponse' === '\SplFileObject') {
+                    if ('\Katanox\Model\ModelGetUnitByIdResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\ModelGetUnitByIdResponse' !== 'string') {
+                        if ('\Katanox\Model\ModelGetUnitByIdResponse' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ModelGetUnitByIdResponse', []),
+                        ObjectSerializer::deserialize($content, '\Katanox\Model\ModelGetUnitByIdResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 404:
-                    if ('\OpenAPI\Client\Model\ModelApiError' === '\SplFileObject') {
+                    if ('\Katanox\Model\ModelApiError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\ModelApiError' !== 'string') {
+                        if ('\Katanox\Model\ModelApiError' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ModelApiError', []),
+                        ObjectSerializer::deserialize($content, '\Katanox\Model\ModelApiError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 500:
-                    if ('\OpenAPI\Client\Model\ModelApiError' === '\SplFileObject') {
+                    if ('\Katanox\Model\ModelApiError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\ModelApiError' !== 'string') {
+                        if ('\Katanox\Model\ModelApiError' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ModelApiError', []),
+                        ObjectSerializer::deserialize($content, '\Katanox\Model\ModelApiError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\ModelGetUnitByIdResponse';
+            $returnType = '\Katanox\Model\ModelGetUnitByIdResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -1369,7 +1369,7 @@ class PropertiesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\ModelGetUnitByIdResponse',
+                        '\Katanox\Model\ModelGetUnitByIdResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1377,7 +1377,7 @@ class PropertiesApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\ModelApiError',
+                        '\Katanox\Model\ModelApiError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1385,7 +1385,7 @@ class PropertiesApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\ModelApiError',
+                        '\Katanox\Model\ModelApiError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1433,7 +1433,7 @@ class PropertiesApi
      */
     public function getUnitByIdAsyncWithHttpInfo($property_id, $id, $authorization, string $contentType = self::contentTypes['getUnitById'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\ModelGetUnitByIdResponse';
+        $returnType = '\Katanox\Model\ModelGetUnitByIdResponse';
         $request = $this->getUnitByIdRequest($property_id, $id, $authorization, $contentType);
 
         return $this->client

@@ -5,7 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Katanox
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace Katanox\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \Katanox\ObjectSerializer;
 
 /**
  * ModelOffersData Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Katanox
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -58,7 +58,7 @@ class ModelOffersData implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPITypes = [
         'number_of_units' => 'array<string,array<string,int>>',
-        'offers' => '\OpenAPI\Client\Model\AvailabilityOffer[]'
+        'offers' => '\Katanox\Model\AvailabilityOffer[]'
     ];
 
     /**
@@ -326,7 +326,7 @@ class ModelOffersData implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets offers
      *
-     * @return \OpenAPI\Client\Model\AvailabilityOffer[]|null
+     * @return \Katanox\Model\AvailabilityOffer[]|null
      */
     public function getOffers()
     {
@@ -336,7 +336,7 @@ class ModelOffersData implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets offers
      *
-     * @param \OpenAPI\Client\Model\AvailabilityOffer[]|null $offers offers
+     * @param \Katanox\Model\AvailabilityOffer[]|null $offers offers
      *
      * @return self
      */

@@ -5,7 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Katanox
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace Katanox\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \Katanox\ObjectSerializer;
 
 /**
  * ModelGetRatePlanByIdResponse Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Katanox
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -57,7 +57,7 @@ class ModelGetRatePlanByIdResponse implements ModelInterface, ArrayAccess, \Json
       * @var string[]
       */
     protected static $openAPITypes = [
-        'rate_plan' => '\OpenAPI\Client\Model\DtoRatePlan'
+        'rate_plan' => '\Katanox\Model\DtoRatePlan'
     ];
 
     /**
@@ -292,7 +292,7 @@ class ModelGetRatePlanByIdResponse implements ModelInterface, ArrayAccess, \Json
     /**
      * Gets rate_plan
      *
-     * @return \OpenAPI\Client\Model\DtoRatePlan|null
+     * @return \Katanox\Model\DtoRatePlan|null
      */
     public function getRatePlan()
     {
@@ -302,7 +302,7 @@ class ModelGetRatePlanByIdResponse implements ModelInterface, ArrayAccess, \Json
     /**
      * Sets rate_plan
      *
-     * @param \OpenAPI\Client\Model\DtoRatePlan|null $rate_plan rate_plan
+     * @param \Katanox\Model\DtoRatePlan|null $rate_plan rate_plan
      *
      * @return self
      */

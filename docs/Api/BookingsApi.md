@@ -1,4 +1,4 @@
-# OpenAPI\Client\BookingsApi
+# Katanox\BookingsApi
 
 All URIs are relative to https://api.katanox.com/v2, except if the operation defines another base path.
 
@@ -31,7 +31,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\BookingsApi(
+$apiInstance = new Katanox\Api\BookingsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -86,7 +86,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\BookingsApi(
+$apiInstance = new Katanox\Api\BookingsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -130,7 +130,7 @@ No authorization required
 ## `createBooking()`
 
 ```php
-createBooking($authorization, $booking): \OpenAPI\Client\Model\HttpBookingResponse
+createBooking($authorization, $booking): \Katanox\Model\HttpBookingResponse
 ```
 
 Create a booking
@@ -145,13 +145,13 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\BookingsApi(
+$apiInstance = new Katanox\Api\BookingsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
 $authorization = 'authorization_example'; // string | Type 'Bearer' and then your API Token
-$booking = new \OpenAPI\Client\Model\HttpBookingCreationRequest(); // \OpenAPI\Client\Model\HttpBookingCreationRequest | Booking body
+$booking = new \Katanox\Model\HttpBookingCreationRequest(); // \Katanox\Model\HttpBookingCreationRequest | Booking body
 
 try {
     $result = $apiInstance->createBooking($authorization, $booking);
@@ -166,11 +166,11 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **authorization** | **string**| Type &#39;Bearer&#39; and then your API Token | |
-| **booking** | [**\OpenAPI\Client\Model\HttpBookingCreationRequest**](../Model/HttpBookingCreationRequest.md)| Booking body | |
+| **booking** | [**\Katanox\Model\HttpBookingCreationRequest**](../Model/HttpBookingCreationRequest.md)| Booking body | |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\HttpBookingResponse**](../Model/HttpBookingResponse.md)
+[**\Katanox\Model\HttpBookingResponse**](../Model/HttpBookingResponse.md)
 
 ### Authorization
 
@@ -188,7 +188,7 @@ No authorization required
 ## `createReservation()`
 
 ```php
-createReservation($booking_id, $authorization, $reservation): \OpenAPI\Client\Model\HttpReservationResponse
+createReservation($booking_id, $authorization, $reservation): \Katanox\Model\HttpReservationResponse
 ```
 
 Create a reservation
@@ -203,14 +203,14 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\BookingsApi(
+$apiInstance = new Katanox\Api\BookingsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
 $booking_id = 'booking_id_example'; // string | The id of the booking
 $authorization = 'authorization_example'; // string | Type 'Bearer' and then your API Token
-$reservation = new \OpenAPI\Client\Model\HttpReservationCreationRequest(); // \OpenAPI\Client\Model\HttpReservationCreationRequest | Reservation body
+$reservation = new \Katanox\Model\HttpReservationCreationRequest(); // \Katanox\Model\HttpReservationCreationRequest | Reservation body
 
 try {
     $result = $apiInstance->createReservation($booking_id, $authorization, $reservation);
@@ -226,11 +226,11 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **booking_id** | **string**| The id of the booking | |
 | **authorization** | **string**| Type &#39;Bearer&#39; and then your API Token | |
-| **reservation** | [**\OpenAPI\Client\Model\HttpReservationCreationRequest**](../Model/HttpReservationCreationRequest.md)| Reservation body | |
+| **reservation** | [**\Katanox\Model\HttpReservationCreationRequest**](../Model/HttpReservationCreationRequest.md)| Reservation body | |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\HttpReservationResponse**](../Model/HttpReservationResponse.md)
+[**\Katanox\Model\HttpReservationResponse**](../Model/HttpReservationResponse.md)
 
 ### Authorization
 
@@ -248,7 +248,7 @@ No authorization required
 ## `getBookingById()`
 
 ```php
-getBookingById($booking_id, $authorization): \OpenAPI\Client\Model\HttpBookingResponse
+getBookingById($booking_id, $authorization): \Katanox\Model\HttpBookingResponse
 ```
 
 Retrieve a booking
@@ -263,7 +263,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\BookingsApi(
+$apiInstance = new Katanox\Api\BookingsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -288,7 +288,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\HttpBookingResponse**](../Model/HttpBookingResponse.md)
+[**\Katanox\Model\HttpBookingResponse**](../Model/HttpBookingResponse.md)
 
 ### Authorization
 
@@ -306,7 +306,7 @@ No authorization required
 ## `getReservationById()`
 
 ```php
-getReservationById($booking_id, $reservation_id, $authorization): \OpenAPI\Client\Model\HttpReservationResponse
+getReservationById($booking_id, $reservation_id, $authorization): \Katanox\Model\HttpReservationResponse
 ```
 
 Retrieve a reservation by id
@@ -319,7 +319,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\BookingsApi(
+$apiInstance = new Katanox\Api\BookingsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -346,7 +346,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\HttpReservationResponse**](../Model/HttpReservationResponse.md)
+[**\Katanox\Model\HttpReservationResponse**](../Model/HttpReservationResponse.md)
 
 ### Authorization
 
@@ -364,7 +364,7 @@ No authorization required
 ## `updateReservation()`
 
 ```php
-updateReservation($booking_id, $reservation_id, $authorization, $reservation): \OpenAPI\Client\Model\HttpReservationResponse
+updateReservation($booking_id, $reservation_id, $authorization, $reservation): \Katanox\Model\HttpReservationResponse
 ```
 
 Update a reservation
@@ -379,7 +379,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\BookingsApi(
+$apiInstance = new Katanox\Api\BookingsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -387,7 +387,7 @@ $apiInstance = new OpenAPI\Client\Api\BookingsApi(
 $booking_id = 'booking_id_example'; // string | The id of the booking
 $reservation_id = 'reservation_id_example'; // string | The id of the reservation
 $authorization = 'authorization_example'; // string | Type 'Bearer' and then your API Token
-$reservation = new \OpenAPI\Client\Model\HttpReservationUpdateRequest(); // \OpenAPI\Client\Model\HttpReservationUpdateRequest | The reservation body
+$reservation = new \Katanox\Model\HttpReservationUpdateRequest(); // \Katanox\Model\HttpReservationUpdateRequest | The reservation body
 
 try {
     $result = $apiInstance->updateReservation($booking_id, $reservation_id, $authorization, $reservation);
@@ -404,11 +404,11 @@ try {
 | **booking_id** | **string**| The id of the booking | |
 | **reservation_id** | **string**| The id of the reservation | |
 | **authorization** | **string**| Type &#39;Bearer&#39; and then your API Token | |
-| **reservation** | [**\OpenAPI\Client\Model\HttpReservationUpdateRequest**](../Model/HttpReservationUpdateRequest.md)| The reservation body | |
+| **reservation** | [**\Katanox\Model\HttpReservationUpdateRequest**](../Model/HttpReservationUpdateRequest.md)| The reservation body | |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\HttpReservationResponse**](../Model/HttpReservationResponse.md)
+[**\Katanox\Model\HttpReservationResponse**](../Model/HttpReservationResponse.md)
 
 ### Authorization
 

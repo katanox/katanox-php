@@ -5,7 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Katanox
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace Katanox\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \Katanox\ObjectSerializer;
 
 /**
  * ModelPropertyData Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Katanox
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -57,7 +57,7 @@ class ModelPropertyData implements ModelInterface, ArrayAccess, \JsonSerializabl
       * @var string[]
       */
     protected static $openAPITypes = [
-        'property' => '\OpenAPI\Client\Model\DtoProperty'
+        'property' => '\Katanox\Model\DtoProperty'
     ];
 
     /**
@@ -292,7 +292,7 @@ class ModelPropertyData implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Gets property
      *
-     * @return \OpenAPI\Client\Model\DtoProperty|null
+     * @return \Katanox\Model\DtoProperty|null
      */
     public function getProperty()
     {
@@ -302,7 +302,7 @@ class ModelPropertyData implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets property
      *
-     * @param \OpenAPI\Client\Model\DtoProperty|null $property property
+     * @param \Katanox\Model\DtoProperty|null $property property
      *
      * @return self
      */

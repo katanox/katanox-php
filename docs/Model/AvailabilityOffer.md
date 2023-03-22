@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **string** |  | [optional]
-**price** | [**\OpenAPI\Client\Model\AvailabilityPrice**](AvailabilityPrice.md) |  | [optional]
+**price** | [**\Katanox\Model\AvailabilityPrice**](AvailabilityPrice.md) |  | [optional]
 **property_id** | **string** |  | [optional]
 **rate_plan_id** | **string** |  | [optional]
 **unit_id** | **string** |  | [optional]

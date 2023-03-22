@@ -1,22 +1,20 @@
 {
-    "name": "katanox/katanox-php",
-    "type": "library",
-    "description": "The official PHP SDK of the Katanox APIs",
+    "description": "The Katanox API allows any travel seller to search and book accommodation.",
     "keywords": [
-        "katanox",
-        "api",
-        "hotels",
-        "hotel-api",
-        "travel-sellers"
+        "openapitools",
+        "openapi-generator",
+        "openapi",
+        "php",
+        "sdk",
+        "rest",
+        "api"
     ],
-    "homepage": "https://github.com/katanox/katanox-php",
-    "license": "MIT",
+    "homepage": "https://openapi-generator.tech",
+    "license": "unlicense",
     "authors": [
         {
-            "name": "Katanox Engineering Team",
-            "email": "developers@katanox.com",
-            "homepage": "https://katanox.com",
-            "role": "Developer"
+            "name": "OpenAPI-Generator contributors",
+            "homepage": "https://openapi-generator.tech"
         }
     ],
     "require": {
@@ -32,9 +30,9 @@
         "friendsofphp/php-cs-fixer": "^3.5"
     },
     "autoload": {
-        "psr-4": { "OpenAPI\\Client\\" : "lib/" }
+        "psr-4": { "Katanox\\" : "lib/" }
     },
     "autoload-dev": {
-        "psr-4": { "OpenAPI\\Client\\Test\\" : "test/" }
+        "psr-4": { "Katanox\\Test\\" : "test/" }
     }
 }

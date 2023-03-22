@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **number_of_units** | **int** |  | [optional]
 **packages** | **string[]** |  | [optional]
-**price** | [**\OpenAPI\Client\Model\AvailabilityPrice**](AvailabilityPrice.md) |  | [optional]
+**price** | [**\Katanox\Model\AvailabilityPrice**](AvailabilityPrice.md) |  | [optional]
 **property_id** | **int** |  | [optional]
 **rate_plan_id** | **int** |  | [optional]
 **unit_id** | **int** |  | [optional]

@@ -5,7 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Katanox
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace Katanox\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \Katanox\ObjectSerializer;
 
 /**
  * DtoUnit Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Katanox
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -57,15 +57,15 @@ class DtoUnit implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'amenities' => '\OpenAPI\Client\Model\DtoAmenity[]',
-        'bed_types' => '\OpenAPI\Client\Model\DtoBedType[]',
+        'amenities' => '\Katanox\Model\DtoAmenity[]',
+        'bed_types' => '\Katanox\Model\DtoBedType[]',
         'class' => 'string',
         'description' => 'string',
         'id' => 'string',
-        'images' => '\OpenAPI\Client\Model\DtoUnitImage[]',
+        'images' => '\Katanox\Model\DtoUnitImage[]',
         'name' => 'string',
         'property_id' => 'string',
-        'translations' => '\OpenAPI\Client\Model\DtoI18NUnit[]',
+        'translations' => '\Katanox\Model\DtoI18NUnit[]',
         'type' => 'string'
     ];
 
@@ -355,7 +355,7 @@ class DtoUnit implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets amenities
      *
-     * @return \OpenAPI\Client\Model\DtoAmenity[]|null
+     * @return \Katanox\Model\DtoAmenity[]|null
      */
     public function getAmenities()
     {
@@ -365,7 +365,7 @@ class DtoUnit implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets amenities
      *
-     * @param \OpenAPI\Client\Model\DtoAmenity[]|null $amenities amenities
+     * @param \Katanox\Model\DtoAmenity[]|null $amenities amenities
      *
      * @return self
      */
@@ -382,7 +382,7 @@ class DtoUnit implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets bed_types
      *
-     * @return \OpenAPI\Client\Model\DtoBedType[]|null
+     * @return \Katanox\Model\DtoBedType[]|null
      */
     public function getBedTypes()
     {
@@ -392,7 +392,7 @@ class DtoUnit implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets bed_types
      *
-     * @param \OpenAPI\Client\Model\DtoBedType[]|null $bed_types bed_types
+     * @param \Katanox\Model\DtoBedType[]|null $bed_types bed_types
      *
      * @return self
      */
@@ -490,7 +490,7 @@ class DtoUnit implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets images
      *
-     * @return \OpenAPI\Client\Model\DtoUnitImage[]|null
+     * @return \Katanox\Model\DtoUnitImage[]|null
      */
     public function getImages()
     {
@@ -500,7 +500,7 @@ class DtoUnit implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets images
      *
-     * @param \OpenAPI\Client\Model\DtoUnitImage[]|null $images images
+     * @param \Katanox\Model\DtoUnitImage[]|null $images images
      *
      * @return self
      */
@@ -571,7 +571,7 @@ class DtoUnit implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets translations
      *
-     * @return \OpenAPI\Client\Model\DtoI18NUnit[]|null
+     * @return \Katanox\Model\DtoI18NUnit[]|null
      */
     public function getTranslations()
     {
@@ -581,7 +581,7 @@ class DtoUnit implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets translations
      *
-     * @param \OpenAPI\Client\Model\DtoI18NUnit[]|null $translations translations
+     * @param \Katanox\Model\DtoI18NUnit[]|null $translations translations
      *
      * @return self
      */

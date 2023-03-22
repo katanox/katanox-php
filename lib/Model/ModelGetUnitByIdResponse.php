@@ -5,7 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Katanox
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace Katanox\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \Katanox\ObjectSerializer;
 
 /**
  * ModelGetUnitByIdResponse Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Katanox
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -57,7 +57,7 @@ class ModelGetUnitByIdResponse implements ModelInterface, ArrayAccess, \JsonSeri
       * @var string[]
       */
     protected static $openAPITypes = [
-        'unit' => '\OpenAPI\Client\Model\ModelUnit'
+        'unit' => '\Katanox\Model\ModelUnit'
     ];
 
     /**
@@ -292,7 +292,7 @@ class ModelGetUnitByIdResponse implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Gets unit
      *
-     * @return \OpenAPI\Client\Model\ModelUnit|null
+     * @return \Katanox\Model\ModelUnit|null
      */
     public function getUnit()
     {
@@ -302,7 +302,7 @@ class ModelGetUnitByIdResponse implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets unit
      *
-     * @param \OpenAPI\Client\Model\ModelUnit|null $unit unit
+     * @param \Katanox\Model\ModelUnit|null $unit unit
      *
      * @return self
      */

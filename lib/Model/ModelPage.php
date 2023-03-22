@@ -5,7 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Katanox
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace Katanox\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \Katanox\ObjectSerializer;
 
 /**
  * ModelPage Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Katanox
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -57,10 +57,10 @@ class ModelPage implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'first' => '\OpenAPI\Client\Model\ModelLink',
-        'last' => '\OpenAPI\Client\Model\ModelLink',
-        'next' => '\OpenAPI\Client\Model\ModelLink',
-        'previous' => '\OpenAPI\Client\Model\ModelLink'
+        'first' => '\Katanox\Model\ModelLink',
+        'last' => '\Katanox\Model\ModelLink',
+        'next' => '\Katanox\Model\ModelLink',
+        'previous' => '\Katanox\Model\ModelLink'
     ];
 
     /**
@@ -313,7 +313,7 @@ class ModelPage implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets first
      *
-     * @return \OpenAPI\Client\Model\ModelLink|null
+     * @return \Katanox\Model\ModelLink|null
      */
     public function getFirst()
     {
@@ -323,7 +323,7 @@ class ModelPage implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets first
      *
-     * @param \OpenAPI\Client\Model\ModelLink|null $first first
+     * @param \Katanox\Model\ModelLink|null $first first
      *
      * @return self
      */
@@ -340,7 +340,7 @@ class ModelPage implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets last
      *
-     * @return \OpenAPI\Client\Model\ModelLink|null
+     * @return \Katanox\Model\ModelLink|null
      */
     public function getLast()
     {
@@ -350,7 +350,7 @@ class ModelPage implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets last
      *
-     * @param \OpenAPI\Client\Model\ModelLink|null $last last
+     * @param \Katanox\Model\ModelLink|null $last last
      *
      * @return self
      */
@@ -367,7 +367,7 @@ class ModelPage implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets next
      *
-     * @return \OpenAPI\Client\Model\ModelLink|null
+     * @return \Katanox\Model\ModelLink|null
      */
     public function getNext()
     {
@@ -377,7 +377,7 @@ class ModelPage implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets next
      *
-     * @param \OpenAPI\Client\Model\ModelLink|null $next next
+     * @param \Katanox\Model\ModelLink|null $next next
      *
      * @return self
      */
@@ -394,7 +394,7 @@ class ModelPage implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets previous
      *
-     * @return \OpenAPI\Client\Model\ModelLink|null
+     * @return \Katanox\Model\ModelLink|null
      */
     public function getPrevious()
     {
@@ -404,7 +404,7 @@ class ModelPage implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets previous
      *
-     * @param \OpenAPI\Client\Model\ModelLink|null $previous previous
+     * @param \Katanox\Model\ModelLink|null $previous previous
      *
      * @return self
      */

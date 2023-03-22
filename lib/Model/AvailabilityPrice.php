@@ -5,7 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Katanox
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace Katanox\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \Katanox\ObjectSerializer;
 
 /**
  * AvailabilityPrice Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Katanox
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -60,7 +60,7 @@ class AvailabilityPrice implements ModelInterface, ArrayAccess, \JsonSerializabl
         'after_tax' => 'float',
         'before_tax' => 'float',
         'currency' => 'string',
-        'extra_charges' => '\OpenAPI\Client\Model\AvailabilityExtraCharge[]',
+        'extra_charges' => '\Katanox\Model\AvailabilityExtraCharge[]',
         'total_amount' => 'float'
     ];
 
@@ -401,7 +401,7 @@ class AvailabilityPrice implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Gets extra_charges
      *
-     * @return \OpenAPI\Client\Model\AvailabilityExtraCharge[]|null
+     * @return \Katanox\Model\AvailabilityExtraCharge[]|null
      */
     public function getExtraCharges()
     {
@@ -411,7 +411,7 @@ class AvailabilityPrice implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets extra_charges
      *
-     * @param \OpenAPI\Client\Model\AvailabilityExtraCharge[]|null $extra_charges extra_charges
+     * @param \Katanox\Model\AvailabilityExtraCharge[]|null $extra_charges extra_charges
      *
      * @return self
      */

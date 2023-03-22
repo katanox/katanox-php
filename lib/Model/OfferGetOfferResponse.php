@@ -5,7 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Katanox
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace Katanox\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \Katanox\ObjectSerializer;
 
 /**
  * OfferGetOfferResponse Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Katanox
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -57,7 +57,7 @@ class OfferGetOfferResponse implements ModelInterface, ArrayAccess, \JsonSeriali
       * @var string[]
       */
     protected static $openAPITypes = [
-        'offer' => '\OpenAPI\Client\Model\AvailabilityOffer',
+        'offer' => '\Katanox\Model\AvailabilityOffer',
         'remaining_time' => 'float'
     ];
 
@@ -299,7 +299,7 @@ class OfferGetOfferResponse implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Gets offer
      *
-     * @return \OpenAPI\Client\Model\AvailabilityOffer|null
+     * @return \Katanox\Model\AvailabilityOffer|null
      */
     public function getOffer()
     {
@@ -309,7 +309,7 @@ class OfferGetOfferResponse implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets offer
      *
-     * @param \OpenAPI\Client\Model\AvailabilityOffer|null $offer offer
+     * @param \Katanox\Model\AvailabilityOffer|null $offer offer
      *
      * @return self
      */

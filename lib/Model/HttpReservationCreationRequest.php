@@ -5,7 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Katanox
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace Katanox\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \Katanox\ObjectSerializer;
 
 /**
  * HttpReservationCreationRequest Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Katanox
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -58,7 +58,7 @@ class HttpReservationCreationRequest implements ModelInterface, ArrayAccess, \Js
       */
     protected static $openAPITypes = [
         'comments' => 'string[]',
-        'guests' => '\OpenAPI\Client\Model\HttpPerson[]',
+        'guests' => '\Katanox\Model\HttpPerson[]',
         'offer_id' => 'string'
     ];
 
@@ -340,7 +340,7 @@ class HttpReservationCreationRequest implements ModelInterface, ArrayAccess, \Js
     /**
      * Gets guests
      *
-     * @return \OpenAPI\Client\Model\HttpPerson[]|null
+     * @return \Katanox\Model\HttpPerson[]|null
      */
     public function getGuests()
     {
@@ -350,7 +350,7 @@ class HttpReservationCreationRequest implements ModelInterface, ArrayAccess, \Js
     /**
      * Sets guests
      *
-     * @param \OpenAPI\Client\Model\HttpPerson[]|null $guests guests
+     * @param \Katanox\Model\HttpPerson[]|null $guests guests
      *
      * @return self
      */

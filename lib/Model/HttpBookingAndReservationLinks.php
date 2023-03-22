@@ -5,7 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Katanox
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace Katanox\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \Katanox\ObjectSerializer;
 
 /**
  * HttpBookingAndReservationLinks Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Katanox
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -57,8 +57,8 @@ class HttpBookingAndReservationLinks implements ModelInterface, ArrayAccess, \Js
       * @var string[]
       */
     protected static $openAPITypes = [
-        'cancel' => '\OpenAPI\Client\Model\ModelLink',
-        'get' => '\OpenAPI\Client\Model\ModelLink'
+        'cancel' => '\Katanox\Model\ModelLink',
+        'get' => '\Katanox\Model\ModelLink'
     ];
 
     /**
@@ -299,7 +299,7 @@ class HttpBookingAndReservationLinks implements ModelInterface, ArrayAccess, \Js
     /**
      * Gets cancel
      *
-     * @return \OpenAPI\Client\Model\ModelLink|null
+     * @return \Katanox\Model\ModelLink|null
      */
     public function getCancel()
     {
@@ -309,7 +309,7 @@ class HttpBookingAndReservationLinks implements ModelInterface, ArrayAccess, \Js
     /**
      * Sets cancel
      *
-     * @param \OpenAPI\Client\Model\ModelLink|null $cancel cancel
+     * @param \Katanox\Model\ModelLink|null $cancel cancel
      *
      * @return self
      */
@@ -326,7 +326,7 @@ class HttpBookingAndReservationLinks implements ModelInterface, ArrayAccess, \Js
     /**
      * Gets get
      *
-     * @return \OpenAPI\Client\Model\ModelLink|null
+     * @return \Katanox\Model\ModelLink|null
      */
     public function getGet()
     {
@@ -336,7 +336,7 @@ class HttpBookingAndReservationLinks implements ModelInterface, ArrayAccess, \Js
     /**
      * Sets get
      *
-     * @param \OpenAPI\Client\Model\ModelLink|null $get get
+     * @param \Katanox\Model\ModelLink|null $get get
      *
      * @return self
      */

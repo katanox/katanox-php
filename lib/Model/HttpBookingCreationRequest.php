@@ -5,7 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Katanox
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace Katanox\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \Katanox\ObjectSerializer;
 
 /**
  * HttpBookingCreationRequest Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Katanox
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -58,9 +58,9 @@ class HttpBookingCreationRequest implements ModelInterface, ArrayAccess, \JsonSe
       */
     protected static $openAPITypes = [
         'comments' => 'string[]',
-        'customer' => '\OpenAPI\Client\Model\HttpPerson',
-        'payment' => '\OpenAPI\Client\Model\HttpPayment',
-        'reservations' => '\OpenAPI\Client\Model\HttpReservationCreationRequest[]'
+        'customer' => '\Katanox\Model\HttpPerson',
+        'payment' => '\Katanox\Model\HttpPayment',
+        'reservations' => '\Katanox\Model\HttpReservationCreationRequest[]'
     ];
 
     /**
@@ -350,7 +350,7 @@ class HttpBookingCreationRequest implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets customer
      *
-     * @return \OpenAPI\Client\Model\HttpPerson
+     * @return \Katanox\Model\HttpPerson
      */
     public function getCustomer()
     {
@@ -360,7 +360,7 @@ class HttpBookingCreationRequest implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets customer
      *
-     * @param \OpenAPI\Client\Model\HttpPerson $customer customer
+     * @param \Katanox\Model\HttpPerson $customer customer
      *
      * @return self
      */
@@ -377,7 +377,7 @@ class HttpBookingCreationRequest implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets payment
      *
-     * @return \OpenAPI\Client\Model\HttpPayment|null
+     * @return \Katanox\Model\HttpPayment|null
      */
     public function getPayment()
     {
@@ -387,7 +387,7 @@ class HttpBookingCreationRequest implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets payment
      *
-     * @param \OpenAPI\Client\Model\HttpPayment|null $payment payment
+     * @param \Katanox\Model\HttpPayment|null $payment payment
      *
      * @return self
      */
@@ -404,7 +404,7 @@ class HttpBookingCreationRequest implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets reservations
      *
-     * @return \OpenAPI\Client\Model\HttpReservationCreationRequest[]
+     * @return \Katanox\Model\HttpReservationCreationRequest[]
      */
     public function getReservations()
     {
@@ -414,7 +414,7 @@ class HttpBookingCreationRequest implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets reservations
      *
-     * @param \OpenAPI\Client\Model\HttpReservationCreationRequest[] $reservations reservations
+     * @param \Katanox\Model\HttpReservationCreationRequest[] $reservations reservations
      *
      * @return self
      */

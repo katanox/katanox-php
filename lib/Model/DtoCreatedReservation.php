@@ -5,7 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Katanox
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace Katanox\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \Katanox\ObjectSerializer;
 
 /**
  * DtoCreatedReservation Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Katanox
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -62,8 +62,8 @@ class DtoCreatedReservation implements ModelInterface, ArrayAccess, \JsonSeriali
         'check_out' => '\DateTime',
         'children' => 'int',
         'comments' => 'string[]',
-        'guests' => '\OpenAPI\Client\Model\DtoPerson[]',
-        'price' => '\OpenAPI\Client\Model\DtoPrice',
+        'guests' => '\Katanox\Model\DtoPerson[]',
+        'price' => '\Katanox\Model\DtoPrice',
         'status' => 'string'
     ];
 
@@ -512,7 +512,7 @@ class DtoCreatedReservation implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Gets guests
      *
-     * @return \OpenAPI\Client\Model\DtoPerson[]|null
+     * @return \Katanox\Model\DtoPerson[]|null
      */
     public function getGuests()
     {
@@ -522,7 +522,7 @@ class DtoCreatedReservation implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets guests
      *
-     * @param \OpenAPI\Client\Model\DtoPerson[]|null $guests guests
+     * @param \Katanox\Model\DtoPerson[]|null $guests guests
      *
      * @return self
      */
@@ -539,7 +539,7 @@ class DtoCreatedReservation implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Gets price
      *
-     * @return \OpenAPI\Client\Model\DtoPrice|null
+     * @return \Katanox\Model\DtoPrice|null
      */
     public function getPrice()
     {
@@ -549,7 +549,7 @@ class DtoCreatedReservation implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets price
      *
-     * @param \OpenAPI\Client\Model\DtoPrice|null $price price
+     * @param \Katanox\Model\DtoPrice|null $price price
      *
      * @return self
      */
