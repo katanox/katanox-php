@@ -1,61 +1,38 @@
 {
-    "name": "katanox/katanox-php",
-    "type": "library",
-    "description": "The official PHP SDK of the Katanox APIs",
+    "description": "The Katanox API allows any travel seller to search and book accommodation.",
     "keywords": [
-        "katanox",
-        "api",
-        "hotels",
-        "hotel-api",
-        "travel-sellers",
+        "openapitools",
+        "openapi-generator",
+        "openapi",
+        "php",
+        "sdk",
         "rest",
-        "api",
-        "marketplace"
+        "api"
     ],
-    "homepage": "https://github.com/katanox/katanox-php",
-    "license": "MIT",
+    "homepage": "https://openapi-generator.tech",
+    "license": "unlicense",
     "authors": [
         {
-            "name": "Katanox Engineering Team",
-            "email": "developers@katanox.com",
-            "homepage": "https://katanox.com",
-            "role": "Developer"
+            "name": "OpenAPI-Generator contributors",
+            "homepage": "https://openapi-generator.tech"
         }
     ],
     "require": {
-        "php": ">=7.4",
+        "php": "^7.4 || ^8.0",
+        "ext-curl": "*",
         "ext-json": "*",
-        "doctrine/collections": "^1.6.1",
+        "ext-mbstring": "*",
         "guzzlehttp/guzzle": "^7.3",
-        "netresearch/jsonmapper": "^4.0"
+        "guzzlehttp/psr7": "^1.7 || ^2.0"
     },
     "require-dev": {
-        "mockery/mockery": "^1.4",
-        "phpunit/phpunit": ">=8.0",
-        "squizlabs/php_codesniffer": "^3.0",
-        "friendsofphp/php-cs-fixer": "^3.0"
+        "phpunit/phpunit": "^8.0 || ^9.0",
+        "friendsofphp/php-cs-fixer": "^3.5"
     },
     "autoload": {
-        "psr-4": {
-            "Katanox\\": "src/Katanox"
-        },
-				"files": ["src/Katanox/Model/ModelHelper.php"]
+        "psr-4": { "OpenAPI\\Client\\" : "lib/" }
     },
     "autoload-dev": {
-        "psr-4": {
-            "Katanox\\": "tests/Katanox"
-        }
-    },
-    "scripts": {
-        "test": "phpunit",
-        "fix-style": "vendor/bin/php-cs-fixer fix --rules=@PSR12,@PhpCsFixer . -vvv --cache-file .php_cs.cache"
-    },
-    "extra": {
-        "branch-alias": {
-            "dev-master": "1.0-dev"
-        }
-    },
-    "config": {
-        "sort-packages": true
+        "psr-4": { "OpenAPI\\Client\\Test\\" : "test/" }
     }
 }
