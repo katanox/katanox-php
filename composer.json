@@ -1,5 +1,6 @@
 {
     "description": "The Katanox API allows any travel seller to search and book accommodation.",
+    "type": "library",
     "keywords": [
         "openapitools",
         "openapi-generator",
