@@ -28,13 +28,6 @@ require_once('/path/to/OpenAPIClient-php/vendor/autoload.php');
 
 ## Getting Started
 
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-
-
 $apiInstance = new Katanox\Api\AvailabilityApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
