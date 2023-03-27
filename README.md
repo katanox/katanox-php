@@ -1,34 +1,21 @@
-# OpenAPIClient-php
+<p align="center">
+  <img src="https://static.katanox.com/blog/icons/ktnx-logo-white-bg.png" />
+</p>
 
-The Katanox API allows any travel seller to search and book accommodation.
+# Katanox PHP SDK
 
 
-## Installation & Usage
+Welcome to the official PHP SDK of the [Katanox API](https://docs.katanox.com). You can simply install the SDK using Composer and after providing your API key you can start calling the API. 
 
-### Requirements
+Make sure you create a Travel Seller account at the [Katanox Platform](https://app.katanox.com/register) first so that you can receive a sandbox API key.
 
-PHP 7.4 and later.
-Should also work with PHP 8.0.
+## Install
 
-### Composer
+Via Composer
 
-To install the bindings via [Composer](https://getcomposer.org/), add the following to `composer.json`:
-
-```json
-{
-  "repositories": [
-    {
-      "type": "vcs",
-      "url": "https://github.com/GIT_USER_ID/GIT_REPO_ID.git"
-    }
-  ],
-  "require": {
-    "GIT_USER_ID/GIT_REPO_ID": "*@dev"
-  }
-}
+``` bash
+$ composer require katanox/katanox-php
 ```
-
-Then run `composer install`
 
 ### Manual Installation
 
@@ -40,8 +27,6 @@ require_once('/path/to/OpenAPIClient-php/vendor/autoload.php');
 ```
 
 ## Getting Started
-
-Please follow the [installation procedure](#installation--usage) and then run the following:
 
 ```php
 <?php
@@ -166,10 +151,6 @@ To run the tests, use:
 composer install
 vendor/bin/phpunit
 ```
-
-## Author
-
-
 
 ## About this package
 

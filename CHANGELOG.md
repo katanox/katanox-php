@@ -4,6 +4,11 @@ All notable changes to `katanox-php` will be documented in this file.
 
 Updates should follow the [Keep a CHANGELOG](https://keepachangelog.com/) principles.
 
+## [4.0.0] - 2021-10-11
+### Changed
+- Upgraded sdk to our API v2
+- The source code will now be generated with `openapi-generator` based on our `swagger.yaml` file.
+
 ## [3.2.0] - 2021-10-11
 ### Changed
 - The expiry year should now be a 4 digit number
