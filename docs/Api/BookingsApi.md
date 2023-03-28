@@ -190,7 +190,8 @@ No authorization required
 ```php
 createReservation($booking_id, $authorization, $reservation): \Katanox\Model\HttpReservationResponse
 ```
-
+### URI(s):
+- https://api.datatrans.com/upp/services/v1/inline/token 
 Create a reservation
 
 When creating a new reservation, you must specify the booking id you want the new reservation to be part of. If there is no booking, use the Create a booking method instead.
@@ -212,8 +213,12 @@ $booking_id = 'booking_id_example'; // string | The id of the booking
 $authorization = 'authorization_example'; // string | Type 'Bearer' and then your API Token
 $reservation = new \Katanox\Model\HttpReservationCreationRequest(); // \Katanox\Model\HttpReservationCreationRequest | Reservation body
 
+$hostIndex = 0;
+$variables = [
+];
+
 try {
-    $result = $apiInstance->createReservation($booking_id, $authorization, $reservation);
+    $result = $apiInstance->createReservation($booking_id, $authorization, $reservation, $hostIndex, $variables);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling BookingsApi->createReservation: ', $e->getMessage(), PHP_EOL;
@@ -227,6 +232,8 @@ try {
 | **booking_id** | **string**| The id of the booking | |
 | **authorization** | **string**| Type &#39;Bearer&#39; and then your API Token | |
 | **reservation** | [**\Katanox\Model\HttpReservationCreationRequest**](../Model/HttpReservationCreationRequest.md)| Reservation body | |
+| hostIndex | null|int | Host index. Defaults to null. If null, then the library will use $this->hostIndex instead | [optional] |
+| variables | array | Associative array of variables to pass to the host. Defaults to empty array. | [optional] |
 
 ### Return type
 

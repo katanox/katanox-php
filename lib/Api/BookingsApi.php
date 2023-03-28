@@ -1062,18 +1062,24 @@ class BookingsApi
      *
      * Create a reservation
      *
+     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+     * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://api.datatrans.com/upp/services/v1/inline/token
+     *
      * @param  string $booking_id The id of the booking (required)
      * @param  string $authorization Type &#39;Bearer&#39; and then your API Token (required)
      * @param  \Katanox\Model\HttpReservationCreationRequest $reservation Reservation body (required)
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createReservation'] to see the possible values for this operation
      *
      * @throws \Katanox\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Katanox\Model\HttpReservationResponse|\Katanox\Model\ModelApiError|\Katanox\Model\ModelApiError|\Katanox\Model\ModelApiError|\Katanox\Model\ModelInternalServerError
      */
-    public function createReservation($booking_id, $authorization, $reservation, string $contentType = self::contentTypes['createReservation'][0])
+    public function createReservation($booking_id, $authorization, $reservation, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['createReservation'][0])
     {
-        list($response) = $this->createReservationWithHttpInfo($booking_id, $authorization, $reservation, $contentType);
+        list($response) = $this->createReservationWithHttpInfo($booking_id, $authorization, $reservation, $hostIndex, $variables, $contentType);
         return $response;
     }
 
@@ -1082,18 +1088,24 @@ class BookingsApi
      *
      * Create a reservation
      *
+     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+     * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://api.datatrans.com/upp/services/v1/inline/token
+     *
      * @param  string $booking_id The id of the booking (required)
      * @param  string $authorization Type &#39;Bearer&#39; and then your API Token (required)
      * @param  \Katanox\Model\HttpReservationCreationRequest $reservation Reservation body (required)
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createReservation'] to see the possible values for this operation
      *
      * @throws \Katanox\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Katanox\Model\HttpReservationResponse|\Katanox\Model\ModelApiError|\Katanox\Model\ModelApiError|\Katanox\Model\ModelApiError|\Katanox\Model\ModelInternalServerError, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createReservationWithHttpInfo($booking_id, $authorization, $reservation, string $contentType = self::contentTypes['createReservation'][0])
+    public function createReservationWithHttpInfo($booking_id, $authorization, $reservation, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['createReservation'][0])
     {
-        $request = $this->createReservationRequest($booking_id, $authorization, $reservation, $contentType);
+        $request = $this->createReservationRequest($booking_id, $authorization, $reservation, $hostIndex, $variables, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1276,17 +1288,23 @@ class BookingsApi
      *
      * Create a reservation
      *
+     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+     * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://api.datatrans.com/upp/services/v1/inline/token
+     *
      * @param  string $booking_id The id of the booking (required)
      * @param  string $authorization Type &#39;Bearer&#39; and then your API Token (required)
      * @param  \Katanox\Model\HttpReservationCreationRequest $reservation Reservation body (required)
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createReservation'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createReservationAsync($booking_id, $authorization, $reservation, string $contentType = self::contentTypes['createReservation'][0])
+    public function createReservationAsync($booking_id, $authorization, $reservation, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['createReservation'][0])
     {
-        return $this->createReservationAsyncWithHttpInfo($booking_id, $authorization, $reservation, $contentType)
+        return $this->createReservationAsyncWithHttpInfo($booking_id, $authorization, $reservation, $hostIndex, $variables, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1299,18 +1317,24 @@ class BookingsApi
      *
      * Create a reservation
      *
+     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+     * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://api.datatrans.com/upp/services/v1/inline/token
+     *
      * @param  string $booking_id The id of the booking (required)
      * @param  string $authorization Type &#39;Bearer&#39; and then your API Token (required)
      * @param  \Katanox\Model\HttpReservationCreationRequest $reservation Reservation body (required)
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createReservation'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createReservationAsyncWithHttpInfo($booking_id, $authorization, $reservation, string $contentType = self::contentTypes['createReservation'][0])
+    public function createReservationAsyncWithHttpInfo($booking_id, $authorization, $reservation, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['createReservation'][0])
     {
         $returnType = '\Katanox\Model\HttpReservationResponse';
-        $request = $this->createReservationRequest($booking_id, $authorization, $reservation, $contentType);
+        $request = $this->createReservationRequest($booking_id, $authorization, $reservation, $hostIndex, $variables, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1351,15 +1375,21 @@ class BookingsApi
     /**
      * Create request for operation 'createReservation'
      *
+    * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+    * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://api.datatrans.com/upp/services/v1/inline/token
+     *
      * @param  string $booking_id The id of the booking (required)
      * @param  string $authorization Type &#39;Bearer&#39; and then your API Token (required)
      * @param  \Katanox\Model\HttpReservationCreationRequest $reservation Reservation body (required)
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createReservation'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function createReservationRequest($booking_id, $authorization, $reservation, string $contentType = self::contentTypes['createReservation'][0])
+    public function createReservationRequest($booking_id, $authorization, $reservation, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['createReservation'][0])
     {
 
         // verify the required parameter 'booking_id' is set
@@ -1457,7 +1487,17 @@ class BookingsApi
             $headers
         );
 
-        $operationHost = $this->config->getHost();
+        # Preserve the original behavior of server indexing.
+        if ($hostIndex === null) {
+            $hostIndex = $this->hostIndex;
+        }
+
+        $hostSettings = $this->getHostSettingsForcreateReservation();
+
+        if ($hostIndex < 0 || $hostIndex >= count($hostSettings)) {
+            throw new \InvalidArgumentException("Invalid index {$hostIndex} when selecting the host. Must be less than ".count($hostSettings));
+        }
+        $operationHost = Configuration::getHostString($hostSettings, $hostIndex, $variables);
         $query = ObjectSerializer::buildQuery($queryParams);
         return new Request(
             'POST',
@@ -1465,6 +1505,21 @@ class BookingsApi
             $headers,
             $httpBody
         );
+    }
+
+    /**
+     * Returns an array of host settings for Operation createReservation
+     *
+     * @return array an array of host settings
+     */
+    protected function getHostSettingsForcreateReservation(): array
+    {
+        return [
+            [
+                "url" => "https://api.datatrans.com/upp/services/v1/inline/token",
+                "description" => "No description provided",
+            ]
+        ];
     }
 
     /**

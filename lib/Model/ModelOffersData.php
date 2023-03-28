@@ -58,7 +58,7 @@ class ModelOffersData implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPITypes = [
         'number_of_units' => 'array<string,array<string,int>>',
-        'offers' => '\Katanox\Model\AvailabilityOffer[]'
+        'offers' => '\Katanox\Model\AvailabilityExternalOffer[]'
     ];
 
     /**
@@ -326,7 +326,7 @@ class ModelOffersData implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets offers
      *
-     * @return \Katanox\Model\AvailabilityOffer[]|null
+     * @return \Katanox\Model\AvailabilityExternalOffer[]|null
      */
     public function getOffers()
     {
@@ -336,7 +336,7 @@ class ModelOffersData implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets offers
      *
-     * @param \Katanox\Model\AvailabilityOffer[]|null $offers offers
+     * @param \Katanox\Model\AvailabilityExternalOffer[]|null $offers offers
      *
      * @return self
      */

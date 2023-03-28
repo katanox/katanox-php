@@ -484,8 +484,8 @@ class AvailabilityApi
             $check_in,
             'check_in', // param base name
             'string', // openApiType
-            '', // style
-            false, // explode
+            'form', // style
+            true, // explode
             true // required
         ) ?? []);
         // query params
@@ -493,8 +493,8 @@ class AvailabilityApi
             $check_out,
             'check_out', // param base name
             'string', // openApiType
-            '', // style
-            false, // explode
+            'form', // style
+            true, // explode
             true // required
         ) ?? []);
         // query params
@@ -502,8 +502,8 @@ class AvailabilityApi
             $adults,
             'adults', // param base name
             'integer', // openApiType
-            '', // style
-            false, // explode
+            'form', // style
+            true, // explode
             false // required
         ) ?? []);
         // query params
@@ -511,8 +511,8 @@ class AvailabilityApi
             $children,
             'children', // param base name
             'integer', // openApiType
-            '', // style
-            false, // explode
+            'form', // style
+            true, // explode
             false // required
         ) ?? []);
         // query params
@@ -520,8 +520,8 @@ class AvailabilityApi
             $lat,
             'lat', // param base name
             'number', // openApiType
-            '', // style
-            false, // explode
+            'form', // style
+            true, // explode
             false // required
         ) ?? []);
         // query params
@@ -529,8 +529,8 @@ class AvailabilityApi
             $lng,
             'lng', // param base name
             'number', // openApiType
-            '', // style
-            false, // explode
+            'form', // style
+            true, // explode
             false // required
         ) ?? []);
         // query params
@@ -538,8 +538,8 @@ class AvailabilityApi
             $radius,
             'radius', // param base name
             'integer', // openApiType
-            '', // style
-            false, // explode
+            'form', // style
+            true, // explode
             false // required
         ) ?? []);
         // query params
@@ -565,8 +565,8 @@ class AvailabilityApi
             $number_of_units,
             'number_of_units', // param base name
             'integer', // openApiType
-            '', // style
-            false, // explode
+            'form', // style
+            true, // explode
             false // required
         ) ?? []);
         // query params
@@ -574,8 +574,8 @@ class AvailabilityApi
             $page,
             'page', // param base name
             'integer', // openApiType
-            '', // style
-            false, // explode
+            'form', // style
+            true, // explode
             false // required
         ) ?? []);
         // query params
@@ -583,8 +583,8 @@ class AvailabilityApi
             $limit,
             'limit', // param base name
             'integer', // openApiType
-            '', // style
-            false, // explode
+            'form', // style
+            true, // explode
             false // required
         ) ?? []);
 

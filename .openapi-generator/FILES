@@ -1,11 +1,12 @@
 .gitignore
 .php-cs-fixer.dist.php
-composer.json
 docs/Api/AvailabilityApi.md
 docs/Api/BookingsApi.md
 docs/Api/OfferApi.md
 docs/Api/PropertiesApi.md
 docs/Model/AvailabilityAvailabilityAndPrice.md
+docs/Model/AvailabilityExternalOffer.md
+docs/Model/AvailabilityExternalPrice.md
 docs/Model/AvailabilityExtraCharge.md
 docs/Model/AvailabilityOffer.md
 docs/Model/AvailabilityPrice.md
@@ -30,6 +31,7 @@ docs/Model/DtoReservation.md
 docs/Model/DtoUnit.md
 docs/Model/DtoUnitImage.md
 docs/Model/GeopointGeoPoint.md
+docs/Model/GithubComKatanoxApiPkgModelAvailabilityPricePerNight.md
 docs/Model/HttpBookingAndReservationLinks.md
 docs/Model/HttpBookingCreationRequest.md
 docs/Model/HttpBookingData.md
@@ -67,6 +69,8 @@ lib/ApiException.php
 lib/Configuration.php
 lib/HeaderSelector.php
 lib/Model/AvailabilityAvailabilityAndPrice.php
+lib/Model/AvailabilityExternalOffer.php
+lib/Model/AvailabilityExternalPrice.php
 lib/Model/AvailabilityExtraCharge.php
 lib/Model/AvailabilityOffer.php
 lib/Model/AvailabilityPrice.php
@@ -91,6 +95,7 @@ lib/Model/DtoReservation.php
 lib/Model/DtoUnit.php
 lib/Model/DtoUnitImage.php
 lib/Model/GeopointGeoPoint.php
+lib/Model/GithubComKatanoxApiPkgModelAvailabilityPricePerNight.php
 lib/Model/HttpBookingAndReservationLinks.php
 lib/Model/HttpBookingCreationRequest.php
 lib/Model/HttpBookingData.php
@@ -123,3 +128,6 @@ lib/Model/ModelUnitImage.php
 lib/Model/OfferGetOfferResponse.php
 lib/ObjectSerializer.php
 phpunit.xml.dist
+test/Model/AvailabilityExternalOfferTest.php
+test/Model/AvailabilityExternalPriceTest.php
+test/Model/GithubComKatanoxApiPkgModelAvailabilityPricePerNightTest.php

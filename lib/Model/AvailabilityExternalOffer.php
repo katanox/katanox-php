@@ -1,6 +1,6 @@
 <?php
 /**
- * AvailabilityPrice
+ * AvailabilityExternalOffer
  *
  * PHP version 7.4
  *
@@ -32,7 +32,7 @@ use \ArrayAccess;
 use \Katanox\ObjectSerializer;
 
 /**
- * AvailabilityPrice Class Doc Comment
+ * AvailabilityExternalOffer Class Doc Comment
  *
  * @category Class
  * @package  Katanox
@@ -40,7 +40,7 @@ use \Katanox\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class AvailabilityPrice implements ModelInterface, ArrayAccess, \JsonSerializable
+class AvailabilityExternalOffer implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class AvailabilityPrice implements ModelInterface, ArrayAccess, \JsonSerializabl
       *
       * @var string
       */
-    protected static $openAPIModelName = 'availability.Price';
+    protected static $openAPIModelName = 'availability.ExternalOffer';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,12 +57,11 @@ class AvailabilityPrice implements ModelInterface, ArrayAccess, \JsonSerializabl
       * @var string[]
       */
     protected static $openAPITypes = [
-        'after_tax' => 'float',
-        'before_tax' => 'float',
-        'currency' => 'string',
-        'extra_charges' => '\Katanox\Model\AvailabilityExtraCharge[]',
-        'price_per_night' => '\Katanox\Model\GithubComKatanoxApiPkgModelAvailabilityPricePerNight[]',
-        'total_amount' => 'float'
+        'id' => 'string',
+        'price' => '\Katanox\Model\AvailabilityExternalPrice',
+        'property_id' => 'string',
+        'rate_plan_id' => 'string',
+        'unit_id' => 'string'
     ];
 
     /**
@@ -73,12 +72,11 @@ class AvailabilityPrice implements ModelInterface, ArrayAccess, \JsonSerializabl
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'after_tax' => null,
-        'before_tax' => null,
-        'currency' => null,
-        'extra_charges' => null,
-        'price_per_night' => null,
-        'total_amount' => null
+        'id' => null,
+        'price' => null,
+        'property_id' => null,
+        'rate_plan_id' => null,
+        'unit_id' => null
     ];
 
     /**
@@ -87,12 +85,11 @@ class AvailabilityPrice implements ModelInterface, ArrayAccess, \JsonSerializabl
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'after_tax' => false,
-		'before_tax' => false,
-		'currency' => false,
-		'extra_charges' => false,
-		'price_per_night' => false,
-		'total_amount' => false
+        'id' => false,
+		'price' => false,
+		'property_id' => false,
+		'rate_plan_id' => false,
+		'unit_id' => false
     ];
 
     /**
@@ -181,12 +178,11 @@ class AvailabilityPrice implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var string[]
      */
     protected static $attributeMap = [
-        'after_tax' => 'after_tax',
-        'before_tax' => 'before_tax',
-        'currency' => 'currency',
-        'extra_charges' => 'extra_charges',
-        'price_per_night' => 'price_per_night',
-        'total_amount' => 'total_amount'
+        'id' => 'id',
+        'price' => 'price',
+        'property_id' => 'property_id',
+        'rate_plan_id' => 'rate_plan_id',
+        'unit_id' => 'unit_id'
     ];
 
     /**
@@ -195,12 +191,11 @@ class AvailabilityPrice implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var string[]
      */
     protected static $setters = [
-        'after_tax' => 'setAfterTax',
-        'before_tax' => 'setBeforeTax',
-        'currency' => 'setCurrency',
-        'extra_charges' => 'setExtraCharges',
-        'price_per_night' => 'setPricePerNight',
-        'total_amount' => 'setTotalAmount'
+        'id' => 'setId',
+        'price' => 'setPrice',
+        'property_id' => 'setPropertyId',
+        'rate_plan_id' => 'setRatePlanId',
+        'unit_id' => 'setUnitId'
     ];
 
     /**
@@ -209,12 +204,11 @@ class AvailabilityPrice implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var string[]
      */
     protected static $getters = [
-        'after_tax' => 'getAfterTax',
-        'before_tax' => 'getBeforeTax',
-        'currency' => 'getCurrency',
-        'extra_charges' => 'getExtraCharges',
-        'price_per_night' => 'getPricePerNight',
-        'total_amount' => 'getTotalAmount'
+        'id' => 'getId',
+        'price' => 'getPrice',
+        'property_id' => 'getPropertyId',
+        'rate_plan_id' => 'getRatePlanId',
+        'unit_id' => 'getUnitId'
     ];
 
     /**
@@ -274,12 +268,11 @@ class AvailabilityPrice implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('after_tax', $data ?? [], null);
-        $this->setIfExists('before_tax', $data ?? [], null);
-        $this->setIfExists('currency', $data ?? [], null);
-        $this->setIfExists('extra_charges', $data ?? [], null);
-        $this->setIfExists('price_per_night', $data ?? [], null);
-        $this->setIfExists('total_amount', $data ?? [], null);
+        $this->setIfExists('id', $data ?? [], null);
+        $this->setIfExists('price', $data ?? [], null);
+        $this->setIfExists('property_id', $data ?? [], null);
+        $this->setIfExists('rate_plan_id', $data ?? [], null);
+        $this->setIfExists('unit_id', $data ?? [], null);
     }
 
     /**
@@ -325,163 +318,136 @@ class AvailabilityPrice implements ModelInterface, ArrayAccess, \JsonSerializabl
 
 
     /**
-     * Gets after_tax
-     *
-     * @return float|null
-     */
-    public function getAfterTax()
-    {
-        return $this->container['after_tax'];
-    }
-
-    /**
-     * Sets after_tax
-     *
-     * @param float|null $after_tax after_tax
-     *
-     * @return self
-     */
-    public function setAfterTax($after_tax)
-    {
-        if (is_null($after_tax)) {
-            throw new \InvalidArgumentException('non-nullable after_tax cannot be null');
-        }
-        $this->container['after_tax'] = $after_tax;
-
-        return $this;
-    }
-
-    /**
-     * Gets before_tax
-     *
-     * @return float|null
-     */
-    public function getBeforeTax()
-    {
-        return $this->container['before_tax'];
-    }
-
-    /**
-     * Sets before_tax
-     *
-     * @param float|null $before_tax before_tax
-     *
-     * @return self
-     */
-    public function setBeforeTax($before_tax)
-    {
-        if (is_null($before_tax)) {
-            throw new \InvalidArgumentException('non-nullable before_tax cannot be null');
-        }
-        $this->container['before_tax'] = $before_tax;
-
-        return $this;
-    }
-
-    /**
-     * Gets currency
+     * Gets id
      *
      * @return string|null
      */
-    public function getCurrency()
+    public function getId()
     {
-        return $this->container['currency'];
+        return $this->container['id'];
     }
 
     /**
-     * Sets currency
+     * Sets id
      *
-     * @param string|null $currency currency
+     * @param string|null $id id
      *
      * @return self
      */
-    public function setCurrency($currency)
+    public function setId($id)
     {
-        if (is_null($currency)) {
-            throw new \InvalidArgumentException('non-nullable currency cannot be null');
+        if (is_null($id)) {
+            throw new \InvalidArgumentException('non-nullable id cannot be null');
         }
-        $this->container['currency'] = $currency;
+        $this->container['id'] = $id;
 
         return $this;
     }
 
     /**
-     * Gets extra_charges
+     * Gets price
      *
-     * @return \Katanox\Model\AvailabilityExtraCharge[]|null
+     * @return \Katanox\Model\AvailabilityExternalPrice|null
      */
-    public function getExtraCharges()
+    public function getPrice()
     {
-        return $this->container['extra_charges'];
+        return $this->container['price'];
     }
 
     /**
-     * Sets extra_charges
+     * Sets price
      *
-     * @param \Katanox\Model\AvailabilityExtraCharge[]|null $extra_charges extra_charges
+     * @param \Katanox\Model\AvailabilityExternalPrice|null $price price
      *
      * @return self
      */
-    public function setExtraCharges($extra_charges)
+    public function setPrice($price)
     {
-        if (is_null($extra_charges)) {
-            throw new \InvalidArgumentException('non-nullable extra_charges cannot be null');
+        if (is_null($price)) {
+            throw new \InvalidArgumentException('non-nullable price cannot be null');
         }
-        $this->container['extra_charges'] = $extra_charges;
+        $this->container['price'] = $price;
 
         return $this;
     }
 
     /**
-     * Gets price_per_night
+     * Gets property_id
      *
-     * @return \Katanox\Model\GithubComKatanoxApiPkgModelAvailabilityPricePerNight[]|null
+     * @return string|null
      */
-    public function getPricePerNight()
+    public function getPropertyId()
     {
-        return $this->container['price_per_night'];
+        return $this->container['property_id'];
     }
 
     /**
-     * Sets price_per_night
+     * Sets property_id
      *
-     * @param \Katanox\Model\GithubComKatanoxApiPkgModelAvailabilityPricePerNight[]|null $price_per_night price_per_night
+     * @param string|null $property_id property_id
      *
      * @return self
      */
-    public function setPricePerNight($price_per_night)
+    public function setPropertyId($property_id)
     {
-        if (is_null($price_per_night)) {
-            throw new \InvalidArgumentException('non-nullable price_per_night cannot be null');
+        if (is_null($property_id)) {
+            throw new \InvalidArgumentException('non-nullable property_id cannot be null');
         }
-        $this->container['price_per_night'] = $price_per_night;
+        $this->container['property_id'] = $property_id;
 
         return $this;
     }
 
     /**
-     * Gets total_amount
+     * Gets rate_plan_id
      *
-     * @return float|null
+     * @return string|null
      */
-    public function getTotalAmount()
+    public function getRatePlanId()
     {
-        return $this->container['total_amount'];
+        return $this->container['rate_plan_id'];
     }
 
     /**
-     * Sets total_amount
+     * Sets rate_plan_id
      *
-     * @param float|null $total_amount total_amount
+     * @param string|null $rate_plan_id rate_plan_id
      *
      * @return self
      */
-    public function setTotalAmount($total_amount)
+    public function setRatePlanId($rate_plan_id)
     {
-        if (is_null($total_amount)) {
-            throw new \InvalidArgumentException('non-nullable total_amount cannot be null');
+        if (is_null($rate_plan_id)) {
+            throw new \InvalidArgumentException('non-nullable rate_plan_id cannot be null');
         }
-        $this->container['total_amount'] = $total_amount;
+        $this->container['rate_plan_id'] = $rate_plan_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets unit_id
+     *
+     * @return string|null
+     */
+    public function getUnitId()
+    {
+        return $this->container['unit_id'];
+    }
+
+    /**
+     * Sets unit_id
+     *
+     * @param string|null $unit_id unit_id
+     *
+     * @return self
+     */
+    public function setUnitId($unit_id)
+    {
+        if (is_null($unit_id)) {
+            throw new \InvalidArgumentException('non-nullable unit_id cannot be null');
+        }
+        $this->container['unit_id'] = $unit_id;
 
         return $this;
     }

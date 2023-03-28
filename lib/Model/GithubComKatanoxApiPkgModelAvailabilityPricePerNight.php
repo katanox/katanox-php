@@ -1,6 +1,6 @@
 <?php
 /**
- * AvailabilityPrice
+ * GithubComKatanoxApiPkgModelAvailabilityPricePerNight
  *
  * PHP version 7.4
  *
@@ -32,7 +32,7 @@ use \ArrayAccess;
 use \Katanox\ObjectSerializer;
 
 /**
- * AvailabilityPrice Class Doc Comment
+ * GithubComKatanoxApiPkgModelAvailabilityPricePerNight Class Doc Comment
  *
  * @category Class
  * @package  Katanox
@@ -40,7 +40,7 @@ use \Katanox\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class AvailabilityPrice implements ModelInterface, ArrayAccess, \JsonSerializable
+class GithubComKatanoxApiPkgModelAvailabilityPricePerNight implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class AvailabilityPrice implements ModelInterface, ArrayAccess, \JsonSerializabl
       *
       * @var string
       */
-    protected static $openAPIModelName = 'availability.Price';
+    protected static $openAPIModelName = 'github_com_katanox_api_pkg_model_availability.PricePerNight';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -60,9 +60,7 @@ class AvailabilityPrice implements ModelInterface, ArrayAccess, \JsonSerializabl
         'after_tax' => 'float',
         'before_tax' => 'float',
         'currency' => 'string',
-        'extra_charges' => '\Katanox\Model\AvailabilityExtraCharge[]',
-        'price_per_night' => '\Katanox\Model\GithubComKatanoxApiPkgModelAvailabilityPricePerNight[]',
-        'total_amount' => 'float'
+        'date' => 'string'
     ];
 
     /**
@@ -76,9 +74,7 @@ class AvailabilityPrice implements ModelInterface, ArrayAccess, \JsonSerializabl
         'after_tax' => null,
         'before_tax' => null,
         'currency' => null,
-        'extra_charges' => null,
-        'price_per_night' => null,
-        'total_amount' => null
+        'date' => null
     ];
 
     /**
@@ -90,9 +86,7 @@ class AvailabilityPrice implements ModelInterface, ArrayAccess, \JsonSerializabl
         'after_tax' => false,
 		'before_tax' => false,
 		'currency' => false,
-		'extra_charges' => false,
-		'price_per_night' => false,
-		'total_amount' => false
+		'date' => false
     ];
 
     /**
@@ -184,9 +178,7 @@ class AvailabilityPrice implements ModelInterface, ArrayAccess, \JsonSerializabl
         'after_tax' => 'after_tax',
         'before_tax' => 'before_tax',
         'currency' => 'currency',
-        'extra_charges' => 'extra_charges',
-        'price_per_night' => 'price_per_night',
-        'total_amount' => 'total_amount'
+        'date' => 'date'
     ];
 
     /**
@@ -198,9 +190,7 @@ class AvailabilityPrice implements ModelInterface, ArrayAccess, \JsonSerializabl
         'after_tax' => 'setAfterTax',
         'before_tax' => 'setBeforeTax',
         'currency' => 'setCurrency',
-        'extra_charges' => 'setExtraCharges',
-        'price_per_night' => 'setPricePerNight',
-        'total_amount' => 'setTotalAmount'
+        'date' => 'setDate'
     ];
 
     /**
@@ -212,9 +202,7 @@ class AvailabilityPrice implements ModelInterface, ArrayAccess, \JsonSerializabl
         'after_tax' => 'getAfterTax',
         'before_tax' => 'getBeforeTax',
         'currency' => 'getCurrency',
-        'extra_charges' => 'getExtraCharges',
-        'price_per_night' => 'getPricePerNight',
-        'total_amount' => 'getTotalAmount'
+        'date' => 'getDate'
     ];
 
     /**
@@ -277,9 +265,7 @@ class AvailabilityPrice implements ModelInterface, ArrayAccess, \JsonSerializabl
         $this->setIfExists('after_tax', $data ?? [], null);
         $this->setIfExists('before_tax', $data ?? [], null);
         $this->setIfExists('currency', $data ?? [], null);
-        $this->setIfExists('extra_charges', $data ?? [], null);
-        $this->setIfExists('price_per_night', $data ?? [], null);
-        $this->setIfExists('total_amount', $data ?? [], null);
+        $this->setIfExists('date', $data ?? [], null);
     }
 
     /**
@@ -406,82 +392,28 @@ class AvailabilityPrice implements ModelInterface, ArrayAccess, \JsonSerializabl
     }
 
     /**
-     * Gets extra_charges
+     * Gets date
      *
-     * @return \Katanox\Model\AvailabilityExtraCharge[]|null
+     * @return string|null
      */
-    public function getExtraCharges()
+    public function getDate()
     {
-        return $this->container['extra_charges'];
+        return $this->container['date'];
     }
 
     /**
-     * Sets extra_charges
+     * Sets date
      *
-     * @param \Katanox\Model\AvailabilityExtraCharge[]|null $extra_charges extra_charges
+     * @param string|null $date date
      *
      * @return self
      */
-    public function setExtraCharges($extra_charges)
+    public function setDate($date)
     {
-        if (is_null($extra_charges)) {
-            throw new \InvalidArgumentException('non-nullable extra_charges cannot be null');
+        if (is_null($date)) {
+            throw new \InvalidArgumentException('non-nullable date cannot be null');
         }
-        $this->container['extra_charges'] = $extra_charges;
-
-        return $this;
-    }
-
-    /**
-     * Gets price_per_night
-     *
-     * @return \Katanox\Model\GithubComKatanoxApiPkgModelAvailabilityPricePerNight[]|null
-     */
-    public function getPricePerNight()
-    {
-        return $this->container['price_per_night'];
-    }
-
-    /**
-     * Sets price_per_night
-     *
-     * @param \Katanox\Model\GithubComKatanoxApiPkgModelAvailabilityPricePerNight[]|null $price_per_night price_per_night
-     *
-     * @return self
-     */
-    public function setPricePerNight($price_per_night)
-    {
-        if (is_null($price_per_night)) {
-            throw new \InvalidArgumentException('non-nullable price_per_night cannot be null');
-        }
-        $this->container['price_per_night'] = $price_per_night;
-
-        return $this;
-    }
-
-    /**
-     * Gets total_amount
-     *
-     * @return float|null
-     */
-    public function getTotalAmount()
-    {
-        return $this->container['total_amount'];
-    }
-
-    /**
-     * Sets total_amount
-     *
-     * @param float|null $total_amount total_amount
-     *
-     * @return self
-     */
-    public function setTotalAmount($total_amount)
-    {
-        if (is_null($total_amount)) {
-            throw new \InvalidArgumentException('non-nullable total_amount cannot be null');
-        }
-        $this->container['total_amount'] = $total_amount;
+        $this->container['date'] = $date;
 
         return $this;
     }
