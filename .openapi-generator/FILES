@@ -128,6 +128,3 @@ lib/Model/ModelUnitImage.php
 lib/Model/OfferGetOfferResponse.php
 lib/ObjectSerializer.php
 phpunit.xml.dist
-test/Model/AvailabilityExternalOfferTest.php
-test/Model/AvailabilityExternalPriceTest.php
-test/Model/GithubComKatanoxApiPkgModelAvailabilityPricePerNightTest.php

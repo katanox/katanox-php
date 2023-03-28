@@ -15,7 +15,7 @@ getAvailableProperties($check_in, $check_out, $authorization, $adults, $children
 
 Retrieve the list of available properties
 
-Use this endpoint to retrieve availability offers. To receive offers from properties you are already partnered with you need to specify the check in and check out dates, number of adults and either geo coordinates and a radius to search into or directly a list of property ids.  You need to pass either property_ids or a latitude/longitude to query for properties.  You can find more information in the [Availability guide](https://docs.katanox.com/docs/availability)
+Use this endpoint to retrieve availability offers. To receive offers from properties you are already partnered with you need to specify the check in and check out dates, number of adults and either geo coordinates and a radius to search into or directly a list of property ids.  Note: you need to pass either property_ids or both latitude and longitude to query for properties.  You can find more information in the [Availability guide](https://docs.katanox.com/docs/availability)
 
 ### Example
 

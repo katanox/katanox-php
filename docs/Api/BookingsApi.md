@@ -130,7 +130,7 @@ No authorization required
 ## `createBooking()`
 
 ```php
-createBooking($authorization, $booking): \Katanox\Model\HttpBookingResponse
+createBooking($authorization, $http_booking_creation_request): \Katanox\Model\HttpBookingResponse
 ```
 
 Create a booking
@@ -151,10 +151,10 @@ $apiInstance = new Katanox\Api\BookingsApi(
     new GuzzleHttp\Client()
 );
 $authorization = 'authorization_example'; // string | Type 'Bearer' and then your API Token
-$booking = new \Katanox\Model\HttpBookingCreationRequest(); // \Katanox\Model\HttpBookingCreationRequest | Booking body
+$http_booking_creation_request = new \Katanox\Model\HttpBookingCreationRequest(); // \Katanox\Model\HttpBookingCreationRequest | Booking body
 
 try {
-    $result = $apiInstance->createBooking($authorization, $booking);
+    $result = $apiInstance->createBooking($authorization, $http_booking_creation_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling BookingsApi->createBooking: ', $e->getMessage(), PHP_EOL;
@@ -166,7 +166,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **authorization** | **string**| Type &#39;Bearer&#39; and then your API Token | |
-| **booking** | [**\Katanox\Model\HttpBookingCreationRequest**](../Model/HttpBookingCreationRequest.md)| Booking body | |
+| **http_booking_creation_request** | [**\Katanox\Model\HttpBookingCreationRequest**](../Model/HttpBookingCreationRequest.md)| Booking body | |
 
 ### Return type
 
@@ -188,7 +188,7 @@ No authorization required
 ## `createReservation()`
 
 ```php
-createReservation($booking_id, $authorization, $reservation): \Katanox\Model\HttpReservationResponse
+createReservation($booking_id, $authorization, $http_reservation_creation_request): \Katanox\Model\HttpReservationResponse
 ```
 ### URI(s):
 - https://api.datatrans.com/upp/services/v1/inline/token 
@@ -211,14 +211,14 @@ $apiInstance = new Katanox\Api\BookingsApi(
 );
 $booking_id = 'booking_id_example'; // string | The id of the booking
 $authorization = 'authorization_example'; // string | Type 'Bearer' and then your API Token
-$reservation = new \Katanox\Model\HttpReservationCreationRequest(); // \Katanox\Model\HttpReservationCreationRequest | Reservation body
+$http_reservation_creation_request = new \Katanox\Model\HttpReservationCreationRequest(); // \Katanox\Model\HttpReservationCreationRequest | Reservation body
 
 $hostIndex = 0;
 $variables = [
 ];
 
 try {
-    $result = $apiInstance->createReservation($booking_id, $authorization, $reservation, $hostIndex, $variables);
+    $result = $apiInstance->createReservation($booking_id, $authorization, $http_reservation_creation_request, $hostIndex, $variables);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling BookingsApi->createReservation: ', $e->getMessage(), PHP_EOL;
@@ -231,7 +231,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **booking_id** | **string**| The id of the booking | |
 | **authorization** | **string**| Type &#39;Bearer&#39; and then your API Token | |
-| **reservation** | [**\Katanox\Model\HttpReservationCreationRequest**](../Model/HttpReservationCreationRequest.md)| Reservation body | |
+| **http_reservation_creation_request** | [**\Katanox\Model\HttpReservationCreationRequest**](../Model/HttpReservationCreationRequest.md)| Reservation body | |
 | hostIndex | null|int | Host index. Defaults to null. If null, then the library will use $this->hostIndex instead | [optional] |
 | variables | array | Associative array of variables to pass to the host. Defaults to empty array. | [optional] |
 
@@ -371,12 +371,12 @@ No authorization required
 ## `updateReservation()`
 
 ```php
-updateReservation($booking_id, $reservation_id, $authorization, $reservation): \Katanox\Model\HttpReservationResponse
+updateReservation($booking_id, $reservation_id, $authorization, $http_reservation_update_request): \Katanox\Model\HttpReservationResponse
 ```
 
 Update a reservation
 
-When updating a Reservation, send in the entire reservation with its desired state. Note that this is not a partial update - all fields, specified or not, will be persisted to the existing Reservation object.  To add an additional guest, update or delete an existing guest, send a guest list with the necessary changes. The list in the update reservation request will update the associated guests in that reservation. You can find more information in the [Reservation guide](https://docs.katanox.com/docs/reservartion)
+When updating a Reservation, send in the entire reservation with its desired state. Note that this is not a partial update - all fields, specified or not, will be persisted to the existing Reservation object.  To add an additional guest, update or delete an existing guest, send a guest list with the necessary changes. The list in the update reservation request will update the associated guests in that reservation. You can find more information in the [Reservation guide](https://docs.katanox.com/docs/reservation)
 
 ### Example
 
@@ -394,10 +394,10 @@ $apiInstance = new Katanox\Api\BookingsApi(
 $booking_id = 'booking_id_example'; // string | The id of the booking
 $reservation_id = 'reservation_id_example'; // string | The id of the reservation
 $authorization = 'authorization_example'; // string | Type 'Bearer' and then your API Token
-$reservation = new \Katanox\Model\HttpReservationUpdateRequest(); // \Katanox\Model\HttpReservationUpdateRequest | The reservation body
+$http_reservation_update_request = new \Katanox\Model\HttpReservationUpdateRequest(); // \Katanox\Model\HttpReservationUpdateRequest | The reservation body
 
 try {
-    $result = $apiInstance->updateReservation($booking_id, $reservation_id, $authorization, $reservation);
+    $result = $apiInstance->updateReservation($booking_id, $reservation_id, $authorization, $http_reservation_update_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling BookingsApi->updateReservation: ', $e->getMessage(), PHP_EOL;
@@ -411,7 +411,7 @@ try {
 | **booking_id** | **string**| The id of the booking | |
 | **reservation_id** | **string**| The id of the reservation | |
 | **authorization** | **string**| Type &#39;Bearer&#39; and then your API Token | |
-| **reservation** | [**\Katanox\Model\HttpReservationUpdateRequest**](../Model/HttpReservationUpdateRequest.md)| The reservation body | |
+| **http_reservation_update_request** | [**\Katanox\Model\HttpReservationUpdateRequest**](../Model/HttpReservationUpdateRequest.md)| The reservation body | |
 
 ### Return type
 
