@@ -1,7 +1,5 @@
 .gitignore
 .php-cs-fixer.dist.php
-.travis.yml
-README.md
 composer.json
 docs/Api/AvailabilityApi.md
 docs/Api/BookingsApi.md
@@ -61,7 +59,6 @@ docs/Model/ModelPropertyData.md
 docs/Model/ModelUnit.md
 docs/Model/ModelUnitImage.md
 docs/Model/OfferGetOfferResponse.md
-git_push.sh
 lib/Api/AvailabilityApi.php
 lib/Api/BookingsApi.php
 lib/Api/OfferApi.php
