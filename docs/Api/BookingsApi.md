@@ -132,7 +132,8 @@ No authorization required
 ```php
 createBooking($authorization, $http_booking_creation_request): \Katanox\Model\HttpBookingResponse
 ```
-
+### URI(s):
+- https://api.pci-proxy.com/v1/push/5775c7cf3b3e5dc0 
 Create a booking
 
 Using this endpoint, you can create a booking consisting of one or more reservations. Note that these reservations need to belong to the same property, but can contain any combination of rates/units of that property. Furthermore, the check-in date of the new reservation needs to be within the travel dates of the rest of the reservations in the booking. The booking object allows you to manage multiple reservations in a unified way while keeping the flexibility to modify individual reservations.  When this endpoint returns a successful response, it means that we accepted the booking and we are in the process of forwarding it to the hotels. Since some hotel systems are asynchronous, you need to retrieve the booking again using the id in the response and check if it was confirmed.
@@ -153,8 +154,12 @@ $apiInstance = new Katanox\Api\BookingsApi(
 $authorization = 'authorization_example'; // string | Type 'Bearer' and then your API Token
 $http_booking_creation_request = new \Katanox\Model\HttpBookingCreationRequest(); // \Katanox\Model\HttpBookingCreationRequest | Booking body
 
+$hostIndex = 0;
+$variables = [
+];
+
 try {
-    $result = $apiInstance->createBooking($authorization, $http_booking_creation_request);
+    $result = $apiInstance->createBooking($authorization, $http_booking_creation_request, $hostIndex, $variables);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling BookingsApi->createBooking: ', $e->getMessage(), PHP_EOL;
@@ -167,6 +172,8 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **authorization** | **string**| Type &#39;Bearer&#39; and then your API Token | |
 | **http_booking_creation_request** | [**\Katanox\Model\HttpBookingCreationRequest**](../Model/HttpBookingCreationRequest.md)| Booking body | |
+| hostIndex | null|int | Host index. Defaults to null. If null, then the library will use $this->hostIndex instead | [optional] |
+| variables | array | Associative array of variables to pass to the host. Defaults to empty array. | [optional] |
 
 ### Return type
 
@@ -190,8 +197,7 @@ No authorization required
 ```php
 createReservation($booking_id, $authorization, $http_reservation_creation_request): \Katanox\Model\HttpReservationResponse
 ```
-### URI(s):
-- https://api.datatrans.com/upp/services/v1/inline/token 
+
 Create a reservation
 
 When creating a new reservation, you must specify the booking id you want the new reservation to be part of. If there is no booking, use the Create a booking method instead.
@@ -213,12 +219,8 @@ $booking_id = 'booking_id_example'; // string | The id of the booking
 $authorization = 'authorization_example'; // string | Type 'Bearer' and then your API Token
 $http_reservation_creation_request = new \Katanox\Model\HttpReservationCreationRequest(); // \Katanox\Model\HttpReservationCreationRequest | Reservation body
 
-$hostIndex = 0;
-$variables = [
-];
-
 try {
-    $result = $apiInstance->createReservation($booking_id, $authorization, $http_reservation_creation_request, $hostIndex, $variables);
+    $result = $apiInstance->createReservation($booking_id, $authorization, $http_reservation_creation_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling BookingsApi->createReservation: ', $e->getMessage(), PHP_EOL;
@@ -232,8 +234,6 @@ try {
 | **booking_id** | **string**| The id of the booking | |
 | **authorization** | **string**| Type &#39;Bearer&#39; and then your API Token | |
 | **http_reservation_creation_request** | [**\Katanox\Model\HttpReservationCreationRequest**](../Model/HttpReservationCreationRequest.md)| Reservation body | |
-| hostIndex | null|int | Host index. Defaults to null. If null, then the library will use $this->hostIndex instead | [optional] |
-| variables | array | Associative array of variables to pass to the host. Defaults to empty array. | [optional] |
 
 ### Return type
 
