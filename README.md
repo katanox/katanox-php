@@ -3,9 +3,6 @@
 </p>
 
 # Katanox PHP SDK
-![test workflow](https://github.com/katanox/katanox-php/actions/workflows/test.yaml/badge.svg)
-![StyleCI](https://github.styleci.io/repos/397629408/shield?branch=master)
-
 
 Welcome to the official PHP SDK of the [Katanox API](https://docs.katanox.com). You can simply install the SDK using Composer and after providing your API key you can start calling the API. 
 
@@ -19,211 +16,105 @@ Via Composer
 $ composer require katanox/katanox-php
 ```
 
-## Documentation
+### Manual Installation
 
-### Setup
-First create a KatanoxApi Object
-```php 
-$katanox = new Katanox\KatanoxApi('your-api-key-here');
-```
-### Get Availability
-``` php
-$availabilityResource = $katanox->getAvailabilityResource();
+Download the files and include `autoload.php`:
 
-$q = new AvailabilityQuery();
-$q->setLat(52.0356)
-    ->setLng(4.0913)
-    ->setRadius(2000)
-    ->setAdults(1)
-    ->setChildren(0)
-    ->setCheckIn('2021-07-01')
-    ->setCheckOut('2021-07-02')
-    ->setPage(1)
-    ->setLimit(25);
-
-// Get the first page    
-$response = $availabilityResource->search($q);
-$properties = $response->getData()->getProperties();
-
-// Get the next page
-$nextPage = $availabilityResource->next($response);
-$properties = $nextPage->getData()->getProperties();
-
-```
-### Create a new booking
-``` php
-$bookingResource = $katanox->getBookingResource();
-
-$booking = new Booking();
-
-$person = new Person();
-$person->setFirstName('fisrtName')
-->setLastName('lastName')
-->setTitle('Mr')
-->setBirthDate('2020-02-20')
-->setCity('Amsterdam')
-->setCountry('Netherlands');
-
-$payment = new Payment();
-$payment->setCardHolder('Holder')
-->setCVV('111')
-->setType('VISA')
-->setExpirtyMonth('08')
-->setExpiryYear('22')
-->setCardNumber('11111111111111111111');
-
-$reservation = new Reservation();
-$reservation->setCheckIn('2020-02-20')
-->setCheckOut('2020-02-22')
-->setPrice(new Price(1.0, 'EUR'))
-->setRatePlanId('ABCDEFGE')
-->setUnitId('TRCDNHGE')
-->setGuests([$person]);
-
-$booking->setTotalPrice(1.0)
-->setPayment($payment)
-->setReservations([$reservation]);
-
-
-$createBookingResult = $bookingResource->createBooking($booking);
-
-// Getting the new booking 
-$newBooking = $createBookingResult->getBooking();
+```php
+<?php
+require_once('/path/to/Katanox/vendor/autoload.php');
 ```
 
-### Get a booking
-``` php
-$bookingResource = $katanox->getBookingResource();
+## API Endpoints
 
-$booking = $bookingResource->getBooking('<BOOKING_ID>');
+All URIs are relative to *https://api.katanox.com/v2*
+
+Class | Method | HTTP request | Description
+------------ | ------------- | ------------- | -------------
+*AvailabilityApi* | [**getAvailableProperties**](docs/Api/AvailabilityApi.md#getavailableproperties) | **GET** /availability | Retrieve the list of available properties
+*BookingsApi* | [**cancelBookingById**](docs/Api/BookingsApi.md#cancelbookingbyid) | **DELETE** /bookings/{booking_id} | Cancel a booking
+*BookingsApi* | [**cancelReservation**](docs/Api/BookingsApi.md#cancelreservation) | **DELETE** /bookings/{booking_id}/reservations/{reservation_id} | Cancel a reservation
+*BookingsApi* | [**createBooking**](docs/Api/BookingsApi.md#createbooking) | **POST** /bookings | Create a booking
+*BookingsApi* | [**createReservation**](docs/Api/BookingsApi.md#createreservation) | **POST** /bookings/{booking_id}/reservations | Create a reservation
+*BookingsApi* | [**getBookingById**](docs/Api/BookingsApi.md#getbookingbyid) | **GET** /bookings/{booking_id} | Retrieve a booking
+*BookingsApi* | [**getReservationById**](docs/Api/BookingsApi.md#getreservationbyid) | **GET** /bookings/{booking_id}/reservations/{reservation_id} | Retrieve a reservation by id
+*BookingsApi* | [**updateReservation**](docs/Api/BookingsApi.md#updatereservation) | **PUT** /bookings/{booking_id}/reservations/{reservation_id} | Update a reservation
+*OfferApi* | [**offerRefresh**](docs/Api/OfferApi.md#offerrefresh) | **POST** /offers/{offer_id}/refresh | Refresh an offer
+*OfferApi* | [**offerValidate**](docs/Api/OfferApi.md#offervalidate) | **GET** /offers/{offer_id} | Retrieve an offer
+*PropertiesApi* | [**getProperties**](docs/Api/PropertiesApi.md#getproperties) | **GET** /properties | Retrieve the list of contracted properties
+*PropertiesApi* | [**getPropertyById**](docs/Api/PropertiesApi.md#getpropertybyid) | **GET** /properties/{id} | Retrieve a property by id
+*PropertiesApi* | [**getRateplanById**](docs/Api/PropertiesApi.md#getrateplanbyid) | **GET** /properties/{property_id}/rate-plans/{id} | Retrieve a rate plan by id
+*PropertiesApi* | [**getUnitById**](docs/Api/PropertiesApi.md#getunitbyid) | **GET** /properties/{property_id}/units/{id} | Retrieve a unit by id
+
+## Models
+
+- [AvailabilityAvailabilityAndPrice](docs/Model/AvailabilityAvailabilityAndPrice.md)
+- [AvailabilityExtraCharge](docs/Model/AvailabilityExtraCharge.md)
+- [AvailabilityOffer](docs/Model/AvailabilityOffer.md)
+- [AvailabilityPrice](docs/Model/AvailabilityPrice.md)
+- [DtoAmenity](docs/Model/DtoAmenity.md)
+- [DtoBedType](docs/Model/DtoBedType.md)
+- [DtoCancellationPolicy](docs/Model/DtoCancellationPolicy.md)
+- [DtoCreatedBooking](docs/Model/DtoCreatedBooking.md)
+- [DtoCreatedReservation](docs/Model/DtoCreatedReservation.md)
+- [DtoFacility](docs/Model/DtoFacility.md)
+- [DtoI18NProperty](docs/Model/DtoI18NProperty.md)
+- [DtoI18NRatePlan](docs/Model/DtoI18NRatePlan.md)
+- [DtoI18NUnit](docs/Model/DtoI18NUnit.md)
+- [DtoNoShowPolicy](docs/Model/DtoNoShowPolicy.md)
+- [DtoPayment](docs/Model/DtoPayment.md)
+- [DtoPerson](docs/Model/DtoPerson.md)
+- [DtoPrice](docs/Model/DtoPrice.md)
+- [DtoProperty](docs/Model/DtoProperty.md)
+- [DtoPropertyImage](docs/Model/DtoPropertyImage.md)
+- [DtoRatePlan](docs/Model/DtoRatePlan.md)
+- [DtoRatePlanService](docs/Model/DtoRatePlanService.md)
+- [DtoReservation](docs/Model/DtoReservation.md)
+- [DtoUnit](docs/Model/DtoUnit.md)
+- [DtoUnitImage](docs/Model/DtoUnitImage.md)
+- [GeopointGeoPoint](docs/Model/GeopointGeoPoint.md)
+- [HttpBookingAndReservationLinks](docs/Model/HttpBookingAndReservationLinks.md)
+- [HttpBookingCreationRequest](docs/Model/HttpBookingCreationRequest.md)
+- [HttpBookingData](docs/Model/HttpBookingData.md)
+- [HttpBookingResponse](docs/Model/HttpBookingResponse.md)
+- [HttpPayment](docs/Model/HttpPayment.md)
+- [HttpPerson](docs/Model/HttpPerson.md)
+- [HttpReservationCreationRequest](docs/Model/HttpReservationCreationRequest.md)
+- [HttpReservationData](docs/Model/HttpReservationData.md)
+- [HttpReservationResponse](docs/Model/HttpReservationResponse.md)
+- [HttpReservationUpdateRequest](docs/Model/HttpReservationUpdateRequest.md)
+- [ModelAmenity](docs/Model/ModelAmenity.md)
+- [ModelApiError](docs/Model/ModelApiError.md)
+- [ModelBedType](docs/Model/ModelBedType.md)
+- [ModelGetAvailabilityResponse](docs/Model/ModelGetAvailabilityResponse.md)
+- [ModelGetPropertiesResponse](docs/Model/ModelGetPropertiesResponse.md)
+- [ModelGetPropertyByIdResponse](docs/Model/ModelGetPropertyByIdResponse.md)
+- [ModelGetRatePlanByIdResponse](docs/Model/ModelGetRatePlanByIdResponse.md)
+- [ModelGetUnitByIdResponse](docs/Model/ModelGetUnitByIdResponse.md)
+- [ModelI18NUnit](docs/Model/ModelI18NUnit.md)
+- [ModelInternalServerError](docs/Model/ModelInternalServerError.md)
+- [ModelLink](docs/Model/ModelLink.md)
+- [ModelOffersData](docs/Model/ModelOffersData.md)
+- [ModelPage](docs/Model/ModelPage.md)
+- [ModelPropertiesData](docs/Model/ModelPropertiesData.md)
+- [ModelPropertiesMeta](docs/Model/ModelPropertiesMeta.md)
+- [ModelPropertyData](docs/Model/ModelPropertyData.md)
+- [ModelUnit](docs/Model/ModelUnit.md)
+- [ModelUnitImage](docs/Model/ModelUnitImage.md)
+- [OfferGetOfferResponse](docs/Model/OfferGetOfferResponse.md)
+
+## Tests
+
+To run the tests, use:
+
+```bash
+composer install
+vendor/bin/phpunit
 ```
 
-### Cancel a booking
-``` php
-$bookingResource = $katanox->getBookingResource();
+## About this package
 
-$isCancelled = $bookingResource->cancelBooking('<BOOKING_ID>');
-```
+This PHP package is automatically generated by the [OpenAPI Generator](https://openapi-generator.tech) project:
 
-### Create a reservation
-``` php
-$bookingResource = $katanox->getBookingResource();
-
-$createReservationRequest = new CreateReservationRequest();
-
-$person = new Person();
-$person->setFirstName('firstName')
-->setLastName('lastName')
-->setTitle('Mr')
-->setBirthDate('2020-02-20')
-->setCity('Amsterdam')
-->setCountry('Netherlands');
-
-$reservation = new Reservation();
-$reservation->setCheckIn('2020-02-20')
-->setCheckOut('2020-02-22')
-->setPrice(new Price(1.0, 'EUR'))
-->setRatePlanId('ABCDEFGE')
-->setUnitId('TRCDNHGE')
-->setGuests([$person]);
-
-$createReservationRequest->setReservation($reservation)
-->setBookingId('<BOOKING_ID>');
-
-$createReservationResult = $bookingResource->createReservation($createReservationRequest);
-
-// Getting the new reservation
-$newReservation = $createReservationResult->getReservation();
-```
-
-### Update a reservation
-``` php
-$bookingResource = $katanox->getBookingResource();
-
-$updateReservation = new UpdateReservationRequest();
-
-
-// update the reservation
-$updateReservationRequest->setReservation($reservation);
-$updateReservationRequest->setBookingId('<BOOKING_ID>');
-
-$updateReservationResult = $bookingResource->updateReservation($updateReservationRequestt);
-
-// Getting the new reservation
-$updatedReservation = $updateReservationResult->getReservation();
-```
-
-You can ensure if a booking/reservation was created with:
-`$result->isCreated();`
-
-### Get a reservation
-``` php
-$bookingResource = $katanox->getBookingResource();
-
-$reservation = $bookingResource->getReservation('<BOOKING_ID>','<RESERVATION_ID>');
-```
-
-### Cancel a reservation
-``` php
-$bookingResource = $katanox->getBookingResource();
-
-$isCancelled = $bookingResource->cancelReservation('<BOOKING_ID>','<RESERVATION_ID>');
-```
-
-### Get connected properties
-``` php
-$propertyResource = $katanox->getPropertyResource();
-
-$properties = $propertyResource->getProperties();
-```
-These are the properties you are connected with.
-
-### Get a property
-``` php
-$propertyResource = $katanox->getPropertyResource();
-
-$property= $propertyResource->getProperty('<PROPERTY_ID>');
-```
-
-### Get a property 
-``` php
-$propertyResource = $katanox->getPropertyResource();
-
-$property= $propertyResource->getProperty('<PROPERTY_ID>');
-```
-
-### Get a property unit
-``` php
-$propertyResource = $katanox->getPropertyResource();
-
-$unit = $propertyResource->getUnit('<PROPERTY_ID>', '<UNIT_ID>');
-```
-
-### Get a property rate plan
-``` php
-$propertyResource = $katanox->getPropertyResource();
-
-$ratePlan = $propertyResource->getRatePlan('<PROPERTY_ID>', '<RATE_PLAN_ID>');
-```
-
-## Change log
-
-Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.
-
-## Testing
-
-``` bash
-$ composer test
-```
-
-## Contributing
-
-Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
-
-## Security
-
-If you discover any security related issues, please email the Katanox Engineering Team (developers@katanox.com) instead of using the issue tracker.
-
-## License
-
-The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
+- API version: `2.0`
+- Build package: `org.openapitools.codegen.languages.PhpClientCodegen`
