@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **address_line_1** | **string** |  | [optional]
 **address_line_2** | **string** |  | [optional]
-**birth_date** | **\DateTime** |  | [optional]
+**birth_date** | **string** |  | [optional]
 **city** | **string** |  | [optional]
 **country** | **string** |  | [optional]
 **email** | **string** |  | [optional]
