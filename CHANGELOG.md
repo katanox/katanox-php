@@ -7,7 +7,6 @@ Updates should follow the [Keep a CHANGELOG](https://keepachangelog.com/) princi
 ## [4.0.1] - 2021-05-05
 ### Changed
 - Remove date format from person birth date
-- Remove PCI Proxy url
 
 ## [4.0.0] - 2021-10-11
 ### Changed
