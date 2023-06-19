@@ -1,17 +1,18 @@
 <?php
 /**
- * DtoReservationTest
+ * DtoReservationTest.
  *
  * PHP version 7.4
  *
  * @category Class
- * @package  OpenAPI\Client
+ *
  * @author   OpenAPI Generator team
- * @link     https://openapi-generator.tech
+ *
+ * @see     https://openapi-generator.tech
  */
 
 /**
- * Katanox API Documentation
+ * Katanox API Documentation.
  *
  * The Katanox API allows any travel seller to search and book accommodation.
  *
@@ -31,47 +32,52 @@ namespace OpenAPI\Client\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * DtoReservationTest Class Doc Comment
+ * DtoReservationTest Class Doc Comment.
  *
  * @category    Class
+ *
  * @description DtoReservation
- * @package     OpenAPI\Client
+ *
  * @author      OpenAPI Generator team
- * @link        https://openapi-generator.tech
+ *
+ * @see        https://openapi-generator.tech
+ *
+ * @internal
+ *
+ * @coversNothing
  */
 class DtoReservationTest extends TestCase
 {
-
     /**
-     * Setup before running any test case
+     * Setup before running any test case.
      */
     public static function setUpBeforeClass(): void
     {
     }
 
     /**
-     * Setup before running each test case
-     */
-    public function setUp(): void
-    {
-    }
-
-    /**
-     * Clean up after running each test case
-     */
-    public function tearDown(): void
-    {
-    }
-
-    /**
-     * Clean up after running all test cases
+     * Clean up after running all test cases.
      */
     public static function tearDownAfterClass(): void
     {
     }
 
     /**
-     * Test "DtoReservation"
+     * Setup before running each test case.
+     */
+    public function setUp(): void
+    {
+    }
+
+    /**
+     * Clean up after running each test case.
+     */
+    public function tearDown(): void
+    {
+    }
+
+    /**
+     * Test "DtoReservation".
      */
     public function testDtoReservation()
     {
@@ -80,7 +86,7 @@ class DtoReservationTest extends TestCase
     }
 
     /**
-     * Test attribute "adults"
+     * Test attribute "adults".
      */
     public function testPropertyAdults()
     {
@@ -89,7 +95,7 @@ class DtoReservationTest extends TestCase
     }
 
     /**
-     * Test attribute "cancellation_policies"
+     * Test attribute "cancellation_policies".
      */
     public function testPropertyCancellationPolicies()
     {
@@ -98,7 +104,7 @@ class DtoReservationTest extends TestCase
     }
 
     /**
-     * Test attribute "check_in"
+     * Test attribute "check_in".
      */
     public function testPropertyCheckIn()
     {
@@ -107,7 +113,7 @@ class DtoReservationTest extends TestCase
     }
 
     /**
-     * Test attribute "check_out"
+     * Test attribute "check_out".
      */
     public function testPropertyCheckOut()
     {
@@ -116,7 +122,7 @@ class DtoReservationTest extends TestCase
     }
 
     /**
-     * Test attribute "children"
+     * Test attribute "children".
      */
     public function testPropertyChildren()
     {
@@ -125,7 +131,7 @@ class DtoReservationTest extends TestCase
     }
 
     /**
-     * Test attribute "comments"
+     * Test attribute "comments".
      */
     public function testPropertyComments()
     {
@@ -134,7 +140,7 @@ class DtoReservationTest extends TestCase
     }
 
     /**
-     * Test attribute "guests"
+     * Test attribute "guests".
      */
     public function testPropertyGuests()
     {
@@ -143,7 +149,7 @@ class DtoReservationTest extends TestCase
     }
 
     /**
-     * Test attribute "no_show_policy"
+     * Test attribute "no_show_policy".
      */
     public function testPropertyNoShowPolicy()
     {
@@ -152,7 +158,7 @@ class DtoReservationTest extends TestCase
     }
 
     /**
-     * Test attribute "price"
+     * Test attribute "price".
      */
     public function testPropertyPrice()
     {
@@ -161,7 +167,7 @@ class DtoReservationTest extends TestCase
     }
 
     /**
-     * Test attribute "status"
+     * Test attribute "status".
      */
     public function testPropertyStatus()
     {

@@ -1,16 +1,17 @@
 <?php
 /**
  * BookingsApi
- * PHP version 7.4
+ * PHP version 7.4.
  *
  * @category Class
- * @package  Katanox
+ *
  * @author   OpenAPI Generator team
- * @link     https://openapi-generator.tech
+ *
+ * @see     https://openapi-generator.tech
  */
 
 /**
- * Katanox API Documentation
+ * Katanox API Documentation.
  *
  * The Katanox API allows any travel seller to search and book accommodation.
  *
@@ -34,42 +35,25 @@ use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
+use InvalidArgumentException;
 use Katanox\ApiException;
 use Katanox\Configuration;
 use Katanox\HeaderSelector;
 use Katanox\ObjectSerializer;
+use RuntimeException;
 
 /**
- * BookingsApi Class Doc Comment
+ * BookingsApi Class Doc Comment.
  *
  * @category Class
- * @package  Katanox
+ *
  * @author   OpenAPI Generator team
- * @link     https://openapi-generator.tech
+ *
+ * @see     https://openapi-generator.tech
  */
 class BookingsApi
 {
-    /**
-     * @var ClientInterface
-     */
-    protected $client;
-
-    /**
-     * @var Configuration
-     */
-    protected $config;
-
-    /**
-     * @var HeaderSelector
-     */
-    protected $headerSelector;
-
-    /**
-     * @var int Host index
-     */
-    protected $hostIndex;
-
-    /** @var string[] $contentTypes **/
+    /** @var string[] */
     public const contentTypes = [
         'cancelBookingById' => [
             'application/json',
@@ -94,7 +78,27 @@ class BookingsApi
         ],
     ];
 
-/**
+    /**
+     * @var ClientInterface
+     */
+    protected $client;
+
+    /**
+     * @var Configuration
+     */
+    protected $config;
+
+    /**
+     * @var HeaderSelector
+     */
+    protected $headerSelector;
+
+    /**
+     * @var int Host index
+     */
+    protected $hostIndex;
+
+    /**
      * @param ClientInterface $client
      * @param Configuration   $config
      * @param HeaderSelector  $selector
@@ -113,7 +117,7 @@ class BookingsApi
     }
 
     /**
-     * Set the host index
+     * Set the host index.
      *
      * @param int $hostIndex Host index (required)
      */
@@ -123,7 +127,7 @@ class BookingsApi
     }
 
     /**
-     * Get the host index
+     * Get the host index.
      *
      * @return int Host index
      */
@@ -141,17 +145,16 @@ class BookingsApi
     }
 
     /**
-     * Operation cancelBookingById
+     * Operation cancelBookingById.
      *
      * Cancel a booking
      *
-     * @param  string $booking_id The id of the booking to be cancelled (required)
-     * @param  string $authorization Type &#39;Bearer&#39; and then your API Token (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cancelBookingById'] to see the possible values for this operation
+     * @param string $booking_id    The id of the booking to be cancelled (required)
+     * @param string $authorization Type &#39;Bearer&#39; and then your API Token (required)
+     * @param string $contentType   The value for the Content-Type header. Check self::contentTypes['cancelBookingById'] to see the possible values for this operation
      *
-     * @throws \Katanox\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return void
+     * @throws \Katanox\ApiException    on non-2xx response
+     * @throws InvalidArgumentException
      */
     public function cancelBookingById($booking_id, $authorization, string $contentType = self::contentTypes['cancelBookingById'][0])
     {
@@ -159,17 +162,18 @@ class BookingsApi
     }
 
     /**
-     * Operation cancelBookingByIdWithHttpInfo
+     * Operation cancelBookingByIdWithHttpInfo.
      *
      * Cancel a booking
      *
-     * @param  string $booking_id The id of the booking to be cancelled (required)
-     * @param  string $authorization Type &#39;Bearer&#39; and then your API Token (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cancelBookingById'] to see the possible values for this operation
+     * @param string $booking_id    The id of the booking to be cancelled (required)
+     * @param string $authorization Type &#39;Bearer&#39; and then your API Token (required)
+     * @param string $contentType   The value for the Content-Type header. Check self::contentTypes['cancelBookingById'] to see the possible values for this operation
      *
-     * @throws \Katanox\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     *
+     * @throws \Katanox\ApiException    on non-2xx response
+     * @throws InvalidArgumentException
      */
     public function cancelBookingByIdWithHttpInfo($booking_id, $authorization, string $contentType = self::contentTypes['cancelBookingById'][0])
     {
@@ -177,6 +181,7 @@ class BookingsApi
 
         try {
             $options = $this->createHttpClientOption();
+
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
@@ -211,7 +216,6 @@ class BookingsApi
             }
 
             return [null, $statusCode, $response->getHeaders()];
-
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 404:
@@ -221,7 +225,9 @@ class BookingsApi
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
+
                     break;
+
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
@@ -229,23 +235,26 @@ class BookingsApi
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
+
                     break;
             }
+
             throw $e;
         }
     }
 
     /**
-     * Operation cancelBookingByIdAsync
+     * Operation cancelBookingByIdAsync.
      *
      * Cancel a booking
      *
-     * @param  string $booking_id The id of the booking to be cancelled (required)
-     * @param  string $authorization Type &#39;Bearer&#39; and then your API Token (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cancelBookingById'] to see the possible values for this operation
+     * @param string $booking_id    The id of the booking to be cancelled (required)
+     * @param string $authorization Type &#39;Bearer&#39; and then your API Token (required)
+     * @param string $contentType   The value for the Content-Type header. Check self::contentTypes['cancelBookingById'] to see the possible values for this operation
      *
-     * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     *
+     * @throws InvalidArgumentException
      */
     public function cancelBookingByIdAsync($booking_id, $authorization, string $contentType = self::contentTypes['cancelBookingById'][0])
     {
@@ -254,20 +263,22 @@ class BookingsApi
                 function ($response) {
                     return $response[0];
                 }
-            );
+            )
+        ;
     }
 
     /**
-     * Operation cancelBookingByIdAsyncWithHttpInfo
+     * Operation cancelBookingByIdAsyncWithHttpInfo.
      *
      * Cancel a booking
      *
-     * @param  string $booking_id The id of the booking to be cancelled (required)
-     * @param  string $authorization Type &#39;Bearer&#39; and then your API Token (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cancelBookingById'] to see the possible values for this operation
+     * @param string $booking_id    The id of the booking to be cancelled (required)
+     * @param string $authorization Type &#39;Bearer&#39; and then your API Token (required)
+     * @param string $contentType   The value for the Content-Type header. Check self::contentTypes['cancelBookingById'] to see the possible values for this operation
      *
-     * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     *
+     * @throws InvalidArgumentException
      */
     public function cancelBookingByIdAsyncWithHttpInfo($booking_id, $authorization, string $contentType = self::contentTypes['cancelBookingById'][0])
     {
@@ -277,12 +288,13 @@ class BookingsApi
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
-                function ($response) use ($returnType) {
+                function ($response) {
                     return [null, $response->getStatusCode(), $response->getHeaders()];
                 },
                 function ($exception) {
                     $response = $exception->getResponse();
                     $statusCode = $response->getStatusCode();
+
                     throw new ApiException(
                         sprintf(
                             '[%d] Error connecting to the API (%s)',
@@ -294,36 +306,36 @@ class BookingsApi
                         (string) $response->getBody()
                     );
                 }
-            );
+            )
+        ;
     }
 
     /**
-     * Create request for operation 'cancelBookingById'
+     * Create request for operation 'cancelBookingById'.
      *
-     * @param  string $booking_id The id of the booking to be cancelled (required)
-     * @param  string $authorization Type &#39;Bearer&#39; and then your API Token (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cancelBookingById'] to see the possible values for this operation
+     * @param string $booking_id    The id of the booking to be cancelled (required)
+     * @param string $authorization Type &#39;Bearer&#39; and then your API Token (required)
+     * @param string $contentType   The value for the Content-Type header. Check self::contentTypes['cancelBookingById'] to see the possible values for this operation
      *
-     * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
+     *
+     * @throws InvalidArgumentException
      */
     public function cancelBookingByIdRequest($booking_id, $authorization, string $contentType = self::contentTypes['cancelBookingById'][0])
     {
-
         // verify the required parameter 'booking_id' is set
-        if ($booking_id === null || (is_array($booking_id) && count($booking_id) === 0)) {
-            throw new \InvalidArgumentException(
+        if (null === $booking_id || (is_array($booking_id) && 0 === count($booking_id))) {
+            throw new InvalidArgumentException(
                 'Missing the required parameter $booking_id when calling cancelBookingById'
             );
         }
 
         // verify the required parameter 'authorization' is set
-        if ($authorization === null || (is_array($authorization) && count($authorization) === 0)) {
-            throw new \InvalidArgumentException(
+        if (null === $authorization || (is_array($authorization) && 0 === count($authorization))) {
+            throw new InvalidArgumentException(
                 'Missing the required parameter $authorization when calling cancelBookingById'
             );
         }
-
 
         $resourcePath = '/bookings/{booking_id}';
         $formParams = [];
@@ -332,24 +344,22 @@ class BookingsApi
         $httpBody = '';
         $multipart = false;
 
-
         // header params
-        if ($authorization !== null) {
+        if (null !== $authorization) {
             $headerParams['Authorization'] = ObjectSerializer::toHeaderValue($authorization);
         }
 
         // path params
-        if ($booking_id !== null) {
+        if (null !== $booking_id) {
             $resourcePath = str_replace(
-                '{' . 'booking_id' . '}',
+                '{booking_id}',
                 ObjectSerializer::toPathValue($booking_id),
                 $resourcePath
             );
         }
 
-
         $headers = $this->headerSelector->selectHeaders(
-            ['application/json', ],
+            ['application/json'],
             $contentType,
             $multipart
         );
@@ -363,22 +373,20 @@ class BookingsApi
                     foreach ($formParamValueItems as $formParamValueItem) {
                         $multipartContents[] = [
                             'name' => $formParamName,
-                            'contents' => $formParamValueItem
+                            'contents' => $formParamValueItem,
                         ];
                     }
                 }
                 // for HTTP post (form)
                 $httpBody = new MultipartStream($multipartContents);
-
-            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the form parameters
+            } elseif (false !== stripos($headers['Content-Type'], 'application/json')) {
+                // if Content-Type contains "application/json", json_encode the form parameters
                 $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
             } else {
                 // for HTTP post (form)
                 $httpBody = ObjectSerializer::buildQuery($formParams);
             }
         }
-
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -393,27 +401,27 @@ class BookingsApi
 
         $operationHost = $this->config->getHost();
         $query = ObjectSerializer::buildQuery($queryParams);
+
         return new Request(
             'DELETE',
-            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $operationHost.$resourcePath.($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );
     }
 
     /**
-     * Operation cancelReservation
+     * Operation cancelReservation.
      *
      * Cancel a reservation
      *
-     * @param  string $booking_id The id of the booking (required)
-     * @param  string $reservation_id The id of the reservation (required)
-     * @param  string $authorization Type &#39;Bearer&#39; and then your API Token (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cancelReservation'] to see the possible values for this operation
+     * @param string $booking_id     The id of the booking (required)
+     * @param string $reservation_id The id of the reservation (required)
+     * @param string $authorization  Type &#39;Bearer&#39; and then your API Token (required)
+     * @param string $contentType    The value for the Content-Type header. Check self::contentTypes['cancelReservation'] to see the possible values for this operation
      *
-     * @throws \Katanox\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return void
+     * @throws \Katanox\ApiException    on non-2xx response
+     * @throws InvalidArgumentException
      */
     public function cancelReservation($booking_id, $reservation_id, $authorization, string $contentType = self::contentTypes['cancelReservation'][0])
     {
@@ -421,18 +429,19 @@ class BookingsApi
     }
 
     /**
-     * Operation cancelReservationWithHttpInfo
+     * Operation cancelReservationWithHttpInfo.
      *
      * Cancel a reservation
      *
-     * @param  string $booking_id The id of the booking (required)
-     * @param  string $reservation_id The id of the reservation (required)
-     * @param  string $authorization Type &#39;Bearer&#39; and then your API Token (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cancelReservation'] to see the possible values for this operation
+     * @param string $booking_id     The id of the booking (required)
+     * @param string $reservation_id The id of the reservation (required)
+     * @param string $authorization  Type &#39;Bearer&#39; and then your API Token (required)
+     * @param string $contentType    The value for the Content-Type header. Check self::contentTypes['cancelReservation'] to see the possible values for this operation
      *
-     * @throws \Katanox\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     *
+     * @throws \Katanox\ApiException    on non-2xx response
+     * @throws InvalidArgumentException
      */
     public function cancelReservationWithHttpInfo($booking_id, $reservation_id, $authorization, string $contentType = self::contentTypes['cancelReservation'][0])
     {
@@ -440,6 +449,7 @@ class BookingsApi
 
         try {
             $options = $this->createHttpClientOption();
+
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
@@ -474,7 +484,6 @@ class BookingsApi
             }
 
             return [null, $statusCode, $response->getHeaders()];
-
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 400:
@@ -484,7 +493,9 @@ class BookingsApi
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
+
                     break;
+
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
@@ -492,7 +503,9 @@ class BookingsApi
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
+
                     break;
+
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
@@ -500,24 +513,27 @@ class BookingsApi
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
+
                     break;
             }
+
             throw $e;
         }
     }
 
     /**
-     * Operation cancelReservationAsync
+     * Operation cancelReservationAsync.
      *
      * Cancel a reservation
      *
-     * @param  string $booking_id The id of the booking (required)
-     * @param  string $reservation_id The id of the reservation (required)
-     * @param  string $authorization Type &#39;Bearer&#39; and then your API Token (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cancelReservation'] to see the possible values for this operation
+     * @param string $booking_id     The id of the booking (required)
+     * @param string $reservation_id The id of the reservation (required)
+     * @param string $authorization  Type &#39;Bearer&#39; and then your API Token (required)
+     * @param string $contentType    The value for the Content-Type header. Check self::contentTypes['cancelReservation'] to see the possible values for this operation
      *
-     * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     *
+     * @throws InvalidArgumentException
      */
     public function cancelReservationAsync($booking_id, $reservation_id, $authorization, string $contentType = self::contentTypes['cancelReservation'][0])
     {
@@ -526,21 +542,23 @@ class BookingsApi
                 function ($response) {
                     return $response[0];
                 }
-            );
+            )
+        ;
     }
 
     /**
-     * Operation cancelReservationAsyncWithHttpInfo
+     * Operation cancelReservationAsyncWithHttpInfo.
      *
      * Cancel a reservation
      *
-     * @param  string $booking_id The id of the booking (required)
-     * @param  string $reservation_id The id of the reservation (required)
-     * @param  string $authorization Type &#39;Bearer&#39; and then your API Token (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cancelReservation'] to see the possible values for this operation
+     * @param string $booking_id     The id of the booking (required)
+     * @param string $reservation_id The id of the reservation (required)
+     * @param string $authorization  Type &#39;Bearer&#39; and then your API Token (required)
+     * @param string $contentType    The value for the Content-Type header. Check self::contentTypes['cancelReservation'] to see the possible values for this operation
      *
-     * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     *
+     * @throws InvalidArgumentException
      */
     public function cancelReservationAsyncWithHttpInfo($booking_id, $reservation_id, $authorization, string $contentType = self::contentTypes['cancelReservation'][0])
     {
@@ -550,12 +568,13 @@ class BookingsApi
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
-                function ($response) use ($returnType) {
+                function ($response) {
                     return [null, $response->getStatusCode(), $response->getHeaders()];
                 },
                 function ($exception) {
                     $response = $exception->getResponse();
                     $statusCode = $response->getStatusCode();
+
                     throw new ApiException(
                         sprintf(
                             '[%d] Error connecting to the API (%s)',
@@ -567,44 +586,44 @@ class BookingsApi
                         (string) $response->getBody()
                     );
                 }
-            );
+            )
+        ;
     }
 
     /**
-     * Create request for operation 'cancelReservation'
+     * Create request for operation 'cancelReservation'.
      *
-     * @param  string $booking_id The id of the booking (required)
-     * @param  string $reservation_id The id of the reservation (required)
-     * @param  string $authorization Type &#39;Bearer&#39; and then your API Token (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cancelReservation'] to see the possible values for this operation
+     * @param string $booking_id     The id of the booking (required)
+     * @param string $reservation_id The id of the reservation (required)
+     * @param string $authorization  Type &#39;Bearer&#39; and then your API Token (required)
+     * @param string $contentType    The value for the Content-Type header. Check self::contentTypes['cancelReservation'] to see the possible values for this operation
      *
-     * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
+     *
+     * @throws InvalidArgumentException
      */
     public function cancelReservationRequest($booking_id, $reservation_id, $authorization, string $contentType = self::contentTypes['cancelReservation'][0])
     {
-
         // verify the required parameter 'booking_id' is set
-        if ($booking_id === null || (is_array($booking_id) && count($booking_id) === 0)) {
-            throw new \InvalidArgumentException(
+        if (null === $booking_id || (is_array($booking_id) && 0 === count($booking_id))) {
+            throw new InvalidArgumentException(
                 'Missing the required parameter $booking_id when calling cancelReservation'
             );
         }
 
         // verify the required parameter 'reservation_id' is set
-        if ($reservation_id === null || (is_array($reservation_id) && count($reservation_id) === 0)) {
-            throw new \InvalidArgumentException(
+        if (null === $reservation_id || (is_array($reservation_id) && 0 === count($reservation_id))) {
+            throw new InvalidArgumentException(
                 'Missing the required parameter $reservation_id when calling cancelReservation'
             );
         }
 
         // verify the required parameter 'authorization' is set
-        if ($authorization === null || (is_array($authorization) && count($authorization) === 0)) {
-            throw new \InvalidArgumentException(
+        if (null === $authorization || (is_array($authorization) && 0 === count($authorization))) {
+            throw new InvalidArgumentException(
                 'Missing the required parameter $authorization when calling cancelReservation'
             );
         }
-
 
         $resourcePath = '/bookings/{booking_id}/reservations/{reservation_id}';
         $formParams = [];
@@ -613,32 +632,30 @@ class BookingsApi
         $httpBody = '';
         $multipart = false;
 
-
         // header params
-        if ($authorization !== null) {
+        if (null !== $authorization) {
             $headerParams['Authorization'] = ObjectSerializer::toHeaderValue($authorization);
         }
 
         // path params
-        if ($booking_id !== null) {
+        if (null !== $booking_id) {
             $resourcePath = str_replace(
-                '{' . 'booking_id' . '}',
+                '{booking_id}',
                 ObjectSerializer::toPathValue($booking_id),
                 $resourcePath
             );
         }
         // path params
-        if ($reservation_id !== null) {
+        if (null !== $reservation_id) {
             $resourcePath = str_replace(
-                '{' . 'reservation_id' . '}',
+                '{reservation_id}',
                 ObjectSerializer::toPathValue($reservation_id),
                 $resourcePath
             );
         }
 
-
         $headers = $this->headerSelector->selectHeaders(
-            ['application/json', ],
+            ['application/json'],
             $contentType,
             $multipart
         );
@@ -652,22 +669,20 @@ class BookingsApi
                     foreach ($formParamValueItems as $formParamValueItem) {
                         $multipartContents[] = [
                             'name' => $formParamName,
-                            'contents' => $formParamValueItem
+                            'contents' => $formParamValueItem,
                         ];
                     }
                 }
                 // for HTTP post (form)
                 $httpBody = new MultipartStream($multipartContents);
-
-            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the form parameters
+            } elseif (false !== stripos($headers['Content-Type'], 'application/json')) {
+                // if Content-Type contains "application/json", json_encode the form parameters
                 $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
             } else {
                 // for HTTP post (form)
                 $httpBody = ObjectSerializer::buildQuery($formParams);
             }
         }
-
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -682,16 +697,17 @@ class BookingsApi
 
         $operationHost = $this->config->getHost();
         $query = ObjectSerializer::buildQuery($queryParams);
+
         return new Request(
             'DELETE',
-            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $operationHost.$resourcePath.($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );
     }
 
     /**
-     * Operation createBooking
+     * Operation createBooking.
      *
      * Create a booking
      *
@@ -701,24 +717,26 @@ class BookingsApi
      * URL: https://api.pci-proxy.com/v1/push/5775c7cf3b3e5dc0
      * URL: https://api-staging.katanox.com/v2
      *
-     * @param  string $authorization Type &#39;Bearer&#39; and then your API Token (required)
-     * @param  \Katanox\Model\HttpBookingCreationRequest $http_booking_creation_request Booking body (required)
-     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
-     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createBooking'] to see the possible values for this operation
+     * @param string                                    $authorization                 Type &#39;Bearer&#39; and then your API Token (required)
+     * @param \Katanox\Model\HttpBookingCreationRequest $http_booking_creation_request Booking body (required)
+     * @param null|int                                  $hostIndex                     Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param array                                     $variables                     Associative array of variables to pass to the host. Defaults to empty array.
+     * @param string                                    $contentType                   The value for the Content-Type header. Check self::contentTypes['createBooking'] to see the possible values for this operation
      *
-     * @throws \Katanox\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
      * @return \Katanox\Model\HttpBookingResponse|\Katanox\Model\ModelApiError|\Katanox\Model\ModelApiError|\Katanox\Model\ModelInternalServerError
+     *
+     * @throws \Katanox\ApiException    on non-2xx response
+     * @throws InvalidArgumentException
      */
     public function createBooking($authorization, $http_booking_creation_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['createBooking'][0])
     {
         list($response) = $this->createBookingWithHttpInfo($authorization, $http_booking_creation_request, $hostIndex, $variables, $contentType);
+
         return $response;
     }
 
     /**
-     * Operation createBookingWithHttpInfo
+     * Operation createBookingWithHttpInfo.
      *
      * Create a booking
      *
@@ -728,15 +746,16 @@ class BookingsApi
      * URL: https://api.pci-proxy.com/v1/push/5775c7cf3b3e5dc0
      * URL: https://api-staging.katanox.com/v2
      *
-     * @param  string $authorization Type &#39;Bearer&#39; and then your API Token (required)
-     * @param  \Katanox\Model\HttpBookingCreationRequest $http_booking_creation_request Booking body (required)
-     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
-     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createBooking'] to see the possible values for this operation
+     * @param string                                    $authorization                 Type &#39;Bearer&#39; and then your API Token (required)
+     * @param \Katanox\Model\HttpBookingCreationRequest $http_booking_creation_request Booking body (required)
+     * @param null|int                                  $hostIndex                     Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param array                                     $variables                     Associative array of variables to pass to the host. Defaults to empty array.
+     * @param string                                    $contentType                   The value for the Content-Type header. Check self::contentTypes['createBooking'] to see the possible values for this operation
      *
-     * @throws \Katanox\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
      * @return array of \Katanox\Model\HttpBookingResponse|\Katanox\Model\ModelApiError|\Katanox\Model\ModelApiError|\Katanox\Model\ModelInternalServerError, HTTP status code, HTTP response headers (array of strings)
+     *
+     * @throws \Katanox\ApiException    on non-2xx response
+     * @throws InvalidArgumentException
      */
     public function createBookingWithHttpInfo($authorization, $http_booking_creation_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['createBooking'][0])
     {
@@ -744,6 +763,7 @@ class BookingsApi
 
         try {
             $options = $this->createHttpClientOption();
+
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
@@ -777,10 +797,10 @@ class BookingsApi
                 );
             }
 
-            switch($statusCode) {
+            switch ($statusCode) {
                 case 201:
                     if ('\Katanox\Model\HttpBookingResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                         if ('\Katanox\Model\HttpBookingResponse' !== 'string') {
@@ -791,11 +811,12 @@ class BookingsApi
                     return [
                         ObjectSerializer::deserialize($content, '\Katanox\Model\HttpBookingResponse', []),
                         $response->getStatusCode(),
-                        $response->getHeaders()
+                        $response->getHeaders(),
                     ];
+
                 case 400:
                     if ('\Katanox\Model\ModelApiError' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                         if ('\Katanox\Model\ModelApiError' !== 'string') {
@@ -806,11 +827,12 @@ class BookingsApi
                     return [
                         ObjectSerializer::deserialize($content, '\Katanox\Model\ModelApiError', []),
                         $response->getStatusCode(),
-                        $response->getHeaders()
+                        $response->getHeaders(),
                     ];
+
                 case 422:
                     if ('\Katanox\Model\ModelApiError' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                         if ('\Katanox\Model\ModelApiError' !== 'string') {
@@ -821,11 +843,12 @@ class BookingsApi
                     return [
                         ObjectSerializer::deserialize($content, '\Katanox\Model\ModelApiError', []),
                         $response->getStatusCode(),
-                        $response->getHeaders()
+                        $response->getHeaders(),
                     ];
+
                 case 500:
                     if ('\Katanox\Model\ModelInternalServerError' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                         if ('\Katanox\Model\ModelInternalServerError' !== 'string') {
@@ -836,16 +859,16 @@ class BookingsApi
                     return [
                         ObjectSerializer::deserialize($content, '\Katanox\Model\ModelInternalServerError', []),
                         $response->getStatusCode(),
-                        $response->getHeaders()
+                        $response->getHeaders(),
                     ];
             }
 
             $returnType = '\Katanox\Model\HttpBookingResponse';
-            if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
+            if ('\SplFileObject' === $returnType) {
+                $content = $response->getBody(); // stream goes to serializer
             } else {
                 $content = (string) $response->getBody();
-                if ($returnType !== 'string') {
+                if ('string' !== $returnType) {
                     $content = json_decode($content);
                 }
             }
@@ -853,9 +876,8 @@ class BookingsApi
             return [
                 ObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
-                $response->getHeaders()
+                $response->getHeaders(),
             ];
-
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 201:
@@ -865,7 +887,9 @@ class BookingsApi
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
+
                     break;
+
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
@@ -873,7 +897,9 @@ class BookingsApi
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
+
                     break;
+
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
@@ -881,7 +907,9 @@ class BookingsApi
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
+
                     break;
+
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
@@ -889,14 +917,16 @@ class BookingsApi
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
+
                     break;
             }
+
             throw $e;
         }
     }
 
     /**
-     * Operation createBookingAsync
+     * Operation createBookingAsync.
      *
      * Create a booking
      *
@@ -906,14 +936,15 @@ class BookingsApi
      * URL: https://api.pci-proxy.com/v1/push/5775c7cf3b3e5dc0
      * URL: https://api-staging.katanox.com/v2
      *
-     * @param  string $authorization Type &#39;Bearer&#39; and then your API Token (required)
-     * @param  \Katanox\Model\HttpBookingCreationRequest $http_booking_creation_request Booking body (required)
-     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
-     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createBooking'] to see the possible values for this operation
+     * @param string                                    $authorization                 Type &#39;Bearer&#39; and then your API Token (required)
+     * @param \Katanox\Model\HttpBookingCreationRequest $http_booking_creation_request Booking body (required)
+     * @param null|int                                  $hostIndex                     Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param array                                     $variables                     Associative array of variables to pass to the host. Defaults to empty array.
+     * @param string                                    $contentType                   The value for the Content-Type header. Check self::contentTypes['createBooking'] to see the possible values for this operation
      *
-     * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     *
+     * @throws InvalidArgumentException
      */
     public function createBookingAsync($authorization, $http_booking_creation_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['createBooking'][0])
     {
@@ -922,11 +953,12 @@ class BookingsApi
                 function ($response) {
                     return $response[0];
                 }
-            );
+            )
+        ;
     }
 
     /**
-     * Operation createBookingAsyncWithHttpInfo
+     * Operation createBookingAsyncWithHttpInfo.
      *
      * Create a booking
      *
@@ -936,14 +968,15 @@ class BookingsApi
      * URL: https://api.pci-proxy.com/v1/push/5775c7cf3b3e5dc0
      * URL: https://api-staging.katanox.com/v2
      *
-     * @param  string $authorization Type &#39;Bearer&#39; and then your API Token (required)
-     * @param  \Katanox\Model\HttpBookingCreationRequest $http_booking_creation_request Booking body (required)
-     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
-     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createBooking'] to see the possible values for this operation
+     * @param string                                    $authorization                 Type &#39;Bearer&#39; and then your API Token (required)
+     * @param \Katanox\Model\HttpBookingCreationRequest $http_booking_creation_request Booking body (required)
+     * @param null|int                                  $hostIndex                     Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param array                                     $variables                     Associative array of variables to pass to the host. Defaults to empty array.
+     * @param string                                    $contentType                   The value for the Content-Type header. Check self::contentTypes['createBooking'] to see the possible values for this operation
      *
-     * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     *
+     * @throws InvalidArgumentException
      */
     public function createBookingAsyncWithHttpInfo($authorization, $http_booking_creation_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['createBooking'][0])
     {
@@ -954,11 +987,11 @@ class BookingsApi
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                    if ('\SplFileObject' === $returnType) {
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ($returnType !== 'string') {
+                        if ('string' !== $returnType) {
                             $content = json_decode($content);
                         }
                     }
@@ -966,12 +999,13 @@ class BookingsApi
                     return [
                         ObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
-                        $response->getHeaders()
+                        $response->getHeaders(),
                     ];
                 },
                 function ($exception) {
                     $response = $exception->getResponse();
                     $statusCode = $response->getStatusCode();
+
                     throw new ApiException(
                         sprintf(
                             '[%d] Error connecting to the API (%s)',
@@ -983,44 +1017,44 @@ class BookingsApi
                         (string) $response->getBody()
                     );
                 }
-            );
+            )
+        ;
     }
 
     /**
-     * Create request for operation 'createBooking'
+     * Create request for operation 'createBooking'.
      *
-    * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
-    * if needed, use the 'variables' parameter to pass variables to the host.
+     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+     * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://api.katanox.com/v2
      * URL: https://api.pci-proxy.com/v1/push/5775c7cf3b3e5dc0
      * URL: https://api-staging.katanox.com/v2
      *
-     * @param  string $authorization Type &#39;Bearer&#39; and then your API Token (required)
-     * @param  \Katanox\Model\HttpBookingCreationRequest $http_booking_creation_request Booking body (required)
-     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
-     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createBooking'] to see the possible values for this operation
+     * @param string                                    $authorization                 Type &#39;Bearer&#39; and then your API Token (required)
+     * @param \Katanox\Model\HttpBookingCreationRequest $http_booking_creation_request Booking body (required)
+     * @param null|int                                  $hostIndex                     Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param array                                     $variables                     Associative array of variables to pass to the host. Defaults to empty array.
+     * @param string                                    $contentType                   The value for the Content-Type header. Check self::contentTypes['createBooking'] to see the possible values for this operation
      *
-     * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
+     *
+     * @throws InvalidArgumentException
      */
     public function createBookingRequest($authorization, $http_booking_creation_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['createBooking'][0])
     {
-
         // verify the required parameter 'authorization' is set
-        if ($authorization === null || (is_array($authorization) && count($authorization) === 0)) {
-            throw new \InvalidArgumentException(
+        if (null === $authorization || (is_array($authorization) && 0 === count($authorization))) {
+            throw new InvalidArgumentException(
                 'Missing the required parameter $authorization when calling createBooking'
             );
         }
 
         // verify the required parameter 'http_booking_creation_request' is set
-        if ($http_booking_creation_request === null || (is_array($http_booking_creation_request) && count($http_booking_creation_request) === 0)) {
-            throw new \InvalidArgumentException(
+        if (null === $http_booking_creation_request || (is_array($http_booking_creation_request) && 0 === count($http_booking_creation_request))) {
+            throw new InvalidArgumentException(
                 'Missing the required parameter $http_booking_creation_request when calling createBooking'
             );
         }
-
 
         $resourcePath = '/bookings';
         $formParams = [];
@@ -1029,24 +1063,21 @@ class BookingsApi
         $httpBody = '';
         $multipart = false;
 
-
         // header params
-        if ($authorization !== null) {
+        if (null !== $authorization) {
             $headerParams['Authorization'] = ObjectSerializer::toHeaderValue($authorization);
         }
 
-
-
         $headers = $this->headerSelector->selectHeaders(
-            ['*/*', ],
+            ['*/*'],
             $contentType,
             $multipart
         );
 
         // for model (json/xml)
         if (isset($http_booking_creation_request)) {
-            if (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the body
+            if (false !== stripos($headers['Content-Type'], 'application/json')) {
+                // if Content-Type contains "application/json", json_encode the body
                 $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($http_booking_creation_request));
             } else {
                 $httpBody = $http_booking_creation_request;
@@ -1059,22 +1090,20 @@ class BookingsApi
                     foreach ($formParamValueItems as $formParamValueItem) {
                         $multipartContents[] = [
                             'name' => $formParamName,
-                            'contents' => $formParamValueItem
+                            'contents' => $formParamValueItem,
                         ];
                     }
                 }
                 // for HTTP post (form)
                 $httpBody = new MultipartStream($multipartContents);
-
-            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the form parameters
+            } elseif (false !== stripos($headers['Content-Type'], 'application/json')) {
+                // if Content-Type contains "application/json", json_encode the form parameters
                 $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
             } else {
                 // for HTTP post (form)
                 $httpBody = ObjectSerializer::buildQuery($formParams);
             }
         }
-
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -1087,82 +1116,63 @@ class BookingsApi
             $headers
         );
 
-        # Preserve the original behavior of server indexing.
-        if ($hostIndex === null) {
+        // Preserve the original behavior of server indexing.
+        if (null === $hostIndex) {
             $hostIndex = $this->hostIndex;
         }
 
         $hostSettings = $this->getHostSettingsForcreateBooking();
 
         if ($hostIndex < 0 || $hostIndex >= count($hostSettings)) {
-            throw new \InvalidArgumentException("Invalid index {$hostIndex} when selecting the host. Must be less than ".count($hostSettings));
+            throw new InvalidArgumentException("Invalid index {$hostIndex} when selecting the host. Must be less than ".count($hostSettings));
         }
         $operationHost = Configuration::getHostString($hostSettings, $hostIndex, $variables);
         $query = ObjectSerializer::buildQuery($queryParams);
+
         return new Request(
             'POST',
-            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $operationHost.$resourcePath.($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );
     }
 
     /**
-     * Returns an array of host settings for Operation createBooking
-     *
-     * @return array an array of host settings
-     */
-    protected function getHostSettingsForcreateBooking(): array
-    {
-        return [
-            [
-                "url" => "https://api.katanox.com/v2",
-                "description" => "No description provided",
-            ],
-            [
-                "url" => "https://api.pci-proxy.com/v1/push/5775c7cf3b3e5dc0",
-                "description" => "No description provided",
-            ],
-            [
-                "url" => "https://api-staging.katanox.com/v2",
-                "description" => "No description provided",
-            ]
-        ];
-    }
-
-    /**
-     * Operation createReservation
+     * Operation createReservation.
      *
      * Create a reservation
      *
-     * @param  string $booking_id The id of the booking (required)
-     * @param  string $authorization Type &#39;Bearer&#39; and then your API Token (required)
-     * @param  \Katanox\Model\HttpReservationCreationRequest $http_reservation_creation_request Reservation body (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createReservation'] to see the possible values for this operation
+     * @param string                                        $booking_id                        The id of the booking (required)
+     * @param string                                        $authorization                     Type &#39;Bearer&#39; and then your API Token (required)
+     * @param \Katanox\Model\HttpReservationCreationRequest $http_reservation_creation_request Reservation body (required)
+     * @param string                                        $contentType                       The value for the Content-Type header. Check self::contentTypes['createReservation'] to see the possible values for this operation
      *
-     * @throws \Katanox\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
      * @return \Katanox\Model\HttpReservationResponse|\Katanox\Model\ModelApiError|\Katanox\Model\ModelApiError|\Katanox\Model\ModelApiError|\Katanox\Model\ModelInternalServerError
+     *
+     * @throws \Katanox\ApiException    on non-2xx response
+     * @throws InvalidArgumentException
      */
     public function createReservation($booking_id, $authorization, $http_reservation_creation_request, string $contentType = self::contentTypes['createReservation'][0])
     {
         list($response) = $this->createReservationWithHttpInfo($booking_id, $authorization, $http_reservation_creation_request, $contentType);
+
         return $response;
     }
 
     /**
-     * Operation createReservationWithHttpInfo
+     * Operation createReservationWithHttpInfo.
      *
      * Create a reservation
      *
-     * @param  string $booking_id The id of the booking (required)
-     * @param  string $authorization Type &#39;Bearer&#39; and then your API Token (required)
-     * @param  \Katanox\Model\HttpReservationCreationRequest $http_reservation_creation_request Reservation body (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createReservation'] to see the possible values for this operation
+     * @param string                                        $booking_id                        The id of the booking (required)
+     * @param string                                        $authorization                     Type &#39;Bearer&#39; and then your API Token (required)
+     * @param \Katanox\Model\HttpReservationCreationRequest $http_reservation_creation_request Reservation body (required)
+     * @param string                                        $contentType                       The value for the Content-Type header. Check self::contentTypes['createReservation'] to see the possible values for this operation
      *
-     * @throws \Katanox\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
      * @return array of \Katanox\Model\HttpReservationResponse|\Katanox\Model\ModelApiError|\Katanox\Model\ModelApiError|\Katanox\Model\ModelApiError|\Katanox\Model\ModelInternalServerError, HTTP status code, HTTP response headers (array of strings)
+     *
+     * @throws \Katanox\ApiException    on non-2xx response
+     * @throws InvalidArgumentException
      */
     public function createReservationWithHttpInfo($booking_id, $authorization, $http_reservation_creation_request, string $contentType = self::contentTypes['createReservation'][0])
     {
@@ -1170,6 +1180,7 @@ class BookingsApi
 
         try {
             $options = $this->createHttpClientOption();
+
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
@@ -1203,10 +1214,10 @@ class BookingsApi
                 );
             }
 
-            switch($statusCode) {
+            switch ($statusCode) {
                 case 201:
                     if ('\Katanox\Model\HttpReservationResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                         if ('\Katanox\Model\HttpReservationResponse' !== 'string') {
@@ -1217,11 +1228,12 @@ class BookingsApi
                     return [
                         ObjectSerializer::deserialize($content, '\Katanox\Model\HttpReservationResponse', []),
                         $response->getStatusCode(),
-                        $response->getHeaders()
+                        $response->getHeaders(),
                     ];
+
                 case 400:
                     if ('\Katanox\Model\ModelApiError' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                         if ('\Katanox\Model\ModelApiError' !== 'string') {
@@ -1232,11 +1244,12 @@ class BookingsApi
                     return [
                         ObjectSerializer::deserialize($content, '\Katanox\Model\ModelApiError', []),
                         $response->getStatusCode(),
-                        $response->getHeaders()
+                        $response->getHeaders(),
                     ];
+
                 case 404:
                     if ('\Katanox\Model\ModelApiError' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                         if ('\Katanox\Model\ModelApiError' !== 'string') {
@@ -1247,11 +1260,12 @@ class BookingsApi
                     return [
                         ObjectSerializer::deserialize($content, '\Katanox\Model\ModelApiError', []),
                         $response->getStatusCode(),
-                        $response->getHeaders()
+                        $response->getHeaders(),
                     ];
+
                 case 422:
                     if ('\Katanox\Model\ModelApiError' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                         if ('\Katanox\Model\ModelApiError' !== 'string') {
@@ -1262,11 +1276,12 @@ class BookingsApi
                     return [
                         ObjectSerializer::deserialize($content, '\Katanox\Model\ModelApiError', []),
                         $response->getStatusCode(),
-                        $response->getHeaders()
+                        $response->getHeaders(),
                     ];
+
                 case 500:
                     if ('\Katanox\Model\ModelInternalServerError' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                         if ('\Katanox\Model\ModelInternalServerError' !== 'string') {
@@ -1277,16 +1292,16 @@ class BookingsApi
                     return [
                         ObjectSerializer::deserialize($content, '\Katanox\Model\ModelInternalServerError', []),
                         $response->getStatusCode(),
-                        $response->getHeaders()
+                        $response->getHeaders(),
                     ];
             }
 
             $returnType = '\Katanox\Model\HttpReservationResponse';
-            if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
+            if ('\SplFileObject' === $returnType) {
+                $content = $response->getBody(); // stream goes to serializer
             } else {
                 $content = (string) $response->getBody();
-                if ($returnType !== 'string') {
+                if ('string' !== $returnType) {
                     $content = json_decode($content);
                 }
             }
@@ -1294,9 +1309,8 @@ class BookingsApi
             return [
                 ObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
-                $response->getHeaders()
+                $response->getHeaders(),
             ];
-
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 201:
@@ -1306,7 +1320,9 @@ class BookingsApi
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
+
                     break;
+
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
@@ -1314,7 +1330,9 @@ class BookingsApi
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
+
                     break;
+
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
@@ -1322,7 +1340,9 @@ class BookingsApi
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
+
                     break;
+
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
@@ -1330,7 +1350,9 @@ class BookingsApi
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
+
                     break;
+
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
@@ -1338,24 +1360,27 @@ class BookingsApi
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
+
                     break;
             }
+
             throw $e;
         }
     }
 
     /**
-     * Operation createReservationAsync
+     * Operation createReservationAsync.
      *
      * Create a reservation
      *
-     * @param  string $booking_id The id of the booking (required)
-     * @param  string $authorization Type &#39;Bearer&#39; and then your API Token (required)
-     * @param  \Katanox\Model\HttpReservationCreationRequest $http_reservation_creation_request Reservation body (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createReservation'] to see the possible values for this operation
+     * @param string                                        $booking_id                        The id of the booking (required)
+     * @param string                                        $authorization                     Type &#39;Bearer&#39; and then your API Token (required)
+     * @param \Katanox\Model\HttpReservationCreationRequest $http_reservation_creation_request Reservation body (required)
+     * @param string                                        $contentType                       The value for the Content-Type header. Check self::contentTypes['createReservation'] to see the possible values for this operation
      *
-     * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     *
+     * @throws InvalidArgumentException
      */
     public function createReservationAsync($booking_id, $authorization, $http_reservation_creation_request, string $contentType = self::contentTypes['createReservation'][0])
     {
@@ -1364,21 +1389,23 @@ class BookingsApi
                 function ($response) {
                     return $response[0];
                 }
-            );
+            )
+        ;
     }
 
     /**
-     * Operation createReservationAsyncWithHttpInfo
+     * Operation createReservationAsyncWithHttpInfo.
      *
      * Create a reservation
      *
-     * @param  string $booking_id The id of the booking (required)
-     * @param  string $authorization Type &#39;Bearer&#39; and then your API Token (required)
-     * @param  \Katanox\Model\HttpReservationCreationRequest $http_reservation_creation_request Reservation body (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createReservation'] to see the possible values for this operation
+     * @param string                                        $booking_id                        The id of the booking (required)
+     * @param string                                        $authorization                     Type &#39;Bearer&#39; and then your API Token (required)
+     * @param \Katanox\Model\HttpReservationCreationRequest $http_reservation_creation_request Reservation body (required)
+     * @param string                                        $contentType                       The value for the Content-Type header. Check self::contentTypes['createReservation'] to see the possible values for this operation
      *
-     * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     *
+     * @throws InvalidArgumentException
      */
     public function createReservationAsyncWithHttpInfo($booking_id, $authorization, $http_reservation_creation_request, string $contentType = self::contentTypes['createReservation'][0])
     {
@@ -1389,11 +1416,11 @@ class BookingsApi
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                    if ('\SplFileObject' === $returnType) {
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ($returnType !== 'string') {
+                        if ('string' !== $returnType) {
                             $content = json_decode($content);
                         }
                     }
@@ -1401,12 +1428,13 @@ class BookingsApi
                     return [
                         ObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
-                        $response->getHeaders()
+                        $response->getHeaders(),
                     ];
                 },
                 function ($exception) {
                     $response = $exception->getResponse();
                     $statusCode = $response->getStatusCode();
+
                     throw new ApiException(
                         sprintf(
                             '[%d] Error connecting to the API (%s)',
@@ -1418,44 +1446,44 @@ class BookingsApi
                         (string) $response->getBody()
                     );
                 }
-            );
+            )
+        ;
     }
 
     /**
-     * Create request for operation 'createReservation'
+     * Create request for operation 'createReservation'.
      *
-     * @param  string $booking_id The id of the booking (required)
-     * @param  string $authorization Type &#39;Bearer&#39; and then your API Token (required)
-     * @param  \Katanox\Model\HttpReservationCreationRequest $http_reservation_creation_request Reservation body (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createReservation'] to see the possible values for this operation
+     * @param string                                        $booking_id                        The id of the booking (required)
+     * @param string                                        $authorization                     Type &#39;Bearer&#39; and then your API Token (required)
+     * @param \Katanox\Model\HttpReservationCreationRequest $http_reservation_creation_request Reservation body (required)
+     * @param string                                        $contentType                       The value for the Content-Type header. Check self::contentTypes['createReservation'] to see the possible values for this operation
      *
-     * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
+     *
+     * @throws InvalidArgumentException
      */
     public function createReservationRequest($booking_id, $authorization, $http_reservation_creation_request, string $contentType = self::contentTypes['createReservation'][0])
     {
-
         // verify the required parameter 'booking_id' is set
-        if ($booking_id === null || (is_array($booking_id) && count($booking_id) === 0)) {
-            throw new \InvalidArgumentException(
+        if (null === $booking_id || (is_array($booking_id) && 0 === count($booking_id))) {
+            throw new InvalidArgumentException(
                 'Missing the required parameter $booking_id when calling createReservation'
             );
         }
 
         // verify the required parameter 'authorization' is set
-        if ($authorization === null || (is_array($authorization) && count($authorization) === 0)) {
-            throw new \InvalidArgumentException(
+        if (null === $authorization || (is_array($authorization) && 0 === count($authorization))) {
+            throw new InvalidArgumentException(
                 'Missing the required parameter $authorization when calling createReservation'
             );
         }
 
         // verify the required parameter 'http_reservation_creation_request' is set
-        if ($http_reservation_creation_request === null || (is_array($http_reservation_creation_request) && count($http_reservation_creation_request) === 0)) {
-            throw new \InvalidArgumentException(
+        if (null === $http_reservation_creation_request || (is_array($http_reservation_creation_request) && 0 === count($http_reservation_creation_request))) {
+            throw new InvalidArgumentException(
                 'Missing the required parameter $http_reservation_creation_request when calling createReservation'
             );
         }
-
 
         $resourcePath = '/bookings/{booking_id}/reservations';
         $formParams = [];
@@ -1464,32 +1492,30 @@ class BookingsApi
         $httpBody = '';
         $multipart = false;
 
-
         // header params
-        if ($authorization !== null) {
+        if (null !== $authorization) {
             $headerParams['Authorization'] = ObjectSerializer::toHeaderValue($authorization);
         }
 
         // path params
-        if ($booking_id !== null) {
+        if (null !== $booking_id) {
             $resourcePath = str_replace(
-                '{' . 'booking_id' . '}',
+                '{booking_id}',
                 ObjectSerializer::toPathValue($booking_id),
                 $resourcePath
             );
         }
 
-
         $headers = $this->headerSelector->selectHeaders(
-            ['application/json', ],
+            ['application/json'],
             $contentType,
             $multipart
         );
 
         // for model (json/xml)
         if (isset($http_reservation_creation_request)) {
-            if (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the body
+            if (false !== stripos($headers['Content-Type'], 'application/json')) {
+                // if Content-Type contains "application/json", json_encode the body
                 $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($http_reservation_creation_request));
             } else {
                 $httpBody = $http_reservation_creation_request;
@@ -1502,22 +1528,20 @@ class BookingsApi
                     foreach ($formParamValueItems as $formParamValueItem) {
                         $multipartContents[] = [
                             'name' => $formParamName,
-                            'contents' => $formParamValueItem
+                            'contents' => $formParamValueItem,
                         ];
                     }
                 }
                 // for HTTP post (form)
                 $httpBody = new MultipartStream($multipartContents);
-
-            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the form parameters
+            } elseif (false !== stripos($headers['Content-Type'], 'application/json')) {
+                // if Content-Type contains "application/json", json_encode the form parameters
                 $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
             } else {
                 // for HTTP post (form)
                 $httpBody = ObjectSerializer::buildQuery($formParams);
             }
         }
-
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -1532,45 +1556,49 @@ class BookingsApi
 
         $operationHost = $this->config->getHost();
         $query = ObjectSerializer::buildQuery($queryParams);
+
         return new Request(
             'POST',
-            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $operationHost.$resourcePath.($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );
     }
 
     /**
-     * Operation getBookingById
+     * Operation getBookingById.
      *
      * Retrieve a booking
      *
-     * @param  string $booking_id The ID of the booking (required)
-     * @param  string $authorization Type &#39;Bearer&#39; and then your API Token (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBookingById'] to see the possible values for this operation
+     * @param string $booking_id    The ID of the booking (required)
+     * @param string $authorization Type &#39;Bearer&#39; and then your API Token (required)
+     * @param string $contentType   The value for the Content-Type header. Check self::contentTypes['getBookingById'] to see the possible values for this operation
      *
-     * @throws \Katanox\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
      * @return \Katanox\Model\HttpBookingResponse|\Katanox\Model\ModelApiError|\Katanox\Model\ModelInternalServerError
+     *
+     * @throws \Katanox\ApiException    on non-2xx response
+     * @throws InvalidArgumentException
      */
     public function getBookingById($booking_id, $authorization, string $contentType = self::contentTypes['getBookingById'][0])
     {
         list($response) = $this->getBookingByIdWithHttpInfo($booking_id, $authorization, $contentType);
+
         return $response;
     }
 
     /**
-     * Operation getBookingByIdWithHttpInfo
+     * Operation getBookingByIdWithHttpInfo.
      *
      * Retrieve a booking
      *
-     * @param  string $booking_id The ID of the booking (required)
-     * @param  string $authorization Type &#39;Bearer&#39; and then your API Token (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBookingById'] to see the possible values for this operation
+     * @param string $booking_id    The ID of the booking (required)
+     * @param string $authorization Type &#39;Bearer&#39; and then your API Token (required)
+     * @param string $contentType   The value for the Content-Type header. Check self::contentTypes['getBookingById'] to see the possible values for this operation
      *
-     * @throws \Katanox\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
      * @return array of \Katanox\Model\HttpBookingResponse|\Katanox\Model\ModelApiError|\Katanox\Model\ModelInternalServerError, HTTP status code, HTTP response headers (array of strings)
+     *
+     * @throws \Katanox\ApiException    on non-2xx response
+     * @throws InvalidArgumentException
      */
     public function getBookingByIdWithHttpInfo($booking_id, $authorization, string $contentType = self::contentTypes['getBookingById'][0])
     {
@@ -1578,6 +1606,7 @@ class BookingsApi
 
         try {
             $options = $this->createHttpClientOption();
+
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
@@ -1611,10 +1640,10 @@ class BookingsApi
                 );
             }
 
-            switch($statusCode) {
+            switch ($statusCode) {
                 case 200:
                     if ('\Katanox\Model\HttpBookingResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                         if ('\Katanox\Model\HttpBookingResponse' !== 'string') {
@@ -1625,11 +1654,12 @@ class BookingsApi
                     return [
                         ObjectSerializer::deserialize($content, '\Katanox\Model\HttpBookingResponse', []),
                         $response->getStatusCode(),
-                        $response->getHeaders()
+                        $response->getHeaders(),
                     ];
+
                 case 404:
                     if ('\Katanox\Model\ModelApiError' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                         if ('\Katanox\Model\ModelApiError' !== 'string') {
@@ -1640,11 +1670,12 @@ class BookingsApi
                     return [
                         ObjectSerializer::deserialize($content, '\Katanox\Model\ModelApiError', []),
                         $response->getStatusCode(),
-                        $response->getHeaders()
+                        $response->getHeaders(),
                     ];
+
                 case 500:
                     if ('\Katanox\Model\ModelInternalServerError' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                         if ('\Katanox\Model\ModelInternalServerError' !== 'string') {
@@ -1655,16 +1686,16 @@ class BookingsApi
                     return [
                         ObjectSerializer::deserialize($content, '\Katanox\Model\ModelInternalServerError', []),
                         $response->getStatusCode(),
-                        $response->getHeaders()
+                        $response->getHeaders(),
                     ];
             }
 
             $returnType = '\Katanox\Model\HttpBookingResponse';
-            if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
+            if ('\SplFileObject' === $returnType) {
+                $content = $response->getBody(); // stream goes to serializer
             } else {
                 $content = (string) $response->getBody();
-                if ($returnType !== 'string') {
+                if ('string' !== $returnType) {
                     $content = json_decode($content);
                 }
             }
@@ -1672,9 +1703,8 @@ class BookingsApi
             return [
                 ObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
-                $response->getHeaders()
+                $response->getHeaders(),
             ];
-
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
@@ -1684,7 +1714,9 @@ class BookingsApi
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
+
                     break;
+
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
@@ -1692,7 +1724,9 @@ class BookingsApi
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
+
                     break;
+
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
@@ -1700,23 +1734,26 @@ class BookingsApi
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
+
                     break;
             }
+
             throw $e;
         }
     }
 
     /**
-     * Operation getBookingByIdAsync
+     * Operation getBookingByIdAsync.
      *
      * Retrieve a booking
      *
-     * @param  string $booking_id The ID of the booking (required)
-     * @param  string $authorization Type &#39;Bearer&#39; and then your API Token (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBookingById'] to see the possible values for this operation
+     * @param string $booking_id    The ID of the booking (required)
+     * @param string $authorization Type &#39;Bearer&#39; and then your API Token (required)
+     * @param string $contentType   The value for the Content-Type header. Check self::contentTypes['getBookingById'] to see the possible values for this operation
      *
-     * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     *
+     * @throws InvalidArgumentException
      */
     public function getBookingByIdAsync($booking_id, $authorization, string $contentType = self::contentTypes['getBookingById'][0])
     {
@@ -1725,20 +1762,22 @@ class BookingsApi
                 function ($response) {
                     return $response[0];
                 }
-            );
+            )
+        ;
     }
 
     /**
-     * Operation getBookingByIdAsyncWithHttpInfo
+     * Operation getBookingByIdAsyncWithHttpInfo.
      *
      * Retrieve a booking
      *
-     * @param  string $booking_id The ID of the booking (required)
-     * @param  string $authorization Type &#39;Bearer&#39; and then your API Token (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBookingById'] to see the possible values for this operation
+     * @param string $booking_id    The ID of the booking (required)
+     * @param string $authorization Type &#39;Bearer&#39; and then your API Token (required)
+     * @param string $contentType   The value for the Content-Type header. Check self::contentTypes['getBookingById'] to see the possible values for this operation
      *
-     * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     *
+     * @throws InvalidArgumentException
      */
     public function getBookingByIdAsyncWithHttpInfo($booking_id, $authorization, string $contentType = self::contentTypes['getBookingById'][0])
     {
@@ -1749,11 +1788,11 @@ class BookingsApi
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                    if ('\SplFileObject' === $returnType) {
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ($returnType !== 'string') {
+                        if ('string' !== $returnType) {
                             $content = json_decode($content);
                         }
                     }
@@ -1761,12 +1800,13 @@ class BookingsApi
                     return [
                         ObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
-                        $response->getHeaders()
+                        $response->getHeaders(),
                     ];
                 },
                 function ($exception) {
                     $response = $exception->getResponse();
                     $statusCode = $response->getStatusCode();
+
                     throw new ApiException(
                         sprintf(
                             '[%d] Error connecting to the API (%s)',
@@ -1778,36 +1818,36 @@ class BookingsApi
                         (string) $response->getBody()
                     );
                 }
-            );
+            )
+        ;
     }
 
     /**
-     * Create request for operation 'getBookingById'
+     * Create request for operation 'getBookingById'.
      *
-     * @param  string $booking_id The ID of the booking (required)
-     * @param  string $authorization Type &#39;Bearer&#39; and then your API Token (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBookingById'] to see the possible values for this operation
+     * @param string $booking_id    The ID of the booking (required)
+     * @param string $authorization Type &#39;Bearer&#39; and then your API Token (required)
+     * @param string $contentType   The value for the Content-Type header. Check self::contentTypes['getBookingById'] to see the possible values for this operation
      *
-     * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
+     *
+     * @throws InvalidArgumentException
      */
     public function getBookingByIdRequest($booking_id, $authorization, string $contentType = self::contentTypes['getBookingById'][0])
     {
-
         // verify the required parameter 'booking_id' is set
-        if ($booking_id === null || (is_array($booking_id) && count($booking_id) === 0)) {
-            throw new \InvalidArgumentException(
+        if (null === $booking_id || (is_array($booking_id) && 0 === count($booking_id))) {
+            throw new InvalidArgumentException(
                 'Missing the required parameter $booking_id when calling getBookingById'
             );
         }
 
         // verify the required parameter 'authorization' is set
-        if ($authorization === null || (is_array($authorization) && count($authorization) === 0)) {
-            throw new \InvalidArgumentException(
+        if (null === $authorization || (is_array($authorization) && 0 === count($authorization))) {
+            throw new InvalidArgumentException(
                 'Missing the required parameter $authorization when calling getBookingById'
             );
         }
-
 
         $resourcePath = '/bookings/{booking_id}';
         $formParams = [];
@@ -1816,24 +1856,22 @@ class BookingsApi
         $httpBody = '';
         $multipart = false;
 
-
         // header params
-        if ($authorization !== null) {
+        if (null !== $authorization) {
             $headerParams['Authorization'] = ObjectSerializer::toHeaderValue($authorization);
         }
 
         // path params
-        if ($booking_id !== null) {
+        if (null !== $booking_id) {
             $resourcePath = str_replace(
-                '{' . 'booking_id' . '}',
+                '{booking_id}',
                 ObjectSerializer::toPathValue($booking_id),
                 $resourcePath
             );
         }
 
-
         $headers = $this->headerSelector->selectHeaders(
-            ['application/json', ],
+            ['application/json'],
             $contentType,
             $multipart
         );
@@ -1847,22 +1885,20 @@ class BookingsApi
                     foreach ($formParamValueItems as $formParamValueItem) {
                         $multipartContents[] = [
                             'name' => $formParamName,
-                            'contents' => $formParamValueItem
+                            'contents' => $formParamValueItem,
                         ];
                     }
                 }
                 // for HTTP post (form)
                 $httpBody = new MultipartStream($multipartContents);
-
-            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the form parameters
+            } elseif (false !== stripos($headers['Content-Type'], 'application/json')) {
+                // if Content-Type contains "application/json", json_encode the form parameters
                 $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
             } else {
                 // for HTTP post (form)
                 $httpBody = ObjectSerializer::buildQuery($formParams);
             }
         }
-
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -1877,47 +1913,51 @@ class BookingsApi
 
         $operationHost = $this->config->getHost();
         $query = ObjectSerializer::buildQuery($queryParams);
+
         return new Request(
             'GET',
-            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $operationHost.$resourcePath.($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );
     }
 
     /**
-     * Operation getReservationById
+     * Operation getReservationById.
      *
      * Retrieve a reservation by id
      *
-     * @param  string $booking_id The ID of the booking (required)
-     * @param  string $reservation_id The ID of the reservation (required)
-     * @param  string $authorization Type &#39;Bearer&#39; and then your API Token (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getReservationById'] to see the possible values for this operation
+     * @param string $booking_id     The ID of the booking (required)
+     * @param string $reservation_id The ID of the reservation (required)
+     * @param string $authorization  Type &#39;Bearer&#39; and then your API Token (required)
+     * @param string $contentType    The value for the Content-Type header. Check self::contentTypes['getReservationById'] to see the possible values for this operation
      *
-     * @throws \Katanox\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
      * @return \Katanox\Model\HttpReservationResponse|\Katanox\Model\ModelApiError|\Katanox\Model\ModelInternalServerError
+     *
+     * @throws \Katanox\ApiException    on non-2xx response
+     * @throws InvalidArgumentException
      */
     public function getReservationById($booking_id, $reservation_id, $authorization, string $contentType = self::contentTypes['getReservationById'][0])
     {
         list($response) = $this->getReservationByIdWithHttpInfo($booking_id, $reservation_id, $authorization, $contentType);
+
         return $response;
     }
 
     /**
-     * Operation getReservationByIdWithHttpInfo
+     * Operation getReservationByIdWithHttpInfo.
      *
      * Retrieve a reservation by id
      *
-     * @param  string $booking_id The ID of the booking (required)
-     * @param  string $reservation_id The ID of the reservation (required)
-     * @param  string $authorization Type &#39;Bearer&#39; and then your API Token (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getReservationById'] to see the possible values for this operation
+     * @param string $booking_id     The ID of the booking (required)
+     * @param string $reservation_id The ID of the reservation (required)
+     * @param string $authorization  Type &#39;Bearer&#39; and then your API Token (required)
+     * @param string $contentType    The value for the Content-Type header. Check self::contentTypes['getReservationById'] to see the possible values for this operation
      *
-     * @throws \Katanox\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
      * @return array of \Katanox\Model\HttpReservationResponse|\Katanox\Model\ModelApiError|\Katanox\Model\ModelInternalServerError, HTTP status code, HTTP response headers (array of strings)
+     *
+     * @throws \Katanox\ApiException    on non-2xx response
+     * @throws InvalidArgumentException
      */
     public function getReservationByIdWithHttpInfo($booking_id, $reservation_id, $authorization, string $contentType = self::contentTypes['getReservationById'][0])
     {
@@ -1925,6 +1965,7 @@ class BookingsApi
 
         try {
             $options = $this->createHttpClientOption();
+
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
@@ -1958,10 +1999,10 @@ class BookingsApi
                 );
             }
 
-            switch($statusCode) {
+            switch ($statusCode) {
                 case 200:
                     if ('\Katanox\Model\HttpReservationResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                         if ('\Katanox\Model\HttpReservationResponse' !== 'string') {
@@ -1972,11 +2013,12 @@ class BookingsApi
                     return [
                         ObjectSerializer::deserialize($content, '\Katanox\Model\HttpReservationResponse', []),
                         $response->getStatusCode(),
-                        $response->getHeaders()
+                        $response->getHeaders(),
                     ];
+
                 case 404:
                     if ('\Katanox\Model\ModelApiError' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                         if ('\Katanox\Model\ModelApiError' !== 'string') {
@@ -1987,11 +2029,12 @@ class BookingsApi
                     return [
                         ObjectSerializer::deserialize($content, '\Katanox\Model\ModelApiError', []),
                         $response->getStatusCode(),
-                        $response->getHeaders()
+                        $response->getHeaders(),
                     ];
+
                 case 500:
                     if ('\Katanox\Model\ModelInternalServerError' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                         if ('\Katanox\Model\ModelInternalServerError' !== 'string') {
@@ -2002,16 +2045,16 @@ class BookingsApi
                     return [
                         ObjectSerializer::deserialize($content, '\Katanox\Model\ModelInternalServerError', []),
                         $response->getStatusCode(),
-                        $response->getHeaders()
+                        $response->getHeaders(),
                     ];
             }
 
             $returnType = '\Katanox\Model\HttpReservationResponse';
-            if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
+            if ('\SplFileObject' === $returnType) {
+                $content = $response->getBody(); // stream goes to serializer
             } else {
                 $content = (string) $response->getBody();
-                if ($returnType !== 'string') {
+                if ('string' !== $returnType) {
                     $content = json_decode($content);
                 }
             }
@@ -2019,9 +2062,8 @@ class BookingsApi
             return [
                 ObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
-                $response->getHeaders()
+                $response->getHeaders(),
             ];
-
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
@@ -2031,7 +2073,9 @@ class BookingsApi
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
+
                     break;
+
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
@@ -2039,7 +2083,9 @@ class BookingsApi
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
+
                     break;
+
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
@@ -2047,24 +2093,27 @@ class BookingsApi
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
+
                     break;
             }
+
             throw $e;
         }
     }
 
     /**
-     * Operation getReservationByIdAsync
+     * Operation getReservationByIdAsync.
      *
      * Retrieve a reservation by id
      *
-     * @param  string $booking_id The ID of the booking (required)
-     * @param  string $reservation_id The ID of the reservation (required)
-     * @param  string $authorization Type &#39;Bearer&#39; and then your API Token (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getReservationById'] to see the possible values for this operation
+     * @param string $booking_id     The ID of the booking (required)
+     * @param string $reservation_id The ID of the reservation (required)
+     * @param string $authorization  Type &#39;Bearer&#39; and then your API Token (required)
+     * @param string $contentType    The value for the Content-Type header. Check self::contentTypes['getReservationById'] to see the possible values for this operation
      *
-     * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     *
+     * @throws InvalidArgumentException
      */
     public function getReservationByIdAsync($booking_id, $reservation_id, $authorization, string $contentType = self::contentTypes['getReservationById'][0])
     {
@@ -2073,21 +2122,23 @@ class BookingsApi
                 function ($response) {
                     return $response[0];
                 }
-            );
+            )
+        ;
     }
 
     /**
-     * Operation getReservationByIdAsyncWithHttpInfo
+     * Operation getReservationByIdAsyncWithHttpInfo.
      *
      * Retrieve a reservation by id
      *
-     * @param  string $booking_id The ID of the booking (required)
-     * @param  string $reservation_id The ID of the reservation (required)
-     * @param  string $authorization Type &#39;Bearer&#39; and then your API Token (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getReservationById'] to see the possible values for this operation
+     * @param string $booking_id     The ID of the booking (required)
+     * @param string $reservation_id The ID of the reservation (required)
+     * @param string $authorization  Type &#39;Bearer&#39; and then your API Token (required)
+     * @param string $contentType    The value for the Content-Type header. Check self::contentTypes['getReservationById'] to see the possible values for this operation
      *
-     * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     *
+     * @throws InvalidArgumentException
      */
     public function getReservationByIdAsyncWithHttpInfo($booking_id, $reservation_id, $authorization, string $contentType = self::contentTypes['getReservationById'][0])
     {
@@ -2098,11 +2149,11 @@ class BookingsApi
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                    if ('\SplFileObject' === $returnType) {
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ($returnType !== 'string') {
+                        if ('string' !== $returnType) {
                             $content = json_decode($content);
                         }
                     }
@@ -2110,12 +2161,13 @@ class BookingsApi
                     return [
                         ObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
-                        $response->getHeaders()
+                        $response->getHeaders(),
                     ];
                 },
                 function ($exception) {
                     $response = $exception->getResponse();
                     $statusCode = $response->getStatusCode();
+
                     throw new ApiException(
                         sprintf(
                             '[%d] Error connecting to the API (%s)',
@@ -2127,44 +2179,44 @@ class BookingsApi
                         (string) $response->getBody()
                     );
                 }
-            );
+            )
+        ;
     }
 
     /**
-     * Create request for operation 'getReservationById'
+     * Create request for operation 'getReservationById'.
      *
-     * @param  string $booking_id The ID of the booking (required)
-     * @param  string $reservation_id The ID of the reservation (required)
-     * @param  string $authorization Type &#39;Bearer&#39; and then your API Token (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getReservationById'] to see the possible values for this operation
+     * @param string $booking_id     The ID of the booking (required)
+     * @param string $reservation_id The ID of the reservation (required)
+     * @param string $authorization  Type &#39;Bearer&#39; and then your API Token (required)
+     * @param string $contentType    The value for the Content-Type header. Check self::contentTypes['getReservationById'] to see the possible values for this operation
      *
-     * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
+     *
+     * @throws InvalidArgumentException
      */
     public function getReservationByIdRequest($booking_id, $reservation_id, $authorization, string $contentType = self::contentTypes['getReservationById'][0])
     {
-
         // verify the required parameter 'booking_id' is set
-        if ($booking_id === null || (is_array($booking_id) && count($booking_id) === 0)) {
-            throw new \InvalidArgumentException(
+        if (null === $booking_id || (is_array($booking_id) && 0 === count($booking_id))) {
+            throw new InvalidArgumentException(
                 'Missing the required parameter $booking_id when calling getReservationById'
             );
         }
 
         // verify the required parameter 'reservation_id' is set
-        if ($reservation_id === null || (is_array($reservation_id) && count($reservation_id) === 0)) {
-            throw new \InvalidArgumentException(
+        if (null === $reservation_id || (is_array($reservation_id) && 0 === count($reservation_id))) {
+            throw new InvalidArgumentException(
                 'Missing the required parameter $reservation_id when calling getReservationById'
             );
         }
 
         // verify the required parameter 'authorization' is set
-        if ($authorization === null || (is_array($authorization) && count($authorization) === 0)) {
-            throw new \InvalidArgumentException(
+        if (null === $authorization || (is_array($authorization) && 0 === count($authorization))) {
+            throw new InvalidArgumentException(
                 'Missing the required parameter $authorization when calling getReservationById'
             );
         }
-
 
         $resourcePath = '/bookings/{booking_id}/reservations/{reservation_id}';
         $formParams = [];
@@ -2173,32 +2225,30 @@ class BookingsApi
         $httpBody = '';
         $multipart = false;
 
-
         // header params
-        if ($authorization !== null) {
+        if (null !== $authorization) {
             $headerParams['Authorization'] = ObjectSerializer::toHeaderValue($authorization);
         }
 
         // path params
-        if ($booking_id !== null) {
+        if (null !== $booking_id) {
             $resourcePath = str_replace(
-                '{' . 'booking_id' . '}',
+                '{booking_id}',
                 ObjectSerializer::toPathValue($booking_id),
                 $resourcePath
             );
         }
         // path params
-        if ($reservation_id !== null) {
+        if (null !== $reservation_id) {
             $resourcePath = str_replace(
-                '{' . 'reservation_id' . '}',
+                '{reservation_id}',
                 ObjectSerializer::toPathValue($reservation_id),
                 $resourcePath
             );
         }
 
-
         $headers = $this->headerSelector->selectHeaders(
-            ['application/json', ],
+            ['application/json'],
             $contentType,
             $multipart
         );
@@ -2212,22 +2262,20 @@ class BookingsApi
                     foreach ($formParamValueItems as $formParamValueItem) {
                         $multipartContents[] = [
                             'name' => $formParamName,
-                            'contents' => $formParamValueItem
+                            'contents' => $formParamValueItem,
                         ];
                     }
                 }
                 // for HTTP post (form)
                 $httpBody = new MultipartStream($multipartContents);
-
-            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the form parameters
+            } elseif (false !== stripos($headers['Content-Type'], 'application/json')) {
+                // if Content-Type contains "application/json", json_encode the form parameters
                 $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
             } else {
                 // for HTTP post (form)
                 $httpBody = ObjectSerializer::buildQuery($formParams);
             }
         }
-
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -2242,49 +2290,53 @@ class BookingsApi
 
         $operationHost = $this->config->getHost();
         $query = ObjectSerializer::buildQuery($queryParams);
+
         return new Request(
             'GET',
-            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $operationHost.$resourcePath.($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );
     }
 
     /**
-     * Operation updateReservation
+     * Operation updateReservation.
      *
      * Update a reservation
      *
-     * @param  string $booking_id The id of the booking (required)
-     * @param  string $reservation_id The id of the reservation (required)
-     * @param  string $authorization Type &#39;Bearer&#39; and then your API Token (required)
-     * @param  \Katanox\Model\HttpReservationUpdateRequest $http_reservation_update_request The reservation body (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateReservation'] to see the possible values for this operation
+     * @param string                                      $booking_id                      The id of the booking (required)
+     * @param string                                      $reservation_id                  The id of the reservation (required)
+     * @param string                                      $authorization                   Type &#39;Bearer&#39; and then your API Token (required)
+     * @param \Katanox\Model\HttpReservationUpdateRequest $http_reservation_update_request The reservation body (required)
+     * @param string                                      $contentType                     The value for the Content-Type header. Check self::contentTypes['updateReservation'] to see the possible values for this operation
      *
-     * @throws \Katanox\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
      * @return \Katanox\Model\HttpReservationResponse|\Katanox\Model\ModelApiError|\Katanox\Model\ModelApiError|\Katanox\Model\ModelApiError|\Katanox\Model\ModelInternalServerError
+     *
+     * @throws \Katanox\ApiException    on non-2xx response
+     * @throws InvalidArgumentException
      */
     public function updateReservation($booking_id, $reservation_id, $authorization, $http_reservation_update_request, string $contentType = self::contentTypes['updateReservation'][0])
     {
         list($response) = $this->updateReservationWithHttpInfo($booking_id, $reservation_id, $authorization, $http_reservation_update_request, $contentType);
+
         return $response;
     }
 
     /**
-     * Operation updateReservationWithHttpInfo
+     * Operation updateReservationWithHttpInfo.
      *
      * Update a reservation
      *
-     * @param  string $booking_id The id of the booking (required)
-     * @param  string $reservation_id The id of the reservation (required)
-     * @param  string $authorization Type &#39;Bearer&#39; and then your API Token (required)
-     * @param  \Katanox\Model\HttpReservationUpdateRequest $http_reservation_update_request The reservation body (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateReservation'] to see the possible values for this operation
+     * @param string                                      $booking_id                      The id of the booking (required)
+     * @param string                                      $reservation_id                  The id of the reservation (required)
+     * @param string                                      $authorization                   Type &#39;Bearer&#39; and then your API Token (required)
+     * @param \Katanox\Model\HttpReservationUpdateRequest $http_reservation_update_request The reservation body (required)
+     * @param string                                      $contentType                     The value for the Content-Type header. Check self::contentTypes['updateReservation'] to see the possible values for this operation
      *
-     * @throws \Katanox\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
      * @return array of \Katanox\Model\HttpReservationResponse|\Katanox\Model\ModelApiError|\Katanox\Model\ModelApiError|\Katanox\Model\ModelApiError|\Katanox\Model\ModelInternalServerError, HTTP status code, HTTP response headers (array of strings)
+     *
+     * @throws \Katanox\ApiException    on non-2xx response
+     * @throws InvalidArgumentException
      */
     public function updateReservationWithHttpInfo($booking_id, $reservation_id, $authorization, $http_reservation_update_request, string $contentType = self::contentTypes['updateReservation'][0])
     {
@@ -2292,6 +2344,7 @@ class BookingsApi
 
         try {
             $options = $this->createHttpClientOption();
+
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
@@ -2325,10 +2378,10 @@ class BookingsApi
                 );
             }
 
-            switch($statusCode) {
+            switch ($statusCode) {
                 case 200:
                     if ('\Katanox\Model\HttpReservationResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                         if ('\Katanox\Model\HttpReservationResponse' !== 'string') {
@@ -2339,11 +2392,12 @@ class BookingsApi
                     return [
                         ObjectSerializer::deserialize($content, '\Katanox\Model\HttpReservationResponse', []),
                         $response->getStatusCode(),
-                        $response->getHeaders()
+                        $response->getHeaders(),
                     ];
+
                 case 400:
                     if ('\Katanox\Model\ModelApiError' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                         if ('\Katanox\Model\ModelApiError' !== 'string') {
@@ -2354,11 +2408,12 @@ class BookingsApi
                     return [
                         ObjectSerializer::deserialize($content, '\Katanox\Model\ModelApiError', []),
                         $response->getStatusCode(),
-                        $response->getHeaders()
+                        $response->getHeaders(),
                     ];
+
                 case 404:
                     if ('\Katanox\Model\ModelApiError' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                         if ('\Katanox\Model\ModelApiError' !== 'string') {
@@ -2369,11 +2424,12 @@ class BookingsApi
                     return [
                         ObjectSerializer::deserialize($content, '\Katanox\Model\ModelApiError', []),
                         $response->getStatusCode(),
-                        $response->getHeaders()
+                        $response->getHeaders(),
                     ];
+
                 case 422:
                     if ('\Katanox\Model\ModelApiError' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                         if ('\Katanox\Model\ModelApiError' !== 'string') {
@@ -2384,11 +2440,12 @@ class BookingsApi
                     return [
                         ObjectSerializer::deserialize($content, '\Katanox\Model\ModelApiError', []),
                         $response->getStatusCode(),
-                        $response->getHeaders()
+                        $response->getHeaders(),
                     ];
+
                 case 500:
                     if ('\Katanox\Model\ModelInternalServerError' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                         if ('\Katanox\Model\ModelInternalServerError' !== 'string') {
@@ -2399,16 +2456,16 @@ class BookingsApi
                     return [
                         ObjectSerializer::deserialize($content, '\Katanox\Model\ModelInternalServerError', []),
                         $response->getStatusCode(),
-                        $response->getHeaders()
+                        $response->getHeaders(),
                     ];
             }
 
             $returnType = '\Katanox\Model\HttpReservationResponse';
-            if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
+            if ('\SplFileObject' === $returnType) {
+                $content = $response->getBody(); // stream goes to serializer
             } else {
                 $content = (string) $response->getBody();
-                if ($returnType !== 'string') {
+                if ('string' !== $returnType) {
                     $content = json_decode($content);
                 }
             }
@@ -2416,9 +2473,8 @@ class BookingsApi
             return [
                 ObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
-                $response->getHeaders()
+                $response->getHeaders(),
             ];
-
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
@@ -2428,7 +2484,9 @@ class BookingsApi
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
+
                     break;
+
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
@@ -2436,7 +2494,9 @@ class BookingsApi
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
+
                     break;
+
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
@@ -2444,7 +2504,9 @@ class BookingsApi
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
+
                     break;
+
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
@@ -2452,7 +2514,9 @@ class BookingsApi
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
+
                     break;
+
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
@@ -2460,25 +2524,28 @@ class BookingsApi
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
+
                     break;
             }
+
             throw $e;
         }
     }
 
     /**
-     * Operation updateReservationAsync
+     * Operation updateReservationAsync.
      *
      * Update a reservation
      *
-     * @param  string $booking_id The id of the booking (required)
-     * @param  string $reservation_id The id of the reservation (required)
-     * @param  string $authorization Type &#39;Bearer&#39; and then your API Token (required)
-     * @param  \Katanox\Model\HttpReservationUpdateRequest $http_reservation_update_request The reservation body (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateReservation'] to see the possible values for this operation
+     * @param string                                      $booking_id                      The id of the booking (required)
+     * @param string                                      $reservation_id                  The id of the reservation (required)
+     * @param string                                      $authorization                   Type &#39;Bearer&#39; and then your API Token (required)
+     * @param \Katanox\Model\HttpReservationUpdateRequest $http_reservation_update_request The reservation body (required)
+     * @param string                                      $contentType                     The value for the Content-Type header. Check self::contentTypes['updateReservation'] to see the possible values for this operation
      *
-     * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     *
+     * @throws InvalidArgumentException
      */
     public function updateReservationAsync($booking_id, $reservation_id, $authorization, $http_reservation_update_request, string $contentType = self::contentTypes['updateReservation'][0])
     {
@@ -2487,22 +2554,24 @@ class BookingsApi
                 function ($response) {
                     return $response[0];
                 }
-            );
+            )
+        ;
     }
 
     /**
-     * Operation updateReservationAsyncWithHttpInfo
+     * Operation updateReservationAsyncWithHttpInfo.
      *
      * Update a reservation
      *
-     * @param  string $booking_id The id of the booking (required)
-     * @param  string $reservation_id The id of the reservation (required)
-     * @param  string $authorization Type &#39;Bearer&#39; and then your API Token (required)
-     * @param  \Katanox\Model\HttpReservationUpdateRequest $http_reservation_update_request The reservation body (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateReservation'] to see the possible values for this operation
+     * @param string                                      $booking_id                      The id of the booking (required)
+     * @param string                                      $reservation_id                  The id of the reservation (required)
+     * @param string                                      $authorization                   Type &#39;Bearer&#39; and then your API Token (required)
+     * @param \Katanox\Model\HttpReservationUpdateRequest $http_reservation_update_request The reservation body (required)
+     * @param string                                      $contentType                     The value for the Content-Type header. Check self::contentTypes['updateReservation'] to see the possible values for this operation
      *
-     * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     *
+     * @throws InvalidArgumentException
      */
     public function updateReservationAsyncWithHttpInfo($booking_id, $reservation_id, $authorization, $http_reservation_update_request, string $contentType = self::contentTypes['updateReservation'][0])
     {
@@ -2513,11 +2582,11 @@ class BookingsApi
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                    if ('\SplFileObject' === $returnType) {
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ($returnType !== 'string') {
+                        if ('string' !== $returnType) {
                             $content = json_decode($content);
                         }
                     }
@@ -2525,12 +2594,13 @@ class BookingsApi
                     return [
                         ObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
-                        $response->getHeaders()
+                        $response->getHeaders(),
                     ];
                 },
                 function ($exception) {
                     $response = $exception->getResponse();
                     $statusCode = $response->getStatusCode();
+
                     throw new ApiException(
                         sprintf(
                             '[%d] Error connecting to the API (%s)',
@@ -2542,52 +2612,52 @@ class BookingsApi
                         (string) $response->getBody()
                     );
                 }
-            );
+            )
+        ;
     }
 
     /**
-     * Create request for operation 'updateReservation'
+     * Create request for operation 'updateReservation'.
      *
-     * @param  string $booking_id The id of the booking (required)
-     * @param  string $reservation_id The id of the reservation (required)
-     * @param  string $authorization Type &#39;Bearer&#39; and then your API Token (required)
-     * @param  \Katanox\Model\HttpReservationUpdateRequest $http_reservation_update_request The reservation body (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateReservation'] to see the possible values for this operation
+     * @param string                                      $booking_id                      The id of the booking (required)
+     * @param string                                      $reservation_id                  The id of the reservation (required)
+     * @param string                                      $authorization                   Type &#39;Bearer&#39; and then your API Token (required)
+     * @param \Katanox\Model\HttpReservationUpdateRequest $http_reservation_update_request The reservation body (required)
+     * @param string                                      $contentType                     The value for the Content-Type header. Check self::contentTypes['updateReservation'] to see the possible values for this operation
      *
-     * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
+     *
+     * @throws InvalidArgumentException
      */
     public function updateReservationRequest($booking_id, $reservation_id, $authorization, $http_reservation_update_request, string $contentType = self::contentTypes['updateReservation'][0])
     {
-
         // verify the required parameter 'booking_id' is set
-        if ($booking_id === null || (is_array($booking_id) && count($booking_id) === 0)) {
-            throw new \InvalidArgumentException(
+        if (null === $booking_id || (is_array($booking_id) && 0 === count($booking_id))) {
+            throw new InvalidArgumentException(
                 'Missing the required parameter $booking_id when calling updateReservation'
             );
         }
 
         // verify the required parameter 'reservation_id' is set
-        if ($reservation_id === null || (is_array($reservation_id) && count($reservation_id) === 0)) {
-            throw new \InvalidArgumentException(
+        if (null === $reservation_id || (is_array($reservation_id) && 0 === count($reservation_id))) {
+            throw new InvalidArgumentException(
                 'Missing the required parameter $reservation_id when calling updateReservation'
             );
         }
 
         // verify the required parameter 'authorization' is set
-        if ($authorization === null || (is_array($authorization) && count($authorization) === 0)) {
-            throw new \InvalidArgumentException(
+        if (null === $authorization || (is_array($authorization) && 0 === count($authorization))) {
+            throw new InvalidArgumentException(
                 'Missing the required parameter $authorization when calling updateReservation'
             );
         }
 
         // verify the required parameter 'http_reservation_update_request' is set
-        if ($http_reservation_update_request === null || (is_array($http_reservation_update_request) && count($http_reservation_update_request) === 0)) {
-            throw new \InvalidArgumentException(
+        if (null === $http_reservation_update_request || (is_array($http_reservation_update_request) && 0 === count($http_reservation_update_request))) {
+            throw new InvalidArgumentException(
                 'Missing the required parameter $http_reservation_update_request when calling updateReservation'
             );
         }
-
 
         $resourcePath = '/bookings/{booking_id}/reservations/{reservation_id}';
         $formParams = [];
@@ -2596,40 +2666,38 @@ class BookingsApi
         $httpBody = '';
         $multipart = false;
 
-
         // header params
-        if ($authorization !== null) {
+        if (null !== $authorization) {
             $headerParams['Authorization'] = ObjectSerializer::toHeaderValue($authorization);
         }
 
         // path params
-        if ($booking_id !== null) {
+        if (null !== $booking_id) {
             $resourcePath = str_replace(
-                '{' . 'booking_id' . '}',
+                '{booking_id}',
                 ObjectSerializer::toPathValue($booking_id),
                 $resourcePath
             );
         }
         // path params
-        if ($reservation_id !== null) {
+        if (null !== $reservation_id) {
             $resourcePath = str_replace(
-                '{' . 'reservation_id' . '}',
+                '{reservation_id}',
                 ObjectSerializer::toPathValue($reservation_id),
                 $resourcePath
             );
         }
 
-
         $headers = $this->headerSelector->selectHeaders(
-            ['application/json', ],
+            ['application/json'],
             $contentType,
             $multipart
         );
 
         // for model (json/xml)
         if (isset($http_reservation_update_request)) {
-            if (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the body
+            if (false !== stripos($headers['Content-Type'], 'application/json')) {
+                // if Content-Type contains "application/json", json_encode the body
                 $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($http_reservation_update_request));
             } else {
                 $httpBody = $http_reservation_update_request;
@@ -2642,22 +2710,20 @@ class BookingsApi
                     foreach ($formParamValueItems as $formParamValueItem) {
                         $multipartContents[] = [
                             'name' => $formParamName,
-                            'contents' => $formParamValueItem
+                            'contents' => $formParamValueItem,
                         ];
                     }
                 }
                 // for HTTP post (form)
                 $httpBody = new MultipartStream($multipartContents);
-
-            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the form parameters
+            } elseif (false !== stripos($headers['Content-Type'], 'application/json')) {
+                // if Content-Type contains "application/json", json_encode the form parameters
                 $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
             } else {
                 // for HTTP post (form)
                 $httpBody = ObjectSerializer::buildQuery($formParams);
             }
         }
-
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -2672,19 +2738,44 @@ class BookingsApi
 
         $operationHost = $this->config->getHost();
         $query = ObjectSerializer::buildQuery($queryParams);
+
         return new Request(
             'PUT',
-            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $operationHost.$resourcePath.($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );
     }
 
     /**
-     * Create http client option
+     * Returns an array of host settings for Operation createBooking.
      *
-     * @throws \RuntimeException on file opening failure
+     * @return array an array of host settings
+     */
+    protected function getHostSettingsForcreateBooking(): array
+    {
+        return [
+            [
+                'url' => 'https://api.katanox.com/v2',
+                'description' => 'No description provided',
+            ],
+            [
+                'url' => 'https://api.pci-proxy.com/v1/push/5775c7cf3b3e5dc0',
+                'description' => 'No description provided',
+            ],
+            [
+                'url' => 'https://api-staging.katanox.com/v2',
+                'description' => 'No description provided',
+            ],
+        ];
+    }
+
+    /**
+     * Create http client option.
+     *
      * @return array of http client options
+     *
+     * @throws RuntimeException on file opening failure
      */
     protected function createHttpClientOption()
     {
@@ -2692,7 +2783,7 @@ class BookingsApi
         if ($this->config->getDebug()) {
             $options[RequestOptions::DEBUG] = fopen($this->config->getDebugFile(), 'a');
             if (!$options[RequestOptions::DEBUG]) {
-                throw new \RuntimeException('Failed to open the debug file: ' . $this->config->getDebugFile());
+                throw new RuntimeException('Failed to open the debug file: '.$this->config->getDebugFile());
             }
         }
 

@@ -1,17 +1,18 @@
 <?php
 /**
- * DtoCancellationPolicy
+ * DtoCancellationPolicy.
  *
  * PHP version 7.4
  *
  * @category Class
- * @package  Katanox
+ *
  * @author   OpenAPI Generator team
- * @link     https://openapi-generator.tech
+ *
+ * @see     https://openapi-generator.tech
  */
 
 /**
- * Katanox API Documentation
+ * Katanox API Documentation.
  *
  * The Katanox API allows any travel seller to search and book accommodation.
  *
@@ -28,34 +29,45 @@
 
 namespace Katanox\Model;
 
-use \ArrayAccess;
-use \Katanox\ObjectSerializer;
+use ArrayAccess;
+use InvalidArgumentException;
+use JsonSerializable;
+use Katanox\ObjectSerializer;
+use ReturnTypeWillChange;
 
 /**
- * DtoCancellationPolicy Class Doc Comment
+ * DtoCancellationPolicy Class Doc Comment.
  *
  * @category Class
- * @package  Katanox
+ *
  * @author   OpenAPI Generator team
- * @link     https://openapi-generator.tech
+ *
+ * @see     https://openapi-generator.tech
+ *
  * @implements \ArrayAccess<string, mixed>
  */
-class DtoCancellationPolicy implements ModelInterface, ArrayAccess, \JsonSerializable
+class DtoCancellationPolicy implements ModelInterface, ArrayAccess, JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
+    public const CHARGE_TYPE_FIXED = 'fixed';
+    public const CHARGE_TYPE_PERCENTAGE = 'percentage';
+    public const CHARGE_TYPE_NIGHTS = 'nights';
+    public const REFERENCE_PRIOR_TO_ARRIVAL = 'prior-to-arrival';
+    public const REFERENCE_AFTER_BOOKING = 'after-booking';
+
     /**
-      * The original name of the model.
-      *
-      * @var string
-      */
+     * The original name of the model.
+     *
+     * @var string
+     */
     protected static $openAPIModelName = 'dto.CancellationPolicy';
 
     /**
-      * Array of property to type mappings. Used for (de)serialization
-      *
-      * @var string[]
-      */
+     * Array of property to type mappings. Used for (de)serialization.
+     *
+     * @var string[]
+     */
     protected static $openAPITypes = [
         'amount' => 'float',
         'charge_type' => 'string',
@@ -63,16 +75,18 @@ class DtoCancellationPolicy implements ModelInterface, ArrayAccess, \JsonSeriali
         'description' => 'string',
         'hours_before_activation' => 'int',
         'name' => 'string',
-        'reference' => 'string'
+        'reference' => 'string',
     ];
 
     /**
-      * Array of property to format mappings. Used for (de)serialization
-      *
-      * @var string[]
-      * @phpstan-var array<string, string|null>
-      * @psalm-var array<string, string|null>
-      */
+     * Array of property to format mappings. Used for (de)serialization.
+     *
+     * @var string[]
+     *
+     * @phpstan-var array<string, string|null>
+     *
+     * @psalm-var array<string, string|null>
+     */
     protected static $openAPIFormats = [
         'amount' => null,
         'charge_type' => null,
@@ -80,106 +94,34 @@ class DtoCancellationPolicy implements ModelInterface, ArrayAccess, \JsonSeriali
         'description' => null,
         'hours_before_activation' => null,
         'name' => null,
-        'reference' => null
+        'reference' => null,
     ];
 
     /**
-      * Array of nullable properties. Used for (de)serialization
-      *
-      * @var boolean[]
-      */
+     * Array of nullable properties. Used for (de)serialization.
+     *
+     * @var bool[]
+     */
     protected static array $openAPINullables = [
         'amount' => false,
-		'charge_type' => false,
-		'days_before_activation' => false,
-		'description' => false,
-		'hours_before_activation' => false,
-		'name' => false,
-		'reference' => false
+        'charge_type' => false,
+        'days_before_activation' => false,
+        'description' => false,
+        'hours_before_activation' => false,
+        'name' => false,
+        'reference' => false,
     ];
 
     /**
-      * If a nullable field gets set to null, insert it here
-      *
-      * @var boolean[]
-      */
+     * If a nullable field gets set to null, insert it here.
+     *
+     * @var bool[]
+     */
     protected array $openAPINullablesSetToNull = [];
 
     /**
-     * Array of property to type mappings. Used for (de)serialization
-     *
-     * @return array
-     */
-    public static function openAPITypes()
-    {
-        return self::$openAPITypes;
-    }
-
-    /**
-     * Array of property to format mappings. Used for (de)serialization
-     *
-     * @return array
-     */
-    public static function openAPIFormats()
-    {
-        return self::$openAPIFormats;
-    }
-
-    /**
-     * Array of nullable properties
-     *
-     * @return array
-     */
-    protected static function openAPINullables(): array
-    {
-        return self::$openAPINullables;
-    }
-
-    /**
-     * Array of nullable field names deliberately set to null
-     *
-     * @return boolean[]
-     */
-    private function getOpenAPINullablesSetToNull(): array
-    {
-        return $this->openAPINullablesSetToNull;
-    }
-
-    /**
-     * Setter - Array of nullable field names deliberately set to null
-     *
-     * @param boolean[] $openAPINullablesSetToNull
-     */
-    private function setOpenAPINullablesSetToNull(array $openAPINullablesSetToNull): void
-    {
-        $this->openAPINullablesSetToNull = $openAPINullablesSetToNull;
-    }
-
-    /**
-     * Checks if a property is nullable
-     *
-     * @param string $property
-     * @return bool
-     */
-    public static function isNullable(string $property): bool
-    {
-        return self::openAPINullables()[$property] ?? false;
-    }
-
-    /**
-     * Checks if a nullable property is set to null.
-     *
-     * @param string $property
-     * @return bool
-     */
-    public function isNullableSetToNull(string $property): bool
-    {
-        return in_array($property, $this->getOpenAPINullablesSetToNull(), true);
-    }
-
-    /**
      * Array of attributes where the key is the local name,
-     * and the value is the original name
+     * and the value is the original name.
      *
      * @var string[]
      */
@@ -190,11 +132,11 @@ class DtoCancellationPolicy implements ModelInterface, ArrayAccess, \JsonSeriali
         'description' => 'description',
         'hours_before_activation' => 'hours_before_activation',
         'name' => 'name',
-        'reference' => 'reference'
+        'reference' => 'reference',
     ];
 
     /**
-     * Array of attributes to setter functions (for deserialization of responses)
+     * Array of attributes to setter functions (for deserialization of responses).
      *
      * @var string[]
      */
@@ -205,11 +147,11 @@ class DtoCancellationPolicy implements ModelInterface, ArrayAccess, \JsonSeriali
         'description' => 'setDescription',
         'hours_before_activation' => 'setHoursBeforeActivation',
         'name' => 'setName',
-        'reference' => 'setReference'
+        'reference' => 'setReference',
     ];
 
     /**
-     * Array of attributes to getter functions (for serialization of requests)
+     * Array of attributes to getter functions (for serialization of requests).
      *
      * @var string[]
      */
@@ -220,12 +162,85 @@ class DtoCancellationPolicy implements ModelInterface, ArrayAccess, \JsonSeriali
         'description' => 'getDescription',
         'hours_before_activation' => 'getHoursBeforeActivation',
         'name' => 'getName',
-        'reference' => 'getReference'
+        'reference' => 'getReference',
     ];
 
     /**
+     * Associative array for storing property values.
+     *
+     * @var mixed[]
+     */
+    protected $container = [];
+
+    /**
+     * Constructor.
+     *
+     * @param mixed[] $data Associated array of property values
+     *                      initializing the model
+     */
+    public function __construct(array $data = null)
+    {
+        $this->setIfExists('amount', $data ?? [], null);
+        $this->setIfExists('charge_type', $data ?? [], null);
+        $this->setIfExists('days_before_activation', $data ?? [], null);
+        $this->setIfExists('description', $data ?? [], null);
+        $this->setIfExists('hours_before_activation', $data ?? [], null);
+        $this->setIfExists('name', $data ?? [], null);
+        $this->setIfExists('reference', $data ?? [], null);
+    }
+
+    /**
+     * Gets the string presentation of the object.
+     *
+     * @return string
+     */
+    public function __toString()
+    {
+        return json_encode(
+            ObjectSerializer::sanitizeForSerialization($this),
+            JSON_PRETTY_PRINT
+        );
+    }
+
+    /**
+     * Array of property to type mappings. Used for (de)serialization.
+     *
+     * @return array
+     */
+    public static function openAPITypes()
+    {
+        return self::$openAPITypes;
+    }
+
+    /**
+     * Array of property to format mappings. Used for (de)serialization.
+     *
+     * @return array
+     */
+    public static function openAPIFormats()
+    {
+        return self::$openAPIFormats;
+    }
+
+    /**
+     * Checks if a property is nullable.
+     */
+    public static function isNullable(string $property): bool
+    {
+        return self::openAPINullables()[$property] ?? false;
+    }
+
+    /**
+     * Checks if a nullable property is set to null.
+     */
+    public function isNullableSetToNull(string $property): bool
+    {
+        return in_array($property, $this->getOpenAPINullablesSetToNull(), true);
+    }
+
+    /**
      * Array of attributes where the key is the local name,
-     * and the value is the original name
+     * and the value is the original name.
      *
      * @return array
      */
@@ -235,7 +250,7 @@ class DtoCancellationPolicy implements ModelInterface, ArrayAccess, \JsonSeriali
     }
 
     /**
-     * Array of attributes to setter functions (for deserialization of responses)
+     * Array of attributes to setter functions (for deserialization of responses).
      *
      * @return array
      */
@@ -245,7 +260,7 @@ class DtoCancellationPolicy implements ModelInterface, ArrayAccess, \JsonSeriali
     }
 
     /**
-     * Array of attributes to getter functions (for serialization of requests)
+     * Array of attributes to getter functions (for serialization of requests).
      *
      * @return array
      */
@@ -264,14 +279,8 @@ class DtoCancellationPolicy implements ModelInterface, ArrayAccess, \JsonSeriali
         return self::$openAPIModelName;
     }
 
-    public const CHARGE_TYPE_FIXED = 'fixed';
-    public const CHARGE_TYPE_PERCENTAGE = 'percentage';
-    public const CHARGE_TYPE_NIGHTS = 'nights';
-    public const REFERENCE_PRIOR_TO_ARRIVAL = 'prior-to-arrival';
-    public const REFERENCE_AFTER_BOOKING = 'after-booking';
-
     /**
-     * Gets allowable values of the enum
+     * Gets allowable values of the enum.
      *
      * @return string[]
      */
@@ -285,7 +294,7 @@ class DtoCancellationPolicy implements ModelInterface, ArrayAccess, \JsonSeriali
     }
 
     /**
-     * Gets allowable values of the enum
+     * Gets allowable values of the enum.
      *
      * @return string[]
      */
@@ -295,48 +304,6 @@ class DtoCancellationPolicy implements ModelInterface, ArrayAccess, \JsonSeriali
             self::REFERENCE_PRIOR_TO_ARRIVAL,
             self::REFERENCE_AFTER_BOOKING,
         ];
-    }
-
-    /**
-     * Associative array for storing property values
-     *
-     * @var mixed[]
-     */
-    protected $container = [];
-
-    /**
-     * Constructor
-     *
-     * @param mixed[] $data Associated array of property values
-     *                      initializing the model
-     */
-    public function __construct(array $data = null)
-    {
-        $this->setIfExists('amount', $data ?? [], null);
-        $this->setIfExists('charge_type', $data ?? [], null);
-        $this->setIfExists('days_before_activation', $data ?? [], null);
-        $this->setIfExists('description', $data ?? [], null);
-        $this->setIfExists('hours_before_activation', $data ?? [], null);
-        $this->setIfExists('name', $data ?? [], null);
-        $this->setIfExists('reference', $data ?? [], null);
-    }
-
-    /**
-    * Sets $this->container[$variableName] to the given data or to the given default Value; if $variableName
-    * is nullable and its value is set to null in the $fields array, then mark it as "set to null" in the
-    * $this->openAPINullablesSetToNull array
-    *
-    * @param string $variableName
-    * @param array  $fields
-    * @param mixed  $defaultValue
-    */
-    private function setIfExists(string $variableName, array $fields, $defaultValue): void
-    {
-        if (self::isNullable($variableName) && array_key_exists($variableName, $fields) && is_null($fields[$variableName])) {
-            $this->openAPINullablesSetToNull[] = $variableName;
-        }
-
-        $this->container[$variableName] = $fields[$variableName] ?? $defaultValue;
     }
 
     /**
@@ -371,20 +338,19 @@ class DtoCancellationPolicy implements ModelInterface, ArrayAccess, \JsonSeriali
 
     /**
      * Validate all the properties in the model
-     * return true if all passed
+     * return true if all passed.
      *
      * @return bool True if all properties are valid
      */
     public function valid()
     {
-        return count($this->listInvalidProperties()) === 0;
+        return 0 === count($this->listInvalidProperties());
     }
 
-
     /**
-     * Gets amount
+     * Gets amount.
      *
-     * @return float|null
+     * @return null|float
      */
     public function getAmount()
     {
@@ -392,16 +358,16 @@ class DtoCancellationPolicy implements ModelInterface, ArrayAccess, \JsonSeriali
     }
 
     /**
-     * Sets amount
+     * Sets amount.
      *
-     * @param float|null $amount amount
+     * @param null|float $amount amount
      *
      * @return self
      */
     public function setAmount($amount)
     {
         if (is_null($amount)) {
-            throw new \InvalidArgumentException('non-nullable amount cannot be null');
+            throw new InvalidArgumentException('non-nullable amount cannot be null');
         }
         $this->container['amount'] = $amount;
 
@@ -409,9 +375,9 @@ class DtoCancellationPolicy implements ModelInterface, ArrayAccess, \JsonSeriali
     }
 
     /**
-     * Gets charge_type
+     * Gets charge_type.
      *
-     * @return string|null
+     * @return null|string
      */
     public function getChargeType()
     {
@@ -419,20 +385,20 @@ class DtoCancellationPolicy implements ModelInterface, ArrayAccess, \JsonSeriali
     }
 
     /**
-     * Sets charge_type
+     * Sets charge_type.
      *
-     * @param string|null $charge_type charge_type
+     * @param null|string $charge_type charge_type
      *
      * @return self
      */
     public function setChargeType($charge_type)
     {
         if (is_null($charge_type)) {
-            throw new \InvalidArgumentException('non-nullable charge_type cannot be null');
+            throw new InvalidArgumentException('non-nullable charge_type cannot be null');
         }
         $allowedValues = $this->getChargeTypeAllowableValues();
         if (!in_array($charge_type, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
+            throw new InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'charge_type', must be one of '%s'",
                     $charge_type,
@@ -446,9 +412,9 @@ class DtoCancellationPolicy implements ModelInterface, ArrayAccess, \JsonSeriali
     }
 
     /**
-     * Gets days_before_activation
+     * Gets days_before_activation.
      *
-     * @return int|null
+     * @return null|int
      */
     public function getDaysBeforeActivation()
     {
@@ -456,16 +422,16 @@ class DtoCancellationPolicy implements ModelInterface, ArrayAccess, \JsonSeriali
     }
 
     /**
-     * Sets days_before_activation
+     * Sets days_before_activation.
      *
-     * @param int|null $days_before_activation days_before_activation
+     * @param null|int $days_before_activation days_before_activation
      *
      * @return self
      */
     public function setDaysBeforeActivation($days_before_activation)
     {
         if (is_null($days_before_activation)) {
-            throw new \InvalidArgumentException('non-nullable days_before_activation cannot be null');
+            throw new InvalidArgumentException('non-nullable days_before_activation cannot be null');
         }
         $this->container['days_before_activation'] = $days_before_activation;
 
@@ -473,9 +439,9 @@ class DtoCancellationPolicy implements ModelInterface, ArrayAccess, \JsonSeriali
     }
 
     /**
-     * Gets description
+     * Gets description.
      *
-     * @return string|null
+     * @return null|string
      */
     public function getDescription()
     {
@@ -483,16 +449,16 @@ class DtoCancellationPolicy implements ModelInterface, ArrayAccess, \JsonSeriali
     }
 
     /**
-     * Sets description
+     * Sets description.
      *
-     * @param string|null $description description
+     * @param null|string $description description
      *
      * @return self
      */
     public function setDescription($description)
     {
         if (is_null($description)) {
-            throw new \InvalidArgumentException('non-nullable description cannot be null');
+            throw new InvalidArgumentException('non-nullable description cannot be null');
         }
         $this->container['description'] = $description;
 
@@ -500,9 +466,9 @@ class DtoCancellationPolicy implements ModelInterface, ArrayAccess, \JsonSeriali
     }
 
     /**
-     * Gets hours_before_activation
+     * Gets hours_before_activation.
      *
-     * @return int|null
+     * @return null|int
      */
     public function getHoursBeforeActivation()
     {
@@ -510,16 +476,16 @@ class DtoCancellationPolicy implements ModelInterface, ArrayAccess, \JsonSeriali
     }
 
     /**
-     * Sets hours_before_activation
+     * Sets hours_before_activation.
      *
-     * @param int|null $hours_before_activation hours_before_activation
+     * @param null|int $hours_before_activation hours_before_activation
      *
      * @return self
      */
     public function setHoursBeforeActivation($hours_before_activation)
     {
         if (is_null($hours_before_activation)) {
-            throw new \InvalidArgumentException('non-nullable hours_before_activation cannot be null');
+            throw new InvalidArgumentException('non-nullable hours_before_activation cannot be null');
         }
         $this->container['hours_before_activation'] = $hours_before_activation;
 
@@ -527,9 +493,9 @@ class DtoCancellationPolicy implements ModelInterface, ArrayAccess, \JsonSeriali
     }
 
     /**
-     * Gets name
+     * Gets name.
      *
-     * @return string|null
+     * @return null|string
      */
     public function getName()
     {
@@ -537,16 +503,16 @@ class DtoCancellationPolicy implements ModelInterface, ArrayAccess, \JsonSeriali
     }
 
     /**
-     * Sets name
+     * Sets name.
      *
-     * @param string|null $name name
+     * @param null|string $name name
      *
      * @return self
      */
     public function setName($name)
     {
         if (is_null($name)) {
-            throw new \InvalidArgumentException('non-nullable name cannot be null');
+            throw new InvalidArgumentException('non-nullable name cannot be null');
         }
         $this->container['name'] = $name;
 
@@ -554,9 +520,9 @@ class DtoCancellationPolicy implements ModelInterface, ArrayAccess, \JsonSeriali
     }
 
     /**
-     * Gets reference
+     * Gets reference.
      *
-     * @return string|null
+     * @return null|string
      */
     public function getReference()
     {
@@ -564,20 +530,20 @@ class DtoCancellationPolicy implements ModelInterface, ArrayAccess, \JsonSeriali
     }
 
     /**
-     * Sets reference
+     * Sets reference.
      *
-     * @param string|null $reference When the policy gets activated
+     * @param null|string $reference When the policy gets activated
      *
      * @return self
      */
     public function setReference($reference)
     {
         if (is_null($reference)) {
-            throw new \InvalidArgumentException('non-nullable reference cannot be null');
+            throw new InvalidArgumentException('non-nullable reference cannot be null');
         }
         $allowedValues = $this->getReferenceAllowableValues();
         if (!in_array($reference, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
+            throw new InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'reference', must be one of '%s'",
                     $reference,
@@ -589,12 +555,11 @@ class DtoCancellationPolicy implements ModelInterface, ArrayAccess, \JsonSeriali
 
         return $this;
     }
+
     /**
      * Returns true if offset exists. False otherwise.
      *
-     * @param integer $offset Offset
-     *
-     * @return boolean
+     * @param int $offset Offset
      */
     public function offsetExists($offset): bool
     {
@@ -604,11 +569,11 @@ class DtoCancellationPolicy implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Gets offset.
      *
-     * @param integer $offset Offset
+     * @param int $offset Offset
      *
-     * @return mixed|null
+     * @return null|mixed
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function offsetGet($offset)
     {
         return $this->container[$offset] ?? null;
@@ -617,10 +582,8 @@ class DtoCancellationPolicy implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets value based on offset.
      *
-     * @param int|null $offset Offset
+     * @param null|int $offset Offset
      * @param mixed    $value  Value to be set
-     *
-     * @return void
      */
     public function offsetSet($offset, $value): void
     {
@@ -634,9 +597,7 @@ class DtoCancellationPolicy implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Unsets offset.
      *
-     * @param integer $offset Offset
-     *
-     * @return void
+     * @param int $offset Offset
      */
     public function offsetUnset($offset): void
     {
@@ -645,32 +606,20 @@ class DtoCancellationPolicy implements ModelInterface, ArrayAccess, \JsonSeriali
 
     /**
      * Serializes the object to a value that can be serialized natively by json_encode().
-     * @link https://www.php.net/manual/en/jsonserializable.jsonserialize.php
      *
-     * @return mixed Returns data which can be serialized by json_encode(), which is a value
-     * of any type other than a resource.
+     * @see https://www.php.net/manual/en/jsonserializable.jsonserialize.php
+     *
+     * @return mixed returns data which can be serialized by json_encode(), which is a value
+     *               of any type other than a resource
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function jsonSerialize()
     {
-       return ObjectSerializer::sanitizeForSerialization($this);
+        return ObjectSerializer::sanitizeForSerialization($this);
     }
 
     /**
-     * Gets the string presentation of the object
-     *
-     * @return string
-     */
-    public function __toString()
-    {
-        return json_encode(
-            ObjectSerializer::sanitizeForSerialization($this),
-            JSON_PRETTY_PRINT
-        );
-    }
-
-    /**
-     * Gets a header-safe presentation of the object
+     * Gets a header-safe presentation of the object.
      *
      * @return string
      */
@@ -678,6 +627,48 @@ class DtoCancellationPolicy implements ModelInterface, ArrayAccess, \JsonSeriali
     {
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
+
+    /**
+     * Array of nullable properties.
+     */
+    protected static function openAPINullables(): array
+    {
+        return self::$openAPINullables;
+    }
+
+    /**
+     * Array of nullable field names deliberately set to null.
+     *
+     * @return bool[]
+     */
+    private function getOpenAPINullablesSetToNull(): array
+    {
+        return $this->openAPINullablesSetToNull;
+    }
+
+    /**
+     * Setter - Array of nullable field names deliberately set to null.
+     *
+     * @param bool[] $openAPINullablesSetToNull
+     */
+    private function setOpenAPINullablesSetToNull(array $openAPINullablesSetToNull): void
+    {
+        $this->openAPINullablesSetToNull = $openAPINullablesSetToNull;
+    }
+
+    /**
+     * Sets $this->container[$variableName] to the given data or to the given default Value; if $variableName
+     * is nullable and its value is set to null in the $fields array, then mark it as "set to null" in the
+     * $this->openAPINullablesSetToNull array.
+     *
+     * @param mixed $defaultValue
+     */
+    private function setIfExists(string $variableName, array $fields, $defaultValue): void
+    {
+        if (self::isNullable($variableName) && array_key_exists($variableName, $fields) && is_null($fields[$variableName])) {
+            $this->openAPINullablesSetToNull[] = $variableName;
+        }
+
+        $this->container[$variableName] = $fields[$variableName] ?? $defaultValue;
+    }
 }
-
-

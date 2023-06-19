@@ -1,17 +1,18 @@
 <?php
 /**
- * HttpPersonTest
+ * HttpPersonTest.
  *
  * PHP version 7.4
  *
  * @category Class
- * @package  OpenAPI\Client
+ *
  * @author   OpenAPI Generator team
- * @link     https://openapi-generator.tech
+ *
+ * @see     https://openapi-generator.tech
  */
 
 /**
- * Katanox API Documentation
+ * Katanox API Documentation.
  *
  * The Katanox API allows any travel seller to search and book accommodation.
  *
@@ -31,47 +32,52 @@ namespace OpenAPI\Client\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * HttpPersonTest Class Doc Comment
+ * HttpPersonTest Class Doc Comment.
  *
  * @category    Class
+ *
  * @description HttpPerson
- * @package     OpenAPI\Client
+ *
  * @author      OpenAPI Generator team
- * @link        https://openapi-generator.tech
+ *
+ * @see        https://openapi-generator.tech
+ *
+ * @internal
+ *
+ * @coversNothing
  */
 class HttpPersonTest extends TestCase
 {
-
     /**
-     * Setup before running any test case
+     * Setup before running any test case.
      */
     public static function setUpBeforeClass(): void
     {
     }
 
     /**
-     * Setup before running each test case
-     */
-    public function setUp(): void
-    {
-    }
-
-    /**
-     * Clean up after running each test case
-     */
-    public function tearDown(): void
-    {
-    }
-
-    /**
-     * Clean up after running all test cases
+     * Clean up after running all test cases.
      */
     public static function tearDownAfterClass(): void
     {
     }
 
     /**
-     * Test "HttpPerson"
+     * Setup before running each test case.
+     */
+    public function setUp(): void
+    {
+    }
+
+    /**
+     * Clean up after running each test case.
+     */
+    public function tearDown(): void
+    {
+    }
+
+    /**
+     * Test "HttpPerson".
      */
     public function testHttpPerson()
     {
@@ -80,7 +86,7 @@ class HttpPersonTest extends TestCase
     }
 
     /**
-     * Test attribute "address_line_1"
+     * Test attribute "address_line_1".
      */
     public function testPropertyAddressLine1()
     {
@@ -89,7 +95,7 @@ class HttpPersonTest extends TestCase
     }
 
     /**
-     * Test attribute "address_line_2"
+     * Test attribute "address_line_2".
      */
     public function testPropertyAddressLine2()
     {
@@ -98,7 +104,7 @@ class HttpPersonTest extends TestCase
     }
 
     /**
-     * Test attribute "birth_date"
+     * Test attribute "birth_date".
      */
     public function testPropertyBirthDate()
     {
@@ -107,7 +113,7 @@ class HttpPersonTest extends TestCase
     }
 
     /**
-     * Test attribute "city"
+     * Test attribute "city".
      */
     public function testPropertyCity()
     {
@@ -116,7 +122,7 @@ class HttpPersonTest extends TestCase
     }
 
     /**
-     * Test attribute "country"
+     * Test attribute "country".
      */
     public function testPropertyCountry()
     {
@@ -125,7 +131,7 @@ class HttpPersonTest extends TestCase
     }
 
     /**
-     * Test attribute "email"
+     * Test attribute "email".
      */
     public function testPropertyEmail()
     {
@@ -134,7 +140,7 @@ class HttpPersonTest extends TestCase
     }
 
     /**
-     * Test attribute "first_name"
+     * Test attribute "first_name".
      */
     public function testPropertyFirstName()
     {
@@ -143,7 +149,7 @@ class HttpPersonTest extends TestCase
     }
 
     /**
-     * Test attribute "last_name"
+     * Test attribute "last_name".
      */
     public function testPropertyLastName()
     {
@@ -152,7 +158,7 @@ class HttpPersonTest extends TestCase
     }
 
     /**
-     * Test attribute "phone_number"
+     * Test attribute "phone_number".
      */
     public function testPropertyPhoneNumber()
     {
@@ -161,7 +167,7 @@ class HttpPersonTest extends TestCase
     }
 
     /**
-     * Test attribute "postcode"
+     * Test attribute "postcode".
      */
     public function testPropertyPostcode()
     {
@@ -170,7 +176,7 @@ class HttpPersonTest extends TestCase
     }
 
     /**
-     * Test attribute "title"
+     * Test attribute "title".
      */
     public function testPropertyTitle()
     {

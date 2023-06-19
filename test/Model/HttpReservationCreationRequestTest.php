@@ -1,17 +1,18 @@
 <?php
 /**
- * HttpReservationCreationRequestTest
+ * HttpReservationCreationRequestTest.
  *
  * PHP version 7.4
  *
  * @category Class
- * @package  OpenAPI\Client
+ *
  * @author   OpenAPI Generator team
- * @link     https://openapi-generator.tech
+ *
+ * @see     https://openapi-generator.tech
  */
 
 /**
- * Katanox API Documentation
+ * Katanox API Documentation.
  *
  * The Katanox API allows any travel seller to search and book accommodation.
  *
@@ -31,47 +32,52 @@ namespace OpenAPI\Client\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * HttpReservationCreationRequestTest Class Doc Comment
+ * HttpReservationCreationRequestTest Class Doc Comment.
  *
  * @category    Class
+ *
  * @description HttpReservationCreationRequest
- * @package     OpenAPI\Client
+ *
  * @author      OpenAPI Generator team
- * @link        https://openapi-generator.tech
+ *
+ * @see        https://openapi-generator.tech
+ *
+ * @internal
+ *
+ * @coversNothing
  */
 class HttpReservationCreationRequestTest extends TestCase
 {
-
     /**
-     * Setup before running any test case
+     * Setup before running any test case.
      */
     public static function setUpBeforeClass(): void
     {
     }
 
     /**
-     * Setup before running each test case
-     */
-    public function setUp(): void
-    {
-    }
-
-    /**
-     * Clean up after running each test case
-     */
-    public function tearDown(): void
-    {
-    }
-
-    /**
-     * Clean up after running all test cases
+     * Clean up after running all test cases.
      */
     public static function tearDownAfterClass(): void
     {
     }
 
     /**
-     * Test "HttpReservationCreationRequest"
+     * Setup before running each test case.
+     */
+    public function setUp(): void
+    {
+    }
+
+    /**
+     * Clean up after running each test case.
+     */
+    public function tearDown(): void
+    {
+    }
+
+    /**
+     * Test "HttpReservationCreationRequest".
      */
     public function testHttpReservationCreationRequest()
     {
@@ -80,7 +86,7 @@ class HttpReservationCreationRequestTest extends TestCase
     }
 
     /**
-     * Test attribute "comments"
+     * Test attribute "comments".
      */
     public function testPropertyComments()
     {
@@ -89,7 +95,7 @@ class HttpReservationCreationRequestTest extends TestCase
     }
 
     /**
-     * Test attribute "guests"
+     * Test attribute "guests".
      */
     public function testPropertyGuests()
     {
@@ -98,7 +104,7 @@ class HttpReservationCreationRequestTest extends TestCase
     }
 
     /**
-     * Test attribute "offer_id"
+     * Test attribute "offer_id".
      */
     public function testPropertyOfferId()
     {

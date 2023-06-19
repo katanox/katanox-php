@@ -1,16 +1,17 @@
 <?php
 /**
  * PropertiesApiTest
- * PHP version 7.4
+ * PHP version 7.4.
  *
  * @category Class
- * @package  OpenAPI\Client
+ *
  * @author   OpenAPI Generator team
- * @link     https://openapi-generator.tech
+ *
+ * @see     https://openapi-generator.tech
  */
 
 /**
- * Katanox API Documentation
+ * Katanox API Documentation.
  *
  * The Katanox API allows any travel seller to search and book accommodation.
  *
@@ -27,55 +28,55 @@
 
 namespace OpenAPI\Client\Test\Api;
 
-use \OpenAPI\Client\Configuration;
-use \OpenAPI\Client\ApiException;
-use \OpenAPI\Client\ObjectSerializer;
 use PHPUnit\Framework\TestCase;
 
 /**
- * PropertiesApiTest Class Doc Comment
+ * PropertiesApiTest Class Doc Comment.
  *
  * @category Class
- * @package  OpenAPI\Client
+ *
  * @author   OpenAPI Generator team
- * @link     https://openapi-generator.tech
+ *
+ * @see     https://openapi-generator.tech
+ *
+ * @internal
+ *
+ * @coversNothing
  */
 class PropertiesApiTest extends TestCase
 {
-
     /**
-     * Setup before running any test cases
+     * Setup before running any test cases.
      */
     public static function setUpBeforeClass(): void
     {
     }
 
     /**
-     * Setup before running each test case
-     */
-    public function setUp(): void
-    {
-    }
-
-    /**
-     * Clean up after running each test case
-     */
-    public function tearDown(): void
-    {
-    }
-
-    /**
-     * Clean up after running all test cases
+     * Clean up after running all test cases.
      */
     public static function tearDownAfterClass(): void
     {
     }
 
     /**
-     * Test case for getProperties
+     * Setup before running each test case.
+     */
+    public function setUp(): void
+    {
+    }
+
+    /**
+     * Clean up after running each test case.
+     */
+    public function tearDown(): void
+    {
+    }
+
+    /**
+     * Test case for getProperties.
      *
      * Retrieve the list of contracted properties.
-     *
      */
     public function testGetProperties()
     {
@@ -84,10 +85,9 @@ class PropertiesApiTest extends TestCase
     }
 
     /**
-     * Test case for getPropertyById
+     * Test case for getPropertyById.
      *
      * Retrieve a property by id.
-     *
      */
     public function testGetPropertyById()
     {
@@ -96,10 +96,9 @@ class PropertiesApiTest extends TestCase
     }
 
     /**
-     * Test case for getRateplanById
+     * Test case for getRateplanById.
      *
      * Retrieve a rate plan by id.
-     *
      */
     public function testGetRateplanById()
     {
@@ -108,10 +107,9 @@ class PropertiesApiTest extends TestCase
     }
 
     /**
-     * Test case for getUnitById
+     * Test case for getUnitById.
      *
      * Retrieve a unit by id.
-     *
      */
     public function testGetUnitById()
     {

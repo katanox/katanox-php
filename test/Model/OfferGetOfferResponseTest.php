@@ -1,17 +1,18 @@
 <?php
 /**
- * OfferGetOfferResponseTest
+ * OfferGetOfferResponseTest.
  *
  * PHP version 7.4
  *
  * @category Class
- * @package  OpenAPI\Client
+ *
  * @author   OpenAPI Generator team
- * @link     https://openapi-generator.tech
+ *
+ * @see     https://openapi-generator.tech
  */
 
 /**
- * Katanox API Documentation
+ * Katanox API Documentation.
  *
  * The Katanox API allows any travel seller to search and book accommodation.
  *
@@ -31,47 +32,52 @@ namespace OpenAPI\Client\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * OfferGetOfferResponseTest Class Doc Comment
+ * OfferGetOfferResponseTest Class Doc Comment.
  *
  * @category    Class
+ *
  * @description OfferGetOfferResponse
- * @package     OpenAPI\Client
+ *
  * @author      OpenAPI Generator team
- * @link        https://openapi-generator.tech
+ *
+ * @see        https://openapi-generator.tech
+ *
+ * @internal
+ *
+ * @coversNothing
  */
 class OfferGetOfferResponseTest extends TestCase
 {
-
     /**
-     * Setup before running any test case
+     * Setup before running any test case.
      */
     public static function setUpBeforeClass(): void
     {
     }
 
     /**
-     * Setup before running each test case
-     */
-    public function setUp(): void
-    {
-    }
-
-    /**
-     * Clean up after running each test case
-     */
-    public function tearDown(): void
-    {
-    }
-
-    /**
-     * Clean up after running all test cases
+     * Clean up after running all test cases.
      */
     public static function tearDownAfterClass(): void
     {
     }
 
     /**
-     * Test "OfferGetOfferResponse"
+     * Setup before running each test case.
+     */
+    public function setUp(): void
+    {
+    }
+
+    /**
+     * Clean up after running each test case.
+     */
+    public function tearDown(): void
+    {
+    }
+
+    /**
+     * Test "OfferGetOfferResponse".
      */
     public function testOfferGetOfferResponse()
     {
@@ -80,7 +86,7 @@ class OfferGetOfferResponseTest extends TestCase
     }
 
     /**
-     * Test attribute "offer"
+     * Test attribute "offer".
      */
     public function testPropertyOffer()
     {
@@ -89,7 +95,7 @@ class OfferGetOfferResponseTest extends TestCase
     }
 
     /**
-     * Test attribute "remaining_time"
+     * Test attribute "remaining_time".
      */
     public function testPropertyRemainingTime()
     {

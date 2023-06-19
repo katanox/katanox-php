@@ -1,17 +1,18 @@
 <?php
 /**
- * ModelProperty
+ * ModelProperty.
  *
  * PHP version 7.4
  *
  * @category Class
- * @package  Katanox
+ *
  * @author   OpenAPI Generator team
- * @link     https://openapi-generator.tech
+ *
+ * @see     https://openapi-generator.tech
  */
 
 /**
- * Katanox API Documentation
+ * Katanox API Documentation.
  *
  * The Katanox API allows any travel seller to search and book accommodation.
  *
@@ -28,34 +29,40 @@
 
 namespace Katanox\Model;
 
-use \ArrayAccess;
-use \Katanox\ObjectSerializer;
+use ArrayAccess;
+use DateTime;
+use InvalidArgumentException;
+use JsonSerializable;
+use Katanox\ObjectSerializer;
+use ReturnTypeWillChange;
 
 /**
- * ModelProperty Class Doc Comment
+ * ModelProperty Class Doc Comment.
  *
  * @category Class
- * @package  Katanox
+ *
  * @author   OpenAPI Generator team
- * @link     https://openapi-generator.tech
+ *
+ * @see     https://openapi-generator.tech
+ *
  * @implements \ArrayAccess<string, mixed>
  */
-class ModelProperty implements ModelInterface, ArrayAccess, \JsonSerializable
+class ModelProperty implements ModelInterface, ArrayAccess, JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
     /**
-      * The original name of the model.
-      *
-      * @var string
-      */
+     * The original name of the model.
+     *
+     * @var string
+     */
     protected static $openAPIModelName = 'model.Property';
 
     /**
-      * Array of property to type mappings. Used for (de)serialization
-      *
-      * @var string[]
-      */
+     * Array of property to type mappings. Used for (de)serialization.
+     *
+     * @var string[]
+     */
     protected static $openAPITypes = [
         'address_line_1' => 'string',
         'address_line_2' => 'string',
@@ -79,16 +86,18 @@ class ModelProperty implements ModelInterface, ArrayAccess, \JsonSerializable
         'rate_plans' => '\Katanox\Model\ModelRatePlan[]',
         'star_rating' => 'int',
         'translations' => '\Katanox\Model\ModelI18NProperty[]',
-        'units' => '\Katanox\Model\ModelUnit[]'
+        'units' => '\Katanox\Model\ModelUnit[]',
     ];
 
     /**
-      * Array of property to format mappings. Used for (de)serialization
-      *
-      * @var string[]
-      * @phpstan-var array<string, string|null>
-      * @psalm-var array<string, string|null>
-      */
+     * Array of property to format mappings. Used for (de)serialization.
+     *
+     * @var string[]
+     *
+     * @phpstan-var array<string, string|null>
+     *
+     * @psalm-var array<string, string|null>
+     */
     protected static $openAPIFormats = [
         'address_line_1' => null,
         'address_line_2' => null,
@@ -112,122 +121,50 @@ class ModelProperty implements ModelInterface, ArrayAccess, \JsonSerializable
         'rate_plans' => null,
         'star_rating' => null,
         'translations' => null,
-        'units' => null
+        'units' => null,
     ];
 
     /**
-      * Array of nullable properties. Used for (de)serialization
-      *
-      * @var boolean[]
-      */
+     * Array of nullable properties. Used for (de)serialization.
+     *
+     * @var bool[]
+     */
     protected static array $openAPINullables = [
         'address_line_1' => false,
-		'address_line_2' => false,
-		'check_in_time' => false,
-		'check_out_time' => false,
-		'city' => false,
-		'country' => false,
-		'currency' => false,
-		'description' => false,
-		'email' => false,
-		'facilities' => false,
-		'id' => false,
-		'images' => false,
-		'location' => false,
-		'name' => false,
-		'number_of_units' => false,
-		'phone_number' => false,
-		'postcode' => false,
-		'prices' => false,
-		'property_policies' => false,
-		'rate_plans' => false,
-		'star_rating' => false,
-		'translations' => false,
-		'units' => false
+        'address_line_2' => false,
+        'check_in_time' => false,
+        'check_out_time' => false,
+        'city' => false,
+        'country' => false,
+        'currency' => false,
+        'description' => false,
+        'email' => false,
+        'facilities' => false,
+        'id' => false,
+        'images' => false,
+        'location' => false,
+        'name' => false,
+        'number_of_units' => false,
+        'phone_number' => false,
+        'postcode' => false,
+        'prices' => false,
+        'property_policies' => false,
+        'rate_plans' => false,
+        'star_rating' => false,
+        'translations' => false,
+        'units' => false,
     ];
 
     /**
-      * If a nullable field gets set to null, insert it here
-      *
-      * @var boolean[]
-      */
+     * If a nullable field gets set to null, insert it here.
+     *
+     * @var bool[]
+     */
     protected array $openAPINullablesSetToNull = [];
 
     /**
-     * Array of property to type mappings. Used for (de)serialization
-     *
-     * @return array
-     */
-    public static function openAPITypes()
-    {
-        return self::$openAPITypes;
-    }
-
-    /**
-     * Array of property to format mappings. Used for (de)serialization
-     *
-     * @return array
-     */
-    public static function openAPIFormats()
-    {
-        return self::$openAPIFormats;
-    }
-
-    /**
-     * Array of nullable properties
-     *
-     * @return array
-     */
-    protected static function openAPINullables(): array
-    {
-        return self::$openAPINullables;
-    }
-
-    /**
-     * Array of nullable field names deliberately set to null
-     *
-     * @return boolean[]
-     */
-    private function getOpenAPINullablesSetToNull(): array
-    {
-        return $this->openAPINullablesSetToNull;
-    }
-
-    /**
-     * Setter - Array of nullable field names deliberately set to null
-     *
-     * @param boolean[] $openAPINullablesSetToNull
-     */
-    private function setOpenAPINullablesSetToNull(array $openAPINullablesSetToNull): void
-    {
-        $this->openAPINullablesSetToNull = $openAPINullablesSetToNull;
-    }
-
-    /**
-     * Checks if a property is nullable
-     *
-     * @param string $property
-     * @return bool
-     */
-    public static function isNullable(string $property): bool
-    {
-        return self::openAPINullables()[$property] ?? false;
-    }
-
-    /**
-     * Checks if a nullable property is set to null.
-     *
-     * @param string $property
-     * @return bool
-     */
-    public function isNullableSetToNull(string $property): bool
-    {
-        return in_array($property, $this->getOpenAPINullablesSetToNull(), true);
-    }
-
-    /**
      * Array of attributes where the key is the local name,
-     * and the value is the original name
+     * and the value is the original name.
      *
      * @var string[]
      */
@@ -254,11 +191,11 @@ class ModelProperty implements ModelInterface, ArrayAccess, \JsonSerializable
         'rate_plans' => 'rate_plans',
         'star_rating' => 'star_rating',
         'translations' => 'translations',
-        'units' => 'units'
+        'units' => 'units',
     ];
 
     /**
-     * Array of attributes to setter functions (for deserialization of responses)
+     * Array of attributes to setter functions (for deserialization of responses).
      *
      * @var string[]
      */
@@ -285,11 +222,11 @@ class ModelProperty implements ModelInterface, ArrayAccess, \JsonSerializable
         'rate_plans' => 'setRatePlans',
         'star_rating' => 'setStarRating',
         'translations' => 'setTranslations',
-        'units' => 'setUnits'
+        'units' => 'setUnits',
     ];
 
     /**
-     * Array of attributes to getter functions (for serialization of requests)
+     * Array of attributes to getter functions (for serialization of requests).
      *
      * @var string[]
      */
@@ -316,60 +253,18 @@ class ModelProperty implements ModelInterface, ArrayAccess, \JsonSerializable
         'rate_plans' => 'getRatePlans',
         'star_rating' => 'getStarRating',
         'translations' => 'getTranslations',
-        'units' => 'getUnits'
+        'units' => 'getUnits',
     ];
 
     /**
-     * Array of attributes where the key is the local name,
-     * and the value is the original name
-     *
-     * @return array
-     */
-    public static function attributeMap()
-    {
-        return self::$attributeMap;
-    }
-
-    /**
-     * Array of attributes to setter functions (for deserialization of responses)
-     *
-     * @return array
-     */
-    public static function setters()
-    {
-        return self::$setters;
-    }
-
-    /**
-     * Array of attributes to getter functions (for serialization of requests)
-     *
-     * @return array
-     */
-    public static function getters()
-    {
-        return self::$getters;
-    }
-
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$openAPIModelName;
-    }
-
-
-    /**
-     * Associative array for storing property values
+     * Associative array for storing property values.
      *
      * @var mixed[]
      */
     protected $container = [];
 
     /**
-     * Constructor
+     * Constructor.
      *
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
@@ -402,21 +297,93 @@ class ModelProperty implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-    * Sets $this->container[$variableName] to the given data or to the given default Value; if $variableName
-    * is nullable and its value is set to null in the $fields array, then mark it as "set to null" in the
-    * $this->openAPINullablesSetToNull array
-    *
-    * @param string $variableName
-    * @param array  $fields
-    * @param mixed  $defaultValue
-    */
-    private function setIfExists(string $variableName, array $fields, $defaultValue): void
+     * Gets the string presentation of the object.
+     *
+     * @return string
+     */
+    public function __toString()
     {
-        if (self::isNullable($variableName) && array_key_exists($variableName, $fields) && is_null($fields[$variableName])) {
-            $this->openAPINullablesSetToNull[] = $variableName;
-        }
+        return json_encode(
+            ObjectSerializer::sanitizeForSerialization($this),
+            JSON_PRETTY_PRINT
+        );
+    }
 
-        $this->container[$variableName] = $fields[$variableName] ?? $defaultValue;
+    /**
+     * Array of property to type mappings. Used for (de)serialization.
+     *
+     * @return array
+     */
+    public static function openAPITypes()
+    {
+        return self::$openAPITypes;
+    }
+
+    /**
+     * Array of property to format mappings. Used for (de)serialization.
+     *
+     * @return array
+     */
+    public static function openAPIFormats()
+    {
+        return self::$openAPIFormats;
+    }
+
+    /**
+     * Checks if a property is nullable.
+     */
+    public static function isNullable(string $property): bool
+    {
+        return self::openAPINullables()[$property] ?? false;
+    }
+
+    /**
+     * Checks if a nullable property is set to null.
+     */
+    public function isNullableSetToNull(string $property): bool
+    {
+        return in_array($property, $this->getOpenAPINullablesSetToNull(), true);
+    }
+
+    /**
+     * Array of attributes where the key is the local name,
+     * and the value is the original name.
+     *
+     * @return array
+     */
+    public static function attributeMap()
+    {
+        return self::$attributeMap;
+    }
+
+    /**
+     * Array of attributes to setter functions (for deserialization of responses).
+     *
+     * @return array
+     */
+    public static function setters()
+    {
+        return self::$setters;
+    }
+
+    /**
+     * Array of attributes to getter functions (for serialization of requests).
+     *
+     * @return array
+     */
+    public static function getters()
+    {
+        return self::$getters;
+    }
+
+    /**
+     * The original name of the model.
+     *
+     * @return string
+     */
+    public function getModelName()
+    {
+        return self::$openAPIModelName;
     }
 
     /**
@@ -426,27 +393,24 @@ class ModelProperty implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function listInvalidProperties()
     {
-        $invalidProperties = [];
-
-        return $invalidProperties;
+        return [];
     }
 
     /**
      * Validate all the properties in the model
-     * return true if all passed
+     * return true if all passed.
      *
      * @return bool True if all properties are valid
      */
     public function valid()
     {
-        return count($this->listInvalidProperties()) === 0;
+        return 0 === count($this->listInvalidProperties());
     }
 
-
     /**
-     * Gets address_line_1
+     * Gets address_line_1.
      *
-     * @return string|null
+     * @return null|string
      */
     public function getAddressLine1()
     {
@@ -454,16 +418,16 @@ class ModelProperty implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Sets address_line_1
+     * Sets address_line_1.
      *
-     * @param string|null $address_line_1 address_line_1
+     * @param null|string $address_line_1 address_line_1
      *
      * @return self
      */
     public function setAddressLine1($address_line_1)
     {
         if (is_null($address_line_1)) {
-            throw new \InvalidArgumentException('non-nullable address_line_1 cannot be null');
+            throw new InvalidArgumentException('non-nullable address_line_1 cannot be null');
         }
         $this->container['address_line_1'] = $address_line_1;
 
@@ -471,9 +435,9 @@ class ModelProperty implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets address_line_2
+     * Gets address_line_2.
      *
-     * @return string|null
+     * @return null|string
      */
     public function getAddressLine2()
     {
@@ -481,16 +445,16 @@ class ModelProperty implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Sets address_line_2
+     * Sets address_line_2.
      *
-     * @param string|null $address_line_2 address_line_2
+     * @param null|string $address_line_2 address_line_2
      *
      * @return self
      */
     public function setAddressLine2($address_line_2)
     {
         if (is_null($address_line_2)) {
-            throw new \InvalidArgumentException('non-nullable address_line_2 cannot be null');
+            throw new InvalidArgumentException('non-nullable address_line_2 cannot be null');
         }
         $this->container['address_line_2'] = $address_line_2;
 
@@ -498,9 +462,9 @@ class ModelProperty implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets check_in_time
+     * Gets check_in_time.
      *
-     * @return \DateTime|null
+     * @return null|DateTime
      */
     public function getCheckInTime()
     {
@@ -508,16 +472,16 @@ class ModelProperty implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Sets check_in_time
+     * Sets check_in_time.
      *
-     * @param \DateTime|null $check_in_time check_in_time
+     * @param null|DateTime $check_in_time check_in_time
      *
      * @return self
      */
     public function setCheckInTime($check_in_time)
     {
         if (is_null($check_in_time)) {
-            throw new \InvalidArgumentException('non-nullable check_in_time cannot be null');
+            throw new InvalidArgumentException('non-nullable check_in_time cannot be null');
         }
         $this->container['check_in_time'] = $check_in_time;
 
@@ -525,9 +489,9 @@ class ModelProperty implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets check_out_time
+     * Gets check_out_time.
      *
-     * @return \DateTime|null
+     * @return null|DateTime
      */
     public function getCheckOutTime()
     {
@@ -535,16 +499,16 @@ class ModelProperty implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Sets check_out_time
+     * Sets check_out_time.
      *
-     * @param \DateTime|null $check_out_time check_out_time
+     * @param null|DateTime $check_out_time check_out_time
      *
      * @return self
      */
     public function setCheckOutTime($check_out_time)
     {
         if (is_null($check_out_time)) {
-            throw new \InvalidArgumentException('non-nullable check_out_time cannot be null');
+            throw new InvalidArgumentException('non-nullable check_out_time cannot be null');
         }
         $this->container['check_out_time'] = $check_out_time;
 
@@ -552,9 +516,9 @@ class ModelProperty implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets city
+     * Gets city.
      *
-     * @return string|null
+     * @return null|string
      */
     public function getCity()
     {
@@ -562,16 +526,16 @@ class ModelProperty implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Sets city
+     * Sets city.
      *
-     * @param string|null $city city
+     * @param null|string $city city
      *
      * @return self
      */
     public function setCity($city)
     {
         if (is_null($city)) {
-            throw new \InvalidArgumentException('non-nullable city cannot be null');
+            throw new InvalidArgumentException('non-nullable city cannot be null');
         }
         $this->container['city'] = $city;
 
@@ -579,9 +543,9 @@ class ModelProperty implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets country
+     * Gets country.
      *
-     * @return string|null
+     * @return null|string
      */
     public function getCountry()
     {
@@ -589,16 +553,16 @@ class ModelProperty implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Sets country
+     * Sets country.
      *
-     * @param string|null $country country
+     * @param null|string $country country
      *
      * @return self
      */
     public function setCountry($country)
     {
         if (is_null($country)) {
-            throw new \InvalidArgumentException('non-nullable country cannot be null');
+            throw new InvalidArgumentException('non-nullable country cannot be null');
         }
         $this->container['country'] = $country;
 
@@ -606,9 +570,9 @@ class ModelProperty implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets currency
+     * Gets currency.
      *
-     * @return string|null
+     * @return null|string
      */
     public function getCurrency()
     {
@@ -616,16 +580,16 @@ class ModelProperty implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Sets currency
+     * Sets currency.
      *
-     * @param string|null $currency currency
+     * @param null|string $currency currency
      *
      * @return self
      */
     public function setCurrency($currency)
     {
         if (is_null($currency)) {
-            throw new \InvalidArgumentException('non-nullable currency cannot be null');
+            throw new InvalidArgumentException('non-nullable currency cannot be null');
         }
         $this->container['currency'] = $currency;
 
@@ -633,9 +597,9 @@ class ModelProperty implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets description
+     * Gets description.
      *
-     * @return string|null
+     * @return null|string
      */
     public function getDescription()
     {
@@ -643,16 +607,16 @@ class ModelProperty implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Sets description
+     * Sets description.
      *
-     * @param string|null $description description
+     * @param null|string $description description
      *
      * @return self
      */
     public function setDescription($description)
     {
         if (is_null($description)) {
-            throw new \InvalidArgumentException('non-nullable description cannot be null');
+            throw new InvalidArgumentException('non-nullable description cannot be null');
         }
         $this->container['description'] = $description;
 
@@ -660,9 +624,9 @@ class ModelProperty implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets email
+     * Gets email.
      *
-     * @return string|null
+     * @return null|string
      */
     public function getEmail()
     {
@@ -670,16 +634,16 @@ class ModelProperty implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Sets email
+     * Sets email.
      *
-     * @param string|null $email email
+     * @param null|string $email email
      *
      * @return self
      */
     public function setEmail($email)
     {
         if (is_null($email)) {
-            throw new \InvalidArgumentException('non-nullable email cannot be null');
+            throw new InvalidArgumentException('non-nullable email cannot be null');
         }
         $this->container['email'] = $email;
 
@@ -687,9 +651,9 @@ class ModelProperty implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets facilities
+     * Gets facilities.
      *
-     * @return \Katanox\Model\ModelFacility[]|null
+     * @return null|\Katanox\Model\ModelFacility[]
      */
     public function getFacilities()
     {
@@ -697,16 +661,16 @@ class ModelProperty implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Sets facilities
+     * Sets facilities.
      *
-     * @param \Katanox\Model\ModelFacility[]|null $facilities facilities
+     * @param null|\Katanox\Model\ModelFacility[] $facilities facilities
      *
      * @return self
      */
     public function setFacilities($facilities)
     {
         if (is_null($facilities)) {
-            throw new \InvalidArgumentException('non-nullable facilities cannot be null');
+            throw new InvalidArgumentException('non-nullable facilities cannot be null');
         }
         $this->container['facilities'] = $facilities;
 
@@ -714,9 +678,9 @@ class ModelProperty implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets id
+     * Gets id.
      *
-     * @return string|null
+     * @return null|string
      */
     public function getId()
     {
@@ -724,16 +688,16 @@ class ModelProperty implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Sets id
+     * Sets id.
      *
-     * @param string|null $id id
+     * @param null|string $id id
      *
      * @return self
      */
     public function setId($id)
     {
         if (is_null($id)) {
-            throw new \InvalidArgumentException('non-nullable id cannot be null');
+            throw new InvalidArgumentException('non-nullable id cannot be null');
         }
         $this->container['id'] = $id;
 
@@ -741,9 +705,9 @@ class ModelProperty implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets images
+     * Gets images.
      *
-     * @return \Katanox\Model\ModelPropertyImage[]|null
+     * @return null|\Katanox\Model\ModelPropertyImage[]
      */
     public function getImages()
     {
@@ -751,16 +715,16 @@ class ModelProperty implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Sets images
+     * Sets images.
      *
-     * @param \Katanox\Model\ModelPropertyImage[]|null $images images
+     * @param null|\Katanox\Model\ModelPropertyImage[] $images images
      *
      * @return self
      */
     public function setImages($images)
     {
         if (is_null($images)) {
-            throw new \InvalidArgumentException('non-nullable images cannot be null');
+            throw new InvalidArgumentException('non-nullable images cannot be null');
         }
         $this->container['images'] = $images;
 
@@ -768,9 +732,9 @@ class ModelProperty implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets location
+     * Gets location.
      *
-     * @return \Katanox\Model\GeopointGeoPoint|null
+     * @return null|\Katanox\Model\GeopointGeoPoint
      */
     public function getLocation()
     {
@@ -778,16 +742,16 @@ class ModelProperty implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Sets location
+     * Sets location.
      *
-     * @param \Katanox\Model\GeopointGeoPoint|null $location location
+     * @param null|\Katanox\Model\GeopointGeoPoint $location location
      *
      * @return self
      */
     public function setLocation($location)
     {
         if (is_null($location)) {
-            throw new \InvalidArgumentException('non-nullable location cannot be null');
+            throw new InvalidArgumentException('non-nullable location cannot be null');
         }
         $this->container['location'] = $location;
 
@@ -795,9 +759,9 @@ class ModelProperty implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets name
+     * Gets name.
      *
-     * @return string|null
+     * @return null|string
      */
     public function getName()
     {
@@ -805,16 +769,16 @@ class ModelProperty implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Sets name
+     * Sets name.
      *
-     * @param string|null $name name
+     * @param null|string $name name
      *
      * @return self
      */
     public function setName($name)
     {
         if (is_null($name)) {
-            throw new \InvalidArgumentException('non-nullable name cannot be null');
+            throw new InvalidArgumentException('non-nullable name cannot be null');
         }
         $this->container['name'] = $name;
 
@@ -822,9 +786,9 @@ class ModelProperty implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets number_of_units
+     * Gets number_of_units.
      *
-     * @return int|null
+     * @return null|int
      */
     public function getNumberOfUnits()
     {
@@ -832,16 +796,16 @@ class ModelProperty implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Sets number_of_units
+     * Sets number_of_units.
      *
-     * @param int|null $number_of_units number_of_units
+     * @param null|int $number_of_units number_of_units
      *
      * @return self
      */
     public function setNumberOfUnits($number_of_units)
     {
         if (is_null($number_of_units)) {
-            throw new \InvalidArgumentException('non-nullable number_of_units cannot be null');
+            throw new InvalidArgumentException('non-nullable number_of_units cannot be null');
         }
         $this->container['number_of_units'] = $number_of_units;
 
@@ -849,9 +813,9 @@ class ModelProperty implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets phone_number
+     * Gets phone_number.
      *
-     * @return string|null
+     * @return null|string
      */
     public function getPhoneNumber()
     {
@@ -859,16 +823,16 @@ class ModelProperty implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Sets phone_number
+     * Sets phone_number.
      *
-     * @param string|null $phone_number phone_number
+     * @param null|string $phone_number phone_number
      *
      * @return self
      */
     public function setPhoneNumber($phone_number)
     {
         if (is_null($phone_number)) {
-            throw new \InvalidArgumentException('non-nullable phone_number cannot be null');
+            throw new InvalidArgumentException('non-nullable phone_number cannot be null');
         }
         $this->container['phone_number'] = $phone_number;
 
@@ -876,9 +840,9 @@ class ModelProperty implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets postcode
+     * Gets postcode.
      *
-     * @return string|null
+     * @return null|string
      */
     public function getPostcode()
     {
@@ -886,16 +850,16 @@ class ModelProperty implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Sets postcode
+     * Sets postcode.
      *
-     * @param string|null $postcode postcode
+     * @param null|string $postcode postcode
      *
      * @return self
      */
     public function setPostcode($postcode)
     {
         if (is_null($postcode)) {
-            throw new \InvalidArgumentException('non-nullable postcode cannot be null');
+            throw new InvalidArgumentException('non-nullable postcode cannot be null');
         }
         $this->container['postcode'] = $postcode;
 
@@ -903,9 +867,9 @@ class ModelProperty implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets prices
+     * Gets prices.
      *
-     * @return \Katanox\Model\AvailabilityAvailabilityAndPrice[]|null
+     * @return null|\Katanox\Model\AvailabilityAvailabilityAndPrice[]
      */
     public function getPrices()
     {
@@ -913,16 +877,16 @@ class ModelProperty implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Sets prices
+     * Sets prices.
      *
-     * @param \Katanox\Model\AvailabilityAvailabilityAndPrice[]|null $prices prices
+     * @param null|\Katanox\Model\AvailabilityAvailabilityAndPrice[] $prices prices
      *
      * @return self
      */
     public function setPrices($prices)
     {
         if (is_null($prices)) {
-            throw new \InvalidArgumentException('non-nullable prices cannot be null');
+            throw new InvalidArgumentException('non-nullable prices cannot be null');
         }
         $this->container['prices'] = $prices;
 
@@ -930,9 +894,9 @@ class ModelProperty implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets property_policies
+     * Gets property_policies.
      *
-     * @return string[]|null
+     * @return null|string[]
      */
     public function getPropertyPolicies()
     {
@@ -940,16 +904,16 @@ class ModelProperty implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Sets property_policies
+     * Sets property_policies.
      *
-     * @param string[]|null $property_policies property_policies
+     * @param null|string[] $property_policies property_policies
      *
      * @return self
      */
     public function setPropertyPolicies($property_policies)
     {
         if (is_null($property_policies)) {
-            throw new \InvalidArgumentException('non-nullable property_policies cannot be null');
+            throw new InvalidArgumentException('non-nullable property_policies cannot be null');
         }
         $this->container['property_policies'] = $property_policies;
 
@@ -957,9 +921,9 @@ class ModelProperty implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets rate_plans
+     * Gets rate_plans.
      *
-     * @return \Katanox\Model\ModelRatePlan[]|null
+     * @return null|\Katanox\Model\ModelRatePlan[]
      */
     public function getRatePlans()
     {
@@ -967,16 +931,16 @@ class ModelProperty implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Sets rate_plans
+     * Sets rate_plans.
      *
-     * @param \Katanox\Model\ModelRatePlan[]|null $rate_plans rate_plans
+     * @param null|\Katanox\Model\ModelRatePlan[] $rate_plans rate_plans
      *
      * @return self
      */
     public function setRatePlans($rate_plans)
     {
         if (is_null($rate_plans)) {
-            throw new \InvalidArgumentException('non-nullable rate_plans cannot be null');
+            throw new InvalidArgumentException('non-nullable rate_plans cannot be null');
         }
         $this->container['rate_plans'] = $rate_plans;
 
@@ -984,9 +948,9 @@ class ModelProperty implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets star_rating
+     * Gets star_rating.
      *
-     * @return int|null
+     * @return null|int
      */
     public function getStarRating()
     {
@@ -994,16 +958,16 @@ class ModelProperty implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Sets star_rating
+     * Sets star_rating.
      *
-     * @param int|null $star_rating star_rating
+     * @param null|int $star_rating star_rating
      *
      * @return self
      */
     public function setStarRating($star_rating)
     {
         if (is_null($star_rating)) {
-            throw new \InvalidArgumentException('non-nullable star_rating cannot be null');
+            throw new InvalidArgumentException('non-nullable star_rating cannot be null');
         }
         $this->container['star_rating'] = $star_rating;
 
@@ -1011,9 +975,9 @@ class ModelProperty implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets translations
+     * Gets translations.
      *
-     * @return \Katanox\Model\ModelI18NProperty[]|null
+     * @return null|\Katanox\Model\ModelI18NProperty[]
      */
     public function getTranslations()
     {
@@ -1021,16 +985,16 @@ class ModelProperty implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Sets translations
+     * Sets translations.
      *
-     * @param \Katanox\Model\ModelI18NProperty[]|null $translations translations
+     * @param null|\Katanox\Model\ModelI18NProperty[] $translations translations
      *
      * @return self
      */
     public function setTranslations($translations)
     {
         if (is_null($translations)) {
-            throw new \InvalidArgumentException('non-nullable translations cannot be null');
+            throw new InvalidArgumentException('non-nullable translations cannot be null');
         }
         $this->container['translations'] = $translations;
 
@@ -1038,9 +1002,9 @@ class ModelProperty implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets units
+     * Gets units.
      *
-     * @return \Katanox\Model\ModelUnit[]|null
+     * @return null|\Katanox\Model\ModelUnit[]
      */
     public function getUnits()
     {
@@ -1048,27 +1012,26 @@ class ModelProperty implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Sets units
+     * Sets units.
      *
-     * @param \Katanox\Model\ModelUnit[]|null $units units
+     * @param null|\Katanox\Model\ModelUnit[] $units units
      *
      * @return self
      */
     public function setUnits($units)
     {
         if (is_null($units)) {
-            throw new \InvalidArgumentException('non-nullable units cannot be null');
+            throw new InvalidArgumentException('non-nullable units cannot be null');
         }
         $this->container['units'] = $units;
 
         return $this;
     }
+
     /**
      * Returns true if offset exists. False otherwise.
      *
-     * @param integer $offset Offset
-     *
-     * @return boolean
+     * @param int $offset Offset
      */
     public function offsetExists($offset): bool
     {
@@ -1078,11 +1041,11 @@ class ModelProperty implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets offset.
      *
-     * @param integer $offset Offset
+     * @param int $offset Offset
      *
-     * @return mixed|null
+     * @return null|mixed
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function offsetGet($offset)
     {
         return $this->container[$offset] ?? null;
@@ -1091,10 +1054,8 @@ class ModelProperty implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets value based on offset.
      *
-     * @param int|null $offset Offset
+     * @param null|int $offset Offset
      * @param mixed    $value  Value to be set
-     *
-     * @return void
      */
     public function offsetSet($offset, $value): void
     {
@@ -1108,9 +1069,7 @@ class ModelProperty implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Unsets offset.
      *
-     * @param integer $offset Offset
-     *
-     * @return void
+     * @param int $offset Offset
      */
     public function offsetUnset($offset): void
     {
@@ -1119,32 +1078,20 @@ class ModelProperty implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Serializes the object to a value that can be serialized natively by json_encode().
-     * @link https://www.php.net/manual/en/jsonserializable.jsonserialize.php
      *
-     * @return mixed Returns data which can be serialized by json_encode(), which is a value
-     * of any type other than a resource.
+     * @see https://www.php.net/manual/en/jsonserializable.jsonserialize.php
+     *
+     * @return mixed returns data which can be serialized by json_encode(), which is a value
+     *               of any type other than a resource
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function jsonSerialize()
     {
-       return ObjectSerializer::sanitizeForSerialization($this);
+        return ObjectSerializer::sanitizeForSerialization($this);
     }
 
     /**
-     * Gets the string presentation of the object
-     *
-     * @return string
-     */
-    public function __toString()
-    {
-        return json_encode(
-            ObjectSerializer::sanitizeForSerialization($this),
-            JSON_PRETTY_PRINT
-        );
-    }
-
-    /**
-     * Gets a header-safe presentation of the object
+     * Gets a header-safe presentation of the object.
      *
      * @return string
      */
@@ -1152,6 +1099,48 @@ class ModelProperty implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
+
+    /**
+     * Array of nullable properties.
+     */
+    protected static function openAPINullables(): array
+    {
+        return self::$openAPINullables;
+    }
+
+    /**
+     * Array of nullable field names deliberately set to null.
+     *
+     * @return bool[]
+     */
+    private function getOpenAPINullablesSetToNull(): array
+    {
+        return $this->openAPINullablesSetToNull;
+    }
+
+    /**
+     * Setter - Array of nullable field names deliberately set to null.
+     *
+     * @param bool[] $openAPINullablesSetToNull
+     */
+    private function setOpenAPINullablesSetToNull(array $openAPINullablesSetToNull): void
+    {
+        $this->openAPINullablesSetToNull = $openAPINullablesSetToNull;
+    }
+
+    /**
+     * Sets $this->container[$variableName] to the given data or to the given default Value; if $variableName
+     * is nullable and its value is set to null in the $fields array, then mark it as "set to null" in the
+     * $this->openAPINullablesSetToNull array.
+     *
+     * @param mixed $defaultValue
+     */
+    private function setIfExists(string $variableName, array $fields, $defaultValue): void
+    {
+        if (self::isNullable($variableName) && array_key_exists($variableName, $fields) && is_null($fields[$variableName])) {
+            $this->openAPINullablesSetToNull[] = $variableName;
+        }
+
+        $this->container[$variableName] = $fields[$variableName] ?? $defaultValue;
+    }
 }
-
-

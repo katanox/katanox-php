@@ -1,17 +1,18 @@
 <?php
 /**
- * DtoReservation
+ * DtoReservation.
  *
  * PHP version 7.4
  *
  * @category Class
- * @package  Katanox
+ *
  * @author   OpenAPI Generator team
- * @link     https://openapi-generator.tech
+ *
+ * @see     https://openapi-generator.tech
  */
 
 /**
- * Katanox API Documentation
+ * Katanox API Documentation.
  *
  * The Katanox API allows any travel seller to search and book accommodation.
  *
@@ -28,34 +29,49 @@
 
 namespace Katanox\Model;
 
-use \ArrayAccess;
-use \Katanox\ObjectSerializer;
+use ArrayAccess;
+use DateTime;
+use InvalidArgumentException;
+use JsonSerializable;
+use Katanox\ObjectSerializer;
+use ReturnTypeWillChange;
 
 /**
- * DtoReservation Class Doc Comment
+ * DtoReservation Class Doc Comment.
  *
  * @category Class
- * @package  Katanox
+ *
  * @author   OpenAPI Generator team
- * @link     https://openapi-generator.tech
+ *
+ * @see     https://openapi-generator.tech
+ *
  * @implements \ArrayAccess<string, mixed>
  */
-class DtoReservation implements ModelInterface, ArrayAccess, \JsonSerializable
+class DtoReservation implements ModelInterface, ArrayAccess, JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
+    public const STATUS_CONFIRMED = 'CONFIRMED';
+    public const STATUS_TO_BE_DELIVERED = 'TO_BE_DELIVERED';
+    public const STATUS_MODIFIED = 'MODIFIED';
+    public const STATUS_TO_BE_MODIFIED = 'TO_BE_MODIFIED';
+    public const STATUS_MODIFICATION_FAILED = 'MODIFICATION_FAILED';
+    public const STATUS_CANCELLED = 'CANCELLED';
+    public const STATUS_TO_BE_CANCELLED = 'TO_BE_CANCELLED';
+    public const STATUS_FAILED = 'FAILED';
+
     /**
-      * The original name of the model.
-      *
-      * @var string
-      */
+     * The original name of the model.
+     *
+     * @var string
+     */
     protected static $openAPIModelName = 'dto.Reservation';
 
     /**
-      * Array of property to type mappings. Used for (de)serialization
-      *
-      * @var string[]
-      */
+     * Array of property to type mappings. Used for (de)serialization.
+     *
+     * @var string[]
+     */
     protected static $openAPITypes = [
         'adults' => 'int',
         'cancellation_policies' => '\Katanox\Model\DtoCancellationPolicy[]',
@@ -66,16 +82,18 @@ class DtoReservation implements ModelInterface, ArrayAccess, \JsonSerializable
         'guests' => '\Katanox\Model\DtoPerson[]',
         'no_show_policy' => '\Katanox\Model\DtoNoShowPolicy',
         'price' => '\Katanox\Model\DtoPrice',
-        'status' => 'string'
+        'status' => 'string',
     ];
 
     /**
-      * Array of property to format mappings. Used for (de)serialization
-      *
-      * @var string[]
-      * @phpstan-var array<string, string|null>
-      * @psalm-var array<string, string|null>
-      */
+     * Array of property to format mappings. Used for (de)serialization.
+     *
+     * @var string[]
+     *
+     * @phpstan-var array<string, string|null>
+     *
+     * @psalm-var array<string, string|null>
+     */
     protected static $openAPIFormats = [
         'adults' => null,
         'cancellation_policies' => null,
@@ -86,109 +104,37 @@ class DtoReservation implements ModelInterface, ArrayAccess, \JsonSerializable
         'guests' => null,
         'no_show_policy' => null,
         'price' => null,
-        'status' => null
+        'status' => null,
     ];
 
     /**
-      * Array of nullable properties. Used for (de)serialization
-      *
-      * @var boolean[]
-      */
+     * Array of nullable properties. Used for (de)serialization.
+     *
+     * @var bool[]
+     */
     protected static array $openAPINullables = [
         'adults' => false,
-		'cancellation_policies' => false,
-		'check_in' => false,
-		'check_out' => false,
-		'children' => false,
-		'comments' => false,
-		'guests' => false,
-		'no_show_policy' => false,
-		'price' => false,
-		'status' => false
+        'cancellation_policies' => false,
+        'check_in' => false,
+        'check_out' => false,
+        'children' => false,
+        'comments' => false,
+        'guests' => false,
+        'no_show_policy' => false,
+        'price' => false,
+        'status' => false,
     ];
 
     /**
-      * If a nullable field gets set to null, insert it here
-      *
-      * @var boolean[]
-      */
+     * If a nullable field gets set to null, insert it here.
+     *
+     * @var bool[]
+     */
     protected array $openAPINullablesSetToNull = [];
 
     /**
-     * Array of property to type mappings. Used for (de)serialization
-     *
-     * @return array
-     */
-    public static function openAPITypes()
-    {
-        return self::$openAPITypes;
-    }
-
-    /**
-     * Array of property to format mappings. Used for (de)serialization
-     *
-     * @return array
-     */
-    public static function openAPIFormats()
-    {
-        return self::$openAPIFormats;
-    }
-
-    /**
-     * Array of nullable properties
-     *
-     * @return array
-     */
-    protected static function openAPINullables(): array
-    {
-        return self::$openAPINullables;
-    }
-
-    /**
-     * Array of nullable field names deliberately set to null
-     *
-     * @return boolean[]
-     */
-    private function getOpenAPINullablesSetToNull(): array
-    {
-        return $this->openAPINullablesSetToNull;
-    }
-
-    /**
-     * Setter - Array of nullable field names deliberately set to null
-     *
-     * @param boolean[] $openAPINullablesSetToNull
-     */
-    private function setOpenAPINullablesSetToNull(array $openAPINullablesSetToNull): void
-    {
-        $this->openAPINullablesSetToNull = $openAPINullablesSetToNull;
-    }
-
-    /**
-     * Checks if a property is nullable
-     *
-     * @param string $property
-     * @return bool
-     */
-    public static function isNullable(string $property): bool
-    {
-        return self::openAPINullables()[$property] ?? false;
-    }
-
-    /**
-     * Checks if a nullable property is set to null.
-     *
-     * @param string $property
-     * @return bool
-     */
-    public function isNullableSetToNull(string $property): bool
-    {
-        return in_array($property, $this->getOpenAPINullablesSetToNull(), true);
-    }
-
-    /**
      * Array of attributes where the key is the local name,
-     * and the value is the original name
+     * and the value is the original name.
      *
      * @var string[]
      */
@@ -202,11 +148,11 @@ class DtoReservation implements ModelInterface, ArrayAccess, \JsonSerializable
         'guests' => 'guests',
         'no_show_policy' => 'no_show_policy',
         'price' => 'price',
-        'status' => 'status'
+        'status' => 'status',
     ];
 
     /**
-     * Array of attributes to setter functions (for deserialization of responses)
+     * Array of attributes to setter functions (for deserialization of responses).
      *
      * @var string[]
      */
@@ -220,11 +166,11 @@ class DtoReservation implements ModelInterface, ArrayAccess, \JsonSerializable
         'guests' => 'setGuests',
         'no_show_policy' => 'setNoShowPolicy',
         'price' => 'setPrice',
-        'status' => 'setStatus'
+        'status' => 'setStatus',
     ];
 
     /**
-     * Array of attributes to getter functions (for serialization of requests)
+     * Array of attributes to getter functions (for serialization of requests).
      *
      * @var string[]
      */
@@ -238,87 +184,18 @@ class DtoReservation implements ModelInterface, ArrayAccess, \JsonSerializable
         'guests' => 'getGuests',
         'no_show_policy' => 'getNoShowPolicy',
         'price' => 'getPrice',
-        'status' => 'getStatus'
+        'status' => 'getStatus',
     ];
 
     /**
-     * Array of attributes where the key is the local name,
-     * and the value is the original name
-     *
-     * @return array
-     */
-    public static function attributeMap()
-    {
-        return self::$attributeMap;
-    }
-
-    /**
-     * Array of attributes to setter functions (for deserialization of responses)
-     *
-     * @return array
-     */
-    public static function setters()
-    {
-        return self::$setters;
-    }
-
-    /**
-     * Array of attributes to getter functions (for serialization of requests)
-     *
-     * @return array
-     */
-    public static function getters()
-    {
-        return self::$getters;
-    }
-
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$openAPIModelName;
-    }
-
-    public const STATUS_CONFIRMED = 'CONFIRMED';
-    public const STATUS_TO_BE_DELIVERED = 'TO_BE_DELIVERED';
-    public const STATUS_MODIFIED = 'MODIFIED';
-    public const STATUS_TO_BE_MODIFIED = 'TO_BE_MODIFIED';
-    public const STATUS_MODIFICATION_FAILED = 'MODIFICATION_FAILED';
-    public const STATUS_CANCELLED = 'CANCELLED';
-    public const STATUS_TO_BE_CANCELLED = 'TO_BE_CANCELLED';
-    public const STATUS_FAILED = 'FAILED';
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getStatusAllowableValues()
-    {
-        return [
-            self::STATUS_CONFIRMED,
-            self::STATUS_TO_BE_DELIVERED,
-            self::STATUS_MODIFIED,
-            self::STATUS_TO_BE_MODIFIED,
-            self::STATUS_MODIFICATION_FAILED,
-            self::STATUS_CANCELLED,
-            self::STATUS_TO_BE_CANCELLED,
-            self::STATUS_FAILED,
-        ];
-    }
-
-    /**
-     * Associative array for storing property values
+     * Associative array for storing property values.
      *
      * @var mixed[]
      */
     protected $container = [];
 
     /**
-     * Constructor
+     * Constructor.
      *
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
@@ -338,21 +215,112 @@ class DtoReservation implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-    * Sets $this->container[$variableName] to the given data or to the given default Value; if $variableName
-    * is nullable and its value is set to null in the $fields array, then mark it as "set to null" in the
-    * $this->openAPINullablesSetToNull array
-    *
-    * @param string $variableName
-    * @param array  $fields
-    * @param mixed  $defaultValue
-    */
-    private function setIfExists(string $variableName, array $fields, $defaultValue): void
+     * Gets the string presentation of the object.
+     *
+     * @return string
+     */
+    public function __toString()
     {
-        if (self::isNullable($variableName) && array_key_exists($variableName, $fields) && is_null($fields[$variableName])) {
-            $this->openAPINullablesSetToNull[] = $variableName;
-        }
+        return json_encode(
+            ObjectSerializer::sanitizeForSerialization($this),
+            JSON_PRETTY_PRINT
+        );
+    }
 
-        $this->container[$variableName] = $fields[$variableName] ?? $defaultValue;
+    /**
+     * Array of property to type mappings. Used for (de)serialization.
+     *
+     * @return array
+     */
+    public static function openAPITypes()
+    {
+        return self::$openAPITypes;
+    }
+
+    /**
+     * Array of property to format mappings. Used for (de)serialization.
+     *
+     * @return array
+     */
+    public static function openAPIFormats()
+    {
+        return self::$openAPIFormats;
+    }
+
+    /**
+     * Checks if a property is nullable.
+     */
+    public static function isNullable(string $property): bool
+    {
+        return self::openAPINullables()[$property] ?? false;
+    }
+
+    /**
+     * Checks if a nullable property is set to null.
+     */
+    public function isNullableSetToNull(string $property): bool
+    {
+        return in_array($property, $this->getOpenAPINullablesSetToNull(), true);
+    }
+
+    /**
+     * Array of attributes where the key is the local name,
+     * and the value is the original name.
+     *
+     * @return array
+     */
+    public static function attributeMap()
+    {
+        return self::$attributeMap;
+    }
+
+    /**
+     * Array of attributes to setter functions (for deserialization of responses).
+     *
+     * @return array
+     */
+    public static function setters()
+    {
+        return self::$setters;
+    }
+
+    /**
+     * Array of attributes to getter functions (for serialization of requests).
+     *
+     * @return array
+     */
+    public static function getters()
+    {
+        return self::$getters;
+    }
+
+    /**
+     * The original name of the model.
+     *
+     * @return string
+     */
+    public function getModelName()
+    {
+        return self::$openAPIModelName;
+    }
+
+    /**
+     * Gets allowable values of the enum.
+     *
+     * @return string[]
+     */
+    public function getStatusAllowableValues()
+    {
+        return [
+            self::STATUS_CONFIRMED,
+            self::STATUS_TO_BE_DELIVERED,
+            self::STATUS_MODIFIED,
+            self::STATUS_TO_BE_MODIFIED,
+            self::STATUS_MODIFICATION_FAILED,
+            self::STATUS_CANCELLED,
+            self::STATUS_TO_BE_CANCELLED,
+            self::STATUS_FAILED,
+        ];
     }
 
     /**
@@ -378,20 +346,19 @@ class DtoReservation implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Validate all the properties in the model
-     * return true if all passed
+     * return true if all passed.
      *
      * @return bool True if all properties are valid
      */
     public function valid()
     {
-        return count($this->listInvalidProperties()) === 0;
+        return 0 === count($this->listInvalidProperties());
     }
 
-
     /**
-     * Gets adults
+     * Gets adults.
      *
-     * @return int|null
+     * @return null|int
      */
     public function getAdults()
     {
@@ -399,16 +366,16 @@ class DtoReservation implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Sets adults
+     * Sets adults.
      *
-     * @param int|null $adults adults
+     * @param null|int $adults adults
      *
      * @return self
      */
     public function setAdults($adults)
     {
         if (is_null($adults)) {
-            throw new \InvalidArgumentException('non-nullable adults cannot be null');
+            throw new InvalidArgumentException('non-nullable adults cannot be null');
         }
         $this->container['adults'] = $adults;
 
@@ -416,9 +383,9 @@ class DtoReservation implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets cancellation_policies
+     * Gets cancellation_policies.
      *
-     * @return \Katanox\Model\DtoCancellationPolicy[]|null
+     * @return null|\Katanox\Model\DtoCancellationPolicy[]
      */
     public function getCancellationPolicies()
     {
@@ -426,16 +393,16 @@ class DtoReservation implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Sets cancellation_policies
+     * Sets cancellation_policies.
      *
-     * @param \Katanox\Model\DtoCancellationPolicy[]|null $cancellation_policies cancellation_policies
+     * @param null|\Katanox\Model\DtoCancellationPolicy[] $cancellation_policies cancellation_policies
      *
      * @return self
      */
     public function setCancellationPolicies($cancellation_policies)
     {
         if (is_null($cancellation_policies)) {
-            throw new \InvalidArgumentException('non-nullable cancellation_policies cannot be null');
+            throw new InvalidArgumentException('non-nullable cancellation_policies cannot be null');
         }
         $this->container['cancellation_policies'] = $cancellation_policies;
 
@@ -443,9 +410,9 @@ class DtoReservation implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets check_in
+     * Gets check_in.
      *
-     * @return \DateTime|null
+     * @return null|DateTime
      */
     public function getCheckIn()
     {
@@ -453,16 +420,16 @@ class DtoReservation implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Sets check_in
+     * Sets check_in.
      *
-     * @param \DateTime|null $check_in check_in
+     * @param null|DateTime $check_in check_in
      *
      * @return self
      */
     public function setCheckIn($check_in)
     {
         if (is_null($check_in)) {
-            throw new \InvalidArgumentException('non-nullable check_in cannot be null');
+            throw new InvalidArgumentException('non-nullable check_in cannot be null');
         }
         $this->container['check_in'] = $check_in;
 
@@ -470,9 +437,9 @@ class DtoReservation implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets check_out
+     * Gets check_out.
      *
-     * @return \DateTime|null
+     * @return null|DateTime
      */
     public function getCheckOut()
     {
@@ -480,16 +447,16 @@ class DtoReservation implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Sets check_out
+     * Sets check_out.
      *
-     * @param \DateTime|null $check_out check_out
+     * @param null|DateTime $check_out check_out
      *
      * @return self
      */
     public function setCheckOut($check_out)
     {
         if (is_null($check_out)) {
-            throw new \InvalidArgumentException('non-nullable check_out cannot be null');
+            throw new InvalidArgumentException('non-nullable check_out cannot be null');
         }
         $this->container['check_out'] = $check_out;
 
@@ -497,9 +464,9 @@ class DtoReservation implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets children
+     * Gets children.
      *
-     * @return int|null
+     * @return null|int
      */
     public function getChildren()
     {
@@ -507,16 +474,16 @@ class DtoReservation implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Sets children
+     * Sets children.
      *
-     * @param int|null $children children
+     * @param null|int $children children
      *
      * @return self
      */
     public function setChildren($children)
     {
         if (is_null($children)) {
-            throw new \InvalidArgumentException('non-nullable children cannot be null');
+            throw new InvalidArgumentException('non-nullable children cannot be null');
         }
         $this->container['children'] = $children;
 
@@ -524,9 +491,9 @@ class DtoReservation implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets comments
+     * Gets comments.
      *
-     * @return string[]|null
+     * @return null|string[]
      */
     public function getComments()
     {
@@ -534,16 +501,16 @@ class DtoReservation implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Sets comments
+     * Sets comments.
      *
-     * @param string[]|null $comments comments
+     * @param null|string[] $comments comments
      *
      * @return self
      */
     public function setComments($comments)
     {
         if (is_null($comments)) {
-            throw new \InvalidArgumentException('non-nullable comments cannot be null');
+            throw new InvalidArgumentException('non-nullable comments cannot be null');
         }
         $this->container['comments'] = $comments;
 
@@ -551,9 +518,9 @@ class DtoReservation implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets guests
+     * Gets guests.
      *
-     * @return \Katanox\Model\DtoPerson[]|null
+     * @return null|\Katanox\Model\DtoPerson[]
      */
     public function getGuests()
     {
@@ -561,16 +528,16 @@ class DtoReservation implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Sets guests
+     * Sets guests.
      *
-     * @param \Katanox\Model\DtoPerson[]|null $guests guests
+     * @param null|\Katanox\Model\DtoPerson[] $guests guests
      *
      * @return self
      */
     public function setGuests($guests)
     {
         if (is_null($guests)) {
-            throw new \InvalidArgumentException('non-nullable guests cannot be null');
+            throw new InvalidArgumentException('non-nullable guests cannot be null');
         }
         $this->container['guests'] = $guests;
 
@@ -578,9 +545,9 @@ class DtoReservation implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets no_show_policy
+     * Gets no_show_policy.
      *
-     * @return \Katanox\Model\DtoNoShowPolicy|null
+     * @return null|\Katanox\Model\DtoNoShowPolicy
      */
     public function getNoShowPolicy()
     {
@@ -588,16 +555,16 @@ class DtoReservation implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Sets no_show_policy
+     * Sets no_show_policy.
      *
-     * @param \Katanox\Model\DtoNoShowPolicy|null $no_show_policy no_show_policy
+     * @param null|\Katanox\Model\DtoNoShowPolicy $no_show_policy no_show_policy
      *
      * @return self
      */
     public function setNoShowPolicy($no_show_policy)
     {
         if (is_null($no_show_policy)) {
-            throw new \InvalidArgumentException('non-nullable no_show_policy cannot be null');
+            throw new InvalidArgumentException('non-nullable no_show_policy cannot be null');
         }
         $this->container['no_show_policy'] = $no_show_policy;
 
@@ -605,9 +572,9 @@ class DtoReservation implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets price
+     * Gets price.
      *
-     * @return \Katanox\Model\DtoPrice|null
+     * @return null|\Katanox\Model\DtoPrice
      */
     public function getPrice()
     {
@@ -615,16 +582,16 @@ class DtoReservation implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Sets price
+     * Sets price.
      *
-     * @param \Katanox\Model\DtoPrice|null $price price
+     * @param null|\Katanox\Model\DtoPrice $price price
      *
      * @return self
      */
     public function setPrice($price)
     {
         if (is_null($price)) {
-            throw new \InvalidArgumentException('non-nullable price cannot be null');
+            throw new InvalidArgumentException('non-nullable price cannot be null');
         }
         $this->container['price'] = $price;
 
@@ -632,9 +599,9 @@ class DtoReservation implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets status
+     * Gets status.
      *
-     * @return string|null
+     * @return null|string
      */
     public function getStatus()
     {
@@ -642,20 +609,20 @@ class DtoReservation implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Sets status
+     * Sets status.
      *
-     * @param string|null $status status
+     * @param null|string $status status
      *
      * @return self
      */
     public function setStatus($status)
     {
         if (is_null($status)) {
-            throw new \InvalidArgumentException('non-nullable status cannot be null');
+            throw new InvalidArgumentException('non-nullable status cannot be null');
         }
         $allowedValues = $this->getStatusAllowableValues();
         if (!in_array($status, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
+            throw new InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'status', must be one of '%s'",
                     $status,
@@ -667,12 +634,11 @@ class DtoReservation implements ModelInterface, ArrayAccess, \JsonSerializable
 
         return $this;
     }
+
     /**
      * Returns true if offset exists. False otherwise.
      *
-     * @param integer $offset Offset
-     *
-     * @return boolean
+     * @param int $offset Offset
      */
     public function offsetExists($offset): bool
     {
@@ -682,11 +648,11 @@ class DtoReservation implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets offset.
      *
-     * @param integer $offset Offset
+     * @param int $offset Offset
      *
-     * @return mixed|null
+     * @return null|mixed
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function offsetGet($offset)
     {
         return $this->container[$offset] ?? null;
@@ -695,10 +661,8 @@ class DtoReservation implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets value based on offset.
      *
-     * @param int|null $offset Offset
+     * @param null|int $offset Offset
      * @param mixed    $value  Value to be set
-     *
-     * @return void
      */
     public function offsetSet($offset, $value): void
     {
@@ -712,9 +676,7 @@ class DtoReservation implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Unsets offset.
      *
-     * @param integer $offset Offset
-     *
-     * @return void
+     * @param int $offset Offset
      */
     public function offsetUnset($offset): void
     {
@@ -723,32 +685,20 @@ class DtoReservation implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Serializes the object to a value that can be serialized natively by json_encode().
-     * @link https://www.php.net/manual/en/jsonserializable.jsonserialize.php
      *
-     * @return mixed Returns data which can be serialized by json_encode(), which is a value
-     * of any type other than a resource.
+     * @see https://www.php.net/manual/en/jsonserializable.jsonserialize.php
+     *
+     * @return mixed returns data which can be serialized by json_encode(), which is a value
+     *               of any type other than a resource
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function jsonSerialize()
     {
-       return ObjectSerializer::sanitizeForSerialization($this);
+        return ObjectSerializer::sanitizeForSerialization($this);
     }
 
     /**
-     * Gets the string presentation of the object
-     *
-     * @return string
-     */
-    public function __toString()
-    {
-        return json_encode(
-            ObjectSerializer::sanitizeForSerialization($this),
-            JSON_PRETTY_PRINT
-        );
-    }
-
-    /**
-     * Gets a header-safe presentation of the object
+     * Gets a header-safe presentation of the object.
      *
      * @return string
      */
@@ -756,6 +706,48 @@ class DtoReservation implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
+
+    /**
+     * Array of nullable properties.
+     */
+    protected static function openAPINullables(): array
+    {
+        return self::$openAPINullables;
+    }
+
+    /**
+     * Array of nullable field names deliberately set to null.
+     *
+     * @return bool[]
+     */
+    private function getOpenAPINullablesSetToNull(): array
+    {
+        return $this->openAPINullablesSetToNull;
+    }
+
+    /**
+     * Setter - Array of nullable field names deliberately set to null.
+     *
+     * @param bool[] $openAPINullablesSetToNull
+     */
+    private function setOpenAPINullablesSetToNull(array $openAPINullablesSetToNull): void
+    {
+        $this->openAPINullablesSetToNull = $openAPINullablesSetToNull;
+    }
+
+    /**
+     * Sets $this->container[$variableName] to the given data or to the given default Value; if $variableName
+     * is nullable and its value is set to null in the $fields array, then mark it as "set to null" in the
+     * $this->openAPINullablesSetToNull array.
+     *
+     * @param mixed $defaultValue
+     */
+    private function setIfExists(string $variableName, array $fields, $defaultValue): void
+    {
+        if (self::isNullable($variableName) && array_key_exists($variableName, $fields) && is_null($fields[$variableName])) {
+            $this->openAPINullablesSetToNull[] = $variableName;
+        }
+
+        $this->container[$variableName] = $fields[$variableName] ?? $defaultValue;
+    }
 }
-
-

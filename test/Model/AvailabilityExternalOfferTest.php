@@ -1,17 +1,18 @@
 <?php
 /**
- * AvailabilityExternalOfferTest
+ * AvailabilityExternalOfferTest.
  *
  * PHP version 7.4
  *
  * @category Class
- * @package  Katanox
+ *
  * @author   OpenAPI Generator team
- * @link     https://openapi-generator.tech
+ *
+ * @see     https://openapi-generator.tech
  */
 
 /**
- * Katanox API Documentation
+ * Katanox API Documentation.
  *
  * The Katanox API allows any travel seller to search and book accommodation.
  *
@@ -31,47 +32,52 @@ namespace Katanox\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * AvailabilityExternalOfferTest Class Doc Comment
+ * AvailabilityExternalOfferTest Class Doc Comment.
  *
  * @category    Class
+ *
  * @description AvailabilityExternalOffer
- * @package     Katanox
+ *
  * @author      OpenAPI Generator team
- * @link        https://openapi-generator.tech
+ *
+ * @see        https://openapi-generator.tech
+ *
+ * @internal
+ *
+ * @coversNothing
  */
 class AvailabilityExternalOfferTest extends TestCase
 {
-
     /**
-     * Setup before running any test case
+     * Setup before running any test case.
      */
     public static function setUpBeforeClass(): void
     {
     }
 
     /**
-     * Setup before running each test case
-     */
-    public function setUp(): void
-    {
-    }
-
-    /**
-     * Clean up after running each test case
-     */
-    public function tearDown(): void
-    {
-    }
-
-    /**
-     * Clean up after running all test cases
+     * Clean up after running all test cases.
      */
     public static function tearDownAfterClass(): void
     {
     }
 
     /**
-     * Test "AvailabilityExternalOffer"
+     * Setup before running each test case.
+     */
+    public function setUp(): void
+    {
+    }
+
+    /**
+     * Clean up after running each test case.
+     */
+    public function tearDown(): void
+    {
+    }
+
+    /**
+     * Test "AvailabilityExternalOffer".
      */
     public function testAvailabilityExternalOffer()
     {
@@ -80,7 +86,7 @@ class AvailabilityExternalOfferTest extends TestCase
     }
 
     /**
-     * Test attribute "id"
+     * Test attribute "id".
      */
     public function testPropertyId()
     {
@@ -89,7 +95,7 @@ class AvailabilityExternalOfferTest extends TestCase
     }
 
     /**
-     * Test attribute "price"
+     * Test attribute "price".
      */
     public function testPropertyPrice()
     {
@@ -98,7 +104,7 @@ class AvailabilityExternalOfferTest extends TestCase
     }
 
     /**
-     * Test attribute "property_id"
+     * Test attribute "property_id".
      */
     public function testPropertyPropertyId()
     {
@@ -107,7 +113,7 @@ class AvailabilityExternalOfferTest extends TestCase
     }
 
     /**
-     * Test attribute "rate_plan_id"
+     * Test attribute "rate_plan_id".
      */
     public function testPropertyRatePlanId()
     {
@@ -116,7 +122,7 @@ class AvailabilityExternalOfferTest extends TestCase
     }
 
     /**
-     * Test attribute "unit_id"
+     * Test attribute "unit_id".
      */
     public function testPropertyUnitId()
     {

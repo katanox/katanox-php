@@ -1,17 +1,18 @@
 <?php
 /**
- * AvailabilityPricePerNightTest
+ * AvailabilityPricePerNightTest.
  *
  * PHP version 7.4
  *
  * @category Class
- * @package  Katanox
+ *
  * @author   OpenAPI Generator team
- * @link     https://openapi-generator.tech
+ *
+ * @see     https://openapi-generator.tech
  */
 
 /**
- * Katanox API Documentation
+ * Katanox API Documentation.
  *
  * The Katanox API allows any travel seller to search and book accommodation.
  *
@@ -31,47 +32,52 @@ namespace Katanox\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * AvailabilityPricePerNightTest Class Doc Comment
+ * AvailabilityPricePerNightTest Class Doc Comment.
  *
  * @category    Class
+ *
  * @description AvailabilityPricePerNight
- * @package     Katanox
+ *
  * @author      OpenAPI Generator team
- * @link        https://openapi-generator.tech
+ *
+ * @see        https://openapi-generator.tech
+ *
+ * @internal
+ *
+ * @coversNothing
  */
 class AvailabilityPricePerNightTest extends TestCase
 {
-
     /**
-     * Setup before running any test case
+     * Setup before running any test case.
      */
     public static function setUpBeforeClass(): void
     {
     }
 
     /**
-     * Setup before running each test case
-     */
-    public function setUp(): void
-    {
-    }
-
-    /**
-     * Clean up after running each test case
-     */
-    public function tearDown(): void
-    {
-    }
-
-    /**
-     * Clean up after running all test cases
+     * Clean up after running all test cases.
      */
     public static function tearDownAfterClass(): void
     {
     }
 
     /**
-     * Test "AvailabilityPricePerNight"
+     * Setup before running each test case.
+     */
+    public function setUp(): void
+    {
+    }
+
+    /**
+     * Clean up after running each test case.
+     */
+    public function tearDown(): void
+    {
+    }
+
+    /**
+     * Test "AvailabilityPricePerNight".
      */
     public function testAvailabilityPricePerNight()
     {
@@ -80,7 +86,7 @@ class AvailabilityPricePerNightTest extends TestCase
     }
 
     /**
-     * Test attribute "after_tax"
+     * Test attribute "after_tax".
      */
     public function testPropertyAfterTax()
     {
@@ -89,7 +95,7 @@ class AvailabilityPricePerNightTest extends TestCase
     }
 
     /**
-     * Test attribute "before_tax"
+     * Test attribute "before_tax".
      */
     public function testPropertyBeforeTax()
     {
@@ -98,7 +104,7 @@ class AvailabilityPricePerNightTest extends TestCase
     }
 
     /**
-     * Test attribute "currency"
+     * Test attribute "currency".
      */
     public function testPropertyCurrency()
     {
@@ -107,7 +113,7 @@ class AvailabilityPricePerNightTest extends TestCase
     }
 
     /**
-     * Test attribute "date"
+     * Test attribute "date".
      */
     public function testPropertyDate()
     {

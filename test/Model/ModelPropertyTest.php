@@ -1,17 +1,18 @@
 <?php
 /**
- * ModelPropertyTest
+ * ModelPropertyTest.
  *
  * PHP version 7.4
  *
  * @category Class
- * @package  Katanox
+ *
  * @author   OpenAPI Generator team
- * @link     https://openapi-generator.tech
+ *
+ * @see     https://openapi-generator.tech
  */
 
 /**
- * Katanox API Documentation
+ * Katanox API Documentation.
  *
  * The Katanox API allows any travel seller to search and book accommodation.
  *
@@ -31,47 +32,52 @@ namespace Katanox\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * ModelPropertyTest Class Doc Comment
+ * ModelPropertyTest Class Doc Comment.
  *
  * @category    Class
+ *
  * @description ModelProperty
- * @package     Katanox
+ *
  * @author      OpenAPI Generator team
- * @link        https://openapi-generator.tech
+ *
+ * @see        https://openapi-generator.tech
+ *
+ * @internal
+ *
+ * @coversNothing
  */
 class ModelPropertyTest extends TestCase
 {
-
     /**
-     * Setup before running any test case
+     * Setup before running any test case.
      */
     public static function setUpBeforeClass(): void
     {
     }
 
     /**
-     * Setup before running each test case
-     */
-    public function setUp(): void
-    {
-    }
-
-    /**
-     * Clean up after running each test case
-     */
-    public function tearDown(): void
-    {
-    }
-
-    /**
-     * Clean up after running all test cases
+     * Clean up after running all test cases.
      */
     public static function tearDownAfterClass(): void
     {
     }
 
     /**
-     * Test "ModelProperty"
+     * Setup before running each test case.
+     */
+    public function setUp(): void
+    {
+    }
+
+    /**
+     * Clean up after running each test case.
+     */
+    public function tearDown(): void
+    {
+    }
+
+    /**
+     * Test "ModelProperty".
      */
     public function testModelProperty()
     {
@@ -80,7 +86,7 @@ class ModelPropertyTest extends TestCase
     }
 
     /**
-     * Test attribute "address_line_1"
+     * Test attribute "address_line_1".
      */
     public function testPropertyAddressLine1()
     {
@@ -89,7 +95,7 @@ class ModelPropertyTest extends TestCase
     }
 
     /**
-     * Test attribute "address_line_2"
+     * Test attribute "address_line_2".
      */
     public function testPropertyAddressLine2()
     {
@@ -98,7 +104,7 @@ class ModelPropertyTest extends TestCase
     }
 
     /**
-     * Test attribute "check_in_time"
+     * Test attribute "check_in_time".
      */
     public function testPropertyCheckInTime()
     {
@@ -107,7 +113,7 @@ class ModelPropertyTest extends TestCase
     }
 
     /**
-     * Test attribute "check_out_time"
+     * Test attribute "check_out_time".
      */
     public function testPropertyCheckOutTime()
     {
@@ -116,7 +122,7 @@ class ModelPropertyTest extends TestCase
     }
 
     /**
-     * Test attribute "city"
+     * Test attribute "city".
      */
     public function testPropertyCity()
     {
@@ -125,7 +131,7 @@ class ModelPropertyTest extends TestCase
     }
 
     /**
-     * Test attribute "country"
+     * Test attribute "country".
      */
     public function testPropertyCountry()
     {
@@ -134,7 +140,7 @@ class ModelPropertyTest extends TestCase
     }
 
     /**
-     * Test attribute "currency"
+     * Test attribute "currency".
      */
     public function testPropertyCurrency()
     {
@@ -143,7 +149,7 @@ class ModelPropertyTest extends TestCase
     }
 
     /**
-     * Test attribute "description"
+     * Test attribute "description".
      */
     public function testPropertyDescription()
     {
@@ -152,7 +158,7 @@ class ModelPropertyTest extends TestCase
     }
 
     /**
-     * Test attribute "email"
+     * Test attribute "email".
      */
     public function testPropertyEmail()
     {
@@ -161,7 +167,7 @@ class ModelPropertyTest extends TestCase
     }
 
     /**
-     * Test attribute "facilities"
+     * Test attribute "facilities".
      */
     public function testPropertyFacilities()
     {
@@ -170,7 +176,7 @@ class ModelPropertyTest extends TestCase
     }
 
     /**
-     * Test attribute "id"
+     * Test attribute "id".
      */
     public function testPropertyId()
     {
@@ -179,7 +185,7 @@ class ModelPropertyTest extends TestCase
     }
 
     /**
-     * Test attribute "images"
+     * Test attribute "images".
      */
     public function testPropertyImages()
     {
@@ -188,7 +194,7 @@ class ModelPropertyTest extends TestCase
     }
 
     /**
-     * Test attribute "location"
+     * Test attribute "location".
      */
     public function testPropertyLocation()
     {
@@ -197,7 +203,7 @@ class ModelPropertyTest extends TestCase
     }
 
     /**
-     * Test attribute "name"
+     * Test attribute "name".
      */
     public function testPropertyName()
     {
@@ -206,7 +212,7 @@ class ModelPropertyTest extends TestCase
     }
 
     /**
-     * Test attribute "number_of_units"
+     * Test attribute "number_of_units".
      */
     public function testPropertyNumberOfUnits()
     {
@@ -215,7 +221,7 @@ class ModelPropertyTest extends TestCase
     }
 
     /**
-     * Test attribute "phone_number"
+     * Test attribute "phone_number".
      */
     public function testPropertyPhoneNumber()
     {
@@ -224,7 +230,7 @@ class ModelPropertyTest extends TestCase
     }
 
     /**
-     * Test attribute "postcode"
+     * Test attribute "postcode".
      */
     public function testPropertyPostcode()
     {
@@ -233,7 +239,7 @@ class ModelPropertyTest extends TestCase
     }
 
     /**
-     * Test attribute "prices"
+     * Test attribute "prices".
      */
     public function testPropertyPrices()
     {
@@ -242,7 +248,7 @@ class ModelPropertyTest extends TestCase
     }
 
     /**
-     * Test attribute "property_policies"
+     * Test attribute "property_policies".
      */
     public function testPropertyPropertyPolicies()
     {
@@ -251,7 +257,7 @@ class ModelPropertyTest extends TestCase
     }
 
     /**
-     * Test attribute "rate_plans"
+     * Test attribute "rate_plans".
      */
     public function testPropertyRatePlans()
     {
@@ -260,7 +266,7 @@ class ModelPropertyTest extends TestCase
     }
 
     /**
-     * Test attribute "star_rating"
+     * Test attribute "star_rating".
      */
     public function testPropertyStarRating()
     {
@@ -269,7 +275,7 @@ class ModelPropertyTest extends TestCase
     }
 
     /**
-     * Test attribute "translations"
+     * Test attribute "translations".
      */
     public function testPropertyTranslations()
     {
@@ -278,7 +284,7 @@ class ModelPropertyTest extends TestCase
     }
 
     /**
-     * Test attribute "units"
+     * Test attribute "units".
      */
     public function testPropertyUnits()
     {

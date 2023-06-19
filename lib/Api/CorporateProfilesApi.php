@@ -1,16 +1,17 @@
 <?php
 /**
  * CorporateProfilesApi
- * PHP version 7.4
+ * PHP version 7.4.
  *
  * @category Class
- * @package  Katanox
+ *
  * @author   OpenAPI Generator team
- * @link     https://openapi-generator.tech
+ *
+ * @see     https://openapi-generator.tech
  */
 
 /**
- * Katanox API Documentation
+ * Katanox API Documentation.
  *
  * The Katanox API allows any travel seller to search and book accommodation.
  *
@@ -34,21 +35,31 @@ use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
+use InvalidArgumentException;
 use Katanox\ApiException;
 use Katanox\Configuration;
 use Katanox\HeaderSelector;
 use Katanox\ObjectSerializer;
+use RuntimeException;
 
 /**
- * CorporateProfilesApi Class Doc Comment
+ * CorporateProfilesApi Class Doc Comment.
  *
  * @category Class
- * @package  Katanox
+ *
  * @author   OpenAPI Generator team
- * @link     https://openapi-generator.tech
+ *
+ * @see     https://openapi-generator.tech
  */
 class CorporateProfilesApi
 {
+    /** @var string[] */
+    public const contentTypes = [
+        'corporateProfilesList' => [
+            'application/json',
+        ],
+    ];
+
     /**
      * @var ClientInterface
      */
@@ -69,14 +80,7 @@ class CorporateProfilesApi
      */
     protected $hostIndex;
 
-    /** @var string[] $contentTypes **/
-    public const contentTypes = [
-        'corporateProfilesList' => [
-            'application/json',
-        ],
-    ];
-
-/**
+    /**
      * @param ClientInterface $client
      * @param Configuration   $config
      * @param HeaderSelector  $selector
@@ -95,7 +99,7 @@ class CorporateProfilesApi
     }
 
     /**
-     * Set the host index
+     * Set the host index.
      *
      * @param int $hostIndex Host index (required)
      */
@@ -105,7 +109,7 @@ class CorporateProfilesApi
     }
 
     /**
-     * Get the host index
+     * Get the host index.
      *
      * @return int Host index
      */
@@ -123,18 +127,17 @@ class CorporateProfilesApi
     }
 
     /**
-     * Operation corporateProfilesList
+     * Operation corporateProfilesList.
      *
      * List corporate profiles
      *
-     * @param  string $authorization Type &#39;Bearer&#39; and then your API Token (required)
-     * @param  int $page The returned page number (optional, default to 0)
-     * @param  int $limit Number of results per page. The maximum value of the limit is 50. (optional, default to 10)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['corporateProfilesList'] to see the possible values for this operation
+     * @param string $authorization Type &#39;Bearer&#39; and then your API Token (required)
+     * @param int    $page          The returned page number (optional, default to 0)
+     * @param int    $limit         Number of results per page. The maximum value of the limit is 50. (optional, default to 10)
+     * @param string $contentType   The value for the Content-Type header. Check self::contentTypes['corporateProfilesList'] to see the possible values for this operation
      *
-     * @throws \Katanox\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return void
+     * @throws \Katanox\ApiException    on non-2xx response
+     * @throws InvalidArgumentException
      */
     public function corporateProfilesList($authorization, $page = 0, $limit = 10, string $contentType = self::contentTypes['corporateProfilesList'][0])
     {
@@ -142,18 +145,19 @@ class CorporateProfilesApi
     }
 
     /**
-     * Operation corporateProfilesListWithHttpInfo
+     * Operation corporateProfilesListWithHttpInfo.
      *
      * List corporate profiles
      *
-     * @param  string $authorization Type &#39;Bearer&#39; and then your API Token (required)
-     * @param  int $page The returned page number (optional, default to 0)
-     * @param  int $limit Number of results per page. The maximum value of the limit is 50. (optional, default to 10)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['corporateProfilesList'] to see the possible values for this operation
+     * @param string $authorization Type &#39;Bearer&#39; and then your API Token (required)
+     * @param int    $page          The returned page number (optional, default to 0)
+     * @param int    $limit         Number of results per page. The maximum value of the limit is 50. (optional, default to 10)
+     * @param string $contentType   The value for the Content-Type header. Check self::contentTypes['corporateProfilesList'] to see the possible values for this operation
      *
-     * @throws \Katanox\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     *
+     * @throws \Katanox\ApiException    on non-2xx response
+     * @throws InvalidArgumentException
      */
     public function corporateProfilesListWithHttpInfo($authorization, $page = 0, $limit = 10, string $contentType = self::contentTypes['corporateProfilesList'][0])
     {
@@ -161,6 +165,7 @@ class CorporateProfilesApi
 
         try {
             $options = $this->createHttpClientOption();
+
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
@@ -195,7 +200,6 @@ class CorporateProfilesApi
             }
 
             return [null, $statusCode, $response->getHeaders()];
-
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 404:
@@ -205,7 +209,9 @@ class CorporateProfilesApi
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
+
                     break;
+
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
@@ -213,24 +219,27 @@ class CorporateProfilesApi
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
+
                     break;
             }
+
             throw $e;
         }
     }
 
     /**
-     * Operation corporateProfilesListAsync
+     * Operation corporateProfilesListAsync.
      *
      * List corporate profiles
      *
-     * @param  string $authorization Type &#39;Bearer&#39; and then your API Token (required)
-     * @param  int $page The returned page number (optional, default to 0)
-     * @param  int $limit Number of results per page. The maximum value of the limit is 50. (optional, default to 10)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['corporateProfilesList'] to see the possible values for this operation
+     * @param string $authorization Type &#39;Bearer&#39; and then your API Token (required)
+     * @param int    $page          The returned page number (optional, default to 0)
+     * @param int    $limit         Number of results per page. The maximum value of the limit is 50. (optional, default to 10)
+     * @param string $contentType   The value for the Content-Type header. Check self::contentTypes['corporateProfilesList'] to see the possible values for this operation
      *
-     * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     *
+     * @throws InvalidArgumentException
      */
     public function corporateProfilesListAsync($authorization, $page = 0, $limit = 10, string $contentType = self::contentTypes['corporateProfilesList'][0])
     {
@@ -239,21 +248,23 @@ class CorporateProfilesApi
                 function ($response) {
                     return $response[0];
                 }
-            );
+            )
+        ;
     }
 
     /**
-     * Operation corporateProfilesListAsyncWithHttpInfo
+     * Operation corporateProfilesListAsyncWithHttpInfo.
      *
      * List corporate profiles
      *
-     * @param  string $authorization Type &#39;Bearer&#39; and then your API Token (required)
-     * @param  int $page The returned page number (optional, default to 0)
-     * @param  int $limit Number of results per page. The maximum value of the limit is 50. (optional, default to 10)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['corporateProfilesList'] to see the possible values for this operation
+     * @param string $authorization Type &#39;Bearer&#39; and then your API Token (required)
+     * @param int    $page          The returned page number (optional, default to 0)
+     * @param int    $limit         Number of results per page. The maximum value of the limit is 50. (optional, default to 10)
+     * @param string $contentType   The value for the Content-Type header. Check self::contentTypes['corporateProfilesList'] to see the possible values for this operation
      *
-     * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     *
+     * @throws InvalidArgumentException
      */
     public function corporateProfilesListAsyncWithHttpInfo($authorization, $page = 0, $limit = 10, string $contentType = self::contentTypes['corporateProfilesList'][0])
     {
@@ -263,12 +274,13 @@ class CorporateProfilesApi
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
-                function ($response) use ($returnType) {
+                function ($response) {
                     return [null, $response->getStatusCode(), $response->getHeaders()];
                 },
                 function ($exception) {
                     $response = $exception->getResponse();
                     $statusCode = $response->getStatusCode();
+
                     throw new ApiException(
                         sprintf(
                             '[%d] Error connecting to the API (%s)',
@@ -280,32 +292,30 @@ class CorporateProfilesApi
                         (string) $response->getBody()
                     );
                 }
-            );
+            )
+        ;
     }
 
     /**
-     * Create request for operation 'corporateProfilesList'
+     * Create request for operation 'corporateProfilesList'.
      *
-     * @param  string $authorization Type &#39;Bearer&#39; and then your API Token (required)
-     * @param  int $page The returned page number (optional, default to 0)
-     * @param  int $limit Number of results per page. The maximum value of the limit is 50. (optional, default to 10)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['corporateProfilesList'] to see the possible values for this operation
+     * @param string $authorization Type &#39;Bearer&#39; and then your API Token (required)
+     * @param int    $page          The returned page number (optional, default to 0)
+     * @param int    $limit         Number of results per page. The maximum value of the limit is 50. (optional, default to 10)
+     * @param string $contentType   The value for the Content-Type header. Check self::contentTypes['corporateProfilesList'] to see the possible values for this operation
      *
-     * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
+     *
+     * @throws InvalidArgumentException
      */
     public function corporateProfilesListRequest($authorization, $page = 0, $limit = 10, string $contentType = self::contentTypes['corporateProfilesList'][0])
     {
-
         // verify the required parameter 'authorization' is set
-        if ($authorization === null || (is_array($authorization) && count($authorization) === 0)) {
-            throw new \InvalidArgumentException(
+        if (null === $authorization || (is_array($authorization) && 0 === count($authorization))) {
+            throw new InvalidArgumentException(
                 'Missing the required parameter $authorization when calling corporateProfilesList'
             );
         }
-
-
-
 
         $resourcePath = '/corporate-profiles';
         $formParams = [];
@@ -334,14 +344,12 @@ class CorporateProfilesApi
         ) ?? []);
 
         // header params
-        if ($authorization !== null) {
+        if (null !== $authorization) {
             $headerParams['Authorization'] = ObjectSerializer::toHeaderValue($authorization);
         }
 
-
-
         $headers = $this->headerSelector->selectHeaders(
-            ['application/json', ],
+            ['application/json'],
             $contentType,
             $multipart
         );
@@ -355,22 +363,20 @@ class CorporateProfilesApi
                     foreach ($formParamValueItems as $formParamValueItem) {
                         $multipartContents[] = [
                             'name' => $formParamName,
-                            'contents' => $formParamValueItem
+                            'contents' => $formParamValueItem,
                         ];
                     }
                 }
                 // for HTTP post (form)
                 $httpBody = new MultipartStream($multipartContents);
-
-            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the form parameters
+            } elseif (false !== stripos($headers['Content-Type'], 'application/json')) {
+                // if Content-Type contains "application/json", json_encode the form parameters
                 $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
             } else {
                 // for HTTP post (form)
                 $httpBody = ObjectSerializer::buildQuery($formParams);
             }
         }
-
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -385,19 +391,21 @@ class CorporateProfilesApi
 
         $operationHost = $this->config->getHost();
         $query = ObjectSerializer::buildQuery($queryParams);
+
         return new Request(
             'GET',
-            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $operationHost.$resourcePath.($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );
     }
 
     /**
-     * Create http client option
+     * Create http client option.
      *
-     * @throws \RuntimeException on file opening failure
      * @return array of http client options
+     *
+     * @throws RuntimeException on file opening failure
      */
     protected function createHttpClientOption()
     {
@@ -405,7 +413,7 @@ class CorporateProfilesApi
         if ($this->config->getDebug()) {
             $options[RequestOptions::DEBUG] = fopen($this->config->getDebugFile(), 'a');
             if (!$options[RequestOptions::DEBUG]) {
-                throw new \RuntimeException('Failed to open the debug file: ' . $this->config->getDebugFile());
+                throw new RuntimeException('Failed to open the debug file: '.$this->config->getDebugFile());
             }
         }
 

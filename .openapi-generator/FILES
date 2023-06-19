@@ -1,4 +1,3 @@
-.gitignore
 .php-cs-fixer.dist.php
 docs/Api/AvailabilityApi.md
 docs/Api/BookingsApi.md

@@ -1,17 +1,18 @@
 <?php
 /**
- * DtoPropertyImageTest
+ * DtoPropertyImageTest.
  *
  * PHP version 7.4
  *
  * @category Class
- * @package  OpenAPI\Client
+ *
  * @author   OpenAPI Generator team
- * @link     https://openapi-generator.tech
+ *
+ * @see     https://openapi-generator.tech
  */
 
 /**
- * Katanox API Documentation
+ * Katanox API Documentation.
  *
  * The Katanox API allows any travel seller to search and book accommodation.
  *
@@ -31,47 +32,52 @@ namespace OpenAPI\Client\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * DtoPropertyImageTest Class Doc Comment
+ * DtoPropertyImageTest Class Doc Comment.
  *
  * @category    Class
+ *
  * @description DtoPropertyImage
- * @package     OpenAPI\Client
+ *
  * @author      OpenAPI Generator team
- * @link        https://openapi-generator.tech
+ *
+ * @see        https://openapi-generator.tech
+ *
+ * @internal
+ *
+ * @coversNothing
  */
 class DtoPropertyImageTest extends TestCase
 {
-
     /**
-     * Setup before running any test case
+     * Setup before running any test case.
      */
     public static function setUpBeforeClass(): void
     {
     }
 
     /**
-     * Setup before running each test case
-     */
-    public function setUp(): void
-    {
-    }
-
-    /**
-     * Clean up after running each test case
-     */
-    public function tearDown(): void
-    {
-    }
-
-    /**
-     * Clean up after running all test cases
+     * Clean up after running all test cases.
      */
     public static function tearDownAfterClass(): void
     {
     }
 
     /**
-     * Test "DtoPropertyImage"
+     * Setup before running each test case.
+     */
+    public function setUp(): void
+    {
+    }
+
+    /**
+     * Clean up after running each test case.
+     */
+    public function tearDown(): void
+    {
+    }
+
+    /**
+     * Test "DtoPropertyImage".
      */
     public function testDtoPropertyImage()
     {
@@ -80,7 +86,7 @@ class DtoPropertyImageTest extends TestCase
     }
 
     /**
-     * Test attribute "height"
+     * Test attribute "height".
      */
     public function testPropertyHeight()
     {
@@ -89,7 +95,7 @@ class DtoPropertyImageTest extends TestCase
     }
 
     /**
-     * Test attribute "tag"
+     * Test attribute "tag".
      */
     public function testPropertyTag()
     {
@@ -98,7 +104,7 @@ class DtoPropertyImageTest extends TestCase
     }
 
     /**
-     * Test attribute "url"
+     * Test attribute "url".
      */
     public function testPropertyUrl()
     {
@@ -107,7 +113,7 @@ class DtoPropertyImageTest extends TestCase
     }
 
     /**
-     * Test attribute "width"
+     * Test attribute "width".
      */
     public function testPropertyWidth()
     {

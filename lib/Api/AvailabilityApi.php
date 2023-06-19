@@ -1,16 +1,17 @@
 <?php
 /**
  * AvailabilityApi
- * PHP version 7.4
+ * PHP version 7.4.
  *
  * @category Class
- * @package  Katanox
+ *
  * @author   OpenAPI Generator team
- * @link     https://openapi-generator.tech
+ *
+ * @see     https://openapi-generator.tech
  */
 
 /**
- * Katanox API Documentation
+ * Katanox API Documentation.
  *
  * The Katanox API allows any travel seller to search and book accommodation.
  *
@@ -34,21 +35,31 @@ use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
+use InvalidArgumentException;
 use Katanox\ApiException;
 use Katanox\Configuration;
 use Katanox\HeaderSelector;
 use Katanox\ObjectSerializer;
+use RuntimeException;
 
 /**
- * AvailabilityApi Class Doc Comment
+ * AvailabilityApi Class Doc Comment.
  *
  * @category Class
- * @package  Katanox
+ *
  * @author   OpenAPI Generator team
- * @link     https://openapi-generator.tech
+ *
+ * @see     https://openapi-generator.tech
  */
 class AvailabilityApi
 {
+    /** @var string[] */
+    public const contentTypes = [
+        'getAvailableProperties' => [
+            'application/json',
+        ],
+    ];
+
     /**
      * @var ClientInterface
      */
@@ -69,14 +80,7 @@ class AvailabilityApi
      */
     protected $hostIndex;
 
-    /** @var string[] $contentTypes **/
-    public const contentTypes = [
-        'getAvailableProperties' => [
-            'application/json',
-        ],
-    ];
-
-/**
+    /**
      * @param ClientInterface $client
      * @param Configuration   $config
      * @param HeaderSelector  $selector
@@ -95,7 +99,7 @@ class AvailabilityApi
     }
 
     /**
-     * Set the host index
+     * Set the host index.
      *
      * @param int $hostIndex Host index (required)
      */
@@ -105,7 +109,7 @@ class AvailabilityApi
     }
 
     /**
-     * Get the host index
+     * Get the host index.
      *
      * @return int Host index
      */
@@ -123,60 +127,63 @@ class AvailabilityApi
     }
 
     /**
-     * Operation getAvailableProperties
+     * Operation getAvailableProperties.
      *
      * Retrieve the list of available properties
      *
-     * @param  string $check_in Date(YYYY-MM-DD) (required)
-     * @param  string $check_out Date(YYYY-MM-DD) (required)
-     * @param  string $authorization Type &#39;Bearer&#39; and then your API Token (required)
-     * @param  int $adults Number of adults (optional, default to 1)
-     * @param  int $children Number of children (optional, default to 0)
-     * @param  float $lat The Latitude (optional)
-     * @param  float $lng The Longitude (optional)
-     * @param  int $radius The search radius in meters(m) (optional, default to 2000)
-     * @param  string[] $property_ids List of property IDs to be included. When specified, only these properties will be included in the response. The maximum size of property id list is 50. (optional)
-     * @param  string[] $negotiated_rate_plans Deprecated! List of negotiated rate plan ids to be included. (optional)
-     * @param  string $corporate_profile_id The corporate_profile_id can be used to fetch specific rates linked to a corporate. (optional, default to 'null')
-     * @param  int $number_of_units The total number of units required (optional, default to 1)
-     * @param  int $page The returned page number (optional, default to 0)
-     * @param  int $limit Number of results per page. The maximum value of the limit is 50. (optional, default to 10)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAvailableProperties'] to see the possible values for this operation
+     * @param string   $check_in              Date(YYYY-MM-DD) (required)
+     * @param string   $check_out             Date(YYYY-MM-DD) (required)
+     * @param string   $authorization         Type &#39;Bearer&#39; and then your API Token (required)
+     * @param int      $adults                Number of adults (optional, default to 1)
+     * @param int      $children              Number of children (optional, default to 0)
+     * @param float    $lat                   The Latitude (optional)
+     * @param float    $lng                   The Longitude (optional)
+     * @param int      $radius                The search radius in meters(m) (optional, default to 2000)
+     * @param string[] $property_ids          List of property IDs to be included. When specified, only these properties will be included in the response. The maximum size of property id list is 50. (optional)
+     * @param string[] $negotiated_rate_plans Deprecated! List of negotiated rate plan ids to be included. (optional)
+     * @param string   $corporate_profile_id  The corporate_profile_id can be used to fetch specific rates linked to a corporate. (optional, default to 'null')
+     * @param int      $number_of_units       The total number of units required (optional, default to 1)
+     * @param int      $page                  The returned page number (optional, default to 0)
+     * @param int      $limit                 Number of results per page. The maximum value of the limit is 50. (optional, default to 10)
+     * @param string   $contentType           The value for the Content-Type header. Check self::contentTypes['getAvailableProperties'] to see the possible values for this operation
      *
-     * @throws \Katanox\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return \Katanox\Model\ModelGetAvailabilityResponse|\Katanox\Model\ModelApiError|\Katanox\Model\ModelInternalServerError
+     * @return \Katanox\Model\ModelApiError|\Katanox\Model\ModelGetAvailabilityResponse|\Katanox\Model\ModelInternalServerError
+     *
+     * @throws \Katanox\ApiException    on non-2xx response
+     * @throws InvalidArgumentException
      */
     public function getAvailableProperties($check_in, $check_out, $authorization, $adults = 1, $children = 0, $lat = null, $lng = null, $radius = 2000, $property_ids = null, $negotiated_rate_plans = null, $corporate_profile_id = 'null', $number_of_units = 1, $page = 0, $limit = 10, string $contentType = self::contentTypes['getAvailableProperties'][0])
     {
         list($response) = $this->getAvailablePropertiesWithHttpInfo($check_in, $check_out, $authorization, $adults, $children, $lat, $lng, $radius, $property_ids, $negotiated_rate_plans, $corporate_profile_id, $number_of_units, $page, $limit, $contentType);
+
         return $response;
     }
 
     /**
-     * Operation getAvailablePropertiesWithHttpInfo
+     * Operation getAvailablePropertiesWithHttpInfo.
      *
      * Retrieve the list of available properties
      *
-     * @param  string $check_in Date(YYYY-MM-DD) (required)
-     * @param  string $check_out Date(YYYY-MM-DD) (required)
-     * @param  string $authorization Type &#39;Bearer&#39; and then your API Token (required)
-     * @param  int $adults Number of adults (optional, default to 1)
-     * @param  int $children Number of children (optional, default to 0)
-     * @param  float $lat The Latitude (optional)
-     * @param  float $lng The Longitude (optional)
-     * @param  int $radius The search radius in meters(m) (optional, default to 2000)
-     * @param  string[] $property_ids List of property IDs to be included. When specified, only these properties will be included in the response. The maximum size of property id list is 50. (optional)
-     * @param  string[] $negotiated_rate_plans Deprecated! List of negotiated rate plan ids to be included. (optional)
-     * @param  string $corporate_profile_id The corporate_profile_id can be used to fetch specific rates linked to a corporate. (optional, default to 'null')
-     * @param  int $number_of_units The total number of units required (optional, default to 1)
-     * @param  int $page The returned page number (optional, default to 0)
-     * @param  int $limit Number of results per page. The maximum value of the limit is 50. (optional, default to 10)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAvailableProperties'] to see the possible values for this operation
+     * @param string   $check_in              Date(YYYY-MM-DD) (required)
+     * @param string   $check_out             Date(YYYY-MM-DD) (required)
+     * @param string   $authorization         Type &#39;Bearer&#39; and then your API Token (required)
+     * @param int      $adults                Number of adults (optional, default to 1)
+     * @param int      $children              Number of children (optional, default to 0)
+     * @param float    $lat                   The Latitude (optional)
+     * @param float    $lng                   The Longitude (optional)
+     * @param int      $radius                The search radius in meters(m) (optional, default to 2000)
+     * @param string[] $property_ids          List of property IDs to be included. When specified, only these properties will be included in the response. The maximum size of property id list is 50. (optional)
+     * @param string[] $negotiated_rate_plans Deprecated! List of negotiated rate plan ids to be included. (optional)
+     * @param string   $corporate_profile_id  The corporate_profile_id can be used to fetch specific rates linked to a corporate. (optional, default to 'null')
+     * @param int      $number_of_units       The total number of units required (optional, default to 1)
+     * @param int      $page                  The returned page number (optional, default to 0)
+     * @param int      $limit                 Number of results per page. The maximum value of the limit is 50. (optional, default to 10)
+     * @param string   $contentType           The value for the Content-Type header. Check self::contentTypes['getAvailableProperties'] to see the possible values for this operation
      *
-     * @throws \Katanox\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
      * @return array of \Katanox\Model\ModelGetAvailabilityResponse|\Katanox\Model\ModelApiError|\Katanox\Model\ModelInternalServerError, HTTP status code, HTTP response headers (array of strings)
+     *
+     * @throws \Katanox\ApiException    on non-2xx response
+     * @throws InvalidArgumentException
      */
     public function getAvailablePropertiesWithHttpInfo($check_in, $check_out, $authorization, $adults = 1, $children = 0, $lat = null, $lng = null, $radius = 2000, $property_ids = null, $negotiated_rate_plans = null, $corporate_profile_id = 'null', $number_of_units = 1, $page = 0, $limit = 10, string $contentType = self::contentTypes['getAvailableProperties'][0])
     {
@@ -184,6 +191,7 @@ class AvailabilityApi
 
         try {
             $options = $this->createHttpClientOption();
+
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
@@ -217,10 +225,10 @@ class AvailabilityApi
                 );
             }
 
-            switch($statusCode) {
+            switch ($statusCode) {
                 case 200:
                     if ('\Katanox\Model\ModelGetAvailabilityResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                         if ('\Katanox\Model\ModelGetAvailabilityResponse' !== 'string') {
@@ -231,11 +239,12 @@ class AvailabilityApi
                     return [
                         ObjectSerializer::deserialize($content, '\Katanox\Model\ModelGetAvailabilityResponse', []),
                         $response->getStatusCode(),
-                        $response->getHeaders()
+                        $response->getHeaders(),
                     ];
+
                 case 400:
                     if ('\Katanox\Model\ModelApiError' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                         if ('\Katanox\Model\ModelApiError' !== 'string') {
@@ -246,11 +255,12 @@ class AvailabilityApi
                     return [
                         ObjectSerializer::deserialize($content, '\Katanox\Model\ModelApiError', []),
                         $response->getStatusCode(),
-                        $response->getHeaders()
+                        $response->getHeaders(),
                     ];
+
                 case 500:
                     if ('\Katanox\Model\ModelInternalServerError' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                         if ('\Katanox\Model\ModelInternalServerError' !== 'string') {
@@ -261,16 +271,16 @@ class AvailabilityApi
                     return [
                         ObjectSerializer::deserialize($content, '\Katanox\Model\ModelInternalServerError', []),
                         $response->getStatusCode(),
-                        $response->getHeaders()
+                        $response->getHeaders(),
                     ];
             }
 
             $returnType = '\Katanox\Model\ModelGetAvailabilityResponse';
-            if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
+            if ('\SplFileObject' === $returnType) {
+                $content = $response->getBody(); // stream goes to serializer
             } else {
                 $content = (string) $response->getBody();
-                if ($returnType !== 'string') {
+                if ('string' !== $returnType) {
                     $content = json_decode($content);
                 }
             }
@@ -278,9 +288,8 @@ class AvailabilityApi
             return [
                 ObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
-                $response->getHeaders()
+                $response->getHeaders(),
             ];
-
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
@@ -290,7 +299,9 @@ class AvailabilityApi
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
+
                     break;
+
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
@@ -298,7 +309,9 @@ class AvailabilityApi
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
+
                     break;
+
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
@@ -306,35 +319,38 @@ class AvailabilityApi
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
+
                     break;
             }
+
             throw $e;
         }
     }
 
     /**
-     * Operation getAvailablePropertiesAsync
+     * Operation getAvailablePropertiesAsync.
      *
      * Retrieve the list of available properties
      *
-     * @param  string $check_in Date(YYYY-MM-DD) (required)
-     * @param  string $check_out Date(YYYY-MM-DD) (required)
-     * @param  string $authorization Type &#39;Bearer&#39; and then your API Token (required)
-     * @param  int $adults Number of adults (optional, default to 1)
-     * @param  int $children Number of children (optional, default to 0)
-     * @param  float $lat The Latitude (optional)
-     * @param  float $lng The Longitude (optional)
-     * @param  int $radius The search radius in meters(m) (optional, default to 2000)
-     * @param  string[] $property_ids List of property IDs to be included. When specified, only these properties will be included in the response. The maximum size of property id list is 50. (optional)
-     * @param  string[] $negotiated_rate_plans Deprecated! List of negotiated rate plan ids to be included. (optional)
-     * @param  string $corporate_profile_id The corporate_profile_id can be used to fetch specific rates linked to a corporate. (optional, default to 'null')
-     * @param  int $number_of_units The total number of units required (optional, default to 1)
-     * @param  int $page The returned page number (optional, default to 0)
-     * @param  int $limit Number of results per page. The maximum value of the limit is 50. (optional, default to 10)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAvailableProperties'] to see the possible values for this operation
+     * @param string   $check_in              Date(YYYY-MM-DD) (required)
+     * @param string   $check_out             Date(YYYY-MM-DD) (required)
+     * @param string   $authorization         Type &#39;Bearer&#39; and then your API Token (required)
+     * @param int      $adults                Number of adults (optional, default to 1)
+     * @param int      $children              Number of children (optional, default to 0)
+     * @param float    $lat                   The Latitude (optional)
+     * @param float    $lng                   The Longitude (optional)
+     * @param int      $radius                The search radius in meters(m) (optional, default to 2000)
+     * @param string[] $property_ids          List of property IDs to be included. When specified, only these properties will be included in the response. The maximum size of property id list is 50. (optional)
+     * @param string[] $negotiated_rate_plans Deprecated! List of negotiated rate plan ids to be included. (optional)
+     * @param string   $corporate_profile_id  The corporate_profile_id can be used to fetch specific rates linked to a corporate. (optional, default to 'null')
+     * @param int      $number_of_units       The total number of units required (optional, default to 1)
+     * @param int      $page                  The returned page number (optional, default to 0)
+     * @param int      $limit                 Number of results per page. The maximum value of the limit is 50. (optional, default to 10)
+     * @param string   $contentType           The value for the Content-Type header. Check self::contentTypes['getAvailableProperties'] to see the possible values for this operation
      *
-     * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     *
+     * @throws InvalidArgumentException
      */
     public function getAvailablePropertiesAsync($check_in, $check_out, $authorization, $adults = 1, $children = 0, $lat = null, $lng = null, $radius = 2000, $property_ids = null, $negotiated_rate_plans = null, $corporate_profile_id = 'null', $number_of_units = 1, $page = 0, $limit = 10, string $contentType = self::contentTypes['getAvailableProperties'][0])
     {
@@ -343,32 +359,34 @@ class AvailabilityApi
                 function ($response) {
                     return $response[0];
                 }
-            );
+            )
+        ;
     }
 
     /**
-     * Operation getAvailablePropertiesAsyncWithHttpInfo
+     * Operation getAvailablePropertiesAsyncWithHttpInfo.
      *
      * Retrieve the list of available properties
      *
-     * @param  string $check_in Date(YYYY-MM-DD) (required)
-     * @param  string $check_out Date(YYYY-MM-DD) (required)
-     * @param  string $authorization Type &#39;Bearer&#39; and then your API Token (required)
-     * @param  int $adults Number of adults (optional, default to 1)
-     * @param  int $children Number of children (optional, default to 0)
-     * @param  float $lat The Latitude (optional)
-     * @param  float $lng The Longitude (optional)
-     * @param  int $radius The search radius in meters(m) (optional, default to 2000)
-     * @param  string[] $property_ids List of property IDs to be included. When specified, only these properties will be included in the response. The maximum size of property id list is 50. (optional)
-     * @param  string[] $negotiated_rate_plans Deprecated! List of negotiated rate plan ids to be included. (optional)
-     * @param  string $corporate_profile_id The corporate_profile_id can be used to fetch specific rates linked to a corporate. (optional, default to 'null')
-     * @param  int $number_of_units The total number of units required (optional, default to 1)
-     * @param  int $page The returned page number (optional, default to 0)
-     * @param  int $limit Number of results per page. The maximum value of the limit is 50. (optional, default to 10)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAvailableProperties'] to see the possible values for this operation
+     * @param string   $check_in              Date(YYYY-MM-DD) (required)
+     * @param string   $check_out             Date(YYYY-MM-DD) (required)
+     * @param string   $authorization         Type &#39;Bearer&#39; and then your API Token (required)
+     * @param int      $adults                Number of adults (optional, default to 1)
+     * @param int      $children              Number of children (optional, default to 0)
+     * @param float    $lat                   The Latitude (optional)
+     * @param float    $lng                   The Longitude (optional)
+     * @param int      $radius                The search radius in meters(m) (optional, default to 2000)
+     * @param string[] $property_ids          List of property IDs to be included. When specified, only these properties will be included in the response. The maximum size of property id list is 50. (optional)
+     * @param string[] $negotiated_rate_plans Deprecated! List of negotiated rate plan ids to be included. (optional)
+     * @param string   $corporate_profile_id  The corporate_profile_id can be used to fetch specific rates linked to a corporate. (optional, default to 'null')
+     * @param int      $number_of_units       The total number of units required (optional, default to 1)
+     * @param int      $page                  The returned page number (optional, default to 0)
+     * @param int      $limit                 Number of results per page. The maximum value of the limit is 50. (optional, default to 10)
+     * @param string   $contentType           The value for the Content-Type header. Check self::contentTypes['getAvailableProperties'] to see the possible values for this operation
      *
-     * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     *
+     * @throws InvalidArgumentException
      */
     public function getAvailablePropertiesAsyncWithHttpInfo($check_in, $check_out, $authorization, $adults = 1, $children = 0, $lat = null, $lng = null, $radius = 2000, $property_ids = null, $negotiated_rate_plans = null, $corporate_profile_id = 'null', $number_of_units = 1, $page = 0, $limit = 10, string $contentType = self::contentTypes['getAvailableProperties'][0])
     {
@@ -379,11 +397,11 @@ class AvailabilityApi
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                    if ('\SplFileObject' === $returnType) {
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ($returnType !== 'string') {
+                        if ('string' !== $returnType) {
                             $content = json_decode($content);
                         }
                     }
@@ -391,12 +409,13 @@ class AvailabilityApi
                     return [
                         ObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
-                        $response->getHeaders()
+                        $response->getHeaders(),
                     ];
                 },
                 function ($exception) {
                     $response = $exception->getResponse();
                     $statusCode = $response->getStatusCode();
+
                     throw new ApiException(
                         sprintf(
                             '[%d] Error connecting to the API (%s)',
@@ -408,75 +427,66 @@ class AvailabilityApi
                         (string) $response->getBody()
                     );
                 }
-            );
+            )
+        ;
     }
 
     /**
-     * Create request for operation 'getAvailableProperties'
+     * Create request for operation 'getAvailableProperties'.
      *
-     * @param  string $check_in Date(YYYY-MM-DD) (required)
-     * @param  string $check_out Date(YYYY-MM-DD) (required)
-     * @param  string $authorization Type &#39;Bearer&#39; and then your API Token (required)
-     * @param  int $adults Number of adults (optional, default to 1)
-     * @param  int $children Number of children (optional, default to 0)
-     * @param  float $lat The Latitude (optional)
-     * @param  float $lng The Longitude (optional)
-     * @param  int $radius The search radius in meters(m) (optional, default to 2000)
-     * @param  string[] $property_ids List of property IDs to be included. When specified, only these properties will be included in the response. The maximum size of property id list is 50. (optional)
-     * @param  string[] $negotiated_rate_plans Deprecated! List of negotiated rate plan ids to be included. (optional)
-     * @param  string $corporate_profile_id The corporate_profile_id can be used to fetch specific rates linked to a corporate. (optional, default to 'null')
-     * @param  int $number_of_units The total number of units required (optional, default to 1)
-     * @param  int $page The returned page number (optional, default to 0)
-     * @param  int $limit Number of results per page. The maximum value of the limit is 50. (optional, default to 10)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAvailableProperties'] to see the possible values for this operation
+     * @param string   $check_in              Date(YYYY-MM-DD) (required)
+     * @param string   $check_out             Date(YYYY-MM-DD) (required)
+     * @param string   $authorization         Type &#39;Bearer&#39; and then your API Token (required)
+     * @param int      $adults                Number of adults (optional, default to 1)
+     * @param int      $children              Number of children (optional, default to 0)
+     * @param float    $lat                   The Latitude (optional)
+     * @param float    $lng                   The Longitude (optional)
+     * @param int      $radius                The search radius in meters(m) (optional, default to 2000)
+     * @param string[] $property_ids          List of property IDs to be included. When specified, only these properties will be included in the response. The maximum size of property id list is 50. (optional)
+     * @param string[] $negotiated_rate_plans Deprecated! List of negotiated rate plan ids to be included. (optional)
+     * @param string   $corporate_profile_id  The corporate_profile_id can be used to fetch specific rates linked to a corporate. (optional, default to 'null')
+     * @param int      $number_of_units       The total number of units required (optional, default to 1)
+     * @param int      $page                  The returned page number (optional, default to 0)
+     * @param int      $limit                 Number of results per page. The maximum value of the limit is 50. (optional, default to 10)
+     * @param string   $contentType           The value for the Content-Type header. Check self::contentTypes['getAvailableProperties'] to see the possible values for this operation
      *
-     * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
+     *
+     * @throws InvalidArgumentException
      */
     public function getAvailablePropertiesRequest($check_in, $check_out, $authorization, $adults = 1, $children = 0, $lat = null, $lng = null, $radius = 2000, $property_ids = null, $negotiated_rate_plans = null, $corporate_profile_id = 'null', $number_of_units = 1, $page = 0, $limit = 10, string $contentType = self::contentTypes['getAvailableProperties'][0])
     {
-
         // verify the required parameter 'check_in' is set
-        if ($check_in === null || (is_array($check_in) && count($check_in) === 0)) {
-            throw new \InvalidArgumentException(
+        if (null === $check_in || (is_array($check_in) && 0 === count($check_in))) {
+            throw new InvalidArgumentException(
                 'Missing the required parameter $check_in when calling getAvailableProperties'
             );
         }
 
         // verify the required parameter 'check_out' is set
-        if ($check_out === null || (is_array($check_out) && count($check_out) === 0)) {
-            throw new \InvalidArgumentException(
+        if (null === $check_out || (is_array($check_out) && 0 === count($check_out))) {
+            throw new InvalidArgumentException(
                 'Missing the required parameter $check_out when calling getAvailableProperties'
             );
         }
 
         // verify the required parameter 'authorization' is set
-        if ($authorization === null || (is_array($authorization) && count($authorization) === 0)) {
-            throw new \InvalidArgumentException(
+        if (null === $authorization || (is_array($authorization) && 0 === count($authorization))) {
+            throw new InvalidArgumentException(
                 'Missing the required parameter $authorization when calling getAvailableProperties'
             );
         }
 
-
-
-        if ($lat !== null && $lat > 90) {
-            throw new \InvalidArgumentException('invalid value for "$lat" when calling AvailabilityApi.getAvailableProperties, must be smaller than or equal to 90.');
+        if (null !== $lat && $lat > 90) {
+            throw new InvalidArgumentException('invalid value for "$lat" when calling AvailabilityApi.getAvailableProperties, must be smaller than or equal to 90.');
         }
-        if ($lat !== null && $lat < -90) {
-            throw new \InvalidArgumentException('invalid value for "$lat" when calling AvailabilityApi.getAvailableProperties, must be bigger than or equal to -90.');
+        if (null !== $lat && $lat < -90) {
+            throw new InvalidArgumentException('invalid value for "$lat" when calling AvailabilityApi.getAvailableProperties, must be bigger than or equal to -90.');
         }
-        
-        if ($lng !== null && $lng < -180) {
-            throw new \InvalidArgumentException('invalid value for "$lng" when calling AvailabilityApi.getAvailableProperties, must be bigger than or equal to -180.');
+
+        if (null !== $lng && $lng < -180) {
+            throw new InvalidArgumentException('invalid value for "$lng" when calling AvailabilityApi.getAvailableProperties, must be bigger than or equal to -180.');
         }
-        
-
-
-
-
-
-
-
 
         $resourcePath = '/availability';
         $formParams = [];
@@ -604,14 +614,12 @@ class AvailabilityApi
         ) ?? []);
 
         // header params
-        if ($authorization !== null) {
+        if (null !== $authorization) {
             $headerParams['Authorization'] = ObjectSerializer::toHeaderValue($authorization);
         }
 
-
-
         $headers = $this->headerSelector->selectHeaders(
-            ['application/json', ],
+            ['application/json'],
             $contentType,
             $multipart
         );
@@ -625,22 +633,20 @@ class AvailabilityApi
                     foreach ($formParamValueItems as $formParamValueItem) {
                         $multipartContents[] = [
                             'name' => $formParamName,
-                            'contents' => $formParamValueItem
+                            'contents' => $formParamValueItem,
                         ];
                     }
                 }
                 // for HTTP post (form)
                 $httpBody = new MultipartStream($multipartContents);
-
-            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the form parameters
+            } elseif (false !== stripos($headers['Content-Type'], 'application/json')) {
+                // if Content-Type contains "application/json", json_encode the form parameters
                 $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
             } else {
                 // for HTTP post (form)
                 $httpBody = ObjectSerializer::buildQuery($formParams);
             }
         }
-
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -655,19 +661,21 @@ class AvailabilityApi
 
         $operationHost = $this->config->getHost();
         $query = ObjectSerializer::buildQuery($queryParams);
+
         return new Request(
             'GET',
-            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $operationHost.$resourcePath.($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );
     }
 
     /**
-     * Create http client option
+     * Create http client option.
      *
-     * @throws \RuntimeException on file opening failure
      * @return array of http client options
+     *
+     * @throws RuntimeException on file opening failure
      */
     protected function createHttpClientOption()
     {
@@ -675,7 +683,7 @@ class AvailabilityApi
         if ($this->config->getDebug()) {
             $options[RequestOptions::DEBUG] = fopen($this->config->getDebugFile(), 'a');
             if (!$options[RequestOptions::DEBUG]) {
-                throw new \RuntimeException('Failed to open the debug file: ' . $this->config->getDebugFile());
+                throw new RuntimeException('Failed to open the debug file: '.$this->config->getDebugFile());
             }
         }
 

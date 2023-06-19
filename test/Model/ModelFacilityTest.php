@@ -1,17 +1,18 @@
 <?php
 /**
- * ModelFacilityTest
+ * ModelFacilityTest.
  *
  * PHP version 7.4
  *
  * @category Class
- * @package  Katanox
+ *
  * @author   OpenAPI Generator team
- * @link     https://openapi-generator.tech
+ *
+ * @see     https://openapi-generator.tech
  */
 
 /**
- * Katanox API Documentation
+ * Katanox API Documentation.
  *
  * The Katanox API allows any travel seller to search and book accommodation.
  *
@@ -31,47 +32,52 @@ namespace Katanox\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * ModelFacilityTest Class Doc Comment
+ * ModelFacilityTest Class Doc Comment.
  *
  * @category    Class
+ *
  * @description ModelFacility
- * @package     Katanox
+ *
  * @author      OpenAPI Generator team
- * @link        https://openapi-generator.tech
+ *
+ * @see        https://openapi-generator.tech
+ *
+ * @internal
+ *
+ * @coversNothing
  */
 class ModelFacilityTest extends TestCase
 {
-
     /**
-     * Setup before running any test case
+     * Setup before running any test case.
      */
     public static function setUpBeforeClass(): void
     {
     }
 
     /**
-     * Setup before running each test case
-     */
-    public function setUp(): void
-    {
-    }
-
-    /**
-     * Clean up after running each test case
-     */
-    public function tearDown(): void
-    {
-    }
-
-    /**
-     * Clean up after running all test cases
+     * Clean up after running all test cases.
      */
     public static function tearDownAfterClass(): void
     {
     }
 
     /**
-     * Test "ModelFacility"
+     * Setup before running each test case.
+     */
+    public function setUp(): void
+    {
+    }
+
+    /**
+     * Clean up after running each test case.
+     */
+    public function tearDown(): void
+    {
+    }
+
+    /**
+     * Test "ModelFacility".
      */
     public function testModelFacility()
     {
@@ -80,7 +86,7 @@ class ModelFacilityTest extends TestCase
     }
 
     /**
-     * Test attribute "category"
+     * Test attribute "category".
      */
     public function testPropertyCategory()
     {
@@ -89,7 +95,7 @@ class ModelFacilityTest extends TestCase
     }
 
     /**
-     * Test attribute "name"
+     * Test attribute "name".
      */
     public function testPropertyName()
     {

@@ -1,17 +1,18 @@
 <?php
 /**
- * AvailabilityOffer
+ * AvailabilityOffer.
  *
  * PHP version 7.4
  *
  * @category Class
- * @package  Katanox
+ *
  * @author   OpenAPI Generator team
- * @link     https://openapi-generator.tech
+ *
+ * @see     https://openapi-generator.tech
  */
 
 /**
- * Katanox API Documentation
+ * Katanox API Documentation.
  *
  * The Katanox API allows any travel seller to search and book accommodation.
  *
@@ -28,155 +29,90 @@
 
 namespace Katanox\Model;
 
-use \ArrayAccess;
-use \Katanox\ObjectSerializer;
+use ArrayAccess;
+use InvalidArgumentException;
+use JsonSerializable;
+use Katanox\ObjectSerializer;
+use ReturnTypeWillChange;
 
 /**
- * AvailabilityOffer Class Doc Comment
+ * AvailabilityOffer Class Doc Comment.
  *
  * @category Class
- * @package  Katanox
+ *
  * @author   OpenAPI Generator team
- * @link     https://openapi-generator.tech
+ *
+ * @see     https://openapi-generator.tech
+ *
  * @implements \ArrayAccess<string, mixed>
  */
-class AvailabilityOffer implements ModelInterface, ArrayAccess, \JsonSerializable
+class AvailabilityOffer implements ModelInterface, ArrayAccess, JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
     /**
-      * The original name of the model.
-      *
-      * @var string
-      */
+     * The original name of the model.
+     *
+     * @var string
+     */
     protected static $openAPIModelName = 'availability.Offer';
 
     /**
-      * Array of property to type mappings. Used for (de)serialization
-      *
-      * @var string[]
-      */
+     * Array of property to type mappings. Used for (de)serialization.
+     *
+     * @var string[]
+     */
     protected static $openAPITypes = [
         'id' => 'string',
         'package_ids' => 'string[]',
         'price' => '\Katanox\Model\AvailabilityPrice',
         'property_id' => 'string',
         'rate_plan_id' => 'string',
-        'unit_id' => 'string'
+        'unit_id' => 'string',
     ];
 
     /**
-      * Array of property to format mappings. Used for (de)serialization
-      *
-      * @var string[]
-      * @phpstan-var array<string, string|null>
-      * @psalm-var array<string, string|null>
-      */
+     * Array of property to format mappings. Used for (de)serialization.
+     *
+     * @var string[]
+     *
+     * @phpstan-var array<string, string|null>
+     *
+     * @psalm-var array<string, string|null>
+     */
     protected static $openAPIFormats = [
         'id' => null,
         'package_ids' => null,
         'price' => null,
         'property_id' => null,
         'rate_plan_id' => null,
-        'unit_id' => null
+        'unit_id' => null,
     ];
 
     /**
-      * Array of nullable properties. Used for (de)serialization
-      *
-      * @var boolean[]
-      */
+     * Array of nullable properties. Used for (de)serialization.
+     *
+     * @var bool[]
+     */
     protected static array $openAPINullables = [
         'id' => false,
-		'package_ids' => false,
-		'price' => false,
-		'property_id' => false,
-		'rate_plan_id' => false,
-		'unit_id' => false
+        'package_ids' => false,
+        'price' => false,
+        'property_id' => false,
+        'rate_plan_id' => false,
+        'unit_id' => false,
     ];
 
     /**
-      * If a nullable field gets set to null, insert it here
-      *
-      * @var boolean[]
-      */
+     * If a nullable field gets set to null, insert it here.
+     *
+     * @var bool[]
+     */
     protected array $openAPINullablesSetToNull = [];
 
     /**
-     * Array of property to type mappings. Used for (de)serialization
-     *
-     * @return array
-     */
-    public static function openAPITypes()
-    {
-        return self::$openAPITypes;
-    }
-
-    /**
-     * Array of property to format mappings. Used for (de)serialization
-     *
-     * @return array
-     */
-    public static function openAPIFormats()
-    {
-        return self::$openAPIFormats;
-    }
-
-    /**
-     * Array of nullable properties
-     *
-     * @return array
-     */
-    protected static function openAPINullables(): array
-    {
-        return self::$openAPINullables;
-    }
-
-    /**
-     * Array of nullable field names deliberately set to null
-     *
-     * @return boolean[]
-     */
-    private function getOpenAPINullablesSetToNull(): array
-    {
-        return $this->openAPINullablesSetToNull;
-    }
-
-    /**
-     * Setter - Array of nullable field names deliberately set to null
-     *
-     * @param boolean[] $openAPINullablesSetToNull
-     */
-    private function setOpenAPINullablesSetToNull(array $openAPINullablesSetToNull): void
-    {
-        $this->openAPINullablesSetToNull = $openAPINullablesSetToNull;
-    }
-
-    /**
-     * Checks if a property is nullable
-     *
-     * @param string $property
-     * @return bool
-     */
-    public static function isNullable(string $property): bool
-    {
-        return self::openAPINullables()[$property] ?? false;
-    }
-
-    /**
-     * Checks if a nullable property is set to null.
-     *
-     * @param string $property
-     * @return bool
-     */
-    public function isNullableSetToNull(string $property): bool
-    {
-        return in_array($property, $this->getOpenAPINullablesSetToNull(), true);
-    }
-
-    /**
      * Array of attributes where the key is the local name,
-     * and the value is the original name
+     * and the value is the original name.
      *
      * @var string[]
      */
@@ -186,11 +122,11 @@ class AvailabilityOffer implements ModelInterface, ArrayAccess, \JsonSerializabl
         'price' => 'price',
         'property_id' => 'property_id',
         'rate_plan_id' => 'rate_plan_id',
-        'unit_id' => 'unit_id'
+        'unit_id' => 'unit_id',
     ];
 
     /**
-     * Array of attributes to setter functions (for deserialization of responses)
+     * Array of attributes to setter functions (for deserialization of responses).
      *
      * @var string[]
      */
@@ -200,11 +136,11 @@ class AvailabilityOffer implements ModelInterface, ArrayAccess, \JsonSerializabl
         'price' => 'setPrice',
         'property_id' => 'setPropertyId',
         'rate_plan_id' => 'setRatePlanId',
-        'unit_id' => 'setUnitId'
+        'unit_id' => 'setUnitId',
     ];
 
     /**
-     * Array of attributes to getter functions (for serialization of requests)
+     * Array of attributes to getter functions (for serialization of requests).
      *
      * @var string[]
      */
@@ -214,12 +150,84 @@ class AvailabilityOffer implements ModelInterface, ArrayAccess, \JsonSerializabl
         'price' => 'getPrice',
         'property_id' => 'getPropertyId',
         'rate_plan_id' => 'getRatePlanId',
-        'unit_id' => 'getUnitId'
+        'unit_id' => 'getUnitId',
     ];
 
     /**
+     * Associative array for storing property values.
+     *
+     * @var mixed[]
+     */
+    protected $container = [];
+
+    /**
+     * Constructor.
+     *
+     * @param mixed[] $data Associated array of property values
+     *                      initializing the model
+     */
+    public function __construct(array $data = null)
+    {
+        $this->setIfExists('id', $data ?? [], null);
+        $this->setIfExists('package_ids', $data ?? [], null);
+        $this->setIfExists('price', $data ?? [], null);
+        $this->setIfExists('property_id', $data ?? [], null);
+        $this->setIfExists('rate_plan_id', $data ?? [], null);
+        $this->setIfExists('unit_id', $data ?? [], null);
+    }
+
+    /**
+     * Gets the string presentation of the object.
+     *
+     * @return string
+     */
+    public function __toString()
+    {
+        return json_encode(
+            ObjectSerializer::sanitizeForSerialization($this),
+            JSON_PRETTY_PRINT
+        );
+    }
+
+    /**
+     * Array of property to type mappings. Used for (de)serialization.
+     *
+     * @return array
+     */
+    public static function openAPITypes()
+    {
+        return self::$openAPITypes;
+    }
+
+    /**
+     * Array of property to format mappings. Used for (de)serialization.
+     *
+     * @return array
+     */
+    public static function openAPIFormats()
+    {
+        return self::$openAPIFormats;
+    }
+
+    /**
+     * Checks if a property is nullable.
+     */
+    public static function isNullable(string $property): bool
+    {
+        return self::openAPINullables()[$property] ?? false;
+    }
+
+    /**
+     * Checks if a nullable property is set to null.
+     */
+    public function isNullableSetToNull(string $property): bool
+    {
+        return in_array($property, $this->getOpenAPINullablesSetToNull(), true);
+    }
+
+    /**
      * Array of attributes where the key is the local name,
-     * and the value is the original name
+     * and the value is the original name.
      *
      * @return array
      */
@@ -229,7 +237,7 @@ class AvailabilityOffer implements ModelInterface, ArrayAccess, \JsonSerializabl
     }
 
     /**
-     * Array of attributes to setter functions (for deserialization of responses)
+     * Array of attributes to setter functions (for deserialization of responses).
      *
      * @return array
      */
@@ -239,7 +247,7 @@ class AvailabilityOffer implements ModelInterface, ArrayAccess, \JsonSerializabl
     }
 
     /**
-     * Array of attributes to getter functions (for serialization of requests)
+     * Array of attributes to getter functions (for serialization of requests).
      *
      * @return array
      */
@@ -258,48 +266,6 @@ class AvailabilityOffer implements ModelInterface, ArrayAccess, \JsonSerializabl
         return self::$openAPIModelName;
     }
 
-
-    /**
-     * Associative array for storing property values
-     *
-     * @var mixed[]
-     */
-    protected $container = [];
-
-    /**
-     * Constructor
-     *
-     * @param mixed[] $data Associated array of property values
-     *                      initializing the model
-     */
-    public function __construct(array $data = null)
-    {
-        $this->setIfExists('id', $data ?? [], null);
-        $this->setIfExists('package_ids', $data ?? [], null);
-        $this->setIfExists('price', $data ?? [], null);
-        $this->setIfExists('property_id', $data ?? [], null);
-        $this->setIfExists('rate_plan_id', $data ?? [], null);
-        $this->setIfExists('unit_id', $data ?? [], null);
-    }
-
-    /**
-    * Sets $this->container[$variableName] to the given data or to the given default Value; if $variableName
-    * is nullable and its value is set to null in the $fields array, then mark it as "set to null" in the
-    * $this->openAPINullablesSetToNull array
-    *
-    * @param string $variableName
-    * @param array  $fields
-    * @param mixed  $defaultValue
-    */
-    private function setIfExists(string $variableName, array $fields, $defaultValue): void
-    {
-        if (self::isNullable($variableName) && array_key_exists($variableName, $fields) && is_null($fields[$variableName])) {
-            $this->openAPINullablesSetToNull[] = $variableName;
-        }
-
-        $this->container[$variableName] = $fields[$variableName] ?? $defaultValue;
-    }
-
     /**
      * Show all the invalid properties with reasons.
      *
@@ -307,27 +273,24 @@ class AvailabilityOffer implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     public function listInvalidProperties()
     {
-        $invalidProperties = [];
-
-        return $invalidProperties;
+        return [];
     }
 
     /**
      * Validate all the properties in the model
-     * return true if all passed
+     * return true if all passed.
      *
      * @return bool True if all properties are valid
      */
     public function valid()
     {
-        return count($this->listInvalidProperties()) === 0;
+        return 0 === count($this->listInvalidProperties());
     }
 
-
     /**
-     * Gets id
+     * Gets id.
      *
-     * @return string|null
+     * @return null|string
      */
     public function getId()
     {
@@ -335,16 +298,16 @@ class AvailabilityOffer implements ModelInterface, ArrayAccess, \JsonSerializabl
     }
 
     /**
-     * Sets id
+     * Sets id.
      *
-     * @param string|null $id id
+     * @param null|string $id id
      *
      * @return self
      */
     public function setId($id)
     {
         if (is_null($id)) {
-            throw new \InvalidArgumentException('non-nullable id cannot be null');
+            throw new InvalidArgumentException('non-nullable id cannot be null');
         }
         $this->container['id'] = $id;
 
@@ -352,9 +315,9 @@ class AvailabilityOffer implements ModelInterface, ArrayAccess, \JsonSerializabl
     }
 
     /**
-     * Gets package_ids
+     * Gets package_ids.
      *
-     * @return string[]|null
+     * @return null|string[]
      */
     public function getPackageIds()
     {
@@ -362,16 +325,16 @@ class AvailabilityOffer implements ModelInterface, ArrayAccess, \JsonSerializabl
     }
 
     /**
-     * Sets package_ids
+     * Sets package_ids.
      *
-     * @param string[]|null $package_ids package_ids
+     * @param null|string[] $package_ids package_ids
      *
      * @return self
      */
     public function setPackageIds($package_ids)
     {
         if (is_null($package_ids)) {
-            throw new \InvalidArgumentException('non-nullable package_ids cannot be null');
+            throw new InvalidArgumentException('non-nullable package_ids cannot be null');
         }
         $this->container['package_ids'] = $package_ids;
 
@@ -379,9 +342,9 @@ class AvailabilityOffer implements ModelInterface, ArrayAccess, \JsonSerializabl
     }
 
     /**
-     * Gets price
+     * Gets price.
      *
-     * @return \Katanox\Model\AvailabilityPrice|null
+     * @return null|\Katanox\Model\AvailabilityPrice
      */
     public function getPrice()
     {
@@ -389,16 +352,16 @@ class AvailabilityOffer implements ModelInterface, ArrayAccess, \JsonSerializabl
     }
 
     /**
-     * Sets price
+     * Sets price.
      *
-     * @param \Katanox\Model\AvailabilityPrice|null $price price
+     * @param null|\Katanox\Model\AvailabilityPrice $price price
      *
      * @return self
      */
     public function setPrice($price)
     {
         if (is_null($price)) {
-            throw new \InvalidArgumentException('non-nullable price cannot be null');
+            throw new InvalidArgumentException('non-nullable price cannot be null');
         }
         $this->container['price'] = $price;
 
@@ -406,9 +369,9 @@ class AvailabilityOffer implements ModelInterface, ArrayAccess, \JsonSerializabl
     }
 
     /**
-     * Gets property_id
+     * Gets property_id.
      *
-     * @return string|null
+     * @return null|string
      */
     public function getPropertyId()
     {
@@ -416,16 +379,16 @@ class AvailabilityOffer implements ModelInterface, ArrayAccess, \JsonSerializabl
     }
 
     /**
-     * Sets property_id
+     * Sets property_id.
      *
-     * @param string|null $property_id property_id
+     * @param null|string $property_id property_id
      *
      * @return self
      */
     public function setPropertyId($property_id)
     {
         if (is_null($property_id)) {
-            throw new \InvalidArgumentException('non-nullable property_id cannot be null');
+            throw new InvalidArgumentException('non-nullable property_id cannot be null');
         }
         $this->container['property_id'] = $property_id;
 
@@ -433,9 +396,9 @@ class AvailabilityOffer implements ModelInterface, ArrayAccess, \JsonSerializabl
     }
 
     /**
-     * Gets rate_plan_id
+     * Gets rate_plan_id.
      *
-     * @return string|null
+     * @return null|string
      */
     public function getRatePlanId()
     {
@@ -443,16 +406,16 @@ class AvailabilityOffer implements ModelInterface, ArrayAccess, \JsonSerializabl
     }
 
     /**
-     * Sets rate_plan_id
+     * Sets rate_plan_id.
      *
-     * @param string|null $rate_plan_id rate_plan_id
+     * @param null|string $rate_plan_id rate_plan_id
      *
      * @return self
      */
     public function setRatePlanId($rate_plan_id)
     {
         if (is_null($rate_plan_id)) {
-            throw new \InvalidArgumentException('non-nullable rate_plan_id cannot be null');
+            throw new InvalidArgumentException('non-nullable rate_plan_id cannot be null');
         }
         $this->container['rate_plan_id'] = $rate_plan_id;
 
@@ -460,9 +423,9 @@ class AvailabilityOffer implements ModelInterface, ArrayAccess, \JsonSerializabl
     }
 
     /**
-     * Gets unit_id
+     * Gets unit_id.
      *
-     * @return string|null
+     * @return null|string
      */
     public function getUnitId()
     {
@@ -470,27 +433,26 @@ class AvailabilityOffer implements ModelInterface, ArrayAccess, \JsonSerializabl
     }
 
     /**
-     * Sets unit_id
+     * Sets unit_id.
      *
-     * @param string|null $unit_id unit_id
+     * @param null|string $unit_id unit_id
      *
      * @return self
      */
     public function setUnitId($unit_id)
     {
         if (is_null($unit_id)) {
-            throw new \InvalidArgumentException('non-nullable unit_id cannot be null');
+            throw new InvalidArgumentException('non-nullable unit_id cannot be null');
         }
         $this->container['unit_id'] = $unit_id;
 
         return $this;
     }
+
     /**
      * Returns true if offset exists. False otherwise.
      *
-     * @param integer $offset Offset
-     *
-     * @return boolean
+     * @param int $offset Offset
      */
     public function offsetExists($offset): bool
     {
@@ -500,11 +462,11 @@ class AvailabilityOffer implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Gets offset.
      *
-     * @param integer $offset Offset
+     * @param int $offset Offset
      *
-     * @return mixed|null
+     * @return null|mixed
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function offsetGet($offset)
     {
         return $this->container[$offset] ?? null;
@@ -513,10 +475,8 @@ class AvailabilityOffer implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets value based on offset.
      *
-     * @param int|null $offset Offset
+     * @param null|int $offset Offset
      * @param mixed    $value  Value to be set
-     *
-     * @return void
      */
     public function offsetSet($offset, $value): void
     {
@@ -530,9 +490,7 @@ class AvailabilityOffer implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Unsets offset.
      *
-     * @param integer $offset Offset
-     *
-     * @return void
+     * @param int $offset Offset
      */
     public function offsetUnset($offset): void
     {
@@ -541,32 +499,20 @@ class AvailabilityOffer implements ModelInterface, ArrayAccess, \JsonSerializabl
 
     /**
      * Serializes the object to a value that can be serialized natively by json_encode().
-     * @link https://www.php.net/manual/en/jsonserializable.jsonserialize.php
      *
-     * @return mixed Returns data which can be serialized by json_encode(), which is a value
-     * of any type other than a resource.
+     * @see https://www.php.net/manual/en/jsonserializable.jsonserialize.php
+     *
+     * @return mixed returns data which can be serialized by json_encode(), which is a value
+     *               of any type other than a resource
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function jsonSerialize()
     {
-       return ObjectSerializer::sanitizeForSerialization($this);
+        return ObjectSerializer::sanitizeForSerialization($this);
     }
 
     /**
-     * Gets the string presentation of the object
-     *
-     * @return string
-     */
-    public function __toString()
-    {
-        return json_encode(
-            ObjectSerializer::sanitizeForSerialization($this),
-            JSON_PRETTY_PRINT
-        );
-    }
-
-    /**
-     * Gets a header-safe presentation of the object
+     * Gets a header-safe presentation of the object.
      *
      * @return string
      */
@@ -574,6 +520,48 @@ class AvailabilityOffer implements ModelInterface, ArrayAccess, \JsonSerializabl
     {
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
+
+    /**
+     * Array of nullable properties.
+     */
+    protected static function openAPINullables(): array
+    {
+        return self::$openAPINullables;
+    }
+
+    /**
+     * Array of nullable field names deliberately set to null.
+     *
+     * @return bool[]
+     */
+    private function getOpenAPINullablesSetToNull(): array
+    {
+        return $this->openAPINullablesSetToNull;
+    }
+
+    /**
+     * Setter - Array of nullable field names deliberately set to null.
+     *
+     * @param bool[] $openAPINullablesSetToNull
+     */
+    private function setOpenAPINullablesSetToNull(array $openAPINullablesSetToNull): void
+    {
+        $this->openAPINullablesSetToNull = $openAPINullablesSetToNull;
+    }
+
+    /**
+     * Sets $this->container[$variableName] to the given data or to the given default Value; if $variableName
+     * is nullable and its value is set to null in the $fields array, then mark it as "set to null" in the
+     * $this->openAPINullablesSetToNull array.
+     *
+     * @param mixed $defaultValue
+     */
+    private function setIfExists(string $variableName, array $fields, $defaultValue): void
+    {
+        if (self::isNullable($variableName) && array_key_exists($variableName, $fields) && is_null($fields[$variableName])) {
+            $this->openAPINullablesSetToNull[] = $variableName;
+        }
+
+        $this->container[$variableName] = $fields[$variableName] ?? $defaultValue;
+    }
 }
-
-

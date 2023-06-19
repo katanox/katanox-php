@@ -1,16 +1,17 @@
 <?php
 /**
  * OfferApi
- * PHP version 7.4
+ * PHP version 7.4.
  *
  * @category Class
- * @package  Katanox
+ *
  * @author   OpenAPI Generator team
- * @link     https://openapi-generator.tech
+ *
+ * @see     https://openapi-generator.tech
  */
 
 /**
- * Katanox API Documentation
+ * Katanox API Documentation.
  *
  * The Katanox API allows any travel seller to search and book accommodation.
  *
@@ -34,21 +35,34 @@ use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
+use InvalidArgumentException;
 use Katanox\ApiException;
 use Katanox\Configuration;
 use Katanox\HeaderSelector;
 use Katanox\ObjectSerializer;
+use RuntimeException;
 
 /**
- * OfferApi Class Doc Comment
+ * OfferApi Class Doc Comment.
  *
  * @category Class
- * @package  Katanox
+ *
  * @author   OpenAPI Generator team
- * @link     https://openapi-generator.tech
+ *
+ * @see     https://openapi-generator.tech
  */
 class OfferApi
 {
+    /** @var string[] */
+    public const contentTypes = [
+        'offerRefresh' => [
+            'application/json',
+        ],
+        'offerValidate' => [
+            'application/json',
+        ],
+    ];
+
     /**
      * @var ClientInterface
      */
@@ -69,17 +83,7 @@ class OfferApi
      */
     protected $hostIndex;
 
-    /** @var string[] $contentTypes **/
-    public const contentTypes = [
-        'offerRefresh' => [
-            'application/json',
-        ],
-        'offerValidate' => [
-            'application/json',
-        ],
-    ];
-
-/**
+    /**
      * @param ClientInterface $client
      * @param Configuration   $config
      * @param HeaderSelector  $selector
@@ -98,7 +102,7 @@ class OfferApi
     }
 
     /**
-     * Set the host index
+     * Set the host index.
      *
      * @param int $hostIndex Host index (required)
      */
@@ -108,7 +112,7 @@ class OfferApi
     }
 
     /**
-     * Get the host index
+     * Get the host index.
      *
      * @return int Host index
      */
@@ -126,17 +130,16 @@ class OfferApi
     }
 
     /**
-     * Operation offerRefresh
+     * Operation offerRefresh.
      *
      * Refresh an offer
      *
-     * @param  string $offer_id The id of the offer (required)
-     * @param  string $authorization Type &#39;Bearer&#39; and then your API Token (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['offerRefresh'] to see the possible values for this operation
+     * @param string $offer_id      The id of the offer (required)
+     * @param string $authorization Type &#39;Bearer&#39; and then your API Token (required)
+     * @param string $contentType   The value for the Content-Type header. Check self::contentTypes['offerRefresh'] to see the possible values for this operation
      *
-     * @throws \Katanox\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return void
+     * @throws \Katanox\ApiException    on non-2xx response
+     * @throws InvalidArgumentException
      */
     public function offerRefresh($offer_id, $authorization, string $contentType = self::contentTypes['offerRefresh'][0])
     {
@@ -144,17 +147,18 @@ class OfferApi
     }
 
     /**
-     * Operation offerRefreshWithHttpInfo
+     * Operation offerRefreshWithHttpInfo.
      *
      * Refresh an offer
      *
-     * @param  string $offer_id The id of the offer (required)
-     * @param  string $authorization Type &#39;Bearer&#39; and then your API Token (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['offerRefresh'] to see the possible values for this operation
+     * @param string $offer_id      The id of the offer (required)
+     * @param string $authorization Type &#39;Bearer&#39; and then your API Token (required)
+     * @param string $contentType   The value for the Content-Type header. Check self::contentTypes['offerRefresh'] to see the possible values for this operation
      *
-     * @throws \Katanox\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     *
+     * @throws \Katanox\ApiException    on non-2xx response
+     * @throws InvalidArgumentException
      */
     public function offerRefreshWithHttpInfo($offer_id, $authorization, string $contentType = self::contentTypes['offerRefresh'][0])
     {
@@ -162,6 +166,7 @@ class OfferApi
 
         try {
             $options = $this->createHttpClientOption();
+
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
@@ -196,7 +201,6 @@ class OfferApi
             }
 
             return [null, $statusCode, $response->getHeaders()];
-
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 400:
@@ -206,7 +210,9 @@ class OfferApi
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
+
                     break;
+
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
@@ -214,23 +220,26 @@ class OfferApi
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
+
                     break;
             }
+
             throw $e;
         }
     }
 
     /**
-     * Operation offerRefreshAsync
+     * Operation offerRefreshAsync.
      *
      * Refresh an offer
      *
-     * @param  string $offer_id The id of the offer (required)
-     * @param  string $authorization Type &#39;Bearer&#39; and then your API Token (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['offerRefresh'] to see the possible values for this operation
+     * @param string $offer_id      The id of the offer (required)
+     * @param string $authorization Type &#39;Bearer&#39; and then your API Token (required)
+     * @param string $contentType   The value for the Content-Type header. Check self::contentTypes['offerRefresh'] to see the possible values for this operation
      *
-     * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     *
+     * @throws InvalidArgumentException
      */
     public function offerRefreshAsync($offer_id, $authorization, string $contentType = self::contentTypes['offerRefresh'][0])
     {
@@ -239,20 +248,22 @@ class OfferApi
                 function ($response) {
                     return $response[0];
                 }
-            );
+            )
+        ;
     }
 
     /**
-     * Operation offerRefreshAsyncWithHttpInfo
+     * Operation offerRefreshAsyncWithHttpInfo.
      *
      * Refresh an offer
      *
-     * @param  string $offer_id The id of the offer (required)
-     * @param  string $authorization Type &#39;Bearer&#39; and then your API Token (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['offerRefresh'] to see the possible values for this operation
+     * @param string $offer_id      The id of the offer (required)
+     * @param string $authorization Type &#39;Bearer&#39; and then your API Token (required)
+     * @param string $contentType   The value for the Content-Type header. Check self::contentTypes['offerRefresh'] to see the possible values for this operation
      *
-     * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     *
+     * @throws InvalidArgumentException
      */
     public function offerRefreshAsyncWithHttpInfo($offer_id, $authorization, string $contentType = self::contentTypes['offerRefresh'][0])
     {
@@ -262,12 +273,13 @@ class OfferApi
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
-                function ($response) use ($returnType) {
+                function ($response) {
                     return [null, $response->getStatusCode(), $response->getHeaders()];
                 },
                 function ($exception) {
                     $response = $exception->getResponse();
                     $statusCode = $response->getStatusCode();
+
                     throw new ApiException(
                         sprintf(
                             '[%d] Error connecting to the API (%s)',
@@ -279,36 +291,36 @@ class OfferApi
                         (string) $response->getBody()
                     );
                 }
-            );
+            )
+        ;
     }
 
     /**
-     * Create request for operation 'offerRefresh'
+     * Create request for operation 'offerRefresh'.
      *
-     * @param  string $offer_id The id of the offer (required)
-     * @param  string $authorization Type &#39;Bearer&#39; and then your API Token (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['offerRefresh'] to see the possible values for this operation
+     * @param string $offer_id      The id of the offer (required)
+     * @param string $authorization Type &#39;Bearer&#39; and then your API Token (required)
+     * @param string $contentType   The value for the Content-Type header. Check self::contentTypes['offerRefresh'] to see the possible values for this operation
      *
-     * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
+     *
+     * @throws InvalidArgumentException
      */
     public function offerRefreshRequest($offer_id, $authorization, string $contentType = self::contentTypes['offerRefresh'][0])
     {
-
         // verify the required parameter 'offer_id' is set
-        if ($offer_id === null || (is_array($offer_id) && count($offer_id) === 0)) {
-            throw new \InvalidArgumentException(
+        if (null === $offer_id || (is_array($offer_id) && 0 === count($offer_id))) {
+            throw new InvalidArgumentException(
                 'Missing the required parameter $offer_id when calling offerRefresh'
             );
         }
 
         // verify the required parameter 'authorization' is set
-        if ($authorization === null || (is_array($authorization) && count($authorization) === 0)) {
-            throw new \InvalidArgumentException(
+        if (null === $authorization || (is_array($authorization) && 0 === count($authorization))) {
+            throw new InvalidArgumentException(
                 'Missing the required parameter $authorization when calling offerRefresh'
             );
         }
-
 
         $resourcePath = '/offers/{offer_id}/refresh';
         $formParams = [];
@@ -317,24 +329,22 @@ class OfferApi
         $httpBody = '';
         $multipart = false;
 
-
         // header params
-        if ($authorization !== null) {
+        if (null !== $authorization) {
             $headerParams['Authorization'] = ObjectSerializer::toHeaderValue($authorization);
         }
 
         // path params
-        if ($offer_id !== null) {
+        if (null !== $offer_id) {
             $resourcePath = str_replace(
-                '{' . 'offer_id' . '}',
+                '{offer_id}',
                 ObjectSerializer::toPathValue($offer_id),
                 $resourcePath
             );
         }
 
-
         $headers = $this->headerSelector->selectHeaders(
-            ['application/json', ],
+            ['application/json'],
             $contentType,
             $multipart
         );
@@ -348,22 +358,20 @@ class OfferApi
                     foreach ($formParamValueItems as $formParamValueItem) {
                         $multipartContents[] = [
                             'name' => $formParamName,
-                            'contents' => $formParamValueItem
+                            'contents' => $formParamValueItem,
                         ];
                     }
                 }
                 // for HTTP post (form)
                 $httpBody = new MultipartStream($multipartContents);
-
-            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the form parameters
+            } elseif (false !== stripos($headers['Content-Type'], 'application/json')) {
+                // if Content-Type contains "application/json", json_encode the form parameters
                 $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
             } else {
                 // for HTTP post (form)
                 $httpBody = ObjectSerializer::buildQuery($formParams);
             }
         }
-
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -378,45 +386,49 @@ class OfferApi
 
         $operationHost = $this->config->getHost();
         $query = ObjectSerializer::buildQuery($queryParams);
+
         return new Request(
             'POST',
-            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $operationHost.$resourcePath.($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );
     }
 
     /**
-     * Operation offerValidate
+     * Operation offerValidate.
      *
      * Retrieve an offer
      *
-     * @param  string $offer_id The id of the offer (required)
-     * @param  string $authorization Type &#39;Bearer&#39; and then your API Token (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['offerValidate'] to see the possible values for this operation
+     * @param string $offer_id      The id of the offer (required)
+     * @param string $authorization Type &#39;Bearer&#39; and then your API Token (required)
+     * @param string $contentType   The value for the Content-Type header. Check self::contentTypes['offerValidate'] to see the possible values for this operation
      *
-     * @throws \Katanox\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return \Katanox\Model\OfferGetOfferResponse|\Katanox\Model\ModelApiError|\Katanox\Model\ModelInternalServerError
+     * @return \Katanox\Model\ModelApiError|\Katanox\Model\ModelInternalServerError|\Katanox\Model\OfferGetOfferResponse
+     *
+     * @throws \Katanox\ApiException    on non-2xx response
+     * @throws InvalidArgumentException
      */
     public function offerValidate($offer_id, $authorization, string $contentType = self::contentTypes['offerValidate'][0])
     {
         list($response) = $this->offerValidateWithHttpInfo($offer_id, $authorization, $contentType);
+
         return $response;
     }
 
     /**
-     * Operation offerValidateWithHttpInfo
+     * Operation offerValidateWithHttpInfo.
      *
      * Retrieve an offer
      *
-     * @param  string $offer_id The id of the offer (required)
-     * @param  string $authorization Type &#39;Bearer&#39; and then your API Token (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['offerValidate'] to see the possible values for this operation
+     * @param string $offer_id      The id of the offer (required)
+     * @param string $authorization Type &#39;Bearer&#39; and then your API Token (required)
+     * @param string $contentType   The value for the Content-Type header. Check self::contentTypes['offerValidate'] to see the possible values for this operation
      *
-     * @throws \Katanox\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
      * @return array of \Katanox\Model\OfferGetOfferResponse|\Katanox\Model\ModelApiError|\Katanox\Model\ModelInternalServerError, HTTP status code, HTTP response headers (array of strings)
+     *
+     * @throws \Katanox\ApiException    on non-2xx response
+     * @throws InvalidArgumentException
      */
     public function offerValidateWithHttpInfo($offer_id, $authorization, string $contentType = self::contentTypes['offerValidate'][0])
     {
@@ -424,6 +436,7 @@ class OfferApi
 
         try {
             $options = $this->createHttpClientOption();
+
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
@@ -457,10 +470,10 @@ class OfferApi
                 );
             }
 
-            switch($statusCode) {
+            switch ($statusCode) {
                 case 200:
                     if ('\Katanox\Model\OfferGetOfferResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                         if ('\Katanox\Model\OfferGetOfferResponse' !== 'string') {
@@ -471,11 +484,12 @@ class OfferApi
                     return [
                         ObjectSerializer::deserialize($content, '\Katanox\Model\OfferGetOfferResponse', []),
                         $response->getStatusCode(),
-                        $response->getHeaders()
+                        $response->getHeaders(),
                     ];
+
                 case 404:
                     if ('\Katanox\Model\ModelApiError' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                         if ('\Katanox\Model\ModelApiError' !== 'string') {
@@ -486,11 +500,12 @@ class OfferApi
                     return [
                         ObjectSerializer::deserialize($content, '\Katanox\Model\ModelApiError', []),
                         $response->getStatusCode(),
-                        $response->getHeaders()
+                        $response->getHeaders(),
                     ];
+
                 case 500:
                     if ('\Katanox\Model\ModelInternalServerError' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                         if ('\Katanox\Model\ModelInternalServerError' !== 'string') {
@@ -501,16 +516,16 @@ class OfferApi
                     return [
                         ObjectSerializer::deserialize($content, '\Katanox\Model\ModelInternalServerError', []),
                         $response->getStatusCode(),
-                        $response->getHeaders()
+                        $response->getHeaders(),
                     ];
             }
 
             $returnType = '\Katanox\Model\OfferGetOfferResponse';
-            if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
+            if ('\SplFileObject' === $returnType) {
+                $content = $response->getBody(); // stream goes to serializer
             } else {
                 $content = (string) $response->getBody();
-                if ($returnType !== 'string') {
+                if ('string' !== $returnType) {
                     $content = json_decode($content);
                 }
             }
@@ -518,9 +533,8 @@ class OfferApi
             return [
                 ObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
-                $response->getHeaders()
+                $response->getHeaders(),
             ];
-
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
@@ -530,7 +544,9 @@ class OfferApi
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
+
                     break;
+
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
@@ -538,7 +554,9 @@ class OfferApi
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
+
                     break;
+
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
@@ -546,23 +564,26 @@ class OfferApi
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
+
                     break;
             }
+
             throw $e;
         }
     }
 
     /**
-     * Operation offerValidateAsync
+     * Operation offerValidateAsync.
      *
      * Retrieve an offer
      *
-     * @param  string $offer_id The id of the offer (required)
-     * @param  string $authorization Type &#39;Bearer&#39; and then your API Token (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['offerValidate'] to see the possible values for this operation
+     * @param string $offer_id      The id of the offer (required)
+     * @param string $authorization Type &#39;Bearer&#39; and then your API Token (required)
+     * @param string $contentType   The value for the Content-Type header. Check self::contentTypes['offerValidate'] to see the possible values for this operation
      *
-     * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     *
+     * @throws InvalidArgumentException
      */
     public function offerValidateAsync($offer_id, $authorization, string $contentType = self::contentTypes['offerValidate'][0])
     {
@@ -571,20 +592,22 @@ class OfferApi
                 function ($response) {
                     return $response[0];
                 }
-            );
+            )
+        ;
     }
 
     /**
-     * Operation offerValidateAsyncWithHttpInfo
+     * Operation offerValidateAsyncWithHttpInfo.
      *
      * Retrieve an offer
      *
-     * @param  string $offer_id The id of the offer (required)
-     * @param  string $authorization Type &#39;Bearer&#39; and then your API Token (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['offerValidate'] to see the possible values for this operation
+     * @param string $offer_id      The id of the offer (required)
+     * @param string $authorization Type &#39;Bearer&#39; and then your API Token (required)
+     * @param string $contentType   The value for the Content-Type header. Check self::contentTypes['offerValidate'] to see the possible values for this operation
      *
-     * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     *
+     * @throws InvalidArgumentException
      */
     public function offerValidateAsyncWithHttpInfo($offer_id, $authorization, string $contentType = self::contentTypes['offerValidate'][0])
     {
@@ -595,11 +618,11 @@ class OfferApi
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                    if ('\SplFileObject' === $returnType) {
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ($returnType !== 'string') {
+                        if ('string' !== $returnType) {
                             $content = json_decode($content);
                         }
                     }
@@ -607,12 +630,13 @@ class OfferApi
                     return [
                         ObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
-                        $response->getHeaders()
+                        $response->getHeaders(),
                     ];
                 },
                 function ($exception) {
                     $response = $exception->getResponse();
                     $statusCode = $response->getStatusCode();
+
                     throw new ApiException(
                         sprintf(
                             '[%d] Error connecting to the API (%s)',
@@ -624,36 +648,36 @@ class OfferApi
                         (string) $response->getBody()
                     );
                 }
-            );
+            )
+        ;
     }
 
     /**
-     * Create request for operation 'offerValidate'
+     * Create request for operation 'offerValidate'.
      *
-     * @param  string $offer_id The id of the offer (required)
-     * @param  string $authorization Type &#39;Bearer&#39; and then your API Token (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['offerValidate'] to see the possible values for this operation
+     * @param string $offer_id      The id of the offer (required)
+     * @param string $authorization Type &#39;Bearer&#39; and then your API Token (required)
+     * @param string $contentType   The value for the Content-Type header. Check self::contentTypes['offerValidate'] to see the possible values for this operation
      *
-     * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
+     *
+     * @throws InvalidArgumentException
      */
     public function offerValidateRequest($offer_id, $authorization, string $contentType = self::contentTypes['offerValidate'][0])
     {
-
         // verify the required parameter 'offer_id' is set
-        if ($offer_id === null || (is_array($offer_id) && count($offer_id) === 0)) {
-            throw new \InvalidArgumentException(
+        if (null === $offer_id || (is_array($offer_id) && 0 === count($offer_id))) {
+            throw new InvalidArgumentException(
                 'Missing the required parameter $offer_id when calling offerValidate'
             );
         }
 
         // verify the required parameter 'authorization' is set
-        if ($authorization === null || (is_array($authorization) && count($authorization) === 0)) {
-            throw new \InvalidArgumentException(
+        if (null === $authorization || (is_array($authorization) && 0 === count($authorization))) {
+            throw new InvalidArgumentException(
                 'Missing the required parameter $authorization when calling offerValidate'
             );
         }
-
 
         $resourcePath = '/offers/{offer_id}';
         $formParams = [];
@@ -662,24 +686,22 @@ class OfferApi
         $httpBody = '';
         $multipart = false;
 
-
         // header params
-        if ($authorization !== null) {
+        if (null !== $authorization) {
             $headerParams['Authorization'] = ObjectSerializer::toHeaderValue($authorization);
         }
 
         // path params
-        if ($offer_id !== null) {
+        if (null !== $offer_id) {
             $resourcePath = str_replace(
-                '{' . 'offer_id' . '}',
+                '{offer_id}',
                 ObjectSerializer::toPathValue($offer_id),
                 $resourcePath
             );
         }
 
-
         $headers = $this->headerSelector->selectHeaders(
-            ['application/json', ],
+            ['application/json'],
             $contentType,
             $multipart
         );
@@ -693,22 +715,20 @@ class OfferApi
                     foreach ($formParamValueItems as $formParamValueItem) {
                         $multipartContents[] = [
                             'name' => $formParamName,
-                            'contents' => $formParamValueItem
+                            'contents' => $formParamValueItem,
                         ];
                     }
                 }
                 // for HTTP post (form)
                 $httpBody = new MultipartStream($multipartContents);
-
-            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the form parameters
+            } elseif (false !== stripos($headers['Content-Type'], 'application/json')) {
+                // if Content-Type contains "application/json", json_encode the form parameters
                 $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
             } else {
                 // for HTTP post (form)
                 $httpBody = ObjectSerializer::buildQuery($formParams);
             }
         }
-
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -723,19 +743,21 @@ class OfferApi
 
         $operationHost = $this->config->getHost();
         $query = ObjectSerializer::buildQuery($queryParams);
+
         return new Request(
             'GET',
-            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $operationHost.$resourcePath.($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );
     }
 
     /**
-     * Create http client option
+     * Create http client option.
      *
-     * @throws \RuntimeException on file opening failure
      * @return array of http client options
+     *
+     * @throws RuntimeException on file opening failure
      */
     protected function createHttpClientOption()
     {
@@ -743,7 +765,7 @@ class OfferApi
         if ($this->config->getDebug()) {
             $options[RequestOptions::DEBUG] = fopen($this->config->getDebugFile(), 'a');
             if (!$options[RequestOptions::DEBUG]) {
-                throw new \RuntimeException('Failed to open the debug file: ' . $this->config->getDebugFile());
+                throw new RuntimeException('Failed to open the debug file: '.$this->config->getDebugFile());
             }
         }
 

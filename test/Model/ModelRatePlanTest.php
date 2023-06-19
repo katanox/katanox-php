@@ -1,17 +1,18 @@
 <?php
 /**
- * ModelRatePlanTest
+ * ModelRatePlanTest.
  *
  * PHP version 7.4
  *
  * @category Class
- * @package  Katanox
+ *
  * @author   OpenAPI Generator team
- * @link     https://openapi-generator.tech
+ *
+ * @see     https://openapi-generator.tech
  */
 
 /**
- * Katanox API Documentation
+ * Katanox API Documentation.
  *
  * The Katanox API allows any travel seller to search and book accommodation.
  *
@@ -31,47 +32,52 @@ namespace Katanox\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * ModelRatePlanTest Class Doc Comment
+ * ModelRatePlanTest Class Doc Comment.
  *
  * @category    Class
+ *
  * @description ModelRatePlan
- * @package     Katanox
+ *
  * @author      OpenAPI Generator team
- * @link        https://openapi-generator.tech
+ *
+ * @see        https://openapi-generator.tech
+ *
+ * @internal
+ *
+ * @coversNothing
  */
 class ModelRatePlanTest extends TestCase
 {
-
     /**
-     * Setup before running any test case
+     * Setup before running any test case.
      */
     public static function setUpBeforeClass(): void
     {
     }
 
     /**
-     * Setup before running each test case
-     */
-    public function setUp(): void
-    {
-    }
-
-    /**
-     * Clean up after running each test case
-     */
-    public function tearDown(): void
-    {
-    }
-
-    /**
-     * Clean up after running all test cases
+     * Clean up after running all test cases.
      */
     public static function tearDownAfterClass(): void
     {
     }
 
     /**
-     * Test "ModelRatePlan"
+     * Setup before running each test case.
+     */
+    public function setUp(): void
+    {
+    }
+
+    /**
+     * Clean up after running each test case.
+     */
+    public function tearDown(): void
+    {
+    }
+
+    /**
+     * Test "ModelRatePlan".
      */
     public function testModelRatePlan()
     {
@@ -80,7 +86,7 @@ class ModelRatePlanTest extends TestCase
     }
 
     /**
-     * Test attribute "cancellation_policy"
+     * Test attribute "cancellation_policy".
      */
     public function testPropertyCancellationPolicy()
     {
@@ -89,7 +95,7 @@ class ModelRatePlanTest extends TestCase
     }
 
     /**
-     * Test attribute "description"
+     * Test attribute "description".
      */
     public function testPropertyDescription()
     {
@@ -98,7 +104,7 @@ class ModelRatePlanTest extends TestCase
     }
 
     /**
-     * Test attribute "id"
+     * Test attribute "id".
      */
     public function testPropertyId()
     {
@@ -107,7 +113,7 @@ class ModelRatePlanTest extends TestCase
     }
 
     /**
-     * Test attribute "meals"
+     * Test attribute "meals".
      */
     public function testPropertyMeals()
     {
@@ -116,7 +122,7 @@ class ModelRatePlanTest extends TestCase
     }
 
     /**
-     * Test attribute "name"
+     * Test attribute "name".
      */
     public function testPropertyName()
     {
@@ -125,7 +131,7 @@ class ModelRatePlanTest extends TestCase
     }
 
     /**
-     * Test attribute "no_show_policy"
+     * Test attribute "no_show_policy".
      */
     public function testPropertyNoShowPolicy()
     {
@@ -134,7 +140,7 @@ class ModelRatePlanTest extends TestCase
     }
 
     /**
-     * Test attribute "property_id"
+     * Test attribute "property_id".
      */
     public function testPropertyPropertyId()
     {
@@ -143,7 +149,7 @@ class ModelRatePlanTest extends TestCase
     }
 
     /**
-     * Test attribute "services"
+     * Test attribute "services".
      */
     public function testPropertyServices()
     {
@@ -152,7 +158,7 @@ class ModelRatePlanTest extends TestCase
     }
 
     /**
-     * Test attribute "translations"
+     * Test attribute "translations".
      */
     public function testPropertyTranslations()
     {

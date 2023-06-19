@@ -1,17 +1,18 @@
 <?php
 /**
- * AvailabilityPrice
+ * AvailabilityPrice.
  *
  * PHP version 7.4
  *
  * @category Class
- * @package  Katanox
+ *
  * @author   OpenAPI Generator team
- * @link     https://openapi-generator.tech
+ *
+ * @see     https://openapi-generator.tech
  */
 
 /**
- * Katanox API Documentation
+ * Katanox API Documentation.
  *
  * The Katanox API allows any travel seller to search and book accommodation.
  *
@@ -28,155 +29,90 @@
 
 namespace Katanox\Model;
 
-use \ArrayAccess;
-use \Katanox\ObjectSerializer;
+use ArrayAccess;
+use InvalidArgumentException;
+use JsonSerializable;
+use Katanox\ObjectSerializer;
+use ReturnTypeWillChange;
 
 /**
- * AvailabilityPrice Class Doc Comment
+ * AvailabilityPrice Class Doc Comment.
  *
  * @category Class
- * @package  Katanox
+ *
  * @author   OpenAPI Generator team
- * @link     https://openapi-generator.tech
+ *
+ * @see     https://openapi-generator.tech
+ *
  * @implements \ArrayAccess<string, mixed>
  */
-class AvailabilityPrice implements ModelInterface, ArrayAccess, \JsonSerializable
+class AvailabilityPrice implements ModelInterface, ArrayAccess, JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
     /**
-      * The original name of the model.
-      *
-      * @var string
-      */
+     * The original name of the model.
+     *
+     * @var string
+     */
     protected static $openAPIModelName = 'availability.Price';
 
     /**
-      * Array of property to type mappings. Used for (de)serialization
-      *
-      * @var string[]
-      */
+     * Array of property to type mappings. Used for (de)serialization.
+     *
+     * @var string[]
+     */
     protected static $openAPITypes = [
         'after_tax' => 'float',
         'before_tax' => 'float',
         'currency' => 'string',
         'extra_charges' => '\Katanox\Model\AvailabilityExtraCharge[]',
         'price_per_night' => '\Katanox\Model\AvailabilityPricePerNight[]',
-        'total_amount' => 'float'
+        'total_amount' => 'float',
     ];
 
     /**
-      * Array of property to format mappings. Used for (de)serialization
-      *
-      * @var string[]
-      * @phpstan-var array<string, string|null>
-      * @psalm-var array<string, string|null>
-      */
+     * Array of property to format mappings. Used for (de)serialization.
+     *
+     * @var string[]
+     *
+     * @phpstan-var array<string, string|null>
+     *
+     * @psalm-var array<string, string|null>
+     */
     protected static $openAPIFormats = [
         'after_tax' => null,
         'before_tax' => null,
         'currency' => null,
         'extra_charges' => null,
         'price_per_night' => null,
-        'total_amount' => null
+        'total_amount' => null,
     ];
 
     /**
-      * Array of nullable properties. Used for (de)serialization
-      *
-      * @var boolean[]
-      */
+     * Array of nullable properties. Used for (de)serialization.
+     *
+     * @var bool[]
+     */
     protected static array $openAPINullables = [
         'after_tax' => false,
-		'before_tax' => false,
-		'currency' => false,
-		'extra_charges' => false,
-		'price_per_night' => false,
-		'total_amount' => false
+        'before_tax' => false,
+        'currency' => false,
+        'extra_charges' => false,
+        'price_per_night' => false,
+        'total_amount' => false,
     ];
 
     /**
-      * If a nullable field gets set to null, insert it here
-      *
-      * @var boolean[]
-      */
+     * If a nullable field gets set to null, insert it here.
+     *
+     * @var bool[]
+     */
     protected array $openAPINullablesSetToNull = [];
 
     /**
-     * Array of property to type mappings. Used for (de)serialization
-     *
-     * @return array
-     */
-    public static function openAPITypes()
-    {
-        return self::$openAPITypes;
-    }
-
-    /**
-     * Array of property to format mappings. Used for (de)serialization
-     *
-     * @return array
-     */
-    public static function openAPIFormats()
-    {
-        return self::$openAPIFormats;
-    }
-
-    /**
-     * Array of nullable properties
-     *
-     * @return array
-     */
-    protected static function openAPINullables(): array
-    {
-        return self::$openAPINullables;
-    }
-
-    /**
-     * Array of nullable field names deliberately set to null
-     *
-     * @return boolean[]
-     */
-    private function getOpenAPINullablesSetToNull(): array
-    {
-        return $this->openAPINullablesSetToNull;
-    }
-
-    /**
-     * Setter - Array of nullable field names deliberately set to null
-     *
-     * @param boolean[] $openAPINullablesSetToNull
-     */
-    private function setOpenAPINullablesSetToNull(array $openAPINullablesSetToNull): void
-    {
-        $this->openAPINullablesSetToNull = $openAPINullablesSetToNull;
-    }
-
-    /**
-     * Checks if a property is nullable
-     *
-     * @param string $property
-     * @return bool
-     */
-    public static function isNullable(string $property): bool
-    {
-        return self::openAPINullables()[$property] ?? false;
-    }
-
-    /**
-     * Checks if a nullable property is set to null.
-     *
-     * @param string $property
-     * @return bool
-     */
-    public function isNullableSetToNull(string $property): bool
-    {
-        return in_array($property, $this->getOpenAPINullablesSetToNull(), true);
-    }
-
-    /**
      * Array of attributes where the key is the local name,
-     * and the value is the original name
+     * and the value is the original name.
      *
      * @var string[]
      */
@@ -186,11 +122,11 @@ class AvailabilityPrice implements ModelInterface, ArrayAccess, \JsonSerializabl
         'currency' => 'currency',
         'extra_charges' => 'extra_charges',
         'price_per_night' => 'price_per_night',
-        'total_amount' => 'total_amount'
+        'total_amount' => 'total_amount',
     ];
 
     /**
-     * Array of attributes to setter functions (for deserialization of responses)
+     * Array of attributes to setter functions (for deserialization of responses).
      *
      * @var string[]
      */
@@ -200,11 +136,11 @@ class AvailabilityPrice implements ModelInterface, ArrayAccess, \JsonSerializabl
         'currency' => 'setCurrency',
         'extra_charges' => 'setExtraCharges',
         'price_per_night' => 'setPricePerNight',
-        'total_amount' => 'setTotalAmount'
+        'total_amount' => 'setTotalAmount',
     ];
 
     /**
-     * Array of attributes to getter functions (for serialization of requests)
+     * Array of attributes to getter functions (for serialization of requests).
      *
      * @var string[]
      */
@@ -214,12 +150,84 @@ class AvailabilityPrice implements ModelInterface, ArrayAccess, \JsonSerializabl
         'currency' => 'getCurrency',
         'extra_charges' => 'getExtraCharges',
         'price_per_night' => 'getPricePerNight',
-        'total_amount' => 'getTotalAmount'
+        'total_amount' => 'getTotalAmount',
     ];
 
     /**
+     * Associative array for storing property values.
+     *
+     * @var mixed[]
+     */
+    protected $container = [];
+
+    /**
+     * Constructor.
+     *
+     * @param mixed[] $data Associated array of property values
+     *                      initializing the model
+     */
+    public function __construct(array $data = null)
+    {
+        $this->setIfExists('after_tax', $data ?? [], null);
+        $this->setIfExists('before_tax', $data ?? [], null);
+        $this->setIfExists('currency', $data ?? [], null);
+        $this->setIfExists('extra_charges', $data ?? [], null);
+        $this->setIfExists('price_per_night', $data ?? [], null);
+        $this->setIfExists('total_amount', $data ?? [], null);
+    }
+
+    /**
+     * Gets the string presentation of the object.
+     *
+     * @return string
+     */
+    public function __toString()
+    {
+        return json_encode(
+            ObjectSerializer::sanitizeForSerialization($this),
+            JSON_PRETTY_PRINT
+        );
+    }
+
+    /**
+     * Array of property to type mappings. Used for (de)serialization.
+     *
+     * @return array
+     */
+    public static function openAPITypes()
+    {
+        return self::$openAPITypes;
+    }
+
+    /**
+     * Array of property to format mappings. Used for (de)serialization.
+     *
+     * @return array
+     */
+    public static function openAPIFormats()
+    {
+        return self::$openAPIFormats;
+    }
+
+    /**
+     * Checks if a property is nullable.
+     */
+    public static function isNullable(string $property): bool
+    {
+        return self::openAPINullables()[$property] ?? false;
+    }
+
+    /**
+     * Checks if a nullable property is set to null.
+     */
+    public function isNullableSetToNull(string $property): bool
+    {
+        return in_array($property, $this->getOpenAPINullablesSetToNull(), true);
+    }
+
+    /**
      * Array of attributes where the key is the local name,
-     * and the value is the original name
+     * and the value is the original name.
      *
      * @return array
      */
@@ -229,7 +237,7 @@ class AvailabilityPrice implements ModelInterface, ArrayAccess, \JsonSerializabl
     }
 
     /**
-     * Array of attributes to setter functions (for deserialization of responses)
+     * Array of attributes to setter functions (for deserialization of responses).
      *
      * @return array
      */
@@ -239,7 +247,7 @@ class AvailabilityPrice implements ModelInterface, ArrayAccess, \JsonSerializabl
     }
 
     /**
-     * Array of attributes to getter functions (for serialization of requests)
+     * Array of attributes to getter functions (for serialization of requests).
      *
      * @return array
      */
@@ -258,48 +266,6 @@ class AvailabilityPrice implements ModelInterface, ArrayAccess, \JsonSerializabl
         return self::$openAPIModelName;
     }
 
-
-    /**
-     * Associative array for storing property values
-     *
-     * @var mixed[]
-     */
-    protected $container = [];
-
-    /**
-     * Constructor
-     *
-     * @param mixed[] $data Associated array of property values
-     *                      initializing the model
-     */
-    public function __construct(array $data = null)
-    {
-        $this->setIfExists('after_tax', $data ?? [], null);
-        $this->setIfExists('before_tax', $data ?? [], null);
-        $this->setIfExists('currency', $data ?? [], null);
-        $this->setIfExists('extra_charges', $data ?? [], null);
-        $this->setIfExists('price_per_night', $data ?? [], null);
-        $this->setIfExists('total_amount', $data ?? [], null);
-    }
-
-    /**
-    * Sets $this->container[$variableName] to the given data or to the given default Value; if $variableName
-    * is nullable and its value is set to null in the $fields array, then mark it as "set to null" in the
-    * $this->openAPINullablesSetToNull array
-    *
-    * @param string $variableName
-    * @param array  $fields
-    * @param mixed  $defaultValue
-    */
-    private function setIfExists(string $variableName, array $fields, $defaultValue): void
-    {
-        if (self::isNullable($variableName) && array_key_exists($variableName, $fields) && is_null($fields[$variableName])) {
-            $this->openAPINullablesSetToNull[] = $variableName;
-        }
-
-        $this->container[$variableName] = $fields[$variableName] ?? $defaultValue;
-    }
-
     /**
      * Show all the invalid properties with reasons.
      *
@@ -307,27 +273,24 @@ class AvailabilityPrice implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     public function listInvalidProperties()
     {
-        $invalidProperties = [];
-
-        return $invalidProperties;
+        return [];
     }
 
     /**
      * Validate all the properties in the model
-     * return true if all passed
+     * return true if all passed.
      *
      * @return bool True if all properties are valid
      */
     public function valid()
     {
-        return count($this->listInvalidProperties()) === 0;
+        return 0 === count($this->listInvalidProperties());
     }
 
-
     /**
-     * Gets after_tax
+     * Gets after_tax.
      *
-     * @return float|null
+     * @return null|float
      */
     public function getAfterTax()
     {
@@ -335,16 +298,16 @@ class AvailabilityPrice implements ModelInterface, ArrayAccess, \JsonSerializabl
     }
 
     /**
-     * Sets after_tax
+     * Sets after_tax.
      *
-     * @param float|null $after_tax after_tax
+     * @param null|float $after_tax after_tax
      *
      * @return self
      */
     public function setAfterTax($after_tax)
     {
         if (is_null($after_tax)) {
-            throw new \InvalidArgumentException('non-nullable after_tax cannot be null');
+            throw new InvalidArgumentException('non-nullable after_tax cannot be null');
         }
         $this->container['after_tax'] = $after_tax;
 
@@ -352,9 +315,9 @@ class AvailabilityPrice implements ModelInterface, ArrayAccess, \JsonSerializabl
     }
 
     /**
-     * Gets before_tax
+     * Gets before_tax.
      *
-     * @return float|null
+     * @return null|float
      */
     public function getBeforeTax()
     {
@@ -362,16 +325,16 @@ class AvailabilityPrice implements ModelInterface, ArrayAccess, \JsonSerializabl
     }
 
     /**
-     * Sets before_tax
+     * Sets before_tax.
      *
-     * @param float|null $before_tax before_tax
+     * @param null|float $before_tax before_tax
      *
      * @return self
      */
     public function setBeforeTax($before_tax)
     {
         if (is_null($before_tax)) {
-            throw new \InvalidArgumentException('non-nullable before_tax cannot be null');
+            throw new InvalidArgumentException('non-nullable before_tax cannot be null');
         }
         $this->container['before_tax'] = $before_tax;
 
@@ -379,9 +342,9 @@ class AvailabilityPrice implements ModelInterface, ArrayAccess, \JsonSerializabl
     }
 
     /**
-     * Gets currency
+     * Gets currency.
      *
-     * @return string|null
+     * @return null|string
      */
     public function getCurrency()
     {
@@ -389,16 +352,16 @@ class AvailabilityPrice implements ModelInterface, ArrayAccess, \JsonSerializabl
     }
 
     /**
-     * Sets currency
+     * Sets currency.
      *
-     * @param string|null $currency currency
+     * @param null|string $currency currency
      *
      * @return self
      */
     public function setCurrency($currency)
     {
         if (is_null($currency)) {
-            throw new \InvalidArgumentException('non-nullable currency cannot be null');
+            throw new InvalidArgumentException('non-nullable currency cannot be null');
         }
         $this->container['currency'] = $currency;
 
@@ -406,9 +369,9 @@ class AvailabilityPrice implements ModelInterface, ArrayAccess, \JsonSerializabl
     }
 
     /**
-     * Gets extra_charges
+     * Gets extra_charges.
      *
-     * @return \Katanox\Model\AvailabilityExtraCharge[]|null
+     * @return null|\Katanox\Model\AvailabilityExtraCharge[]
      */
     public function getExtraCharges()
     {
@@ -416,16 +379,16 @@ class AvailabilityPrice implements ModelInterface, ArrayAccess, \JsonSerializabl
     }
 
     /**
-     * Sets extra_charges
+     * Sets extra_charges.
      *
-     * @param \Katanox\Model\AvailabilityExtraCharge[]|null $extra_charges extra_charges
+     * @param null|\Katanox\Model\AvailabilityExtraCharge[] $extra_charges extra_charges
      *
      * @return self
      */
     public function setExtraCharges($extra_charges)
     {
         if (is_null($extra_charges)) {
-            throw new \InvalidArgumentException('non-nullable extra_charges cannot be null');
+            throw new InvalidArgumentException('non-nullable extra_charges cannot be null');
         }
         $this->container['extra_charges'] = $extra_charges;
 
@@ -433,9 +396,9 @@ class AvailabilityPrice implements ModelInterface, ArrayAccess, \JsonSerializabl
     }
 
     /**
-     * Gets price_per_night
+     * Gets price_per_night.
      *
-     * @return \Katanox\Model\AvailabilityPricePerNight[]|null
+     * @return null|\Katanox\Model\AvailabilityPricePerNight[]
      */
     public function getPricePerNight()
     {
@@ -443,16 +406,16 @@ class AvailabilityPrice implements ModelInterface, ArrayAccess, \JsonSerializabl
     }
 
     /**
-     * Sets price_per_night
+     * Sets price_per_night.
      *
-     * @param \Katanox\Model\AvailabilityPricePerNight[]|null $price_per_night price_per_night
+     * @param null|\Katanox\Model\AvailabilityPricePerNight[] $price_per_night price_per_night
      *
      * @return self
      */
     public function setPricePerNight($price_per_night)
     {
         if (is_null($price_per_night)) {
-            throw new \InvalidArgumentException('non-nullable price_per_night cannot be null');
+            throw new InvalidArgumentException('non-nullable price_per_night cannot be null');
         }
         $this->container['price_per_night'] = $price_per_night;
 
@@ -460,9 +423,9 @@ class AvailabilityPrice implements ModelInterface, ArrayAccess, \JsonSerializabl
     }
 
     /**
-     * Gets total_amount
+     * Gets total_amount.
      *
-     * @return float|null
+     * @return null|float
      */
     public function getTotalAmount()
     {
@@ -470,27 +433,26 @@ class AvailabilityPrice implements ModelInterface, ArrayAccess, \JsonSerializabl
     }
 
     /**
-     * Sets total_amount
+     * Sets total_amount.
      *
-     * @param float|null $total_amount total_amount
+     * @param null|float $total_amount total_amount
      *
      * @return self
      */
     public function setTotalAmount($total_amount)
     {
         if (is_null($total_amount)) {
-            throw new \InvalidArgumentException('non-nullable total_amount cannot be null');
+            throw new InvalidArgumentException('non-nullable total_amount cannot be null');
         }
         $this->container['total_amount'] = $total_amount;
 
         return $this;
     }
+
     /**
      * Returns true if offset exists. False otherwise.
      *
-     * @param integer $offset Offset
-     *
-     * @return boolean
+     * @param int $offset Offset
      */
     public function offsetExists($offset): bool
     {
@@ -500,11 +462,11 @@ class AvailabilityPrice implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Gets offset.
      *
-     * @param integer $offset Offset
+     * @param int $offset Offset
      *
-     * @return mixed|null
+     * @return null|mixed
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function offsetGet($offset)
     {
         return $this->container[$offset] ?? null;
@@ -513,10 +475,8 @@ class AvailabilityPrice implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets value based on offset.
      *
-     * @param int|null $offset Offset
+     * @param null|int $offset Offset
      * @param mixed    $value  Value to be set
-     *
-     * @return void
      */
     public function offsetSet($offset, $value): void
     {
@@ -530,9 +490,7 @@ class AvailabilityPrice implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Unsets offset.
      *
-     * @param integer $offset Offset
-     *
-     * @return void
+     * @param int $offset Offset
      */
     public function offsetUnset($offset): void
     {
@@ -541,32 +499,20 @@ class AvailabilityPrice implements ModelInterface, ArrayAccess, \JsonSerializabl
 
     /**
      * Serializes the object to a value that can be serialized natively by json_encode().
-     * @link https://www.php.net/manual/en/jsonserializable.jsonserialize.php
      *
-     * @return mixed Returns data which can be serialized by json_encode(), which is a value
-     * of any type other than a resource.
+     * @see https://www.php.net/manual/en/jsonserializable.jsonserialize.php
+     *
+     * @return mixed returns data which can be serialized by json_encode(), which is a value
+     *               of any type other than a resource
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function jsonSerialize()
     {
-       return ObjectSerializer::sanitizeForSerialization($this);
+        return ObjectSerializer::sanitizeForSerialization($this);
     }
 
     /**
-     * Gets the string presentation of the object
-     *
-     * @return string
-     */
-    public function __toString()
-    {
-        return json_encode(
-            ObjectSerializer::sanitizeForSerialization($this),
-            JSON_PRETTY_PRINT
-        );
-    }
-
-    /**
-     * Gets a header-safe presentation of the object
+     * Gets a header-safe presentation of the object.
      *
      * @return string
      */
@@ -574,6 +520,48 @@ class AvailabilityPrice implements ModelInterface, ArrayAccess, \JsonSerializabl
     {
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
+
+    /**
+     * Array of nullable properties.
+     */
+    protected static function openAPINullables(): array
+    {
+        return self::$openAPINullables;
+    }
+
+    /**
+     * Array of nullable field names deliberately set to null.
+     *
+     * @return bool[]
+     */
+    private function getOpenAPINullablesSetToNull(): array
+    {
+        return $this->openAPINullablesSetToNull;
+    }
+
+    /**
+     * Setter - Array of nullable field names deliberately set to null.
+     *
+     * @param bool[] $openAPINullablesSetToNull
+     */
+    private function setOpenAPINullablesSetToNull(array $openAPINullablesSetToNull): void
+    {
+        $this->openAPINullablesSetToNull = $openAPINullablesSetToNull;
+    }
+
+    /**
+     * Sets $this->container[$variableName] to the given data or to the given default Value; if $variableName
+     * is nullable and its value is set to null in the $fields array, then mark it as "set to null" in the
+     * $this->openAPINullablesSetToNull array.
+     *
+     * @param mixed $defaultValue
+     */
+    private function setIfExists(string $variableName, array $fields, $defaultValue): void
+    {
+        if (self::isNullable($variableName) && array_key_exists($variableName, $fields) && is_null($fields[$variableName])) {
+            $this->openAPINullablesSetToNull[] = $variableName;
+        }
+
+        $this->container[$variableName] = $fields[$variableName] ?? $defaultValue;
+    }
 }
-
-
