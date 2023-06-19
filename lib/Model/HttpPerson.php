@@ -59,7 +59,7 @@ class HttpPerson implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPITypes = [
         'address_line_1' => 'string',
         'address_line_2' => 'string',
-        'birth_date' => 'string',
+        'birth_date' => '\DateTime',
         'city' => 'string',
         'country' => 'string',
         'email' => 'string',
@@ -80,7 +80,7 @@ class HttpPerson implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPIFormats = [
         'address_line_1' => null,
         'address_line_2' => null,
-        'birth_date' => null,
+        'birth_date' => 'date',
         'city' => null,
         'country' => null,
         'email' => null,
@@ -416,7 +416,7 @@ class HttpPerson implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets birth_date
      *
-     * @return string|null
+     * @return \DateTime|null
      */
     public function getBirthDate()
     {
@@ -426,7 +426,7 @@ class HttpPerson implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets birth_date
      *
-     * @param string|null $birth_date birth_date
+     * @param \DateTime|null $birth_date birth_date
      *
      * @return self
      */

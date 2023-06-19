@@ -136,7 +136,8 @@ class AvailabilityApi
      * @param  float $lng The Longitude (optional)
      * @param  int $radius The search radius in meters(m) (optional, default to 2000)
      * @param  string[] $property_ids List of property IDs to be included. When specified, only these properties will be included in the response. The maximum size of property id list is 50. (optional)
-     * @param  string[] $negotiated_rate_plans List of negotiated rate plan ids to be included. (optional)
+     * @param  string[] $negotiated_rate_plans Deprecated! List of negotiated rate plan ids to be included. (optional)
+     * @param  string $corporate_profile_id The corporate_profile_id can be used to fetch specific rates linked to a corporate. (optional, default to 'null')
      * @param  int $number_of_units The total number of units required (optional, default to 1)
      * @param  int $page The returned page number (optional, default to 0)
      * @param  int $limit Number of results per page. The maximum value of the limit is 50. (optional, default to 10)
@@ -146,9 +147,9 @@ class AvailabilityApi
      * @throws \InvalidArgumentException
      * @return \Katanox\Model\ModelGetAvailabilityResponse|\Katanox\Model\ModelApiError|\Katanox\Model\ModelInternalServerError
      */
-    public function getAvailableProperties($check_in, $check_out, $authorization, $adults = 1, $children = 0, $lat = null, $lng = null, $radius = 2000, $property_ids = null, $negotiated_rate_plans = null, $number_of_units = 1, $page = 0, $limit = 10, string $contentType = self::contentTypes['getAvailableProperties'][0])
+    public function getAvailableProperties($check_in, $check_out, $authorization, $adults = 1, $children = 0, $lat = null, $lng = null, $radius = 2000, $property_ids = null, $negotiated_rate_plans = null, $corporate_profile_id = 'null', $number_of_units = 1, $page = 0, $limit = 10, string $contentType = self::contentTypes['getAvailableProperties'][0])
     {
-        list($response) = $this->getAvailablePropertiesWithHttpInfo($check_in, $check_out, $authorization, $adults, $children, $lat, $lng, $radius, $property_ids, $negotiated_rate_plans, $number_of_units, $page, $limit, $contentType);
+        list($response) = $this->getAvailablePropertiesWithHttpInfo($check_in, $check_out, $authorization, $adults, $children, $lat, $lng, $radius, $property_ids, $negotiated_rate_plans, $corporate_profile_id, $number_of_units, $page, $limit, $contentType);
         return $response;
     }
 
@@ -166,7 +167,8 @@ class AvailabilityApi
      * @param  float $lng The Longitude (optional)
      * @param  int $radius The search radius in meters(m) (optional, default to 2000)
      * @param  string[] $property_ids List of property IDs to be included. When specified, only these properties will be included in the response. The maximum size of property id list is 50. (optional)
-     * @param  string[] $negotiated_rate_plans List of negotiated rate plan ids to be included. (optional)
+     * @param  string[] $negotiated_rate_plans Deprecated! List of negotiated rate plan ids to be included. (optional)
+     * @param  string $corporate_profile_id The corporate_profile_id can be used to fetch specific rates linked to a corporate. (optional, default to 'null')
      * @param  int $number_of_units The total number of units required (optional, default to 1)
      * @param  int $page The returned page number (optional, default to 0)
      * @param  int $limit Number of results per page. The maximum value of the limit is 50. (optional, default to 10)
@@ -176,9 +178,9 @@ class AvailabilityApi
      * @throws \InvalidArgumentException
      * @return array of \Katanox\Model\ModelGetAvailabilityResponse|\Katanox\Model\ModelApiError|\Katanox\Model\ModelInternalServerError, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getAvailablePropertiesWithHttpInfo($check_in, $check_out, $authorization, $adults = 1, $children = 0, $lat = null, $lng = null, $radius = 2000, $property_ids = null, $negotiated_rate_plans = null, $number_of_units = 1, $page = 0, $limit = 10, string $contentType = self::contentTypes['getAvailableProperties'][0])
+    public function getAvailablePropertiesWithHttpInfo($check_in, $check_out, $authorization, $adults = 1, $children = 0, $lat = null, $lng = null, $radius = 2000, $property_ids = null, $negotiated_rate_plans = null, $corporate_profile_id = 'null', $number_of_units = 1, $page = 0, $limit = 10, string $contentType = self::contentTypes['getAvailableProperties'][0])
     {
-        $request = $this->getAvailablePropertiesRequest($check_in, $check_out, $authorization, $adults, $children, $lat, $lng, $radius, $property_ids, $negotiated_rate_plans, $number_of_units, $page, $limit, $contentType);
+        $request = $this->getAvailablePropertiesRequest($check_in, $check_out, $authorization, $adults, $children, $lat, $lng, $radius, $property_ids, $negotiated_rate_plans, $corporate_profile_id, $number_of_units, $page, $limit, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -324,7 +326,8 @@ class AvailabilityApi
      * @param  float $lng The Longitude (optional)
      * @param  int $radius The search radius in meters(m) (optional, default to 2000)
      * @param  string[] $property_ids List of property IDs to be included. When specified, only these properties will be included in the response. The maximum size of property id list is 50. (optional)
-     * @param  string[] $negotiated_rate_plans List of negotiated rate plan ids to be included. (optional)
+     * @param  string[] $negotiated_rate_plans Deprecated! List of negotiated rate plan ids to be included. (optional)
+     * @param  string $corporate_profile_id The corporate_profile_id can be used to fetch specific rates linked to a corporate. (optional, default to 'null')
      * @param  int $number_of_units The total number of units required (optional, default to 1)
      * @param  int $page The returned page number (optional, default to 0)
      * @param  int $limit Number of results per page. The maximum value of the limit is 50. (optional, default to 10)
@@ -333,9 +336,9 @@ class AvailabilityApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getAvailablePropertiesAsync($check_in, $check_out, $authorization, $adults = 1, $children = 0, $lat = null, $lng = null, $radius = 2000, $property_ids = null, $negotiated_rate_plans = null, $number_of_units = 1, $page = 0, $limit = 10, string $contentType = self::contentTypes['getAvailableProperties'][0])
+    public function getAvailablePropertiesAsync($check_in, $check_out, $authorization, $adults = 1, $children = 0, $lat = null, $lng = null, $radius = 2000, $property_ids = null, $negotiated_rate_plans = null, $corporate_profile_id = 'null', $number_of_units = 1, $page = 0, $limit = 10, string $contentType = self::contentTypes['getAvailableProperties'][0])
     {
-        return $this->getAvailablePropertiesAsyncWithHttpInfo($check_in, $check_out, $authorization, $adults, $children, $lat, $lng, $radius, $property_ids, $negotiated_rate_plans, $number_of_units, $page, $limit, $contentType)
+        return $this->getAvailablePropertiesAsyncWithHttpInfo($check_in, $check_out, $authorization, $adults, $children, $lat, $lng, $radius, $property_ids, $negotiated_rate_plans, $corporate_profile_id, $number_of_units, $page, $limit, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -357,7 +360,8 @@ class AvailabilityApi
      * @param  float $lng The Longitude (optional)
      * @param  int $radius The search radius in meters(m) (optional, default to 2000)
      * @param  string[] $property_ids List of property IDs to be included. When specified, only these properties will be included in the response. The maximum size of property id list is 50. (optional)
-     * @param  string[] $negotiated_rate_plans List of negotiated rate plan ids to be included. (optional)
+     * @param  string[] $negotiated_rate_plans Deprecated! List of negotiated rate plan ids to be included. (optional)
+     * @param  string $corporate_profile_id The corporate_profile_id can be used to fetch specific rates linked to a corporate. (optional, default to 'null')
      * @param  int $number_of_units The total number of units required (optional, default to 1)
      * @param  int $page The returned page number (optional, default to 0)
      * @param  int $limit Number of results per page. The maximum value of the limit is 50. (optional, default to 10)
@@ -366,10 +370,10 @@ class AvailabilityApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getAvailablePropertiesAsyncWithHttpInfo($check_in, $check_out, $authorization, $adults = 1, $children = 0, $lat = null, $lng = null, $radius = 2000, $property_ids = null, $negotiated_rate_plans = null, $number_of_units = 1, $page = 0, $limit = 10, string $contentType = self::contentTypes['getAvailableProperties'][0])
+    public function getAvailablePropertiesAsyncWithHttpInfo($check_in, $check_out, $authorization, $adults = 1, $children = 0, $lat = null, $lng = null, $radius = 2000, $property_ids = null, $negotiated_rate_plans = null, $corporate_profile_id = 'null', $number_of_units = 1, $page = 0, $limit = 10, string $contentType = self::contentTypes['getAvailableProperties'][0])
     {
         $returnType = '\Katanox\Model\ModelGetAvailabilityResponse';
-        $request = $this->getAvailablePropertiesRequest($check_in, $check_out, $authorization, $adults, $children, $lat, $lng, $radius, $property_ids, $negotiated_rate_plans, $number_of_units, $page, $limit, $contentType);
+        $request = $this->getAvailablePropertiesRequest($check_in, $check_out, $authorization, $adults, $children, $lat, $lng, $radius, $property_ids, $negotiated_rate_plans, $corporate_profile_id, $number_of_units, $page, $limit, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -419,7 +423,8 @@ class AvailabilityApi
      * @param  float $lng The Longitude (optional)
      * @param  int $radius The search radius in meters(m) (optional, default to 2000)
      * @param  string[] $property_ids List of property IDs to be included. When specified, only these properties will be included in the response. The maximum size of property id list is 50. (optional)
-     * @param  string[] $negotiated_rate_plans List of negotiated rate plan ids to be included. (optional)
+     * @param  string[] $negotiated_rate_plans Deprecated! List of negotiated rate plan ids to be included. (optional)
+     * @param  string $corporate_profile_id The corporate_profile_id can be used to fetch specific rates linked to a corporate. (optional, default to 'null')
      * @param  int $number_of_units The total number of units required (optional, default to 1)
      * @param  int $page The returned page number (optional, default to 0)
      * @param  int $limit Number of results per page. The maximum value of the limit is 50. (optional, default to 10)
@@ -428,7 +433,7 @@ class AvailabilityApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getAvailablePropertiesRequest($check_in, $check_out, $authorization, $adults = 1, $children = 0, $lat = null, $lng = null, $radius = 2000, $property_ids = null, $negotiated_rate_plans = null, $number_of_units = 1, $page = 0, $limit = 10, string $contentType = self::contentTypes['getAvailableProperties'][0])
+    public function getAvailablePropertiesRequest($check_in, $check_out, $authorization, $adults = 1, $children = 0, $lat = null, $lng = null, $radius = 2000, $property_ids = null, $negotiated_rate_plans = null, $corporate_profile_id = 'null', $number_of_units = 1, $page = 0, $limit = 10, string $contentType = self::contentTypes['getAvailableProperties'][0])
     {
 
         // verify the required parameter 'check_in' is set
@@ -465,6 +470,7 @@ class AvailabilityApi
             throw new \InvalidArgumentException('invalid value for "$lng" when calling AvailabilityApi.getAvailableProperties, must be bigger than or equal to -180.');
         }
         
+
 
 
 
@@ -556,6 +562,15 @@ class AvailabilityApi
             $negotiated_rate_plans,
             'negotiated_rate_plans', // param base name
             'array', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $corporate_profile_id,
+            'corporate_profile_id', // param base name
+            'string', // openApiType
             'form', // style
             true, // explode
             false // required

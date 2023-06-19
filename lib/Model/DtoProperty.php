@@ -59,7 +59,6 @@ class DtoProperty implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPITypes = [
         'address_line_1' => 'string',
         'address_line_2' => 'string',
-        'cancellation_policies' => '\Katanox\Model\DtoCancellationPolicy[]',
         'check_in_time' => 'string',
         'check_out_time' => 'string',
         'city' => 'string',
@@ -72,13 +71,12 @@ class DtoProperty implements ModelInterface, ArrayAccess, \JsonSerializable
         'images' => '\Katanox\Model\DtoPropertyImage[]',
         'location' => '\Katanox\Model\GeopointGeoPoint',
         'name' => 'string',
-        'no_show_policies' => '\Katanox\Model\DtoNoShowPolicy[]',
         'number_of_units' => 'int',
         'phone_number' => 'string',
         'postcode' => 'string',
-        'prices' => '\Katanox\Model\AvailabilityAvailabilityAndPrice[]',
         'rate_plans' => '\Katanox\Model\DtoRatePlan[]',
         'star_rating' => 'int',
+        'timezone' => 'string',
         'translations' => '\Katanox\Model\DtoI18NProperty[]',
         'units' => '\Katanox\Model\DtoUnit[]'
     ];
@@ -93,7 +91,6 @@ class DtoProperty implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPIFormats = [
         'address_line_1' => null,
         'address_line_2' => null,
-        'cancellation_policies' => null,
         'check_in_time' => null,
         'check_out_time' => null,
         'city' => null,
@@ -106,13 +103,12 @@ class DtoProperty implements ModelInterface, ArrayAccess, \JsonSerializable
         'images' => null,
         'location' => null,
         'name' => null,
-        'no_show_policies' => null,
         'number_of_units' => null,
         'phone_number' => null,
         'postcode' => null,
-        'prices' => null,
         'rate_plans' => null,
         'star_rating' => null,
+        'timezone' => null,
         'translations' => null,
         'units' => null
     ];
@@ -125,7 +121,6 @@ class DtoProperty implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static array $openAPINullables = [
         'address_line_1' => false,
 		'address_line_2' => false,
-		'cancellation_policies' => false,
 		'check_in_time' => false,
 		'check_out_time' => false,
 		'city' => false,
@@ -138,13 +133,12 @@ class DtoProperty implements ModelInterface, ArrayAccess, \JsonSerializable
 		'images' => false,
 		'location' => false,
 		'name' => false,
-		'no_show_policies' => false,
 		'number_of_units' => false,
 		'phone_number' => false,
 		'postcode' => false,
-		'prices' => false,
 		'rate_plans' => false,
 		'star_rating' => false,
+		'timezone' => false,
 		'translations' => false,
 		'units' => false
     ];
@@ -237,7 +231,6 @@ class DtoProperty implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $attributeMap = [
         'address_line_1' => 'address_line_1',
         'address_line_2' => 'address_line_2',
-        'cancellation_policies' => 'cancellation_policies',
         'check_in_time' => 'check_in_time',
         'check_out_time' => 'check_out_time',
         'city' => 'city',
@@ -250,13 +243,12 @@ class DtoProperty implements ModelInterface, ArrayAccess, \JsonSerializable
         'images' => 'images',
         'location' => 'location',
         'name' => 'name',
-        'no_show_policies' => 'no_show_policies',
         'number_of_units' => 'number_of_units',
         'phone_number' => 'phone_number',
         'postcode' => 'postcode',
-        'prices' => 'prices',
         'rate_plans' => 'rate_plans',
         'star_rating' => 'star_rating',
+        'timezone' => 'timezone',
         'translations' => 'translations',
         'units' => 'units'
     ];
@@ -269,7 +261,6 @@ class DtoProperty implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $setters = [
         'address_line_1' => 'setAddressLine1',
         'address_line_2' => 'setAddressLine2',
-        'cancellation_policies' => 'setCancellationPolicies',
         'check_in_time' => 'setCheckInTime',
         'check_out_time' => 'setCheckOutTime',
         'city' => 'setCity',
@@ -282,13 +273,12 @@ class DtoProperty implements ModelInterface, ArrayAccess, \JsonSerializable
         'images' => 'setImages',
         'location' => 'setLocation',
         'name' => 'setName',
-        'no_show_policies' => 'setNoShowPolicies',
         'number_of_units' => 'setNumberOfUnits',
         'phone_number' => 'setPhoneNumber',
         'postcode' => 'setPostcode',
-        'prices' => 'setPrices',
         'rate_plans' => 'setRatePlans',
         'star_rating' => 'setStarRating',
+        'timezone' => 'setTimezone',
         'translations' => 'setTranslations',
         'units' => 'setUnits'
     ];
@@ -301,7 +291,6 @@ class DtoProperty implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $getters = [
         'address_line_1' => 'getAddressLine1',
         'address_line_2' => 'getAddressLine2',
-        'cancellation_policies' => 'getCancellationPolicies',
         'check_in_time' => 'getCheckInTime',
         'check_out_time' => 'getCheckOutTime',
         'city' => 'getCity',
@@ -314,13 +303,12 @@ class DtoProperty implements ModelInterface, ArrayAccess, \JsonSerializable
         'images' => 'getImages',
         'location' => 'getLocation',
         'name' => 'getName',
-        'no_show_policies' => 'getNoShowPolicies',
         'number_of_units' => 'getNumberOfUnits',
         'phone_number' => 'getPhoneNumber',
         'postcode' => 'getPostcode',
-        'prices' => 'getPrices',
         'rate_plans' => 'getRatePlans',
         'star_rating' => 'getStarRating',
+        'timezone' => 'getTimezone',
         'translations' => 'getTranslations',
         'units' => 'getUnits'
     ];
@@ -384,7 +372,6 @@ class DtoProperty implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $this->setIfExists('address_line_1', $data ?? [], null);
         $this->setIfExists('address_line_2', $data ?? [], null);
-        $this->setIfExists('cancellation_policies', $data ?? [], null);
         $this->setIfExists('check_in_time', $data ?? [], null);
         $this->setIfExists('check_out_time', $data ?? [], null);
         $this->setIfExists('city', $data ?? [], null);
@@ -397,13 +384,12 @@ class DtoProperty implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('images', $data ?? [], null);
         $this->setIfExists('location', $data ?? [], null);
         $this->setIfExists('name', $data ?? [], null);
-        $this->setIfExists('no_show_policies', $data ?? [], null);
         $this->setIfExists('number_of_units', $data ?? [], null);
         $this->setIfExists('phone_number', $data ?? [], null);
         $this->setIfExists('postcode', $data ?? [], null);
-        $this->setIfExists('prices', $data ?? [], null);
         $this->setIfExists('rate_plans', $data ?? [], null);
         $this->setIfExists('star_rating', $data ?? [], null);
+        $this->setIfExists('timezone', $data ?? [], null);
         $this->setIfExists('translations', $data ?? [], null);
         $this->setIfExists('units', $data ?? [], null);
     }
@@ -500,33 +486,6 @@ class DtoProperty implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable address_line_2 cannot be null');
         }
         $this->container['address_line_2'] = $address_line_2;
-
-        return $this;
-    }
-
-    /**
-     * Gets cancellation_policies
-     *
-     * @return \Katanox\Model\DtoCancellationPolicy[]|null
-     */
-    public function getCancellationPolicies()
-    {
-        return $this->container['cancellation_policies'];
-    }
-
-    /**
-     * Sets cancellation_policies
-     *
-     * @param \Katanox\Model\DtoCancellationPolicy[]|null $cancellation_policies cancellation_policies
-     *
-     * @return self
-     */
-    public function setCancellationPolicies($cancellation_policies)
-    {
-        if (is_null($cancellation_policies)) {
-            throw new \InvalidArgumentException('non-nullable cancellation_policies cannot be null');
-        }
-        $this->container['cancellation_policies'] = $cancellation_policies;
 
         return $this;
     }
@@ -856,33 +815,6 @@ class DtoProperty implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets no_show_policies
-     *
-     * @return \Katanox\Model\DtoNoShowPolicy[]|null
-     */
-    public function getNoShowPolicies()
-    {
-        return $this->container['no_show_policies'];
-    }
-
-    /**
-     * Sets no_show_policies
-     *
-     * @param \Katanox\Model\DtoNoShowPolicy[]|null $no_show_policies no_show_policies
-     *
-     * @return self
-     */
-    public function setNoShowPolicies($no_show_policies)
-    {
-        if (is_null($no_show_policies)) {
-            throw new \InvalidArgumentException('non-nullable no_show_policies cannot be null');
-        }
-        $this->container['no_show_policies'] = $no_show_policies;
-
-        return $this;
-    }
-
-    /**
      * Gets number_of_units
      *
      * @return int|null
@@ -964,33 +896,6 @@ class DtoProperty implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets prices
-     *
-     * @return \Katanox\Model\AvailabilityAvailabilityAndPrice[]|null
-     */
-    public function getPrices()
-    {
-        return $this->container['prices'];
-    }
-
-    /**
-     * Sets prices
-     *
-     * @param \Katanox\Model\AvailabilityAvailabilityAndPrice[]|null $prices prices
-     *
-     * @return self
-     */
-    public function setPrices($prices)
-    {
-        if (is_null($prices)) {
-            throw new \InvalidArgumentException('non-nullable prices cannot be null');
-        }
-        $this->container['prices'] = $prices;
-
-        return $this;
-    }
-
-    /**
      * Gets rate_plans
      *
      * @return \Katanox\Model\DtoRatePlan[]|null
@@ -1040,6 +945,33 @@ class DtoProperty implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable star_rating cannot be null');
         }
         $this->container['star_rating'] = $star_rating;
+
+        return $this;
+    }
+
+    /**
+     * Gets timezone
+     *
+     * @return string|null
+     */
+    public function getTimezone()
+    {
+        return $this->container['timezone'];
+    }
+
+    /**
+     * Sets timezone
+     *
+     * @param string|null $timezone timezone
+     *
+     * @return self
+     */
+    public function setTimezone($timezone)
+    {
+        if (is_null($timezone)) {
+            throw new \InvalidArgumentException('non-nullable timezone cannot be null');
+        }
+        $this->container['timezone'] = $timezone;
 
         return $this;
     }

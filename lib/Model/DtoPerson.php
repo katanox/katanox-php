@@ -59,7 +59,7 @@ class DtoPerson implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPITypes = [
         'address_line_1' => 'string',
         'address_line_2' => 'string',
-        'birth_date' => 'string',
+        'birth_date' => '\DateTime',
         'city' => 'string',
         'country' => 'string',
         'email' => 'string',
@@ -80,7 +80,7 @@ class DtoPerson implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPIFormats = [
         'address_line_1' => null,
         'address_line_2' => null,
-        'birth_date' => null,
+        'birth_date' => 'date',
         'city' => null,
         'country' => null,
         'email' => null,
@@ -344,6 +344,12 @@ class DtoPerson implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
+        if ($this->container['first_name'] === null) {
+            $invalidProperties[] = "'first_name' can't be null";
+        }
+        if ($this->container['last_name'] === null) {
+            $invalidProperties[] = "'last_name' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -416,7 +422,7 @@ class DtoPerson implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets birth_date
      *
-     * @return string|null
+     * @return \DateTime|null
      */
     public function getBirthDate()
     {
@@ -426,7 +432,7 @@ class DtoPerson implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets birth_date
      *
-     * @param string|null $birth_date birth_date
+     * @param \DateTime|null $birth_date birth_date
      *
      * @return self
      */
@@ -524,7 +530,7 @@ class DtoPerson implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets first_name
      *
-     * @return string|null
+     * @return string
      */
     public function getFirstName()
     {
@@ -534,7 +540,7 @@ class DtoPerson implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets first_name
      *
-     * @param string|null $first_name first_name
+     * @param string $first_name first_name
      *
      * @return self
      */
@@ -551,7 +557,7 @@ class DtoPerson implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets last_name
      *
-     * @return string|null
+     * @return string
      */
     public function getLastName()
     {
@@ -561,7 +567,7 @@ class DtoPerson implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets last_name
      *
-     * @param string|null $last_name last_name
+     * @param string $last_name last_name
      *
      * @return self
      */

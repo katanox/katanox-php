@@ -61,7 +61,7 @@ class AvailabilityPrice implements ModelInterface, ArrayAccess, \JsonSerializabl
         'before_tax' => 'float',
         'currency' => 'string',
         'extra_charges' => '\Katanox\Model\AvailabilityExtraCharge[]',
-        'price_per_night' => '\Katanox\Model\GithubComKatanoxApiPkgModelAvailabilityPricePerNight[]',
+        'price_per_night' => '\Katanox\Model\AvailabilityPricePerNight[]',
         'total_amount' => 'float'
     ];
 
@@ -435,7 +435,7 @@ class AvailabilityPrice implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Gets price_per_night
      *
-     * @return \Katanox\Model\GithubComKatanoxApiPkgModelAvailabilityPricePerNight[]|null
+     * @return \Katanox\Model\AvailabilityPricePerNight[]|null
      */
     public function getPricePerNight()
     {
@@ -445,7 +445,7 @@ class AvailabilityPrice implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets price_per_night
      *
-     * @param \Katanox\Model\GithubComKatanoxApiPkgModelAvailabilityPricePerNight[]|null $price_per_night price_per_night
+     * @param \Katanox\Model\AvailabilityPricePerNight[]|null $price_per_night price_per_night
      *
      * @return self
      */

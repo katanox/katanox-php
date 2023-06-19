@@ -566,7 +566,7 @@ class DtoCancellationPolicy implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets reference
      *
-     * @param string|null $reference reference
+     * @param string|null $reference When the policy gets activated
      *
      * @return self
      */

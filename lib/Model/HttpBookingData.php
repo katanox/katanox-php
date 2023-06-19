@@ -57,7 +57,7 @@ class HttpBookingData implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'booking' => '\Katanox\Model\DtoCreatedBooking'
+        'booking' => '\Katanox\Model\DtoCreatedBookingInfo'
     ];
 
     /**
@@ -292,7 +292,7 @@ class HttpBookingData implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets booking
      *
-     * @return \Katanox\Model\DtoCreatedBooking|null
+     * @return \Katanox\Model\DtoCreatedBookingInfo|null
      */
     public function getBooking()
     {
@@ -302,7 +302,7 @@ class HttpBookingData implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets booking
      *
-     * @param \Katanox\Model\DtoCreatedBooking|null $booking booking
+     * @param \Katanox\Model\DtoCreatedBookingInfo|null $booking booking
      *
      * @return self
      */
