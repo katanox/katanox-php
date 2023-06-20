@@ -1,17 +1,18 @@
 <?php
 /**
- * DtoCancellationPolicyTest
+ * DtoCancellationPolicyTest.
  *
  * PHP version 7.4
  *
  * @category Class
- * @package  OpenAPI\Client
+ *
  * @author   OpenAPI Generator team
- * @link     https://openapi-generator.tech
+ *
+ * @see     https://openapi-generator.tech
  */
 
 /**
- * Katanox API Documentation
+ * Katanox API Documentation.
  *
  * The Katanox API allows any travel seller to search and book accommodation.
  *
@@ -31,47 +32,52 @@ namespace OpenAPI\Client\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * DtoCancellationPolicyTest Class Doc Comment
+ * DtoCancellationPolicyTest Class Doc Comment.
  *
  * @category    Class
+ *
  * @description DtoCancellationPolicy
- * @package     OpenAPI\Client
+ *
  * @author      OpenAPI Generator team
- * @link        https://openapi-generator.tech
+ *
+ * @see        https://openapi-generator.tech
+ *
+ * @internal
+ *
+ * @coversNothing
  */
 class DtoCancellationPolicyTest extends TestCase
 {
-
     /**
-     * Setup before running any test case
+     * Setup before running any test case.
      */
     public static function setUpBeforeClass(): void
     {
     }
 
     /**
-     * Setup before running each test case
-     */
-    public function setUp(): void
-    {
-    }
-
-    /**
-     * Clean up after running each test case
-     */
-    public function tearDown(): void
-    {
-    }
-
-    /**
-     * Clean up after running all test cases
+     * Clean up after running all test cases.
      */
     public static function tearDownAfterClass(): void
     {
     }
 
     /**
-     * Test "DtoCancellationPolicy"
+     * Setup before running each test case.
+     */
+    public function setUp(): void
+    {
+    }
+
+    /**
+     * Clean up after running each test case.
+     */
+    public function tearDown(): void
+    {
+    }
+
+    /**
+     * Test "DtoCancellationPolicy".
      */
     public function testDtoCancellationPolicy()
     {
@@ -80,7 +86,7 @@ class DtoCancellationPolicyTest extends TestCase
     }
 
     /**
-     * Test attribute "amount"
+     * Test attribute "amount".
      */
     public function testPropertyAmount()
     {
@@ -89,7 +95,7 @@ class DtoCancellationPolicyTest extends TestCase
     }
 
     /**
-     * Test attribute "charge_type"
+     * Test attribute "charge_type".
      */
     public function testPropertyChargeType()
     {
@@ -98,7 +104,7 @@ class DtoCancellationPolicyTest extends TestCase
     }
 
     /**
-     * Test attribute "days_before_activation"
+     * Test attribute "days_before_activation".
      */
     public function testPropertyDaysBeforeActivation()
     {
@@ -107,7 +113,7 @@ class DtoCancellationPolicyTest extends TestCase
     }
 
     /**
-     * Test attribute "description"
+     * Test attribute "description".
      */
     public function testPropertyDescription()
     {
@@ -116,7 +122,7 @@ class DtoCancellationPolicyTest extends TestCase
     }
 
     /**
-     * Test attribute "hours_before_activation"
+     * Test attribute "hours_before_activation".
      */
     public function testPropertyHoursBeforeActivation()
     {
@@ -125,7 +131,7 @@ class DtoCancellationPolicyTest extends TestCase
     }
 
     /**
-     * Test attribute "name"
+     * Test attribute "name".
      */
     public function testPropertyName()
     {
@@ -134,7 +140,7 @@ class DtoCancellationPolicyTest extends TestCase
     }
 
     /**
-     * Test attribute "reference"
+     * Test attribute "reference".
      */
     public function testPropertyReference()
     {

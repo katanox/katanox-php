@@ -1,17 +1,18 @@
 <?php
 /**
- * ModelUnitTest
+ * ModelUnitTest.
  *
  * PHP version 7.4
  *
  * @category Class
- * @package  OpenAPI\Client
+ *
  * @author   OpenAPI Generator team
- * @link     https://openapi-generator.tech
+ *
+ * @see     https://openapi-generator.tech
  */
 
 /**
- * Katanox API Documentation
+ * Katanox API Documentation.
  *
  * The Katanox API allows any travel seller to search and book accommodation.
  *
@@ -31,47 +32,52 @@ namespace OpenAPI\Client\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * ModelUnitTest Class Doc Comment
+ * ModelUnitTest Class Doc Comment.
  *
  * @category    Class
+ *
  * @description ModelUnit
- * @package     OpenAPI\Client
+ *
  * @author      OpenAPI Generator team
- * @link        https://openapi-generator.tech
+ *
+ * @see        https://openapi-generator.tech
+ *
+ * @internal
+ *
+ * @coversNothing
  */
 class ModelUnitTest extends TestCase
 {
-
     /**
-     * Setup before running any test case
+     * Setup before running any test case.
      */
     public static function setUpBeforeClass(): void
     {
     }
 
     /**
-     * Setup before running each test case
-     */
-    public function setUp(): void
-    {
-    }
-
-    /**
-     * Clean up after running each test case
-     */
-    public function tearDown(): void
-    {
-    }
-
-    /**
-     * Clean up after running all test cases
+     * Clean up after running all test cases.
      */
     public static function tearDownAfterClass(): void
     {
     }
 
     /**
-     * Test "ModelUnit"
+     * Setup before running each test case.
+     */
+    public function setUp(): void
+    {
+    }
+
+    /**
+     * Clean up after running each test case.
+     */
+    public function tearDown(): void
+    {
+    }
+
+    /**
+     * Test "ModelUnit".
      */
     public function testModelUnit()
     {
@@ -80,7 +86,7 @@ class ModelUnitTest extends TestCase
     }
 
     /**
-     * Test attribute "amenities"
+     * Test attribute "amenities".
      */
     public function testPropertyAmenities()
     {
@@ -89,7 +95,7 @@ class ModelUnitTest extends TestCase
     }
 
     /**
-     * Test attribute "bed_types"
+     * Test attribute "bed_types".
      */
     public function testPropertyBedTypes()
     {
@@ -98,7 +104,7 @@ class ModelUnitTest extends TestCase
     }
 
     /**
-     * Test attribute "class"
+     * Test attribute "class".
      */
     public function testPropertyClass()
     {
@@ -107,7 +113,7 @@ class ModelUnitTest extends TestCase
     }
 
     /**
-     * Test attribute "description"
+     * Test attribute "description".
      */
     public function testPropertyDescription()
     {
@@ -116,7 +122,7 @@ class ModelUnitTest extends TestCase
     }
 
     /**
-     * Test attribute "id"
+     * Test attribute "id".
      */
     public function testPropertyId()
     {
@@ -125,7 +131,7 @@ class ModelUnitTest extends TestCase
     }
 
     /**
-     * Test attribute "images"
+     * Test attribute "images".
      */
     public function testPropertyImages()
     {
@@ -134,7 +140,7 @@ class ModelUnitTest extends TestCase
     }
 
     /**
-     * Test attribute "name"
+     * Test attribute "name".
      */
     public function testPropertyName()
     {
@@ -143,7 +149,7 @@ class ModelUnitTest extends TestCase
     }
 
     /**
-     * Test attribute "property_id"
+     * Test attribute "property_id".
      */
     public function testPropertyPropertyId()
     {
@@ -152,7 +158,7 @@ class ModelUnitTest extends TestCase
     }
 
     /**
-     * Test attribute "translations"
+     * Test attribute "translations".
      */
     public function testPropertyTranslations()
     {
@@ -161,7 +167,7 @@ class ModelUnitTest extends TestCase
     }
 
     /**
-     * Test attribute "type"
+     * Test attribute "type".
      */
     public function testPropertyType()
     {

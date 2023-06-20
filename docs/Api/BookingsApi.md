@@ -132,8 +132,7 @@ No authorization required
 ```php
 createBooking($authorization, $http_booking_creation_request): \Katanox\Model\HttpBookingResponse
 ```
-### URI(s):
-- https://api.pci-proxy.com/v1/push/5775c7cf3b3e5dc0 
+
 Create a booking
 
 Using this endpoint, you can create a booking consisting of one or more reservations. Note that these reservations need to belong to the same property, but can contain any combination of rates/units of that property. Furthermore, the check-in date of the new reservation needs to be within the travel dates of the rest of the reservations in the booking. The booking object allows you to manage multiple reservations in a unified way while keeping the flexibility to modify individual reservations.  When this endpoint returns a successful response, it means that we accepted the booking and we are in the process of forwarding it to the hotels. Since some hotel systems are asynchronous, you need to retrieve the booking again using the id in the response and check if it was confirmed.
@@ -154,12 +153,8 @@ $apiInstance = new Katanox\Api\BookingsApi(
 $authorization = 'authorization_example'; // string | Type 'Bearer' and then your API Token
 $http_booking_creation_request = new \Katanox\Model\HttpBookingCreationRequest(); // \Katanox\Model\HttpBookingCreationRequest | Booking body
 
-$hostIndex = 0;
-$variables = [
-];
-
 try {
-    $result = $apiInstance->createBooking($authorization, $http_booking_creation_request, $hostIndex, $variables);
+    $result = $apiInstance->createBooking($authorization, $http_booking_creation_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling BookingsApi->createBooking: ', $e->getMessage(), PHP_EOL;
@@ -172,8 +167,6 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **authorization** | **string**| Type &#39;Bearer&#39; and then your API Token | |
 | **http_booking_creation_request** | [**\Katanox\Model\HttpBookingCreationRequest**](../Model/HttpBookingCreationRequest.md)| Booking body | |
-| hostIndex | null|int | Host index. Defaults to null. If null, then the library will use $this->hostIndex instead | [optional] |
-| variables | array | Associative array of variables to pass to the host. Defaults to empty array. | [optional] |
 
 ### Return type
 

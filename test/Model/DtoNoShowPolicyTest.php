@@ -1,17 +1,18 @@
 <?php
 /**
- * DtoNoShowPolicyTest
+ * DtoNoShowPolicyTest.
  *
  * PHP version 7.4
  *
  * @category Class
- * @package  OpenAPI\Client
+ *
  * @author   OpenAPI Generator team
- * @link     https://openapi-generator.tech
+ *
+ * @see     https://openapi-generator.tech
  */
 
 /**
- * Katanox API Documentation
+ * Katanox API Documentation.
  *
  * The Katanox API allows any travel seller to search and book accommodation.
  *
@@ -31,47 +32,52 @@ namespace OpenAPI\Client\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * DtoNoShowPolicyTest Class Doc Comment
+ * DtoNoShowPolicyTest Class Doc Comment.
  *
  * @category    Class
+ *
  * @description DtoNoShowPolicy
- * @package     OpenAPI\Client
+ *
  * @author      OpenAPI Generator team
- * @link        https://openapi-generator.tech
+ *
+ * @see        https://openapi-generator.tech
+ *
+ * @internal
+ *
+ * @coversNothing
  */
 class DtoNoShowPolicyTest extends TestCase
 {
-
     /**
-     * Setup before running any test case
+     * Setup before running any test case.
      */
     public static function setUpBeforeClass(): void
     {
     }
 
     /**
-     * Setup before running each test case
-     */
-    public function setUp(): void
-    {
-    }
-
-    /**
-     * Clean up after running each test case
-     */
-    public function tearDown(): void
-    {
-    }
-
-    /**
-     * Clean up after running all test cases
+     * Clean up after running all test cases.
      */
     public static function tearDownAfterClass(): void
     {
     }
 
     /**
-     * Test "DtoNoShowPolicy"
+     * Setup before running each test case.
+     */
+    public function setUp(): void
+    {
+    }
+
+    /**
+     * Clean up after running each test case.
+     */
+    public function tearDown(): void
+    {
+    }
+
+    /**
+     * Test "DtoNoShowPolicy".
      */
     public function testDtoNoShowPolicy()
     {
@@ -80,7 +86,7 @@ class DtoNoShowPolicyTest extends TestCase
     }
 
     /**
-     * Test attribute "amount"
+     * Test attribute "amount".
      */
     public function testPropertyAmount()
     {
@@ -89,7 +95,7 @@ class DtoNoShowPolicyTest extends TestCase
     }
 
     /**
-     * Test attribute "charge_type"
+     * Test attribute "charge_type".
      */
     public function testPropertyChargeType()
     {
@@ -98,7 +104,7 @@ class DtoNoShowPolicyTest extends TestCase
     }
 
     /**
-     * Test attribute "description"
+     * Test attribute "description".
      */
     public function testPropertyDescription()
     {
@@ -107,7 +113,7 @@ class DtoNoShowPolicyTest extends TestCase
     }
 
     /**
-     * Test attribute "name"
+     * Test attribute "name".
      */
     public function testPropertyName()
     {

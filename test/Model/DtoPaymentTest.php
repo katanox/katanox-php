@@ -1,17 +1,18 @@
 <?php
 /**
- * DtoPaymentTest
+ * DtoPaymentTest.
  *
  * PHP version 7.4
  *
  * @category Class
- * @package  OpenAPI\Client
+ *
  * @author   OpenAPI Generator team
- * @link     https://openapi-generator.tech
+ *
+ * @see     https://openapi-generator.tech
  */
 
 /**
- * Katanox API Documentation
+ * Katanox API Documentation.
  *
  * The Katanox API allows any travel seller to search and book accommodation.
  *
@@ -31,47 +32,52 @@ namespace OpenAPI\Client\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * DtoPaymentTest Class Doc Comment
+ * DtoPaymentTest Class Doc Comment.
  *
  * @category    Class
+ *
  * @description DtoPayment
- * @package     OpenAPI\Client
+ *
  * @author      OpenAPI Generator team
- * @link        https://openapi-generator.tech
+ *
+ * @see        https://openapi-generator.tech
+ *
+ * @internal
+ *
+ * @coversNothing
  */
 class DtoPaymentTest extends TestCase
 {
-
     /**
-     * Setup before running any test case
+     * Setup before running any test case.
      */
     public static function setUpBeforeClass(): void
     {
     }
 
     /**
-     * Setup before running each test case
-     */
-    public function setUp(): void
-    {
-    }
-
-    /**
-     * Clean up after running each test case
-     */
-    public function tearDown(): void
-    {
-    }
-
-    /**
-     * Clean up after running all test cases
+     * Clean up after running all test cases.
      */
     public static function tearDownAfterClass(): void
     {
     }
 
     /**
-     * Test "DtoPayment"
+     * Setup before running each test case.
+     */
+    public function setUp(): void
+    {
+    }
+
+    /**
+     * Clean up after running each test case.
+     */
+    public function tearDown(): void
+    {
+    }
+
+    /**
+     * Test "DtoPayment".
      */
     public function testDtoPayment()
     {
@@ -80,7 +86,7 @@ class DtoPaymentTest extends TestCase
     }
 
     /**
-     * Test attribute "card_holder"
+     * Test attribute "card_holder".
      */
     public function testPropertyCardHolder()
     {
@@ -89,7 +95,7 @@ class DtoPaymentTest extends TestCase
     }
 
     /**
-     * Test attribute "card_number"
+     * Test attribute "card_number".
      */
     public function testPropertyCardNumber()
     {
@@ -98,7 +104,7 @@ class DtoPaymentTest extends TestCase
     }
 
     /**
-     * Test attribute "cvv"
+     * Test attribute "cvv".
      */
     public function testPropertyCvv()
     {
@@ -107,7 +113,7 @@ class DtoPaymentTest extends TestCase
     }
 
     /**
-     * Test attribute "expiry_month"
+     * Test attribute "expiry_month".
      */
     public function testPropertyExpiryMonth()
     {
@@ -116,7 +122,7 @@ class DtoPaymentTest extends TestCase
     }
 
     /**
-     * Test attribute "expiry_year"
+     * Test attribute "expiry_year".
      */
     public function testPropertyExpiryYear()
     {
@@ -125,7 +131,7 @@ class DtoPaymentTest extends TestCase
     }
 
     /**
-     * Test attribute "type"
+     * Test attribute "type".
      */
     public function testPropertyType()
     {

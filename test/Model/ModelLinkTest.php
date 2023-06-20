@@ -1,17 +1,18 @@
 <?php
 /**
- * ModelLinkTest
+ * ModelLinkTest.
  *
  * PHP version 7.4
  *
  * @category Class
- * @package  OpenAPI\Client
+ *
  * @author   OpenAPI Generator team
- * @link     https://openapi-generator.tech
+ *
+ * @see     https://openapi-generator.tech
  */
 
 /**
- * Katanox API Documentation
+ * Katanox API Documentation.
  *
  * The Katanox API allows any travel seller to search and book accommodation.
  *
@@ -31,47 +32,52 @@ namespace OpenAPI\Client\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * ModelLinkTest Class Doc Comment
+ * ModelLinkTest Class Doc Comment.
  *
  * @category    Class
+ *
  * @description ModelLink
- * @package     OpenAPI\Client
+ *
  * @author      OpenAPI Generator team
- * @link        https://openapi-generator.tech
+ *
+ * @see        https://openapi-generator.tech
+ *
+ * @internal
+ *
+ * @coversNothing
  */
 class ModelLinkTest extends TestCase
 {
-
     /**
-     * Setup before running any test case
+     * Setup before running any test case.
      */
     public static function setUpBeforeClass(): void
     {
     }
 
     /**
-     * Setup before running each test case
-     */
-    public function setUp(): void
-    {
-    }
-
-    /**
-     * Clean up after running each test case
-     */
-    public function tearDown(): void
-    {
-    }
-
-    /**
-     * Clean up after running all test cases
+     * Clean up after running all test cases.
      */
     public static function tearDownAfterClass(): void
     {
     }
 
     /**
-     * Test "ModelLink"
+     * Setup before running each test case.
+     */
+    public function setUp(): void
+    {
+    }
+
+    /**
+     * Clean up after running each test case.
+     */
+    public function tearDown(): void
+    {
+    }
+
+    /**
+     * Test "ModelLink".
      */
     public function testModelLink()
     {
@@ -80,7 +86,7 @@ class ModelLinkTest extends TestCase
     }
 
     /**
-     * Test attribute "method"
+     * Test attribute "method".
      */
     public function testPropertyMethod()
     {
@@ -89,7 +95,7 @@ class ModelLinkTest extends TestCase
     }
 
     /**
-     * Test attribute "url"
+     * Test attribute "url".
      */
     public function testPropertyUrl()
     {

@@ -4,11 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**number_of_units** | **int** |  | [optional]
-**packages** | **string[]** |  | [optional]
 **price** | [**\Katanox\Model\AvailabilityPrice**](AvailabilityPrice.md) |  | [optional]
-**property_id** | **int** |  | [optional]
-**rate_plan_id** | **int** |  | [optional]
-**unit_id** | **int** |  | [optional]
+**property_id** | **string** |  | [optional]
+**rate_plan_id** | **string** |  | [optional]
+**unit_id** | **string** |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

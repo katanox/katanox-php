@@ -1,17 +1,18 @@
 <?php
 /**
- * ModelPageTest
+ * ModelPageTest.
  *
  * PHP version 7.4
  *
  * @category Class
- * @package  OpenAPI\Client
+ *
  * @author   OpenAPI Generator team
- * @link     https://openapi-generator.tech
+ *
+ * @see     https://openapi-generator.tech
  */
 
 /**
- * Katanox API Documentation
+ * Katanox API Documentation.
  *
  * The Katanox API allows any travel seller to search and book accommodation.
  *
@@ -31,47 +32,52 @@ namespace OpenAPI\Client\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * ModelPageTest Class Doc Comment
+ * ModelPageTest Class Doc Comment.
  *
  * @category    Class
+ *
  * @description ModelPage
- * @package     OpenAPI\Client
+ *
  * @author      OpenAPI Generator team
- * @link        https://openapi-generator.tech
+ *
+ * @see        https://openapi-generator.tech
+ *
+ * @internal
+ *
+ * @coversNothing
  */
 class ModelPageTest extends TestCase
 {
-
     /**
-     * Setup before running any test case
+     * Setup before running any test case.
      */
     public static function setUpBeforeClass(): void
     {
     }
 
     /**
-     * Setup before running each test case
-     */
-    public function setUp(): void
-    {
-    }
-
-    /**
-     * Clean up after running each test case
-     */
-    public function tearDown(): void
-    {
-    }
-
-    /**
-     * Clean up after running all test cases
+     * Clean up after running all test cases.
      */
     public static function tearDownAfterClass(): void
     {
     }
 
     /**
-     * Test "ModelPage"
+     * Setup before running each test case.
+     */
+    public function setUp(): void
+    {
+    }
+
+    /**
+     * Clean up after running each test case.
+     */
+    public function tearDown(): void
+    {
+    }
+
+    /**
+     * Test "ModelPage".
      */
     public function testModelPage()
     {
@@ -80,7 +86,7 @@ class ModelPageTest extends TestCase
     }
 
     /**
-     * Test attribute "first"
+     * Test attribute "first".
      */
     public function testPropertyFirst()
     {
@@ -89,7 +95,7 @@ class ModelPageTest extends TestCase
     }
 
     /**
-     * Test attribute "last"
+     * Test attribute "last".
      */
     public function testPropertyLast()
     {
@@ -98,7 +104,7 @@ class ModelPageTest extends TestCase
     }
 
     /**
-     * Test attribute "next"
+     * Test attribute "next".
      */
     public function testPropertyNext()
     {
@@ -107,7 +113,7 @@ class ModelPageTest extends TestCase
     }
 
     /**
-     * Test attribute "previous"
+     * Test attribute "previous".
      */
     public function testPropertyPrevious()
     {

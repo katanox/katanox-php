@@ -1,17 +1,18 @@
 <?php
 /**
- * GeopointGeoPointTest
+ * GeopointGeoPointTest.
  *
  * PHP version 7.4
  *
  * @category Class
- * @package  OpenAPI\Client
+ *
  * @author   OpenAPI Generator team
- * @link     https://openapi-generator.tech
+ *
+ * @see     https://openapi-generator.tech
  */
 
 /**
- * Katanox API Documentation
+ * Katanox API Documentation.
  *
  * The Katanox API allows any travel seller to search and book accommodation.
  *
@@ -31,47 +32,52 @@ namespace OpenAPI\Client\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * GeopointGeoPointTest Class Doc Comment
+ * GeopointGeoPointTest Class Doc Comment.
  *
  * @category    Class
+ *
  * @description GeopointGeoPoint
- * @package     OpenAPI\Client
+ *
  * @author      OpenAPI Generator team
- * @link        https://openapi-generator.tech
+ *
+ * @see        https://openapi-generator.tech
+ *
+ * @internal
+ *
+ * @coversNothing
  */
 class GeopointGeoPointTest extends TestCase
 {
-
     /**
-     * Setup before running any test case
+     * Setup before running any test case.
      */
     public static function setUpBeforeClass(): void
     {
     }
 
     /**
-     * Setup before running each test case
-     */
-    public function setUp(): void
-    {
-    }
-
-    /**
-     * Clean up after running each test case
-     */
-    public function tearDown(): void
-    {
-    }
-
-    /**
-     * Clean up after running all test cases
+     * Clean up after running all test cases.
      */
     public static function tearDownAfterClass(): void
     {
     }
 
     /**
-     * Test "GeopointGeoPoint"
+     * Setup before running each test case.
+     */
+    public function setUp(): void
+    {
+    }
+
+    /**
+     * Clean up after running each test case.
+     */
+    public function tearDown(): void
+    {
+    }
+
+    /**
+     * Test "GeopointGeoPoint".
      */
     public function testGeopointGeoPoint()
     {
@@ -80,7 +86,7 @@ class GeopointGeoPointTest extends TestCase
     }
 
     /**
-     * Test attribute "latitude"
+     * Test attribute "latitude".
      */
     public function testPropertyLatitude()
     {
@@ -89,7 +95,7 @@ class GeopointGeoPointTest extends TestCase
     }
 
     /**
-     * Test attribute "longitude"
+     * Test attribute "longitude".
      */
     public function testPropertyLongitude()
     {

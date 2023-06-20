@@ -1,17 +1,18 @@
 <?php
 /**
- * ModelOffersDataTest
+ * ModelOffersDataTest.
  *
  * PHP version 7.4
  *
  * @category Class
- * @package  OpenAPI\Client
+ *
  * @author   OpenAPI Generator team
- * @link     https://openapi-generator.tech
+ *
+ * @see     https://openapi-generator.tech
  */
 
 /**
- * Katanox API Documentation
+ * Katanox API Documentation.
  *
  * The Katanox API allows any travel seller to search and book accommodation.
  *
@@ -31,47 +32,52 @@ namespace OpenAPI\Client\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * ModelOffersDataTest Class Doc Comment
+ * ModelOffersDataTest Class Doc Comment.
  *
  * @category    Class
+ *
  * @description ModelOffersData
- * @package     OpenAPI\Client
+ *
  * @author      OpenAPI Generator team
- * @link        https://openapi-generator.tech
+ *
+ * @see        https://openapi-generator.tech
+ *
+ * @internal
+ *
+ * @coversNothing
  */
 class ModelOffersDataTest extends TestCase
 {
-
     /**
-     * Setup before running any test case
+     * Setup before running any test case.
      */
     public static function setUpBeforeClass(): void
     {
     }
 
     /**
-     * Setup before running each test case
-     */
-    public function setUp(): void
-    {
-    }
-
-    /**
-     * Clean up after running each test case
-     */
-    public function tearDown(): void
-    {
-    }
-
-    /**
-     * Clean up after running all test cases
+     * Clean up after running all test cases.
      */
     public static function tearDownAfterClass(): void
     {
     }
 
     /**
-     * Test "ModelOffersData"
+     * Setup before running each test case.
+     */
+    public function setUp(): void
+    {
+    }
+
+    /**
+     * Clean up after running each test case.
+     */
+    public function tearDown(): void
+    {
+    }
+
+    /**
+     * Test "ModelOffersData".
      */
     public function testModelOffersData()
     {
@@ -80,7 +86,7 @@ class ModelOffersDataTest extends TestCase
     }
 
     /**
-     * Test attribute "number_of_units"
+     * Test attribute "number_of_units".
      */
     public function testPropertyNumberOfUnits()
     {
@@ -89,7 +95,7 @@ class ModelOffersDataTest extends TestCase
     }
 
     /**
-     * Test attribute "offers"
+     * Test attribute "offers".
      */
     public function testPropertyOffers()
     {

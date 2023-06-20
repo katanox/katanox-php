@@ -1,16 +1,17 @@
 <?php
 /**
  * BookingsApiTest
- * PHP version 7.4
+ * PHP version 7.4.
  *
  * @category Class
- * @package  OpenAPI\Client
+ *
  * @author   OpenAPI Generator team
- * @link     https://openapi-generator.tech
+ *
+ * @see     https://openapi-generator.tech
  */
 
 /**
- * Katanox API Documentation
+ * Katanox API Documentation.
  *
  * The Katanox API allows any travel seller to search and book accommodation.
  *
@@ -27,55 +28,55 @@
 
 namespace OpenAPI\Client\Test\Api;
 
-use \OpenAPI\Client\Configuration;
-use \OpenAPI\Client\ApiException;
-use \OpenAPI\Client\ObjectSerializer;
 use PHPUnit\Framework\TestCase;
 
 /**
- * BookingsApiTest Class Doc Comment
+ * BookingsApiTest Class Doc Comment.
  *
  * @category Class
- * @package  OpenAPI\Client
+ *
  * @author   OpenAPI Generator team
- * @link     https://openapi-generator.tech
+ *
+ * @see     https://openapi-generator.tech
+ *
+ * @internal
+ *
+ * @coversNothing
  */
 class BookingsApiTest extends TestCase
 {
-
     /**
-     * Setup before running any test cases
+     * Setup before running any test cases.
      */
     public static function setUpBeforeClass(): void
     {
     }
 
     /**
-     * Setup before running each test case
-     */
-    public function setUp(): void
-    {
-    }
-
-    /**
-     * Clean up after running each test case
-     */
-    public function tearDown(): void
-    {
-    }
-
-    /**
-     * Clean up after running all test cases
+     * Clean up after running all test cases.
      */
     public static function tearDownAfterClass(): void
     {
     }
 
     /**
-     * Test case for cancelBookingById
+     * Setup before running each test case.
+     */
+    public function setUp(): void
+    {
+    }
+
+    /**
+     * Clean up after running each test case.
+     */
+    public function tearDown(): void
+    {
+    }
+
+    /**
+     * Test case for cancelBookingById.
      *
      * Cancel a booking.
-     *
      */
     public function testCancelBookingById()
     {
@@ -84,10 +85,9 @@ class BookingsApiTest extends TestCase
     }
 
     /**
-     * Test case for cancelReservation
+     * Test case for cancelReservation.
      *
      * Cancel a reservation.
-     *
      */
     public function testCancelReservation()
     {
@@ -96,10 +96,9 @@ class BookingsApiTest extends TestCase
     }
 
     /**
-     * Test case for createBooking
+     * Test case for createBooking.
      *
      * Create a booking.
-     *
      */
     public function testCreateBooking()
     {
@@ -108,10 +107,9 @@ class BookingsApiTest extends TestCase
     }
 
     /**
-     * Test case for createReservation
+     * Test case for createReservation.
      *
      * Create a reservation.
-     *
      */
     public function testCreateReservation()
     {
@@ -120,10 +118,9 @@ class BookingsApiTest extends TestCase
     }
 
     /**
-     * Test case for getBookingById
+     * Test case for getBookingById.
      *
      * Retrieve a booking.
-     *
      */
     public function testGetBookingById()
     {
@@ -132,10 +129,9 @@ class BookingsApiTest extends TestCase
     }
 
     /**
-     * Test case for getReservationById
+     * Test case for getReservationById.
      *
      * Retrieve a reservation by id.
-     *
      */
     public function testGetReservationById()
     {
@@ -144,10 +140,9 @@ class BookingsApiTest extends TestCase
     }
 
     /**
-     * Test case for updateReservation
+     * Test case for updateReservation.
      *
      * Update a reservation.
-     *
      */
     public function testUpdateReservation()
     {

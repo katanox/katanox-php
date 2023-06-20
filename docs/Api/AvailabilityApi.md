@@ -10,7 +10,7 @@ All URIs are relative to https://api.katanox.com/v2, except if the operation def
 ## `getAvailableProperties()`
 
 ```php
-getAvailableProperties($check_in, $check_out, $authorization, $adults, $children, $lat, $lng, $radius, $property_ids, $negotiated_rate_plans, $number_of_units, $page, $limit): \Katanox\Model\ModelGetAvailabilityResponse
+getAvailableProperties($check_in, $check_out, $authorization, $adults, $children, $lat, $lng, $radius, $property_ids, $negotiated_rate_plans, $corporate_profile_id, $number_of_units, $page, $limit): \Katanox\Model\ModelGetAvailabilityResponse
 ```
 
 Retrieve the list of available properties
@@ -39,13 +39,14 @@ $lat = 3.4; // float | The Latitude
 $lng = 3.4; // float | The Longitude
 $radius = 2000; // int | The search radius in meters(m)
 $property_ids = array('property_ids_example'); // string[] | List of property IDs to be included. When specified, only these properties will be included in the response. The maximum size of property id list is 50.
-$negotiated_rate_plans = array('negotiated_rate_plans_example'); // string[] | List of negotiated rate plan ids to be included.
+$negotiated_rate_plans = array('negotiated_rate_plans_example'); // string[] | Deprecated! List of negotiated rate plan ids to be included.
+$corporate_profile_id = 'null'; // string | The corporate_profile_id can be used to fetch specific rates linked to a corporate.
 $number_of_units = 1; // int | The total number of units required
 $page = 0; // int | The returned page number
 $limit = 10; // int | Number of results per page. The maximum value of the limit is 50.
 
 try {
-    $result = $apiInstance->getAvailableProperties($check_in, $check_out, $authorization, $adults, $children, $lat, $lng, $radius, $property_ids, $negotiated_rate_plans, $number_of_units, $page, $limit);
+    $result = $apiInstance->getAvailableProperties($check_in, $check_out, $authorization, $adults, $children, $lat, $lng, $radius, $property_ids, $negotiated_rate_plans, $corporate_profile_id, $number_of_units, $page, $limit);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AvailabilityApi->getAvailableProperties: ', $e->getMessage(), PHP_EOL;
@@ -65,7 +66,8 @@ try {
 | **lng** | **float**| The Longitude | [optional] |
 | **radius** | **int**| The search radius in meters(m) | [optional] [default to 2000] |
 | **property_ids** | [**string[]**](../Model/string.md)| List of property IDs to be included. When specified, only these properties will be included in the response. The maximum size of property id list is 50. | [optional] |
-| **negotiated_rate_plans** | [**string[]**](../Model/string.md)| List of negotiated rate plan ids to be included. | [optional] |
+| **negotiated_rate_plans** | [**string[]**](../Model/string.md)| Deprecated! List of negotiated rate plan ids to be included. | [optional] |
+| **corporate_profile_id** | **string**| The corporate_profile_id can be used to fetch specific rates linked to a corporate. | [optional] [default to &#39;null&#39;] |
 | **number_of_units** | **int**| The total number of units required | [optional] [default to 1] |
 | **page** | **int**| The returned page number | [optional] [default to 0] |
 | **limit** | **int**| Number of results per page. The maximum value of the limit is 50. | [optional] [default to 10] |

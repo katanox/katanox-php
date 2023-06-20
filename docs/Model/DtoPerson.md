@@ -10,8 +10,8 @@ Name | Type | Description | Notes
 **city** | **string** |  | [optional]
 **country** | **string** |  | [optional]
 **email** | **string** |  | [optional]
-**first_name** | **string** |  | [optional]
-**last_name** | **string** |  | [optional]
+**first_name** | **string** |  |
+**last_name** | **string** |  |
 **phone_number** | **string** |  | [optional]
 **postcode** | **string** |  | [optional]
 **title** | **string** |  | [optional]
