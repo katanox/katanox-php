@@ -711,16 +711,8 @@ class BookingsApi
      *
      * Create a booking
      *
-     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
-     * if needed, use the 'variables' parameter to pass variables to the host.
-     * URL: https://api.katanox.com/v2
-     * URL: https://api.pci-proxy.com/v1/push/5775c7cf3b3e5dc0
-     * URL: https://api-staging.katanox.com/v2
-     *
      * @param string                                    $authorization                 Type &#39;Bearer&#39; and then your API Token (required)
      * @param \Katanox\Model\HttpBookingCreationRequest $http_booking_creation_request Booking body (required)
-     * @param null|int                                  $hostIndex                     Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
-     * @param array                                     $variables                     Associative array of variables to pass to the host. Defaults to empty array.
      * @param string                                    $contentType                   The value for the Content-Type header. Check self::contentTypes['createBooking'] to see the possible values for this operation
      *
      * @return \Katanox\Model\HttpBookingResponse|\Katanox\Model\ModelApiError|\Katanox\Model\ModelApiError|\Katanox\Model\ModelInternalServerError
@@ -728,9 +720,9 @@ class BookingsApi
      * @throws \Katanox\ApiException    on non-2xx response
      * @throws InvalidArgumentException
      */
-    public function createBooking($authorization, $http_booking_creation_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['createBooking'][0])
+    public function createBooking($authorization, $http_booking_creation_request, string $contentType = self::contentTypes['createBooking'][0])
     {
-        list($response) = $this->createBookingWithHttpInfo($authorization, $http_booking_creation_request, $hostIndex, $variables, $contentType);
+        list($response) = $this->createBookingWithHttpInfo($authorization, $http_booking_creation_request, $contentType);
 
         return $response;
     }
@@ -740,16 +732,8 @@ class BookingsApi
      *
      * Create a booking
      *
-     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
-     * if needed, use the 'variables' parameter to pass variables to the host.
-     * URL: https://api.katanox.com/v2
-     * URL: https://api.pci-proxy.com/v1/push/5775c7cf3b3e5dc0
-     * URL: https://api-staging.katanox.com/v2
-     *
      * @param string                                    $authorization                 Type &#39;Bearer&#39; and then your API Token (required)
      * @param \Katanox\Model\HttpBookingCreationRequest $http_booking_creation_request Booking body (required)
-     * @param null|int                                  $hostIndex                     Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
-     * @param array                                     $variables                     Associative array of variables to pass to the host. Defaults to empty array.
      * @param string                                    $contentType                   The value for the Content-Type header. Check self::contentTypes['createBooking'] to see the possible values for this operation
      *
      * @return array of \Katanox\Model\HttpBookingResponse|\Katanox\Model\ModelApiError|\Katanox\Model\ModelApiError|\Katanox\Model\ModelInternalServerError, HTTP status code, HTTP response headers (array of strings)
@@ -757,9 +741,9 @@ class BookingsApi
      * @throws \Katanox\ApiException    on non-2xx response
      * @throws InvalidArgumentException
      */
-    public function createBookingWithHttpInfo($authorization, $http_booking_creation_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['createBooking'][0])
+    public function createBookingWithHttpInfo($authorization, $http_booking_creation_request, string $contentType = self::contentTypes['createBooking'][0])
     {
-        $request = $this->createBookingRequest($authorization, $http_booking_creation_request, $hostIndex, $variables, $contentType);
+        $request = $this->createBookingRequest($authorization, $http_booking_creation_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -930,25 +914,17 @@ class BookingsApi
      *
      * Create a booking
      *
-     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
-     * if needed, use the 'variables' parameter to pass variables to the host.
-     * URL: https://api.katanox.com/v2
-     * URL: https://api.pci-proxy.com/v1/push/5775c7cf3b3e5dc0
-     * URL: https://api-staging.katanox.com/v2
-     *
      * @param string                                    $authorization                 Type &#39;Bearer&#39; and then your API Token (required)
      * @param \Katanox\Model\HttpBookingCreationRequest $http_booking_creation_request Booking body (required)
-     * @param null|int                                  $hostIndex                     Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
-     * @param array                                     $variables                     Associative array of variables to pass to the host. Defaults to empty array.
      * @param string                                    $contentType                   The value for the Content-Type header. Check self::contentTypes['createBooking'] to see the possible values for this operation
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      *
      * @throws InvalidArgumentException
      */
-    public function createBookingAsync($authorization, $http_booking_creation_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['createBooking'][0])
+    public function createBookingAsync($authorization, $http_booking_creation_request, string $contentType = self::contentTypes['createBooking'][0])
     {
-        return $this->createBookingAsyncWithHttpInfo($authorization, $http_booking_creation_request, $hostIndex, $variables, $contentType)
+        return $this->createBookingAsyncWithHttpInfo($authorization, $http_booking_creation_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -962,26 +938,18 @@ class BookingsApi
      *
      * Create a booking
      *
-     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
-     * if needed, use the 'variables' parameter to pass variables to the host.
-     * URL: https://api.katanox.com/v2
-     * URL: https://api.pci-proxy.com/v1/push/5775c7cf3b3e5dc0
-     * URL: https://api-staging.katanox.com/v2
-     *
      * @param string                                    $authorization                 Type &#39;Bearer&#39; and then your API Token (required)
      * @param \Katanox\Model\HttpBookingCreationRequest $http_booking_creation_request Booking body (required)
-     * @param null|int                                  $hostIndex                     Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
-     * @param array                                     $variables                     Associative array of variables to pass to the host. Defaults to empty array.
      * @param string                                    $contentType                   The value for the Content-Type header. Check self::contentTypes['createBooking'] to see the possible values for this operation
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      *
      * @throws InvalidArgumentException
      */
-    public function createBookingAsyncWithHttpInfo($authorization, $http_booking_creation_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['createBooking'][0])
+    public function createBookingAsyncWithHttpInfo($authorization, $http_booking_creation_request, string $contentType = self::contentTypes['createBooking'][0])
     {
         $returnType = '\Katanox\Model\HttpBookingResponse';
-        $request = $this->createBookingRequest($authorization, $http_booking_creation_request, $hostIndex, $variables, $contentType);
+        $request = $this->createBookingRequest($authorization, $http_booking_creation_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1024,23 +992,15 @@ class BookingsApi
     /**
      * Create request for operation 'createBooking'.
      *
-     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
-     * if needed, use the 'variables' parameter to pass variables to the host.
-     * URL: https://api.katanox.com/v2
-     * URL: https://api.pci-proxy.com/v1/push/5775c7cf3b3e5dc0
-     * URL: https://api-staging.katanox.com/v2
-     *
      * @param string                                    $authorization                 Type &#39;Bearer&#39; and then your API Token (required)
      * @param \Katanox\Model\HttpBookingCreationRequest $http_booking_creation_request Booking body (required)
-     * @param null|int                                  $hostIndex                     Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
-     * @param array                                     $variables                     Associative array of variables to pass to the host. Defaults to empty array.
      * @param string                                    $contentType                   The value for the Content-Type header. Check self::contentTypes['createBooking'] to see the possible values for this operation
      *
      * @return \GuzzleHttp\Psr7\Request
      *
      * @throws InvalidArgumentException
      */
-    public function createBookingRequest($authorization, $http_booking_creation_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['createBooking'][0])
+    public function createBookingRequest($authorization, $http_booking_creation_request, string $contentType = self::contentTypes['createBooking'][0])
     {
         // verify the required parameter 'authorization' is set
         if (null === $authorization || (is_array($authorization) && 0 === count($authorization))) {
@@ -1116,17 +1076,7 @@ class BookingsApi
             $headers
         );
 
-        // Preserve the original behavior of server indexing.
-        if (null === $hostIndex) {
-            $hostIndex = $this->hostIndex;
-        }
-
-        $hostSettings = $this->getHostSettingsForcreateBooking();
-
-        if ($hostIndex < 0 || $hostIndex >= count($hostSettings)) {
-            throw new InvalidArgumentException("Invalid index {$hostIndex} when selecting the host. Must be less than ".count($hostSettings));
-        }
-        $operationHost = Configuration::getHostString($hostSettings, $hostIndex, $variables);
+        $operationHost = $this->config->getHost();
         $query = ObjectSerializer::buildQuery($queryParams);
 
         return new Request(
@@ -2745,29 +2695,6 @@ class BookingsApi
             $headers,
             $httpBody
         );
-    }
-
-    /**
-     * Returns an array of host settings for Operation createBooking.
-     *
-     * @return array an array of host settings
-     */
-    protected function getHostSettingsForcreateBooking(): array
-    {
-        return [
-            [
-                'url' => 'https://api.katanox.com/v2',
-                'description' => 'No description provided',
-            ],
-            [
-                'url' => 'https://api.pci-proxy.com/v1/push/5775c7cf3b3e5dc0',
-                'description' => 'No description provided',
-            ],
-            [
-                'url' => 'https://api-staging.katanox.com/v2',
-                'description' => 'No description provided',
-            ],
-        ];
     }
 
     /**
