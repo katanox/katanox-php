@@ -10,7 +10,7 @@ All URIs are relative to https://api.katanox.com/v2, except if the operation def
 ## `getAvailableProperties()`
 
 ```php
-getAvailableProperties($check_in, $check_out, $authorization, $adults, $children, $lat, $lng, $radius, $property_ids, $negotiated_rate_plans, $corporate_profile_id, $number_of_units, $page, $limit): \Katanox\Model\ModelGetAvailabilityResponse
+getAvailableProperties($check_in, $check_out, $authorization, $adults, $children, $lat, $lng, $radius, $property_ids, $negotiated_rate_plans, $corporate_profile_id, $number_of_units, $page, $limit, $lowest, $price_breakdown): \Katanox\Model\AvailabilityGetAvailabilityResponse
 ```
 
 Retrieve the list of available properties
@@ -44,9 +44,11 @@ $corporate_profile_id = 'null'; // string | The corporate_profile_id can be used
 $number_of_units = 1; // int | The total number of units required
 $page = 0; // int | The returned page number
 $limit = 10; // int | Number of results per page. The maximum value of the limit is 50.
+$lowest = false; // bool | If set to true returns only the cheapest price per property
+$price_breakdown = false; // bool | If set to true then each offer will contain the nightly price alongside the total price
 
 try {
-    $result = $apiInstance->getAvailableProperties($check_in, $check_out, $authorization, $adults, $children, $lat, $lng, $radius, $property_ids, $negotiated_rate_plans, $corporate_profile_id, $number_of_units, $page, $limit);
+    $result = $apiInstance->getAvailableProperties($check_in, $check_out, $authorization, $adults, $children, $lat, $lng, $radius, $property_ids, $negotiated_rate_plans, $corporate_profile_id, $number_of_units, $page, $limit, $lowest, $price_breakdown);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AvailabilityApi->getAvailableProperties: ', $e->getMessage(), PHP_EOL;
@@ -71,10 +73,12 @@ try {
 | **number_of_units** | **int**| The total number of units required | [optional] [default to 1] |
 | **page** | **int**| The returned page number | [optional] [default to 0] |
 | **limit** | **int**| Number of results per page. The maximum value of the limit is 50. | [optional] [default to 10] |
+| **lowest** | **bool**| If set to true returns only the cheapest price per property | [optional] [default to false] |
+| **price_breakdown** | **bool**| If set to true then each offer will contain the nightly price alongside the total price | [optional] [default to false] |
 
 ### Return type
 
-[**\Katanox\Model\ModelGetAvailabilityResponse**](../Model/ModelGetAvailabilityResponse.md)
+[**\Katanox\Model\AvailabilityGetAvailabilityResponse**](../Model/AvailabilityGetAvailabilityResponse.md)
 
 ### Authorization
 
