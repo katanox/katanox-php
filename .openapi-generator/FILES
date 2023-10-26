@@ -133,14 +133,3 @@ lib/Model/ModelUnitImage.php
 lib/Model/OfferGetOfferResponse.php
 lib/ObjectSerializer.php
 phpunit.xml.dist
-test/Api/RatePlansApiTest.php
-test/Model/AvailabilityGetAvailabilityResponseTest.php
-test/Model/AvailabilityOffersDataTest.php
-test/Model/DtoCustomerTest.php
-test/Model/DtoGuestTest.php
-test/Model/DtoReservationErrorTest.php
-test/Model/HttpBookingCreationRequestPaymentTest.php
-test/Model/HttpCustomerTest.php
-test/Model/HttpGuestTest.php
-test/Model/ModelGetRatePlansResponseTest.php
-test/Model/ModelRatePlansDataTest.php
