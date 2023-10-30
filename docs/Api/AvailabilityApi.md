@@ -46,7 +46,7 @@ $page = 0; // int | The returned page number
 $limit = 10; // int | Number of results per page. The maximum value of the limit is 50.
 $lowest = false; // bool | If set to true returns only the cheapest price per property
 $price_breakdown = false; // bool | If set to true then each offer will contain the nightly price alongside the total price
-$unit_type = '\"single\"'; // string | The unit type
+$unit_type = 'unit_type_example'; // string | The unit type
 
 try {
     $result = $apiInstance->getAvailableProperties($check_in, $check_out, $authorization, $adults, $children, $lat, $lng, $radius, $property_ids, $negotiated_rate_plans, $corporate_profile_id, $number_of_units, $page, $limit, $lowest, $price_breakdown, $unit_type);
@@ -76,7 +76,7 @@ try {
 | **limit** | **int**| Number of results per page. The maximum value of the limit is 50. | [optional] [default to 10] |
 | **lowest** | **bool**| If set to true returns only the cheapest price per property | [optional] [default to false] |
 | **price_breakdown** | **bool**| If set to true then each offer will contain the nightly price alongside the total price | [optional] [default to false] |
-| **unit_type** | **string**| The unit type | [optional] [default to &#39;&quot;single&quot;&#39;] |
+| **unit_type** | **string**| The unit type | [optional] |
 
 ### Return type
 

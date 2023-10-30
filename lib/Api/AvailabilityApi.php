@@ -143,14 +143,14 @@ class AvailabilityApi
      * @param  int $limit Number of results per page. The maximum value of the limit is 50. (optional, default to 10)
      * @param  bool $lowest If set to true returns only the cheapest price per property (optional, default to false)
      * @param  bool $price_breakdown If set to true then each offer will contain the nightly price alongside the total price (optional, default to false)
-     * @param  string $unit_type The unit type (optional, default to '"single"')
+     * @param  string $unit_type The unit type (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAvailableProperties'] to see the possible values for this operation
      *
      * @throws \Katanox\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Katanox\Model\AvailabilityGetAvailabilityResponse|\Katanox\Model\ModelApiError|\Katanox\Model\ModelInternalServerError
      */
-    public function getAvailableProperties($check_in, $check_out, $authorization, $adults = 1, $children = 0, $lat = null, $lng = null, $radius = 2000, $property_ids = null, $negotiated_rate_plans = null, $corporate_profile_id = 'null', $number_of_units = 1, $page = 0, $limit = 10, $lowest = false, $price_breakdown = false, $unit_type = '"single"', string $contentType = self::contentTypes['getAvailableProperties'][0])
+    public function getAvailableProperties($check_in, $check_out, $authorization, $adults = 1, $children = 0, $lat = null, $lng = null, $radius = 2000, $property_ids = null, $negotiated_rate_plans = null, $corporate_profile_id = 'null', $number_of_units = 1, $page = 0, $limit = 10, $lowest = false, $price_breakdown = false, $unit_type = null, string $contentType = self::contentTypes['getAvailableProperties'][0])
     {
         list($response) = $this->getAvailablePropertiesWithHttpInfo($check_in, $check_out, $authorization, $adults, $children, $lat, $lng, $radius, $property_ids, $negotiated_rate_plans, $corporate_profile_id, $number_of_units, $page, $limit, $lowest, $price_breakdown, $unit_type, $contentType);
         return $response;
@@ -177,14 +177,14 @@ class AvailabilityApi
      * @param  int $limit Number of results per page. The maximum value of the limit is 50. (optional, default to 10)
      * @param  bool $lowest If set to true returns only the cheapest price per property (optional, default to false)
      * @param  bool $price_breakdown If set to true then each offer will contain the nightly price alongside the total price (optional, default to false)
-     * @param  string $unit_type The unit type (optional, default to '"single"')
+     * @param  string $unit_type The unit type (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAvailableProperties'] to see the possible values for this operation
      *
      * @throws \Katanox\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Katanox\Model\AvailabilityGetAvailabilityResponse|\Katanox\Model\ModelApiError|\Katanox\Model\ModelInternalServerError, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getAvailablePropertiesWithHttpInfo($check_in, $check_out, $authorization, $adults = 1, $children = 0, $lat = null, $lng = null, $radius = 2000, $property_ids = null, $negotiated_rate_plans = null, $corporate_profile_id = 'null', $number_of_units = 1, $page = 0, $limit = 10, $lowest = false, $price_breakdown = false, $unit_type = '"single"', string $contentType = self::contentTypes['getAvailableProperties'][0])
+    public function getAvailablePropertiesWithHttpInfo($check_in, $check_out, $authorization, $adults = 1, $children = 0, $lat = null, $lng = null, $radius = 2000, $property_ids = null, $negotiated_rate_plans = null, $corporate_profile_id = 'null', $number_of_units = 1, $page = 0, $limit = 10, $lowest = false, $price_breakdown = false, $unit_type = null, string $contentType = self::contentTypes['getAvailableProperties'][0])
     {
         $request = $this->getAvailablePropertiesRequest($check_in, $check_out, $authorization, $adults, $children, $lat, $lng, $radius, $property_ids, $negotiated_rate_plans, $corporate_profile_id, $number_of_units, $page, $limit, $lowest, $price_breakdown, $unit_type, $contentType);
 
@@ -339,13 +339,13 @@ class AvailabilityApi
      * @param  int $limit Number of results per page. The maximum value of the limit is 50. (optional, default to 10)
      * @param  bool $lowest If set to true returns only the cheapest price per property (optional, default to false)
      * @param  bool $price_breakdown If set to true then each offer will contain the nightly price alongside the total price (optional, default to false)
-     * @param  string $unit_type The unit type (optional, default to '"single"')
+     * @param  string $unit_type The unit type (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAvailableProperties'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getAvailablePropertiesAsync($check_in, $check_out, $authorization, $adults = 1, $children = 0, $lat = null, $lng = null, $radius = 2000, $property_ids = null, $negotiated_rate_plans = null, $corporate_profile_id = 'null', $number_of_units = 1, $page = 0, $limit = 10, $lowest = false, $price_breakdown = false, $unit_type = '"single"', string $contentType = self::contentTypes['getAvailableProperties'][0])
+    public function getAvailablePropertiesAsync($check_in, $check_out, $authorization, $adults = 1, $children = 0, $lat = null, $lng = null, $radius = 2000, $property_ids = null, $negotiated_rate_plans = null, $corporate_profile_id = 'null', $number_of_units = 1, $page = 0, $limit = 10, $lowest = false, $price_breakdown = false, $unit_type = null, string $contentType = self::contentTypes['getAvailableProperties'][0])
     {
         return $this->getAvailablePropertiesAsyncWithHttpInfo($check_in, $check_out, $authorization, $adults, $children, $lat, $lng, $radius, $property_ids, $negotiated_rate_plans, $corporate_profile_id, $number_of_units, $page, $limit, $lowest, $price_breakdown, $unit_type, $contentType)
             ->then(
@@ -376,13 +376,13 @@ class AvailabilityApi
      * @param  int $limit Number of results per page. The maximum value of the limit is 50. (optional, default to 10)
      * @param  bool $lowest If set to true returns only the cheapest price per property (optional, default to false)
      * @param  bool $price_breakdown If set to true then each offer will contain the nightly price alongside the total price (optional, default to false)
-     * @param  string $unit_type The unit type (optional, default to '"single"')
+     * @param  string $unit_type The unit type (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAvailableProperties'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getAvailablePropertiesAsyncWithHttpInfo($check_in, $check_out, $authorization, $adults = 1, $children = 0, $lat = null, $lng = null, $radius = 2000, $property_ids = null, $negotiated_rate_plans = null, $corporate_profile_id = 'null', $number_of_units = 1, $page = 0, $limit = 10, $lowest = false, $price_breakdown = false, $unit_type = '"single"', string $contentType = self::contentTypes['getAvailableProperties'][0])
+    public function getAvailablePropertiesAsyncWithHttpInfo($check_in, $check_out, $authorization, $adults = 1, $children = 0, $lat = null, $lng = null, $radius = 2000, $property_ids = null, $negotiated_rate_plans = null, $corporate_profile_id = 'null', $number_of_units = 1, $page = 0, $limit = 10, $lowest = false, $price_breakdown = false, $unit_type = null, string $contentType = self::contentTypes['getAvailableProperties'][0])
     {
         $returnType = '\Katanox\Model\AvailabilityGetAvailabilityResponse';
         $request = $this->getAvailablePropertiesRequest($check_in, $check_out, $authorization, $adults, $children, $lat, $lng, $radius, $property_ids, $negotiated_rate_plans, $corporate_profile_id, $number_of_units, $page, $limit, $lowest, $price_breakdown, $unit_type, $contentType);
@@ -442,13 +442,13 @@ class AvailabilityApi
      * @param  int $limit Number of results per page. The maximum value of the limit is 50. (optional, default to 10)
      * @param  bool $lowest If set to true returns only the cheapest price per property (optional, default to false)
      * @param  bool $price_breakdown If set to true then each offer will contain the nightly price alongside the total price (optional, default to false)
-     * @param  string $unit_type The unit type (optional, default to '"single"')
+     * @param  string $unit_type The unit type (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAvailableProperties'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getAvailablePropertiesRequest($check_in, $check_out, $authorization, $adults = 1, $children = 0, $lat = null, $lng = null, $radius = 2000, $property_ids = null, $negotiated_rate_plans = null, $corporate_profile_id = 'null', $number_of_units = 1, $page = 0, $limit = 10, $lowest = false, $price_breakdown = false, $unit_type = '"single"', string $contentType = self::contentTypes['getAvailableProperties'][0])
+    public function getAvailablePropertiesRequest($check_in, $check_out, $authorization, $adults = 1, $children = 0, $lat = null, $lng = null, $radius = 2000, $property_ids = null, $negotiated_rate_plans = null, $corporate_profile_id = 'null', $number_of_units = 1, $page = 0, $limit = 10, $lowest = false, $price_breakdown = false, $unit_type = null, string $contentType = self::contentTypes['getAvailableProperties'][0])
     {
 
         // verify the required parameter 'check_in' is set
