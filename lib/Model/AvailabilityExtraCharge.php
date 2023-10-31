@@ -58,6 +58,7 @@ class AvailabilityExtraCharge implements ModelInterface, ArrayAccess, \JsonSeria
       */
     protected static $openAPITypes = [
         'after_tax' => 'float',
+        'before_tax' => 'float',
         'currency' => 'string',
         'name' => 'string'
     ];
@@ -71,6 +72,7 @@ class AvailabilityExtraCharge implements ModelInterface, ArrayAccess, \JsonSeria
       */
     protected static $openAPIFormats = [
         'after_tax' => null,
+        'before_tax' => null,
         'currency' => null,
         'name' => null
     ];
@@ -82,6 +84,7 @@ class AvailabilityExtraCharge implements ModelInterface, ArrayAccess, \JsonSeria
       */
     protected static array $openAPINullables = [
         'after_tax' => false,
+		'before_tax' => false,
 		'currency' => false,
 		'name' => false
     ];
@@ -173,6 +176,7 @@ class AvailabilityExtraCharge implements ModelInterface, ArrayAccess, \JsonSeria
      */
     protected static $attributeMap = [
         'after_tax' => 'after_tax',
+        'before_tax' => 'before_tax',
         'currency' => 'currency',
         'name' => 'name'
     ];
@@ -184,6 +188,7 @@ class AvailabilityExtraCharge implements ModelInterface, ArrayAccess, \JsonSeria
      */
     protected static $setters = [
         'after_tax' => 'setAfterTax',
+        'before_tax' => 'setBeforeTax',
         'currency' => 'setCurrency',
         'name' => 'setName'
     ];
@@ -195,6 +200,7 @@ class AvailabilityExtraCharge implements ModelInterface, ArrayAccess, \JsonSeria
      */
     protected static $getters = [
         'after_tax' => 'getAfterTax',
+        'before_tax' => 'getBeforeTax',
         'currency' => 'getCurrency',
         'name' => 'getName'
     ];
@@ -257,6 +263,7 @@ class AvailabilityExtraCharge implements ModelInterface, ArrayAccess, \JsonSeria
     public function __construct(array $data = null)
     {
         $this->setIfExists('after_tax', $data ?? [], null);
+        $this->setIfExists('before_tax', $data ?? [], null);
         $this->setIfExists('currency', $data ?? [], null);
         $this->setIfExists('name', $data ?? [], null);
     }
@@ -326,6 +333,33 @@ class AvailabilityExtraCharge implements ModelInterface, ArrayAccess, \JsonSeria
             throw new \InvalidArgumentException('non-nullable after_tax cannot be null');
         }
         $this->container['after_tax'] = $after_tax;
+
+        return $this;
+    }
+
+    /**
+     * Gets before_tax
+     *
+     * @return float|null
+     */
+    public function getBeforeTax()
+    {
+        return $this->container['before_tax'];
+    }
+
+    /**
+     * Sets before_tax
+     *
+     * @param float|null $before_tax before_tax
+     *
+     * @return self
+     */
+    public function setBeforeTax($before_tax)
+    {
+        if (is_null($before_tax)) {
+            throw new \InvalidArgumentException('non-nullable before_tax cannot be null');
+        }
+        $this->container['before_tax'] = $before_tax;
 
         return $this;
     }

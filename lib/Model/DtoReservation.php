@@ -66,7 +66,9 @@ class DtoReservation implements ModelInterface, ArrayAccess, \JsonSerializable
         'errors' => '\Katanox\Model\DtoReservationError[]',
         'guests' => '\Katanox\Model\DtoGuest[]',
         'no_show_policy' => '\Katanox\Model\DtoNoShowPolicy',
+        'offer_id' => 'string',
         'price' => '\Katanox\Model\DtoPrice',
+        'prices_per_night' => '\Katanox\Model\DtoPricePerNight[]',
         'status' => 'string'
     ];
 
@@ -87,7 +89,9 @@ class DtoReservation implements ModelInterface, ArrayAccess, \JsonSerializable
         'errors' => null,
         'guests' => null,
         'no_show_policy' => null,
+        'offer_id' => null,
         'price' => null,
+        'prices_per_night' => null,
         'status' => null
     ];
 
@@ -106,7 +110,9 @@ class DtoReservation implements ModelInterface, ArrayAccess, \JsonSerializable
 		'errors' => false,
 		'guests' => false,
 		'no_show_policy' => false,
+		'offer_id' => false,
 		'price' => false,
+		'prices_per_night' => false,
 		'status' => false
     ];
 
@@ -205,7 +211,9 @@ class DtoReservation implements ModelInterface, ArrayAccess, \JsonSerializable
         'errors' => 'errors',
         'guests' => 'guests',
         'no_show_policy' => 'no_show_policy',
+        'offer_id' => 'offer_id',
         'price' => 'price',
+        'prices_per_night' => 'prices_per_night',
         'status' => 'status'
     ];
 
@@ -224,7 +232,9 @@ class DtoReservation implements ModelInterface, ArrayAccess, \JsonSerializable
         'errors' => 'setErrors',
         'guests' => 'setGuests',
         'no_show_policy' => 'setNoShowPolicy',
+        'offer_id' => 'setOfferId',
         'price' => 'setPrice',
+        'prices_per_night' => 'setPricesPerNight',
         'status' => 'setStatus'
     ];
 
@@ -243,7 +253,9 @@ class DtoReservation implements ModelInterface, ArrayAccess, \JsonSerializable
         'errors' => 'getErrors',
         'guests' => 'getGuests',
         'no_show_policy' => 'getNoShowPolicy',
+        'offer_id' => 'getOfferId',
         'price' => 'getPrice',
+        'prices_per_night' => 'getPricesPerNight',
         'status' => 'getStatus'
     ];
 
@@ -342,7 +354,9 @@ class DtoReservation implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('errors', $data ?? [], null);
         $this->setIfExists('guests', $data ?? [], null);
         $this->setIfExists('no_show_policy', $data ?? [], null);
+        $this->setIfExists('offer_id', $data ?? [], null);
         $this->setIfExists('price', $data ?? [], null);
+        $this->setIfExists('prices_per_night', $data ?? [], null);
         $this->setIfExists('status', $data ?? [], null);
     }
 
@@ -641,6 +655,33 @@ class DtoReservation implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
+     * Gets offer_id
+     *
+     * @return string|null
+     */
+    public function getOfferId()
+    {
+        return $this->container['offer_id'];
+    }
+
+    /**
+     * Sets offer_id
+     *
+     * @param string|null $offer_id offer_id
+     *
+     * @return self
+     */
+    public function setOfferId($offer_id)
+    {
+        if (is_null($offer_id)) {
+            throw new \InvalidArgumentException('non-nullable offer_id cannot be null');
+        }
+        $this->container['offer_id'] = $offer_id;
+
+        return $this;
+    }
+
+    /**
      * Gets price
      *
      * @return \Katanox\Model\DtoPrice|null
@@ -663,6 +704,33 @@ class DtoReservation implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable price cannot be null');
         }
         $this->container['price'] = $price;
+
+        return $this;
+    }
+
+    /**
+     * Gets prices_per_night
+     *
+     * @return \Katanox\Model\DtoPricePerNight[]|null
+     */
+    public function getPricesPerNight()
+    {
+        return $this->container['prices_per_night'];
+    }
+
+    /**
+     * Sets prices_per_night
+     *
+     * @param \Katanox\Model\DtoPricePerNight[]|null $prices_per_night prices_per_night
+     *
+     * @return self
+     */
+    public function setPricesPerNight($prices_per_night)
+    {
+        if (is_null($prices_per_night)) {
+            throw new \InvalidArgumentException('non-nullable prices_per_night cannot be null');
+        }
+        $this->container['prices_per_night'] = $prices_per_night;
 
         return $this;
     }

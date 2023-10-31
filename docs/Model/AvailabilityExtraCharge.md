@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **after_tax** | **float** |  | [optional]
+**before_tax** | **float** |  | [optional]
 **currency** | **string** |  | [optional]
 **name** | **string** |  | [optional]
 

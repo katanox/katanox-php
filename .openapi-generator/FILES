@@ -22,6 +22,7 @@ docs/Model/DtoI18NRatePlan.md
 docs/Model/DtoI18NUnit.md
 docs/Model/DtoNoShowPolicy.md
 docs/Model/DtoPrice.md
+docs/Model/DtoPricePerNight.md
 docs/Model/DtoProperty.md
 docs/Model/DtoPropertyImage.md
 docs/Model/DtoRatePlan.md
@@ -89,6 +90,7 @@ lib/Model/DtoI18NRatePlan.php
 lib/Model/DtoI18NUnit.php
 lib/Model/DtoNoShowPolicy.php
 lib/Model/DtoPrice.php
+lib/Model/DtoPricePerNight.php
 lib/Model/DtoProperty.php
 lib/Model/DtoPropertyImage.php
 lib/Model/DtoRatePlan.php

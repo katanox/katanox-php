@@ -698,7 +698,6 @@ class BookingsApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://api.pci-proxy.com/v1/push/5775c7cf3b3e5dc0
-     * URL: https://api-staging.katanox.com/v2
      *
      * @param  string $authorization Type &#39;Bearer&#39; and then your API Token (required)
      * @param  \Katanox\Model\HttpBookingCreationRequest $http_booking_creation_request Booking body (required)
@@ -724,7 +723,6 @@ class BookingsApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://api.pci-proxy.com/v1/push/5775c7cf3b3e5dc0
-     * URL: https://api-staging.katanox.com/v2
      *
      * @param  string $authorization Type &#39;Bearer&#39; and then your API Token (required)
      * @param  \Katanox\Model\HttpBookingCreationRequest $http_booking_creation_request Booking body (required)
@@ -901,7 +899,6 @@ class BookingsApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://api.pci-proxy.com/v1/push/5775c7cf3b3e5dc0
-     * URL: https://api-staging.katanox.com/v2
      *
      * @param  string $authorization Type &#39;Bearer&#39; and then your API Token (required)
      * @param  \Katanox\Model\HttpBookingCreationRequest $http_booking_creation_request Booking body (required)
@@ -930,7 +927,6 @@ class BookingsApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://api.pci-proxy.com/v1/push/5775c7cf3b3e5dc0
-     * URL: https://api-staging.katanox.com/v2
      *
      * @param  string $authorization Type &#39;Bearer&#39; and then your API Token (required)
      * @param  \Katanox\Model\HttpBookingCreationRequest $http_booking_creation_request Booking body (required)
@@ -988,7 +984,6 @@ class BookingsApi
     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
     * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://api.pci-proxy.com/v1/push/5775c7cf3b3e5dc0
-     * URL: https://api-staging.katanox.com/v2
      *
      * @param  string $authorization Type &#39;Bearer&#39; and then your API Token (required)
      * @param  \Katanox\Model\HttpBookingCreationRequest $http_booking_creation_request Booking body (required)
@@ -1112,10 +1107,6 @@ class BookingsApi
         return [
             [
                 "url" => "https://api.pci-proxy.com/v1/push/5775c7cf3b3e5dc0",
-                "description" => "No description provided",
-            ],
-            [
-                "url" => "https://api-staging.katanox.com/v2",
                 "description" => "No description provided",
             ]
         ];

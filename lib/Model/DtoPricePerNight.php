@@ -1,6 +1,6 @@
 <?php
 /**
- * DtoPrice
+ * DtoPricePerNight
  *
  * PHP version 7.4
  *
@@ -32,7 +32,7 @@ use \ArrayAccess;
 use \Katanox\ObjectSerializer;
 
 /**
- * DtoPrice Class Doc Comment
+ * DtoPricePerNight Class Doc Comment
  *
  * @category Class
  * @package  Katanox
@@ -40,7 +40,7 @@ use \Katanox\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class DtoPrice implements ModelInterface, ArrayAccess, \JsonSerializable
+class DtoPricePerNight implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class DtoPrice implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'dto.Price';
+    protected static $openAPIModelName = 'dto.PricePerNight';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,10 +57,8 @@ class DtoPrice implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'after_tax' => 'float',
-        'amount' => 'float',
-        'before_tax' => 'float',
-        'currency' => 'string'
+        'date' => 'string',
+        'price' => '\Katanox\Model\DtoPrice'
     ];
 
     /**
@@ -71,10 +69,8 @@ class DtoPrice implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'after_tax' => null,
-        'amount' => null,
-        'before_tax' => null,
-        'currency' => null
+        'date' => null,
+        'price' => null
     ];
 
     /**
@@ -83,10 +79,8 @@ class DtoPrice implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'after_tax' => false,
-		'amount' => false,
-		'before_tax' => false,
-		'currency' => false
+        'date' => false,
+		'price' => false
     ];
 
     /**
@@ -175,10 +169,8 @@ class DtoPrice implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'after_tax' => 'after_tax',
-        'amount' => 'amount',
-        'before_tax' => 'before_tax',
-        'currency' => 'currency'
+        'date' => 'date',
+        'price' => 'price'
     ];
 
     /**
@@ -187,10 +179,8 @@ class DtoPrice implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'after_tax' => 'setAfterTax',
-        'amount' => 'setAmount',
-        'before_tax' => 'setBeforeTax',
-        'currency' => 'setCurrency'
+        'date' => 'setDate',
+        'price' => 'setPrice'
     ];
 
     /**
@@ -199,10 +189,8 @@ class DtoPrice implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'after_tax' => 'getAfterTax',
-        'amount' => 'getAmount',
-        'before_tax' => 'getBeforeTax',
-        'currency' => 'getCurrency'
+        'date' => 'getDate',
+        'price' => 'getPrice'
     ];
 
     /**
@@ -262,10 +250,8 @@ class DtoPrice implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('after_tax', $data ?? [], null);
-        $this->setIfExists('amount', $data ?? [], null);
-        $this->setIfExists('before_tax', $data ?? [], null);
-        $this->setIfExists('currency', $data ?? [], null);
+        $this->setIfExists('date', $data ?? [], null);
+        $this->setIfExists('price', $data ?? [], null);
     }
 
     /**
@@ -311,109 +297,55 @@ class DtoPrice implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets after_tax
-     *
-     * @return float|null
-     */
-    public function getAfterTax()
-    {
-        return $this->container['after_tax'];
-    }
-
-    /**
-     * Sets after_tax
-     *
-     * @param float|null $after_tax after_tax
-     *
-     * @return self
-     */
-    public function setAfterTax($after_tax)
-    {
-        if (is_null($after_tax)) {
-            throw new \InvalidArgumentException('non-nullable after_tax cannot be null');
-        }
-        $this->container['after_tax'] = $after_tax;
-
-        return $this;
-    }
-
-    /**
-     * Gets amount
-     *
-     * @return float|null
-     */
-    public function getAmount()
-    {
-        return $this->container['amount'];
-    }
-
-    /**
-     * Sets amount
-     *
-     * @param float|null $amount amount
-     *
-     * @return self
-     */
-    public function setAmount($amount)
-    {
-        if (is_null($amount)) {
-            throw new \InvalidArgumentException('non-nullable amount cannot be null');
-        }
-        $this->container['amount'] = $amount;
-
-        return $this;
-    }
-
-    /**
-     * Gets before_tax
-     *
-     * @return float|null
-     */
-    public function getBeforeTax()
-    {
-        return $this->container['before_tax'];
-    }
-
-    /**
-     * Sets before_tax
-     *
-     * @param float|null $before_tax before_tax
-     *
-     * @return self
-     */
-    public function setBeforeTax($before_tax)
-    {
-        if (is_null($before_tax)) {
-            throw new \InvalidArgumentException('non-nullable before_tax cannot be null');
-        }
-        $this->container['before_tax'] = $before_tax;
-
-        return $this;
-    }
-
-    /**
-     * Gets currency
+     * Gets date
      *
      * @return string|null
      */
-    public function getCurrency()
+    public function getDate()
     {
-        return $this->container['currency'];
+        return $this->container['date'];
     }
 
     /**
-     * Sets currency
+     * Sets date
      *
-     * @param string|null $currency currency
+     * @param string|null $date date
      *
      * @return self
      */
-    public function setCurrency($currency)
+    public function setDate($date)
     {
-        if (is_null($currency)) {
-            throw new \InvalidArgumentException('non-nullable currency cannot be null');
+        if (is_null($date)) {
+            throw new \InvalidArgumentException('non-nullable date cannot be null');
         }
-        $this->container['currency'] = $currency;
+        $this->container['date'] = $date;
+
+        return $this;
+    }
+
+    /**
+     * Gets price
+     *
+     * @return \Katanox\Model\DtoPrice|null
+     */
+    public function getPrice()
+    {
+        return $this->container['price'];
+    }
+
+    /**
+     * Sets price
+     *
+     * @param \Katanox\Model\DtoPrice|null $price price
+     *
+     * @return self
+     */
+    public function setPrice($price)
+    {
+        if (is_null($price)) {
+            throw new \InvalidArgumentException('non-nullable price cannot be null');
+        }
+        $this->container['price'] = $price;
 
         return $this;
     }
