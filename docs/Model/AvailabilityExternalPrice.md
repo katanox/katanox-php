@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **after_tax** | **float** |  | [optional]
 **before_tax** | **float** |  | [optional]
+**breakdown** | [**\Katanox\Model\GithubComKatanoxApiPkgModelAvailabilityPricePerNight[]**](GithubComKatanoxApiPkgModelAvailabilityPricePerNight.md) |  | [optional]
 **currency** | **string** |  | [optional]
 **extra_charges** | [**\Katanox\Model\AvailabilityExtraCharge[]**](AvailabilityExtraCharge.md) |  | [optional]
 **total_amount** | **float** |  | [optional]

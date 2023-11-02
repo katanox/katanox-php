@@ -6,7 +6,6 @@ All URIs are relative to https://api.katanox.com/v2, except if the operation def
 | ------------- | ------------- | ------------- |
 | [**getProperties()**](PropertiesApi.md#getProperties) | **GET** /properties | Retrieve the list of contracted properties |
 | [**getPropertyById()**](PropertiesApi.md#getPropertyById) | **GET** /properties/{id} | Retrieve a property by id |
-| [**getRateplanById()**](PropertiesApi.md#getRateplanById) | **GET** /properties/{property_id}/rate-plans/{id} | Retrieve a rate plan by id |
 | [**getUnitById()**](PropertiesApi.md#getUnitById) | **GET** /properties/{property_id}/units/{id} | Retrieve a unit by id |
 
 
@@ -108,64 +107,6 @@ try {
 ### Return type
 
 [**\Katanox\Model\ModelGetPropertyByIdResponse**](../Model/ModelGetPropertyByIdResponse.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `getRateplanById()`
-
-```php
-getRateplanById($property_id, $id, $authorization): \Katanox\Model\ModelGetRatePlanByIdResponse
-```
-
-Retrieve a rate plan by id
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-
-$apiInstance = new Katanox\Api\PropertiesApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
-);
-$property_id = 'property_id_example'; // string | The id of the property
-$id = 'id_example'; // string | The id of the rate plan
-$authorization = 'authorization_example'; // string | Type 'Bearer' and then your API Token
-
-try {
-    $result = $apiInstance->getRateplanById($property_id, $id, $authorization);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling PropertiesApi->getRateplanById: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **property_id** | **string**| The id of the property | |
-| **id** | **string**| The id of the rate plan | |
-| **authorization** | **string**| Type &#39;Bearer&#39; and then your API Token | |
-
-### Return type
-
-[**\Katanox\Model\ModelGetRatePlanByIdResponse**](../Model/ModelGetRatePlanByIdResponse.md)
 
 ### Authorization
 
