@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **comments** | **string[]** |  | [optional]
 **errors** | [**\Katanox\Model\DtoReservationError[]**](DtoReservationError.md) |  | [optional]
 **guests** | [**\Katanox\Model\DtoGuest[]**](DtoGuest.md) |  | [optional]
+**id** | **string** |  | [optional]
 **no_show_policy** | [**\Katanox\Model\DtoNoShowPolicy**](DtoNoShowPolicy.md) |  | [optional]
 **offer_id** | **string** |  | [optional]
 **price** | [**\Katanox\Model\DtoPrice**](DtoPrice.md) |  | [optional]
