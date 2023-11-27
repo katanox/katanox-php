@@ -133,7 +133,7 @@ No authorization required
 createBooking($x_ktnx_source, $authorization, $http_booking_creation_request): \Katanox\Model\HttpBookingResponse
 ```
 ### URI(s):
-- http://localhost:3005/v2 
+- http://api-svc:3005/v2 
 Create a booking
 
 Using this endpoint, you can create a booking consisting of one or more reservations. Note that these reservations need to belong to the same property, but can contain any combination of rates/units of that property. Furthermore, the check-in date of the new reservation needs to be within the travel dates of the rest of the reservations in the booking. The booking object allows you to manage multiple reservations in a unified way while keeping the flexibility to modify individual reservations.  When this endpoint returns a successful response, it means that we accepted the booking and we are in the process of forwarding it to the hotels. Since some hotel systems are asynchronous, you need to retrieve the booking again using the id in the response and check if it was confirmed.

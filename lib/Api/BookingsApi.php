@@ -697,7 +697,7 @@ class BookingsApi
      *
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
-     * URL: http://localhost:3005/v2
+     * URL: http://api-svc:3005/v2
      *
      * @param  string $x_ktnx_source API (required)
      * @param  string $authorization Type &#39;Bearer&#39; and then your API Token (required)
@@ -723,7 +723,7 @@ class BookingsApi
      *
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
-     * URL: http://localhost:3005/v2
+     * URL: http://api-svc:3005/v2
      *
      * @param  string $x_ktnx_source API (required)
      * @param  string $authorization Type &#39;Bearer&#39; and then your API Token (required)
@@ -900,7 +900,7 @@ class BookingsApi
      *
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
-     * URL: http://localhost:3005/v2
+     * URL: http://api-svc:3005/v2
      *
      * @param  string $x_ktnx_source API (required)
      * @param  string $authorization Type &#39;Bearer&#39; and then your API Token (required)
@@ -929,7 +929,7 @@ class BookingsApi
      *
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
-     * URL: http://localhost:3005/v2
+     * URL: http://api-svc:3005/v2
      *
      * @param  string $x_ktnx_source API (required)
      * @param  string $authorization Type &#39;Bearer&#39; and then your API Token (required)
@@ -987,7 +987,7 @@ class BookingsApi
      *
     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
     * if needed, use the 'variables' parameter to pass variables to the host.
-     * URL: http://localhost:3005/v2
+     * URL: http://api-svc:3005/v2
      *
      * @param  string $x_ktnx_source API (required)
      * @param  string $authorization Type &#39;Bearer&#39; and then your API Token (required)
@@ -1122,7 +1122,7 @@ class BookingsApi
     {
         return [
             [
-                "url" => "http://localhost:3005/v2",
+                "url" => "http://api-svc:3005/v2",
                 "description" => "No description provided",
             ]
         ];
