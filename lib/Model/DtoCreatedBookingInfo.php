@@ -59,6 +59,7 @@ class DtoCreatedBookingInfo implements ModelInterface, ArrayAccess, \JsonSeriali
     protected static $openAPITypes = [
         'comments' => 'string[]',
         'customer' => '\Katanox\Model\DtoCustomer',
+        'id' => 'string',
         'reservations' => '\Katanox\Model\DtoReservation[]',
         'total_price' => '\Katanox\Model\DtoPrice'
     ];
@@ -73,6 +74,7 @@ class DtoCreatedBookingInfo implements ModelInterface, ArrayAccess, \JsonSeriali
     protected static $openAPIFormats = [
         'comments' => null,
         'customer' => null,
+        'id' => null,
         'reservations' => null,
         'total_price' => null
     ];
@@ -85,6 +87,7 @@ class DtoCreatedBookingInfo implements ModelInterface, ArrayAccess, \JsonSeriali
     protected static array $openAPINullables = [
         'comments' => false,
 		'customer' => false,
+		'id' => false,
 		'reservations' => false,
 		'total_price' => false
     ];
@@ -177,6 +180,7 @@ class DtoCreatedBookingInfo implements ModelInterface, ArrayAccess, \JsonSeriali
     protected static $attributeMap = [
         'comments' => 'comments',
         'customer' => 'customer',
+        'id' => 'id',
         'reservations' => 'reservations',
         'total_price' => 'total_price'
     ];
@@ -189,6 +193,7 @@ class DtoCreatedBookingInfo implements ModelInterface, ArrayAccess, \JsonSeriali
     protected static $setters = [
         'comments' => 'setComments',
         'customer' => 'setCustomer',
+        'id' => 'setId',
         'reservations' => 'setReservations',
         'total_price' => 'setTotalPrice'
     ];
@@ -201,6 +206,7 @@ class DtoCreatedBookingInfo implements ModelInterface, ArrayAccess, \JsonSeriali
     protected static $getters = [
         'comments' => 'getComments',
         'customer' => 'getCustomer',
+        'id' => 'getId',
         'reservations' => 'getReservations',
         'total_price' => 'getTotalPrice'
     ];
@@ -264,6 +270,7 @@ class DtoCreatedBookingInfo implements ModelInterface, ArrayAccess, \JsonSeriali
     {
         $this->setIfExists('comments', $data ?? [], null);
         $this->setIfExists('customer', $data ?? [], null);
+        $this->setIfExists('id', $data ?? [], null);
         $this->setIfExists('reservations', $data ?? [], null);
         $this->setIfExists('total_price', $data ?? [], null);
     }
@@ -360,6 +367,33 @@ class DtoCreatedBookingInfo implements ModelInterface, ArrayAccess, \JsonSeriali
             throw new \InvalidArgumentException('non-nullable customer cannot be null');
         }
         $this->container['customer'] = $customer;
+
+        return $this;
+    }
+
+    /**
+     * Gets id
+     *
+     * @return string|null
+     */
+    public function getId()
+    {
+        return $this->container['id'];
+    }
+
+    /**
+     * Sets id
+     *
+     * @param string|null $id id
+     *
+     * @return self
+     */
+    public function setId($id)
+    {
+        if (is_null($id)) {
+            throw new \InvalidArgumentException('non-nullable id cannot be null');
+        }
+        $this->container['id'] = $id;
 
         return $this;
     }

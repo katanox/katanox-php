@@ -65,6 +65,7 @@ class DtoReservation implements ModelInterface, ArrayAccess, \JsonSerializable
         'comments' => 'string[]',
         'errors' => '\Katanox\Model\DtoReservationError[]',
         'guests' => '\Katanox\Model\DtoGuest[]',
+        'id' => 'string',
         'no_show_policy' => '\Katanox\Model\DtoNoShowPolicy',
         'offer_id' => 'string',
         'price' => '\Katanox\Model\DtoPrice',
@@ -88,6 +89,7 @@ class DtoReservation implements ModelInterface, ArrayAccess, \JsonSerializable
         'comments' => null,
         'errors' => null,
         'guests' => null,
+        'id' => null,
         'no_show_policy' => null,
         'offer_id' => null,
         'price' => null,
@@ -109,6 +111,7 @@ class DtoReservation implements ModelInterface, ArrayAccess, \JsonSerializable
 		'comments' => false,
 		'errors' => false,
 		'guests' => false,
+		'id' => false,
 		'no_show_policy' => false,
 		'offer_id' => false,
 		'price' => false,
@@ -210,6 +213,7 @@ class DtoReservation implements ModelInterface, ArrayAccess, \JsonSerializable
         'comments' => 'comments',
         'errors' => 'errors',
         'guests' => 'guests',
+        'id' => 'id',
         'no_show_policy' => 'no_show_policy',
         'offer_id' => 'offer_id',
         'price' => 'price',
@@ -231,6 +235,7 @@ class DtoReservation implements ModelInterface, ArrayAccess, \JsonSerializable
         'comments' => 'setComments',
         'errors' => 'setErrors',
         'guests' => 'setGuests',
+        'id' => 'setId',
         'no_show_policy' => 'setNoShowPolicy',
         'offer_id' => 'setOfferId',
         'price' => 'setPrice',
@@ -252,6 +257,7 @@ class DtoReservation implements ModelInterface, ArrayAccess, \JsonSerializable
         'comments' => 'getComments',
         'errors' => 'getErrors',
         'guests' => 'getGuests',
+        'id' => 'getId',
         'no_show_policy' => 'getNoShowPolicy',
         'offer_id' => 'getOfferId',
         'price' => 'getPrice',
@@ -353,6 +359,7 @@ class DtoReservation implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('comments', $data ?? [], null);
         $this->setIfExists('errors', $data ?? [], null);
         $this->setIfExists('guests', $data ?? [], null);
+        $this->setIfExists('id', $data ?? [], null);
         $this->setIfExists('no_show_policy', $data ?? [], null);
         $this->setIfExists('offer_id', $data ?? [], null);
         $this->setIfExists('price', $data ?? [], null);
@@ -623,6 +630,33 @@ class DtoReservation implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable guests cannot be null');
         }
         $this->container['guests'] = $guests;
+
+        return $this;
+    }
+
+    /**
+     * Gets id
+     *
+     * @return string|null
+     */
+    public function getId()
+    {
+        return $this->container['id'];
+    }
+
+    /**
+     * Sets id
+     *
+     * @param string|null $id id
+     *
+     * @return self
+     */
+    public function setId($id)
+    {
+        if (is_null($id)) {
+            throw new \InvalidArgumentException('non-nullable id cannot be null');
+        }
+        $this->container['id'] = $id;
 
         return $this;
     }
