@@ -59,6 +59,7 @@ class HttpBookingCreationRequest implements ModelInterface, ArrayAccess, \JsonSe
     protected static $openAPITypes = [
         'comments' => 'string[]',
         'customer' => '\Katanox\Model\HttpCustomer',
+        'loyalty_id' => 'string',
         'payment' => '\Katanox\Model\HttpBookingCreationRequestPayment',
         'reservations' => '\Katanox\Model\HttpReservationCreationRequest[]'
     ];
@@ -73,6 +74,7 @@ class HttpBookingCreationRequest implements ModelInterface, ArrayAccess, \JsonSe
     protected static $openAPIFormats = [
         'comments' => null,
         'customer' => null,
+        'loyalty_id' => null,
         'payment' => null,
         'reservations' => null
     ];
@@ -85,6 +87,7 @@ class HttpBookingCreationRequest implements ModelInterface, ArrayAccess, \JsonSe
     protected static array $openAPINullables = [
         'comments' => false,
 		'customer' => false,
+		'loyalty_id' => false,
 		'payment' => false,
 		'reservations' => false
     ];
@@ -177,6 +180,7 @@ class HttpBookingCreationRequest implements ModelInterface, ArrayAccess, \JsonSe
     protected static $attributeMap = [
         'comments' => 'comments',
         'customer' => 'customer',
+        'loyalty_id' => 'loyalty_id',
         'payment' => 'payment',
         'reservations' => 'reservations'
     ];
@@ -189,6 +193,7 @@ class HttpBookingCreationRequest implements ModelInterface, ArrayAccess, \JsonSe
     protected static $setters = [
         'comments' => 'setComments',
         'customer' => 'setCustomer',
+        'loyalty_id' => 'setLoyaltyId',
         'payment' => 'setPayment',
         'reservations' => 'setReservations'
     ];
@@ -201,6 +206,7 @@ class HttpBookingCreationRequest implements ModelInterface, ArrayAccess, \JsonSe
     protected static $getters = [
         'comments' => 'getComments',
         'customer' => 'getCustomer',
+        'loyalty_id' => 'getLoyaltyId',
         'payment' => 'getPayment',
         'reservations' => 'getReservations'
     ];
@@ -264,6 +270,7 @@ class HttpBookingCreationRequest implements ModelInterface, ArrayAccess, \JsonSe
     {
         $this->setIfExists('comments', $data ?? [], null);
         $this->setIfExists('customer', $data ?? [], null);
+        $this->setIfExists('loyalty_id', $data ?? [], null);
         $this->setIfExists('payment', $data ?? [], null);
         $this->setIfExists('reservations', $data ?? [], null);
     }
@@ -370,6 +377,33 @@ class HttpBookingCreationRequest implements ModelInterface, ArrayAccess, \JsonSe
             throw new \InvalidArgumentException('non-nullable customer cannot be null');
         }
         $this->container['customer'] = $customer;
+
+        return $this;
+    }
+
+    /**
+     * Gets loyalty_id
+     *
+     * @return string|null
+     */
+    public function getLoyaltyId()
+    {
+        return $this->container['loyalty_id'];
+    }
+
+    /**
+     * Sets loyalty_id
+     *
+     * @param string|null $loyalty_id loyalty_id
+     *
+     * @return self
+     */
+    public function setLoyaltyId($loyalty_id)
+    {
+        if (is_null($loyalty_id)) {
+            throw new \InvalidArgumentException('non-nullable loyalty_id cannot be null');
+        }
+        $this->container['loyalty_id'] = $loyalty_id;
 
         return $this;
     }
