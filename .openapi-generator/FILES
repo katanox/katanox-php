@@ -35,7 +35,6 @@ docs/Model/GeopointGeoPoint.md
 docs/Model/GithubComKatanoxApiPkgModelAvailabilityPricePerNight.md
 docs/Model/HttpBookingAndReservationLinks.md
 docs/Model/HttpBookingCreationRequest.md
-docs/Model/HttpBookingCreationRequestPayment.md
 docs/Model/HttpBookingData.md
 docs/Model/HttpBookingResponse.md
 docs/Model/HttpCustomer.md
@@ -103,7 +102,6 @@ lib/Model/GeopointGeoPoint.php
 lib/Model/GithubComKatanoxApiPkgModelAvailabilityPricePerNight.php
 lib/Model/HttpBookingAndReservationLinks.php
 lib/Model/HttpBookingCreationRequest.php
-lib/Model/HttpBookingCreationRequestPayment.php
 lib/Model/HttpBookingData.php
 lib/Model/HttpBookingResponse.php
 lib/Model/HttpCustomer.php
