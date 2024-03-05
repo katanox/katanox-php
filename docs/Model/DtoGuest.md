@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **email** | **string** |  | [optional]
 **first_name** | **string** |  | [optional]
 **last_name** | **string** |  | [optional]
+**loyalty_id** | **string** |  | [optional]
 **phone_number** | **string** |  | [optional]
 **postcode** | **string** |  | [optional]
 **title** | **string** |  | [optional]
