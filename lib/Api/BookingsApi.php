@@ -697,7 +697,7 @@ class BookingsApi
      *
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
-     * URL: https://api-staging.katanox.com/v2
+     * URL: https://api.katanox.com/v2
      *
      * @param  string $x_ktnx_source API (required)
      * @param  string $authorization Type &#39;Bearer&#39; and then your API Token (required)
@@ -723,7 +723,7 @@ class BookingsApi
      *
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
-     * URL: https://api-staging.katanox.com/v2
+     * URL: https://api.katanox.com/v2
      *
      * @param  string $x_ktnx_source API (required)
      * @param  string $authorization Type &#39;Bearer&#39; and then your API Token (required)
@@ -960,7 +960,7 @@ class BookingsApi
      *
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
-     * URL: https://api-staging.katanox.com/v2
+     * URL: https://api.katanox.com/v2
      *
      * @param  string $x_ktnx_source API (required)
      * @param  string $authorization Type &#39;Bearer&#39; and then your API Token (required)
@@ -989,7 +989,7 @@ class BookingsApi
      *
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
-     * URL: https://api-staging.katanox.com/v2
+     * URL: https://api.katanox.com/v2
      *
      * @param  string $x_ktnx_source API (required)
      * @param  string $authorization Type &#39;Bearer&#39; and then your API Token (required)
@@ -1047,7 +1047,7 @@ class BookingsApi
      *
     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
     * if needed, use the 'variables' parameter to pass variables to the host.
-     * URL: https://api-staging.katanox.com/v2
+     * URL: https://api.katanox.com/v2
      *
      * @param  string $x_ktnx_source API (required)
      * @param  string $authorization Type &#39;Bearer&#39; and then your API Token (required)
@@ -1182,7 +1182,7 @@ class BookingsApi
     {
         return [
             [
-                "url" => "https://api-staging.katanox.com/v2",
+                "url" => "https://api.katanox.com/v2",
                 "description" => "No description provided",
             ]
         ];
