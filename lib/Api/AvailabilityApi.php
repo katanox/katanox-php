@@ -144,7 +144,7 @@ class AvailabilityApi
      * @param  bool $lowest If set to true returns only the cheapest price per property (optional, default to false)
      * @param  bool $price_breakdown If set to true then each offer will contain the nightly price alongside the total price (optional, default to false)
      * @param  string $unit_type The unit type (optional)
-     * @param  string $occupancy Represents the occupancy for a room. Format: occupancy&#x3D;numberOfAdults-firstChildAge,nextChildAge (optional)
+     * @param  string $occupancy Represents the occupancy for a room. Format: occupancy&#x3D;numberOfAdults-firstChildAge;nextChildAge (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAvailableProperties'] to see the possible values for this operation
      *
      * @throws \Katanox\ApiException on non-2xx response or if the response body is not in the expected format
@@ -179,7 +179,7 @@ class AvailabilityApi
      * @param  bool $lowest If set to true returns only the cheapest price per property (optional, default to false)
      * @param  bool $price_breakdown If set to true then each offer will contain the nightly price alongside the total price (optional, default to false)
      * @param  string $unit_type The unit type (optional)
-     * @param  string $occupancy Represents the occupancy for a room. Format: occupancy&#x3D;numberOfAdults-firstChildAge,nextChildAge (optional)
+     * @param  string $occupancy Represents the occupancy for a room. Format: occupancy&#x3D;numberOfAdults-firstChildAge;nextChildAge (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAvailableProperties'] to see the possible values for this operation
      *
      * @throws \Katanox\ApiException on non-2xx response or if the response body is not in the expected format
@@ -390,7 +390,7 @@ class AvailabilityApi
      * @param  bool $lowest If set to true returns only the cheapest price per property (optional, default to false)
      * @param  bool $price_breakdown If set to true then each offer will contain the nightly price alongside the total price (optional, default to false)
      * @param  string $unit_type The unit type (optional)
-     * @param  string $occupancy Represents the occupancy for a room. Format: occupancy&#x3D;numberOfAdults-firstChildAge,nextChildAge (optional)
+     * @param  string $occupancy Represents the occupancy for a room. Format: occupancy&#x3D;numberOfAdults-firstChildAge;nextChildAge (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAvailableProperties'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -428,7 +428,7 @@ class AvailabilityApi
      * @param  bool $lowest If set to true returns only the cheapest price per property (optional, default to false)
      * @param  bool $price_breakdown If set to true then each offer will contain the nightly price alongside the total price (optional, default to false)
      * @param  string $unit_type The unit type (optional)
-     * @param  string $occupancy Represents the occupancy for a room. Format: occupancy&#x3D;numberOfAdults-firstChildAge,nextChildAge (optional)
+     * @param  string $occupancy Represents the occupancy for a room. Format: occupancy&#x3D;numberOfAdults-firstChildAge;nextChildAge (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAvailableProperties'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -495,7 +495,7 @@ class AvailabilityApi
      * @param  bool $lowest If set to true returns only the cheapest price per property (optional, default to false)
      * @param  bool $price_breakdown If set to true then each offer will contain the nightly price alongside the total price (optional, default to false)
      * @param  string $unit_type The unit type (optional)
-     * @param  string $occupancy Represents the occupancy for a room. Format: occupancy&#x3D;numberOfAdults-firstChildAge,nextChildAge (optional)
+     * @param  string $occupancy Represents the occupancy for a room. Format: occupancy&#x3D;numberOfAdults-firstChildAge;nextChildAge (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAvailableProperties'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException

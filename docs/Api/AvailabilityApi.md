@@ -47,7 +47,7 @@ $limit = 10; // int | Number of results per page. The maximum value of the limit
 $lowest = false; // bool | If set to true returns only the cheapest price per property
 $price_breakdown = false; // bool | If set to true then each offer will contain the nightly price alongside the total price
 $unit_type = 'unit_type_example'; // string | The unit type
-$occupancy = 'occupancy_example'; // string | Represents the occupancy for a room. Format: occupancy=numberOfAdults-firstChildAge,nextChildAge
+$occupancy = 'occupancy_example'; // string | Represents the occupancy for a room. Format: occupancy=numberOfAdults-firstChildAge;nextChildAge
 
 try {
     $result = $apiInstance->getAvailableProperties($check_in, $check_out, $authorization, $adults, $children, $lat, $lng, $radius, $property_ids, $negotiated_rate_plans, $corporate_profile_id, $number_of_units, $page, $limit, $lowest, $price_breakdown, $unit_type, $occupancy);
@@ -78,7 +78,7 @@ try {
 | **lowest** | **bool**| If set to true returns only the cheapest price per property | [optional] [default to false] |
 | **price_breakdown** | **bool**| If set to true then each offer will contain the nightly price alongside the total price | [optional] [default to false] |
 | **unit_type** | **string**| The unit type | [optional] |
-| **occupancy** | **string**| Represents the occupancy for a room. Format: occupancy&#x3D;numberOfAdults-firstChildAge,nextChildAge | [optional] |
+| **occupancy** | **string**| Represents the occupancy for a room. Format: occupancy&#x3D;numberOfAdults-firstChildAge;nextChildAge | [optional] |
 
 ### Return type
 
