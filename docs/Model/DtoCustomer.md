@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **address_line_2** | **string** |  | [optional]
 **birth_date** | **string** |  | [optional]
 **city** | **string** |  | [optional]
+**company_name** | **string** |  | [optional]
 **country** | **string** |  | [optional]
 **email** | **string** |  | [optional]
 **first_name** | **string** |  | [optional]

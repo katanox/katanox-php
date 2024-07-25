@@ -1,0 +1,2127 @@
+openapi: 3.0.0
+info:
+  contact: {}
+  description: The Katanox API allows any travel seller to search and book accommodation.
+  title: Katanox API Documentation
+  version: "2.0"
+paths:
+  /availability:
+    get:
+      description: >-
+        Use this endpoint to retrieve availability offers. To receive offers from properties you are already partnered with you need to specify the check in and check out dates, number of adults and either geo coordinates and a radius to search into or directly a list of property ids.
+
+
+        Note: you need to pass either property_ids or both latitude and longitude to query for properties.
+
+
+        You can find more information in the [Availability guide](https://docs.katanox.com/docs/availability)
+      operationId: get-available-properties
+      parameters:
+        - description: Date(YYYY-MM-DD)
+          in: query
+          name: check_in
+          required: true
+          schema:
+            type: string
+        - description: Date(YYYY-MM-DD)
+          in: query
+          name: check_out
+          required: true
+          schema:
+            type: string
+        - description: Number of adults
+          in: query
+          name: adults
+          schema:
+            type: integer
+            default: 1
+        - description: Number of children
+          in: query
+          name: children
+          schema:
+            type: integer
+            default: 0
+        - description: The Latitude
+          in: query
+          name: lat
+          schema:
+            type: number
+            minimum: -90
+            maximum: 90
+        - description: The Longitude
+          in: query
+          name: lng
+          schema:
+            type: number
+            minimum: -180
+        - description: The search radius in meters(m)
+          in: query
+          name: radius
+          schema:
+            type: integer
+            default: 2000
+        - description: List of property IDs to be included. When specified, only these properties will be included in the response. The maximum size of property id list is 50.
+          in: query
+          name: property_ids
+          explode: true
+          schema:
+            type: array
+            items:
+              type: string
+        - description: Deprecated! List of negotiated rate plan ids to be included.
+          in: query
+          name: negotiated_rate_plans
+          explode: true
+          schema:
+            type: array
+            items:
+              type: string
+        - description: The corporate_profile_id can be used to fetch specific rates linked to a corporate.
+          in: query
+          name: corporate_profile_id
+          schema:
+            type: string
+            default: "null"
+        - description: The total number of units required
+          in: query
+          name: number_of_units
+          schema:
+            type: integer
+            default: 1
+        - description: The returned page number
+          in: query
+          name: page
+          schema:
+            type: integer
+            minimum: 0
+            default: 0
+        - description: Limits the number of properties that will be used to search for availability when searching with coordinates. In case of a search using property ids, `page` and `limit` are ignored
+          in: query
+          name: limit
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 50
+            default: 10
+        - description: If set to true returns only the cheapest price per property
+          in: query
+          name: lowest
+          schema:
+            type: boolean
+            default: false
+        - description: If set to true then each offer will contain the nightly price alongside the total price
+          in: query
+          name: price_breakdown
+          schema:
+            type: boolean
+            default: false
+        - description: The unit type
+          in: query
+          name: unit_type
+          schema:
+            type: string
+        - description: "Represents the occupancy for a room. Format: occupancy=numberOfAdults-firstChildAge;nextChildAge"
+          in: query
+          name: occupancy
+          schema:
+            type: string
+        - description: Type 'Bearer' and then your API Token
+          in: header
+          name: Authorization
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/availability.GetAvailabilityResponse"
+        "400":
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/model.ApiError"
+        "500":
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/model.ApiError"
+      summary: Retrieve the list of available properties
+      tags:
+        - Availability
+  /bookings:
+    post:
+      description: >-
+        Using this endpoint, you can create a booking consisting of one or more reservations. Note that these reservations need to belong to the same property, but can contain any combination of rates/units of that property. Furthermore, the check-in date of the new reservation needs to be within the travel dates of the rest of the reservations in the booking. The booking object allows you to manage multiple reservations in a unified way while keeping the flexibility to modify individual reservations.
+
+
+        When this endpoint returns a successful response, it means that we accepted the booking and we are in the process of forwarding it to the hotels. Since some hotel systems are asynchronous, you need to retrieve the booking again using the id in the response and check if it was confirmed.
+      operationId: create-booking
+      parameters:
+        - description: Type 'Bearer' and then your API Token
+          in: header
+          name: Authorization
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/http.BookingCreationRequest"
+        description: Booking body
+        required: true
+      responses:
+        "201":
+          description: Created
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/http.BookingResponse"
+        "400":
+          description: Bad Request
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/model.ApiError"
+        "422":
+          description: Unprocessable entity
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/model.ApiError"
+        "500":
+          description: Internal Server Error
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/model.ApiError"
+      summary: Create a booking
+      tags:
+        - Bookings
+      servers:
+        - url: https://api.katanox.com/v2
+  "/bookings/{booking_id}":
+    delete:
+      description: By canceling a booking, you are canceling all the reservations in it.
+      operationId: cancel-booking-by-id
+      parameters:
+        - description: The id of the booking to be cancelled
+          in: path
+          name: booking_id
+          required: true
+          schema:
+            type: string
+        - description: Type 'Bearer' and then your API Token
+          in: header
+          name: Authorization
+          required: true
+          schema:
+            type: string
+      responses:
+        "204":
+          description: No Content
+        "404":
+          description: Booking wasn't found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/model.ApiError"
+        "500":
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/model.ApiError"
+      summary: Cancel a booking
+      tags:
+        - Bookings
+    get:
+      description: Retrieve a specific booking with its current state. The specific booking id is supplied to you as part of the Post method response.
+      operationId: get-booking-by-id
+      parameters:
+        - description: The ID of the booking
+          in: path
+          name: booking_id
+          required: true
+          schema:
+            type: string
+        - description: Type 'Bearer' and then your API Token
+          in: header
+          name: Authorization
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/http.BookingResponse"
+        "404":
+          description: Booking wasn't found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/model.ApiError"
+        "500":
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/model.ApiError"
+      summary: Retrieve a booking
+      tags:
+        - Bookings
+  "/bookings/{booking_id}/invoices":
+    get:
+      description: Returns invoice details of a booking.
+      operationId: bookings-get-invoices
+      parameters:
+        - description: The id of the booking
+          in: path
+          name: booking_id
+          required: true
+          schema:
+            type: string
+        - description: Type 'Bearer' and then your API Token
+          in: header
+          name: Authorization
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/invoice.GetBookingInvoiceResponse"
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/model.ApiError"
+        "404":
+          description: Booking or invoice not found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/invoice.GetBookingInvoiceResponse"
+        "500":
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/invoice.GetBookingInvoiceResponse"
+      summary: Get folio data
+      tags:
+        - Invoice
+        - Bookings
+  "/bookings/{booking_id}/invoices/{invoice_id}/file":
+    get:
+      description: >-
+        This endpoint returns the original invoice file using the invoice id that is returned by
+
+        the  [Get Booking Invoices](bookings-get-invoices). The response will contain a link that you can use
+
+        to access the file. If the file is not yet available, a 404 status code will be returned.
+      operationId: get-invoice-file
+      parameters:
+        - description: The id of the booking
+          in: path
+          name: booking_id
+          required: true
+          schema:
+            type: string
+        - description: The id of the invoice
+          in: path
+          name: invoice_id
+          required: true
+          schema:
+            type: string
+        - description: Type 'Bearer' and then your API Token
+          in: header
+          name: Authorization
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/github_com_katanox_api_internal_invoice.GetInvoiceFileResponse"
+        "400":
+          description: Invalid Booking or Invoice id
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/model.ApiError"
+        "401":
+          description: Api key does not exist or is invalid
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/model.UnauthorizedApiError"
+        "404":
+          description: The file does not exist
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/model.ApiError"
+        "500":
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/model.ApiError"
+      summary: Get invoice
+      tags:
+        - Invoice
+  "/bookings/{booking_id}/reservations":
+    post:
+      description: When creating a new reservation, you must specify the booking id you want the new reservation to be part of. If there is no booking, use the Create a booking method instead.
+      operationId: create-reservation
+      parameters:
+        - description: The id of the booking
+          in: path
+          name: booking_id
+          required: true
+          schema:
+            type: string
+        - description: Type 'Bearer' and then your API Token
+          in: header
+          name: Authorization
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/http.ReservationCreationRequest"
+        description: Reservation body
+        required: true
+      responses:
+        "201":
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/http.ReservationResponse"
+        "400":
+          description: Invalid body provided
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/model.ApiError"
+        "404":
+          description: Booking wasn't found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/model.ApiError"
+        "422":
+          description: Unprocessable entity
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/model.ApiError"
+        "500":
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/model.ApiError"
+      summary: Create a reservation
+      tags:
+        - Bookings
+  "/bookings/{booking_id}/reservations/{reservation_id}":
+    delete:
+      description: >-
+        Using this endpoint you can submit a reservation cancellation request.
+
+        If the reservation can be cancelled, the endpoint will return 204 and an empty response body.
+
+        If we cannot start the cancellation process, the endpoint will return an error message and error codes.
+
+        Currently the following error codes can be returned: `NON_CANCELLABLE`, `NOT_FOUND`, `INTERNAL_SERVER_ERROR`
+
+        Each error code will have an error message to explain the error code. `NON_CANCELLABLE` reservations are the ones that either have non cancellable status (e.g `CANCELLED`, `PENDING`) or their check in date has already passed and the reservation cannot be cancelled any more.
+
+        It's important to fetch the status of the reservation after submitting this request to confirm that the status changes to `CANCELLED`
+      operationId: cancel-reservation
+      parameters:
+        - description: The id of the booking
+          in: path
+          name: booking_id
+          required: true
+          schema:
+            type: string
+        - description: The id of the reservation
+          in: path
+          name: reservation_id
+          required: true
+          schema:
+            type: string
+        - description: Type 'Bearer' and then your API Token
+          in: header
+          name: Authorization
+          required: true
+          schema:
+            type: string
+      responses:
+        "204":
+          description: No Content
+        "400":
+          description: Reservation could not be cancelled
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/model.ApiError"
+        "401":
+          description: Api key does not exist or is invalid
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/model.UnauthorizedApiError"
+        "404":
+          description: Reservation does not exist
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/model.ApiError"
+        "500":
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/model.ApiError"
+      summary: Cancel a reservation
+      tags:
+        - Bookings
+    get:
+      operationId: get-reservation-by-id
+      parameters:
+        - description: The ID of the booking
+          in: path
+          name: booking_id
+          required: true
+          schema:
+            type: string
+        - description: The ID of the reservation
+          in: path
+          name: reservation_id
+          required: true
+          schema:
+            type: string
+        - description: Type 'Bearer' and then your API Token
+          in: header
+          name: Authorization
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/http.ReservationResponse"
+        "404":
+          description: Booking or Reservation wasn't found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/model.ApiError"
+        "500":
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/model.ApiError"
+      summary: Retrieve a reservation by id
+      tags:
+        - Bookings
+    put:
+      description: >-
+        When updating a Reservation, send in the entire reservation with its desired state. Note that this is not a partial update - all fields, specified or not, will be persisted to the existing Reservation object.
+
+
+        To add an additional guest, update or delete an existing guest, send a guest list with the necessary changes. The list in the update reservation request will update the associated guests in that reservation.
+
+        You can find more information in the [Reservation guide](https://docs.katanox.com/docs/reservation)
+      operationId: update-reservation
+      parameters:
+        - description: The id of the booking
+          in: path
+          name: booking_id
+          required: true
+          schema:
+            type: string
+        - description: The id of the reservation
+          in: path
+          name: reservation_id
+          required: true
+          schema:
+            type: string
+        - description: Type 'Bearer' and then your API Token
+          in: header
+          name: Authorization
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/http.ReservationUpdateRequest"
+        description: The reservation body
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/http.ReservationResponse"
+        "400":
+          description: Invalid body provided
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/model.ApiError"
+        "404":
+          description: Booking or Reservation wasn't found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/model.ApiError"
+        "422":
+          description: Unprocessable entity
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/model.ApiError"
+        "500":
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/model.ApiError"
+      summary: Update a reservation
+      tags:
+        - Bookings
+  /corporate-profiles:
+    get:
+      description: List  the corporate profile resources which are connected to the buyer.
+      operationId: corporate-profiles-list
+      parameters:
+        - description: The returned page number
+          in: query
+          name: page
+          schema:
+            type: integer
+            default: 0
+        - description: Number of results per page. The maximum value of the limit is 50.
+          in: query
+          name: limit
+          schema:
+            type: integer
+            default: 10
+        - description: Type 'Bearer' and then your API Token
+          in: header
+          name: Authorization
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/dto.ListCorporateProfileResponse"
+        "400":
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/model.ApiError"
+        "404":
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/model.ApiError"
+        "500":
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/model.ApiError"
+      summary: List corporate profiles
+      tags:
+        - Corporate Profiles
+  "/offers/{offer_id}":
+    get:
+      description: Retrieve an offer by id. If the offer is expired, the endpoint will return a not found response.
+      operationId: offer-validate
+      parameters:
+        - description: The id of the offer
+          in: path
+          name: offer_id
+          required: true
+          schema:
+            type: string
+        - description: Type 'Bearer' and then your API Token
+          in: header
+          name: Authorization
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/offer.GetOfferResponse"
+        "404":
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/model.ApiError"
+        "500":
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/model.ApiError"
+      summary: Retrieve an offer
+      tags:
+        - Offers
+  "/offers/{offer_id}/refresh":
+    post:
+      description: Refresh the expiry time of an active offer to extend its validity. If the offer has already expired or the price has changed, the endpoint will return a bad request.
+      operationId: offer-refresh
+      parameters:
+        - description: The id of the offer
+          in: path
+          name: offer_id
+          required: true
+          schema:
+            type: string
+        - description: Type 'Bearer' and then your API Token
+          in: header
+          name: Authorization
+          required: true
+          schema:
+            type: string
+      responses:
+        "202":
+          description: Accepted
+        "400":
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/model.ApiError"
+        "404":
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/model.ApiError"
+        "500":
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/model.ApiError"
+      summary: Refresh an offer
+      tags:
+        - Offers
+  /properties:
+    get:
+      operationId: get-properties
+      parameters:
+        - description: List of property IDs to be included. When specified, only these properties will be included in the response. The maximum size of this list is 50.
+          in: query
+          name: property_ids
+          explode: true
+          schema:
+            type: array
+            items:
+              type: string
+        - description: Type 'Bearer' and then your API Token
+          in: header
+          name: Authorization
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/model.GetPropertiesResponse"
+        "400":
+          description: Invalid parameters provided
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/model.ApiError"
+        "500":
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/model.ApiError"
+      summary: Retrieve the list of contracted properties
+      tags:
+        - Properties
+  "/properties/{id}":
+    get:
+      operationId: get-property-by-id
+      parameters:
+        - description: The id of the property to retrieve
+          in: path
+          name: id
+          required: true
+          schema:
+            type: string
+        - description: Type 'Bearer' and then your API Token
+          in: header
+          name: Authorization
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/model.GetPropertyByIdResponse"
+        "403":
+          description: You do not have an active partnership with this property
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/model.ApiError"
+        "404":
+          description: Property specified could not be found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/model.ApiError"
+        "500":
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/model.ApiError"
+      summary: Retrieve a property by id
+      tags:
+        - Properties
+  "/properties/{property_id}/rate-plans/{id}":
+    get:
+      operationId: get-rateplan-by-id
+      parameters:
+        - description: The id of the property
+          in: path
+          name: property_id
+          required: true
+          schema:
+            type: string
+        - description: The id of the rate plan
+          in: path
+          name: id
+          required: true
+          schema:
+            type: string
+        - description: Type 'Bearer' and then your API Token
+          in: header
+          name: Authorization
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/model.GetRatePlanByIdResponse"
+        "403":
+          description: There is no partnership or rate-plan is not part of the partnership
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/model.ApiError"
+        "404":
+          description: Rate Plan could not be found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/model.ApiError"
+        "500":
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/model.ApiError"
+      summary: Retrieve a rate plan by id
+      tags:
+        - Rate Plans
+  "/properties/{property_id}/units/{id}":
+    get:
+      operationId: get-unit-by-id
+      parameters:
+        - description: The id of the property
+          in: path
+          name: property_id
+          required: true
+          schema:
+            type: string
+        - description: The id of the unit
+          in: path
+          name: id
+          required: true
+          schema:
+            type: string
+        - description: Type 'Bearer' and then your API Token
+          in: header
+          name: Authorization
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/model.GetUnitByIdResponse"
+        "404":
+          description: The property or unit specified could not be found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/model.ApiError"
+        "500":
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/model.ApiError"
+      summary: Retrieve a unit by id
+      tags:
+        - Properties
+  /rate-plans:
+    get:
+      operationId: get-rateplans
+      parameters:
+        - description: List of rate plan IDs to be included. The maximum size of this list is 50.
+          in: query
+          name: ids
+          required: true
+          explode: true
+          schema:
+            type: array
+            items:
+              type: string
+        - description: Type 'Bearer' and then your API Token
+          in: header
+          name: Authorization
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/model.GetRatePlansResponse"
+        "400":
+          description: "Rate plan ids cannot be empty\",\t\t\t\"Channel id could not be parsed."
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/model.ApiError"
+        "404":
+          description: "Specified rate plans could not be found\",\t\"You do not have an active partnership to retrieve these rate plans"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/model.ApiError"
+        "500":
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/model.ApiError"
+      summary: Retrieve the list of rate plans
+      tags:
+        - Rate Plans
+servers:
+  - url: https://api.katanox.com/v2
+components:
+  schemas:
+    availability.ExternalOffer:
+      properties:
+        commission:
+          example: 12.5
+          type: number
+        id:
+          example: 9131b7c8-3b6c-471d-8c0e-f579b1f40adb
+          type: string
+        occupancy_has_offer:
+          items:
+            type: boolean
+          type: array
+        price:
+          $ref: "#/components/schemas/availability.ExternalPrice"
+        property_id:
+          example: ABCDEFGH
+          type: string
+        rate_plan_id:
+          example: ABCDEFGH
+          type: string
+        rate_type:
+          enum:
+            - PUBLIC
+            - CNR
+          type: string
+        unit_id:
+          example: ABCDEFGH
+          type: string
+      type: object
+    availability.ExternalPrice:
+      properties:
+        after_tax:
+          example: 200
+          type: number
+        before_tax:
+          example: 180
+          type: number
+        breakdown:
+          items:
+            $ref: "#/components/schemas/github_com_katanox_api_pkg_model_availability.PricePerNight"
+          type: array
+        currency:
+          example: USD
+          type: string
+        extra_charges:
+          items:
+            $ref: "#/components/schemas/availability.ExtraCharge"
+          type: array
+        net_rate:
+          example: 15
+          type: number
+        total_amount:
+          example: 250
+          type: number
+      type: object
+    availability.ExtraCharge:
+      properties:
+        after_tax:
+          example: 21
+          type: number
+        before_tax:
+          example: 19
+          type: number
+        currency:
+          example: EUR
+          type: string
+        name:
+          example: Breakfast
+          type: string
+      type: object
+    availability.GetAvailabilityResponse:
+      properties:
+        data:
+          $ref: "#/components/schemas/availability.OffersData"
+      type: object
+    availability.NumberOfUnits:
+      additionalProperties:
+        additionalProperties:
+          type: integer
+        type: object
+      type: object
+    availability.OffersData:
+      properties:
+        number_of_units:
+          allOf:
+            - $ref: "#/components/schemas/availability.NumberOfUnits"
+          description: Shows the number of rooms available per property. You can use this field to determine which rooms you can combine when creating a booking with multiple rooms.
+        offers:
+          items:
+            $ref: "#/components/schemas/availability.ExternalOffer"
+          type: array
+        total_properties:
+          description: "The total number of properties that match the given search parameters when searching using coordinates. The count is not associated with the number of offers. The field can be used to implement pagination; the last page will be: `PropertiesCount <= (page + 1) * limit`. In case of search using property ids the field will be equal to the number of properties passed to the search."
+          type: integer
+      type: object
+    dto.Amenity:
+      properties:
+        category:
+          example: CategoryA
+          type: string
+        id:
+          example: KFURSAKD
+          type: string
+        name:
+          example: Amenity1
+          type: string
+      type: object
+    dto.BedType:
+      properties:
+        amount:
+          example: 1
+          type: integer
+        name:
+          example: Double
+          type: string
+        occupancy:
+          example: 2
+          type: integer
+      type: object
+    dto.CancellationPolicy:
+      properties:
+        amount:
+          type: number
+        charge_type:
+          enum:
+            - fixed
+            - percentage
+            - nights
+          type: string
+        days_before_activation:
+          type: integer
+        description:
+          type: string
+        hours_before_activation:
+          type: integer
+        name:
+          type: string
+        reference:
+          description: When the policy gets activated
+          enum:
+            - prior-to-arrival
+            - after-booking
+          type: string
+      type: object
+    dto.CorporateProfile:
+      properties:
+        id:
+          example: ABCDEFGH
+          type: string
+        name:
+          example: Katanox
+          type: string
+      type: object
+    dto.CreatedBookingInfo:
+      properties:
+        comments:
+          example:
+            - We will arrive around 8pm
+          items:
+            type: string
+          type: array
+        customer:
+          $ref: "#/components/schemas/dto.Customer"
+        id:
+          example: BK-EUWIGPSG
+          type: string
+        reservations:
+          items:
+            $ref: "#/components/schemas/dto.Reservation"
+          type: array
+        total_price:
+          $ref: "#/components/schemas/dto.Price"
+      type: object
+    dto.Customer:
+      properties:
+        address_line_1:
+          type: string
+        address_line_2:
+          type: string
+        birth_date:
+          type: string
+        city:
+          type: string
+        company_name:
+          type: string
+        country:
+          type: string
+        email:
+          type: string
+        first_name:
+          type: string
+        last_name:
+          type: string
+        phone_number:
+          type: string
+        postcode:
+          type: string
+        title:
+          type: string
+      type: object
+    dto.Facility:
+      properties:
+        category:
+          example: Activities
+          type: string
+        id:
+          example: KFURSAKD
+          type: string
+        name:
+          example: Tennis equipment
+          type: string
+      type: object
+    dto.Guest:
+      properties:
+        address_line_1:
+          type: string
+        address_line_2:
+          type: string
+        birth_date:
+          type: string
+        city:
+          type: string
+        country:
+          type: string
+        email:
+          type: string
+        first_name:
+          type: string
+        last_name:
+          type: string
+        loyalty_id:
+          type: string
+        phone_number:
+          type: string
+        postcode:
+          type: string
+        title:
+          type: string
+      type: object
+    dto.I18NProperty:
+      properties:
+        description:
+          example: Ξενοδοχειο στο κεντρο της πολης
+          type: string
+        locale:
+          example: el
+          type: string
+        name:
+          example: Ξενοδοχείο Αθήνα
+          type: string
+      type: object
+    dto.I18NRatePlan:
+      properties:
+        description:
+          example: Δωρεαν ακυρωση εως 7 ημερες πριν τη μερα αφιξης
+          type: string
+        locale:
+          example: el
+          type: string
+        name:
+          example: Δωρεαν ακυρωση
+          type: string
+      type: object
+    dto.I18NUnit:
+      properties:
+        description:
+          example: Διπλό δωμάτιο με θέα τη θάλασσα
+          type: string
+        locale:
+          example: el
+          type: string
+        name:
+          example: Διπλο δωματιο
+          type: string
+      type: object
+    dto.ListCorporateProfileResponse:
+      properties:
+        data:
+          items:
+            $ref: "#/components/schemas/dto.CorporateProfile"
+          type: array
+        meta:
+          $ref: "#/components/schemas/dto.ResponseMetadata"
+      type: object
+    dto.NoShowPolicy:
+      properties:
+        amount:
+          type: number
+        charge_type:
+          enum:
+            - fixed
+            - percentage
+            - nights
+          type: string
+        description:
+          type: string
+        name:
+          type: string
+      type: object
+    dto.Price:
+      properties:
+        after_tax:
+          example: 200
+          type: number
+        amount:
+          example: 200
+          type: number
+        before_tax:
+          example: 175
+          type: number
+        currency:
+          example: EUR
+          type: string
+        net_rate:
+          example: 100
+          type: number
+      type: object
+    dto.PricePerNight:
+      properties:
+        date:
+          example: 2021-10-09
+          type: string
+        price:
+          $ref: "#/components/schemas/dto.Price"
+      type: object
+    dto.Property:
+      properties:
+        address_line_1:
+          example: 123 Athens street
+          type: string
+        address_line_2:
+          example: City Center
+          type: string
+        check_in_time:
+          example: 3pm
+          type: string
+        check_out_time:
+          example: 11am
+          type: string
+        city:
+          example: Athens
+          type: string
+        country:
+          example: Greece
+          type: string
+        currency:
+          example: EUR
+          type: string
+        description:
+          example: Hotel in the center of Athens
+          type: string
+        email:
+          example: holiday@athenshotel.com
+          type: string
+        facilities:
+          items:
+            $ref: "#/components/schemas/dto.Facility"
+          type: array
+        id:
+          example: ABCDEFGH
+          type: string
+        images:
+          items:
+            $ref: "#/components/schemas/dto.PropertyImage"
+          type: array
+        location:
+          $ref: "#/components/schemas/geopoint.GeoPoint"
+        name:
+          example: Athens Hotel
+          type: string
+        number_of_units:
+          example: 30
+          type: integer
+        phone_number:
+          example: "+121234567890"
+          type: string
+        postcode:
+          example: "12345"
+          type: string
+        rate_plans:
+          items:
+            $ref: "#/components/schemas/dto.RatePlan"
+          type: array
+        star_rating:
+          example: 4
+          type: integer
+        timezone:
+          example: Europe/Athens
+          type: string
+        translations:
+          items:
+            $ref: "#/components/schemas/dto.I18NProperty"
+          type: array
+        units:
+          items:
+            $ref: "#/components/schemas/dto.Unit"
+          type: array
+      type: object
+    dto.PropertyImage:
+      properties:
+        height:
+          example: 480
+          type: integer
+        tag:
+          example: Featured
+          type: string
+        url:
+          example: https://images.domain.com/holidyRs.jpg
+          type: string
+        width:
+          example: 480
+          type: integer
+      type: object
+    dto.RatePlan:
+      properties:
+        cancellation_policies:
+          items:
+            $ref: "#/components/schemas/dto.CancellationPolicy"
+          type: array
+        description:
+          example: Free cancellation 7 days before checkin
+          type: string
+        id:
+          example: KFURSAKD
+          type: string
+        meals:
+          example: Self-catering
+          type: string
+        name:
+          example: Free cancellation
+          type: string
+        no_show_policy:
+          $ref: "#/components/schemas/dto.NoShowPolicy"
+        property_id:
+          example: URTXMFJS
+          type: string
+        services:
+          items:
+            $ref: "#/components/schemas/dto.RatePlanService"
+          type: array
+        translations:
+          items:
+            $ref: "#/components/schemas/dto.I18NRatePlan"
+          type: array
+      type: object
+    dto.RatePlanService:
+      properties:
+        description:
+          example: Rent a bicycle directly from our reception
+          type: string
+        id:
+          example: OIRTFJSK
+          type: string
+        name:
+          example: Bicycle rental
+          type: string
+        price:
+          example: 10
+          type: number
+        pricing_unit:
+          example: EUR
+          type: string
+      type: object
+    dto.Reservation:
+      properties:
+        adults:
+          example: 1
+          type: integer
+        booking_id:
+          example: BK-ABCDEFGH
+          type: string
+        cancellation_policies:
+          items:
+            $ref: "#/components/schemas/dto.CancellationPolicy"
+          type: array
+        check_in:
+          example: 2021-10-09
+          format: date
+          type: string
+        check_out:
+          example: 2021-10-11
+          format: date
+          type: string
+        children:
+          example: 0
+          type: integer
+        comments:
+          example:
+            - We would like a wake up call every morning at 6am
+          items:
+            type: string
+          type: array
+        errors:
+          items:
+            $ref: "#/components/schemas/dto.ReservationError"
+          type: array
+        guests:
+          items:
+            $ref: "#/components/schemas/dto.Guest"
+          type: array
+        id:
+          example: RS-ABCDEFGH
+          type: string
+        no_show_policy:
+          $ref: "#/components/schemas/dto.NoShowPolicy"
+        offer_id:
+          example: 9131b7c8-3b6c-471d-8c0e-f579b1f40adb
+          type: string
+        price:
+          $ref: "#/components/schemas/dto.Price"
+        prices_per_night:
+          items:
+            $ref: "#/components/schemas/dto.PricePerNight"
+          type: array
+        status:
+          description: >-
+            TO_BE_DELIVERED: we have received the reservation and are processing it
+
+            CONFIRMED: the property has confirmed the reservation
+
+            MODIFIED: The reservation has been successfully modified
+
+            TO_BE_MODIFIED: We have received the updated reservation and are sending it to the property
+
+            MODIFICATION_FAILED: The update operation has failed
+
+            TO_BE_CANCELLED: We have received the cancellation request and are sending it to the property
+
+            FAILED: The reservation could not be created on the property
+
+            CANCELLATION_FAILED: We tried to cancel the reservation but the property did not accept it
+          enum:
+            - CONFIRMED
+            - TO_BE_DELIVERED
+            - MODIFIED
+            - TO_BE_MODIFIED
+            - MODIFICATION_FAILED
+            - CANCELLED
+            - TO_BE_CANCELLED
+            - FAILED
+            - CANCELLATION_FAILED
+          example: CONFIRMED
+          type: string
+        supplier_confirmation_id:
+          description: >-
+            Represents the confirmation id of the reservation in the supplier's system.
+
+            The id will be non empty only after it has been confirmed
+          type: string
+      type: object
+    dto.ReservationError:
+      properties:
+        code:
+          description: >-
+            UPDATE_REJECTED: we tried to create or update a reservation but the property rejected the action
+
+            CANCELLATION_REJECTED: we tried to cancel the reservation but the property rejected it
+
+            INTERNAL_SERVER_ERROR: Any other error
+          enum:
+            - UPDATE_REJECTED
+            - CANCELLATION_REJECTED
+            - INTERNAL_SERVER_ERROR
+          example: CANCELLATION_REJECTED
+          type: string
+        message:
+          example: Property rejected the cancellation
+          type: string
+      type: object
+    dto.ResponseMetadata:
+      properties:
+        total:
+          type: integer
+      type: object
+    dto.Unit:
+      properties:
+        amenities:
+          items:
+            $ref: "#/components/schemas/dto.Amenity"
+          type: array
+        bed_types:
+          items:
+            $ref: "#/components/schemas/dto.BedType"
+          type: array
+        class:
+          type: string
+        description:
+          example: Double room with seaview
+          type: string
+        id:
+          example: KFURSAKD
+          type: string
+        images:
+          items:
+            $ref: "#/components/schemas/dto.UnitImage"
+          type: array
+        name:
+          example: Double Room
+          type: string
+        property_id:
+          example: QKFJDLAO
+          type: string
+        translations:
+          items:
+            $ref: "#/components/schemas/dto.I18NUnit"
+          type: array
+        type:
+          type: string
+      type: object
+    dto.UnitImage:
+      properties:
+        height:
+          example: 600
+          type: integer
+        tag:
+          example: Featured
+          type: string
+        url:
+          example: https://images.domain.com/unit1.jpg
+          type: string
+        width:
+          example: 600
+          type: integer
+      type: object
+    geopoint.GeoPoint:
+      properties:
+        latitude:
+          example: 38.8951
+          type: number
+        longitude:
+          example: 77.0364
+          type: number
+      type: object
+    github_com_katanox_api_internal_invoice.GetInvoiceFileResponse:
+      properties:
+        link:
+          type: string
+      type: object
+    github_com_katanox_api_pkg_model_availability.PricePerNight:
+      properties:
+        after_tax:
+          example: 70
+          type: number
+        before_tax:
+          example: 50
+          type: number
+        currency:
+          example: USD
+          type: string
+        date:
+          example: 2024-08-01
+          type: string
+        net_rate:
+          example: 15
+          type: number
+      type: object
+    http.BookingAndReservationLinks:
+      properties:
+        cancel:
+          $ref: "#/components/schemas/model.Link"
+        get:
+          $ref: "#/components/schemas/model.Link"
+      type: object
+    http.BookingCreationRequest:
+      properties:
+        comments:
+          example:
+            - We will arrive around 8pm
+          items:
+            type: string
+          type: array
+        customer:
+          $ref: "#/components/schemas/http.Customer"
+        loyalty_id:
+          type: string
+        payment:
+          allOf:
+            - $ref: "#/components/schemas/http.Payment"
+          description: The payment field is required only if you provide your own credit cards for suppliers. If you need clarification on your payment flow, please reach out to your account manager.
+        reservations:
+          items:
+            $ref: "#/components/schemas/http.ReservationCreationRequest"
+          minItems: 1
+          type: array
+      required:
+        - customer
+        - payment
+        - reservations
+      type: object
+    http.BookingData:
+      properties:
+        booking:
+          $ref: "#/components/schemas/dto.CreatedBookingInfo"
+      type: object
+    http.BookingResponse:
+      properties:
+        data:
+          $ref: "#/components/schemas/http.BookingData"
+        links:
+          $ref: "#/components/schemas/http.BookingAndReservationLinks"
+      type: object
+    http.Customer:
+      properties:
+        address_line_1:
+          example: 123 street
+          type: string
+        address_line_2:
+          type: string
+        birth_date:
+          description: "Example: 2021-10-09"
+          type: string
+        city:
+          example: Paris
+          type: string
+        company_name:
+          description: >-
+            Can be used to specify the customer's company name. If you create a booking on behalf of a customer of yours
+
+            you can use their company name which will appear as the customer's company. Otherwise, you can use your
+
+            company's name
+          type: string
+        country:
+          example: France
+          type: string
+        email:
+          example: john@doe.com
+          type: string
+        first_name:
+          example: John
+          type: string
+        last_name:
+          example: Doe
+          type: string
+        phone_number:
+          example: "+121234567890"
+          type: string
+        postcode:
+          example: "12345"
+          type: string
+        title:
+          example: MR
+          type: string
+      required:
+        - address_line_1
+        - city
+        - country
+        - email
+        - first_name
+        - last_name
+        - phone_number
+        - postcode
+      type: object
+    http.Guest:
+      properties:
+        address_line_1:
+          example: 123 street
+          type: string
+        address_line_2:
+          type: string
+        birth_date:
+          description: "Example: 2021-10-09"
+          type: string
+        city:
+          example: Paris
+          type: string
+        country:
+          example: France
+          type: string
+        email:
+          example: john@doe.com
+          type: string
+        first_name:
+          example: John
+          type: string
+        last_name:
+          example: Doe
+          type: string
+        phone_number:
+          example: "+121234567890"
+          type: string
+        postcode:
+          example: "12345"
+          type: string
+        title:
+          example: MR
+          type: string
+      required:
+        - first_name
+        - last_name
+      type: object
+    http.Payment:
+      properties:
+        card_holder:
+          example: John Doe
+          type: string
+        card_number:
+          example: "1234123412341234"
+          type: string
+        cvv:
+          example: "123"
+          type: string
+        expiry_month:
+          example: "11"
+          type: string
+        expiry_year:
+          example: "2025"
+          type: string
+        type:
+          example: visa
+          type: string
+      type: object
+    http.ReservationCreationRequest:
+      properties:
+        comments:
+          example:
+            - We would like a wake up call every morning at 6am
+          items:
+            type: string
+          type: array
+        guests:
+          items:
+            $ref: "#/components/schemas/http.Guest"
+          minItems: 1
+          type: array
+        offer_id:
+          example: 9131b7c8-3b6c-471d-8c0e-f579b1f40adb
+          type: string
+      required:
+        - offer_id
+      type: object
+    http.ReservationData:
+      properties:
+        reservation:
+          $ref: "#/components/schemas/dto.Reservation"
+      type: object
+    http.ReservationResponse:
+      properties:
+        data:
+          $ref: "#/components/schemas/http.ReservationData"
+        links:
+          $ref: "#/components/schemas/http.BookingAndReservationLinks"
+      type: object
+    http.ReservationUpdateRequest:
+      properties:
+        comments:
+          example:
+            - We would like a wake up call every morning at 6am
+          items:
+            type: string
+          type: array
+        guests:
+          items:
+            $ref: "#/components/schemas/http.Guest"
+          minItems: 1
+          type: array
+        offer_id:
+          example: 9131b7c8-3b6c-471d-8c0e-f579b1f40adb
+          type: string
+      type: object
+    invoice.BookingInvoice:
+      properties:
+        invoices:
+          items:
+            $ref: "#/components/schemas/invoice.Invoice"
+          type: array
+        property:
+          $ref: "#/components/schemas/invoice.InvoiceProperty"
+      type: object
+    invoice.GetBookingInvoiceResponse:
+      properties:
+        details:
+          $ref: "#/components/schemas/invoice.BookingInvoice"
+        error:
+          type: string
+      type: object
+    invoice.Invoice:
+      properties:
+        amount:
+          $ref: "#/components/schemas/invoice.InvoiceAmount"
+        charges:
+          items:
+            $ref: "#/components/schemas/invoice.InvoiceCharge"
+          type: array
+        date:
+          type: string
+        id:
+          type: string
+        issuer:
+          $ref: "#/components/schemas/invoice.InvoiceIssuer"
+      type: object
+    invoice.InvoiceAmount:
+      properties:
+        after_tax:
+          example: "120.0"
+          type: string
+        before_tax:
+          example: "100.0"
+          type: string
+        currency:
+          example: EUR
+          type: string
+        vat_amount:
+          example: "20.0"
+          type: string
+      type: object
+    invoice.InvoiceCharge:
+      properties:
+        amount:
+          $ref: "#/components/schemas/invoice.InvoiceAmount"
+        category:
+          example: Bar
+          type: string
+        vat:
+          example: "19.5"
+          type: string
+      type: object
+    invoice.InvoiceIssuer:
+      properties:
+        address:
+          $ref: "#/components/schemas/invoice.IssuerAddress"
+        name:
+          type: string
+        vat_id:
+          type: string
+      type: object
+    invoice.InvoiceProperty:
+      properties:
+        name:
+          type: string
+      type: object
+    invoice.IssuerAddress:
+      properties:
+        address_line_1:
+          type: string
+        address_line_2:
+          type: string
+        city:
+          type: string
+        country:
+          type: string
+        postcode:
+          type: string
+      type: object
+    model.Amenity:
+      properties:
+        category:
+          example: Food and drink
+          type: string
+        id:
+          example: KFURSAKD
+          type: string
+        name:
+          example: Coffee machine
+          type: string
+      type: object
+    model.ApiError:
+      properties:
+        error_codes:
+          items:
+            $ref: "#/components/schemas/model.ErrorCode"
+          type: array
+        errors:
+          example:
+            - Field id is invalid
+            - Field email is invalid
+          items:
+            type: string
+          type: array
+      type: object
+    model.BedType:
+      properties:
+        amount:
+          example: 1
+          type: integer
+        name:
+          example: Double
+          type: string
+        occupancy:
+          example: 2
+          type: integer
+      type: object
+    model.ErrorCode:
+      properties:
+        code:
+          type: string
+        message:
+          type: string
+      type: object
+    model.GetPropertiesResponse:
+      properties:
+        data:
+          $ref: "#/components/schemas/model.PropertiesData"
+        links:
+          $ref: "#/components/schemas/model.Page"
+        meta:
+          $ref: "#/components/schemas/model.PropertiesMeta"
+      type: object
+    model.GetPropertyByIdResponse:
+      properties:
+        data:
+          $ref: "#/components/schemas/model.PropertyData"
+      type: object
+    model.GetRatePlanByIdResponse:
+      properties:
+        rate_plan:
+          $ref: "#/components/schemas/dto.RatePlan"
+      type: object
+    model.GetRatePlansResponse:
+      properties:
+        data:
+          $ref: "#/components/schemas/model.RatePlansData"
+      type: object
+    model.GetUnitByIdResponse:
+      properties:
+        unit:
+          $ref: "#/components/schemas/model.Unit"
+      type: object
+    model.I18NUnit:
+      properties:
+        description:
+          example: Διπλό δωμάτιο με θέα τη θάλασσα
+          type: string
+        locale:
+          example: el
+          type: string
+        name:
+          example: Διπλο δωματιο
+          type: string
+      type: object
+    model.Link:
+      properties:
+        method:
+          example: GET
+          type: string
+        url:
+          example: https://api.katanox.com/v2/bookings/ABCDEFGH
+          type: string
+      type: object
+    model.Page:
+      properties:
+        first:
+          $ref: "#/components/schemas/model.Link"
+        last:
+          $ref: "#/components/schemas/model.Link"
+        next:
+          $ref: "#/components/schemas/model.Link"
+        previous:
+          $ref: "#/components/schemas/model.Link"
+      type: object
+    model.PropertiesData:
+      properties:
+        properties:
+          items:
+            $ref: "#/components/schemas/dto.Property"
+          type: array
+      type: object
+    model.PropertiesMeta:
+      properties:
+        total_properties:
+          example: 100
+          type: integer
+      type: object
+    model.PropertyData:
+      properties:
+        property:
+          $ref: "#/components/schemas/dto.Property"
+      type: object
+    model.RatePlansData:
+      properties:
+        rate_plans:
+          items:
+            $ref: "#/components/schemas/dto.RatePlan"
+          type: array
+      type: object
+    model.UnauthorizedApiError:
+      properties:
+        error_codes:
+          items:
+            $ref: "#/components/schemas/model.ErrorCode"
+          type: array
+        message:
+          example: Api key does not exist or is invalid
+          type: string
+      type: object
+    model.Unit:
+      properties:
+        amenities:
+          items:
+            $ref: "#/components/schemas/model.Amenity"
+          type: array
+        bed_types:
+          items:
+            $ref: "#/components/schemas/model.BedType"
+          type: array
+        class:
+          example: Deluxe
+          type: string
+        description:
+          example: Double room with seaview
+          type: string
+        id:
+          type: string
+        images:
+          items:
+            $ref: "#/components/schemas/model.UnitImage"
+          type: array
+        name:
+          example: Double Room
+          type: string
+        property_id:
+          example: QKFJDLAO
+          type: string
+        translations:
+          items:
+            $ref: "#/components/schemas/model.I18NUnit"
+          type: array
+        type:
+          example: Double
+          type: string
+      type: object
+    model.UnitImage:
+      properties:
+        height:
+          example: 600
+          type: integer
+        tag:
+          example: Featured
+          type: string
+        url:
+          example: https://images.domain.com/unit1.jpg
+          type: string
+        width:
+          example: 600
+          type: integer
+      type: object
+    offer.GetOfferResponse:
+      properties:
+        offer:
+          $ref: "#/components/schemas/availability.ExternalOffer"
+        remaining_time:
+          description: Remaining time in seconds
+          example: 10
+          type: number
+      type: object

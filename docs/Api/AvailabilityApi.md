@@ -43,7 +43,7 @@ $negotiated_rate_plans = array('negotiated_rate_plans_example'); // string[] | D
 $corporate_profile_id = 'null'; // string | The corporate_profile_id can be used to fetch specific rates linked to a corporate.
 $number_of_units = 1; // int | The total number of units required
 $page = 0; // int | The returned page number
-$limit = 10; // int | Number of results per page. The maximum value of the limit is 50.
+$limit = 10; // int | Limits the number of properties that will be used to search for availability when searching with coordinates. In case of a search using property ids, `page` and `limit` are ignored
 $lowest = false; // bool | If set to true returns only the cheapest price per property
 $price_breakdown = false; // bool | If set to true then each offer will contain the nightly price alongside the total price
 $unit_type = 'unit_type_example'; // string | The unit type
@@ -74,7 +74,7 @@ try {
 | **corporate_profile_id** | **string**| The corporate_profile_id can be used to fetch specific rates linked to a corporate. | [optional] [default to &#39;null&#39;] |
 | **number_of_units** | **int**| The total number of units required | [optional] [default to 1] |
 | **page** | **int**| The returned page number | [optional] [default to 0] |
-| **limit** | **int**| Number of results per page. The maximum value of the limit is 50. | [optional] [default to 10] |
+| **limit** | **int**| Limits the number of properties that will be used to search for availability when searching with coordinates. In case of a search using property ids, &#x60;page&#x60; and &#x60;limit&#x60; are ignored | [optional] [default to 10] |
 | **lowest** | **bool**| If set to true returns only the cheapest price per property | [optional] [default to false] |
 | **price_breakdown** | **bool**| If set to true then each offer will contain the nightly price alongside the total price | [optional] [default to false] |
 | **unit_type** | **string**| The unit type | [optional] |
