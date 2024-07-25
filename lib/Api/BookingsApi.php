@@ -1138,6 +1138,7 @@ class BookingsApi
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://api.katanox.com/v2
      *
+     * @param  string $x_ktnx_source The source of the booking (required)
      * @param  string $authorization Type &#39;Bearer&#39; and then your API Token (required)
      * @param  \Katanox\Model\HttpBookingCreationRequest $http_booking_creation_request Booking body (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -1148,9 +1149,9 @@ class BookingsApi
      * @throws \InvalidArgumentException
      * @return \Katanox\Model\HttpBookingResponse|\Katanox\Model\ModelApiError|\Katanox\Model\ModelApiError|\Katanox\Model\ModelApiError
      */
-    public function createBooking($authorization, $http_booking_creation_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['createBooking'][0])
+    public function createBooking($x_ktnx_source, $authorization, $http_booking_creation_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['createBooking'][0])
     {
-        list($response) = $this->createBookingWithHttpInfo($authorization, $http_booking_creation_request, $hostIndex, $variables, $contentType);
+        list($response) = $this->createBookingWithHttpInfo($x_ktnx_source, $authorization, $http_booking_creation_request, $hostIndex, $variables, $contentType);
         return $response;
     }
 
@@ -1163,6 +1164,7 @@ class BookingsApi
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://api.katanox.com/v2
      *
+     * @param  string $x_ktnx_source The source of the booking (required)
      * @param  string $authorization Type &#39;Bearer&#39; and then your API Token (required)
      * @param  \Katanox\Model\HttpBookingCreationRequest $http_booking_creation_request Booking body (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -1173,9 +1175,9 @@ class BookingsApi
      * @throws \InvalidArgumentException
      * @return array of \Katanox\Model\HttpBookingResponse|\Katanox\Model\ModelApiError|\Katanox\Model\ModelApiError|\Katanox\Model\ModelApiError, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createBookingWithHttpInfo($authorization, $http_booking_creation_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['createBooking'][0])
+    public function createBookingWithHttpInfo($x_ktnx_source, $authorization, $http_booking_creation_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['createBooking'][0])
     {
-        $request = $this->createBookingRequest($authorization, $http_booking_creation_request, $hostIndex, $variables, $contentType);
+        $request = $this->createBookingRequest($x_ktnx_source, $authorization, $http_booking_creation_request, $hostIndex, $variables, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1399,6 +1401,7 @@ class BookingsApi
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://api.katanox.com/v2
      *
+     * @param  string $x_ktnx_source The source of the booking (required)
      * @param  string $authorization Type &#39;Bearer&#39; and then your API Token (required)
      * @param  \Katanox\Model\HttpBookingCreationRequest $http_booking_creation_request Booking body (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -1408,9 +1411,9 @@ class BookingsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createBookingAsync($authorization, $http_booking_creation_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['createBooking'][0])
+    public function createBookingAsync($x_ktnx_source, $authorization, $http_booking_creation_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['createBooking'][0])
     {
-        return $this->createBookingAsyncWithHttpInfo($authorization, $http_booking_creation_request, $hostIndex, $variables, $contentType)
+        return $this->createBookingAsyncWithHttpInfo($x_ktnx_source, $authorization, $http_booking_creation_request, $hostIndex, $variables, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1427,6 +1430,7 @@ class BookingsApi
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://api.katanox.com/v2
      *
+     * @param  string $x_ktnx_source The source of the booking (required)
      * @param  string $authorization Type &#39;Bearer&#39; and then your API Token (required)
      * @param  \Katanox\Model\HttpBookingCreationRequest $http_booking_creation_request Booking body (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -1436,10 +1440,10 @@ class BookingsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createBookingAsyncWithHttpInfo($authorization, $http_booking_creation_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['createBooking'][0])
+    public function createBookingAsyncWithHttpInfo($x_ktnx_source, $authorization, $http_booking_creation_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['createBooking'][0])
     {
         $returnType = '\Katanox\Model\HttpBookingResponse';
-        $request = $this->createBookingRequest($authorization, $http_booking_creation_request, $hostIndex, $variables, $contentType);
+        $request = $this->createBookingRequest($x_ktnx_source, $authorization, $http_booking_creation_request, $hostIndex, $variables, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1484,6 +1488,7 @@ class BookingsApi
     * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://api.katanox.com/v2
      *
+     * @param  string $x_ktnx_source The source of the booking (required)
      * @param  string $authorization Type &#39;Bearer&#39; and then your API Token (required)
      * @param  \Katanox\Model\HttpBookingCreationRequest $http_booking_creation_request Booking body (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -1493,8 +1498,15 @@ class BookingsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function createBookingRequest($authorization, $http_booking_creation_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['createBooking'][0])
+    public function createBookingRequest($x_ktnx_source, $authorization, $http_booking_creation_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['createBooking'][0])
     {
+
+        // verify the required parameter 'x_ktnx_source' is set
+        if ($x_ktnx_source === null || (is_array($x_ktnx_source) && count($x_ktnx_source) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $x_ktnx_source when calling createBooking'
+            );
+        }
 
         // verify the required parameter 'authorization' is set
         if ($authorization === null || (is_array($authorization) && count($authorization) === 0)) {
@@ -1519,6 +1531,10 @@ class BookingsApi
         $multipart = false;
 
 
+        // header params
+        if ($x_ktnx_source !== null) {
+            $headerParams['X-KTNX-SOURCE'] = ObjectSerializer::toHeaderValue($x_ktnx_source);
+        }
         // header params
         if ($authorization !== null) {
             $headerParams['Authorization'] = ObjectSerializer::toHeaderValue($authorization);
