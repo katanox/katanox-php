@@ -4,6 +4,7 @@ All URIs are relative to https://api.katanox.com/v2, except if the operation def
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
+| [**bookingsGetInvoices()**](BookingsApi.md#bookingsGetInvoices) | **GET** /bookings/{booking_id}/invoices | Get folio data |
 | [**cancelBookingById()**](BookingsApi.md#cancelBookingById) | **DELETE** /bookings/{booking_id} | Cancel a booking |
 | [**cancelReservation()**](BookingsApi.md#cancelReservation) | **DELETE** /bookings/{booking_id}/reservations/{reservation_id} | Cancel a reservation |
 | [**createBooking()**](BookingsApi.md#createBooking) | **POST** /bookings | Create a booking |
@@ -12,6 +13,64 @@ All URIs are relative to https://api.katanox.com/v2, except if the operation def
 | [**getReservationById()**](BookingsApi.md#getReservationById) | **GET** /bookings/{booking_id}/reservations/{reservation_id} | Retrieve a reservation by id |
 | [**updateReservation()**](BookingsApi.md#updateReservation) | **PUT** /bookings/{booking_id}/reservations/{reservation_id} | Update a reservation |
 
+
+## `bookingsGetInvoices()`
+
+```php
+bookingsGetInvoices($booking_id, $authorization): \Katanox\Model\InvoiceGetBookingInvoiceResponse
+```
+
+Get folio data
+
+Returns invoice details of a booking.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new Katanox\Api\BookingsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$booking_id = 'booking_id_example'; // string | The id of the booking
+$authorization = 'authorization_example'; // string | Type 'Bearer' and then your API Token
+
+try {
+    $result = $apiInstance->bookingsGetInvoices($booking_id, $authorization);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling BookingsApi->bookingsGetInvoices: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **booking_id** | **string**| The id of the booking | |
+| **authorization** | **string**| Type &#39;Bearer&#39; and then your API Token | |
+
+### Return type
+
+[**\Katanox\Model\InvoiceGetBookingInvoiceResponse**](../Model/InvoiceGetBookingInvoiceResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
 
 ## `cancelBookingById()`
 
@@ -77,6 +136,8 @@ cancelReservation($booking_id, $reservation_id, $authorization)
 ```
 
 Cancel a reservation
+
+Using this endpoint you can submit a reservation cancellation request. If the reservation can be cancelled, the endpoint will return 204 and an empty response body. If we cannot start the cancellation process, the endpoint will return an error message and error codes. Currently the following error codes can be returned: `NON_CANCELLABLE`, `NOT_FOUND`, `INTERNAL_SERVER_ERROR` Each error code will have an error message to explain the error code. `NON_CANCELLABLE` reservations are the ones that either have non cancellable status (e.g `CANCELLED`, `PENDING`) or their check in date has already passed and the reservation cannot be cancelled any more. It's important to fetch the status of the reservation after submitting this request to confirm that the status changes to `CANCELLED`
 
 ### Example
 
@@ -151,7 +212,7 @@ $apiInstance = new Katanox\Api\BookingsApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$x_ktnx_source = 'x_ktnx_source_example'; // string | API
+$x_ktnx_source = 'x_ktnx_source_example'; // string | The source of the booking
 $authorization = 'authorization_example'; // string | Type 'Bearer' and then your API Token
 $http_booking_creation_request = new \Katanox\Model\HttpBookingCreationRequest(); // \Katanox\Model\HttpBookingCreationRequest | Booking body
 
@@ -171,7 +232,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **x_ktnx_source** | **string**| API | |
+| **x_ktnx_source** | **string**| The source of the booking | |
 | **authorization** | **string**| Type &#39;Bearer&#39; and then your API Token | |
 | **http_booking_creation_request** | [**\Katanox\Model\HttpBookingCreationRequest**](../Model/HttpBookingCreationRequest.md)| Booking body | |
 | hostIndex | null|int | Host index. Defaults to null. If null, then the library will use $this->hostIndex instead | [optional] |

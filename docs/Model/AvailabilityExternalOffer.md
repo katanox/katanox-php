@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**breakdown** | [**\Katanox\Model\GithubComKatanoxApiPkgModelAvailabilityPricePerNight[]**](GithubComKatanoxApiPkgModelAvailabilityPricePerNight.md) |  | [optional]
+**commission** | **float** |  | [optional]
 **id** | **string** |  | [optional]
 **occupancy_has_offer** | **bool[]** |  | [optional]
 **price** | [**\Katanox\Model\AvailabilityExternalPrice**](AvailabilityExternalPrice.md) |  | [optional]
