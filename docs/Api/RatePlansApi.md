@@ -1,6 +1,6 @@
 # Katanox\RatePlansApi
 
-All URIs are relative to https://api.katanox.com/v2, except if the operation defines another base path.
+All URIs are relative to https://api-staging.katanox.com/v2, except if the operation defines another base path.
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |

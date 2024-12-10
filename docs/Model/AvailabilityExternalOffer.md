@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **commission** | **float** |  | [optional]
 **id** | **string** |  | [optional]
 **occupancy_has_offer** | **bool[]** |  | [optional]
+**payment_modes** | **string[]** |  | [optional]
 **price** | [**\Katanox\Model\AvailabilityExternalPrice**](AvailabilityExternalPrice.md) |  | [optional]
 **property_id** | **string** |  | [optional]
 **rate_plan_id** | **string** |  | [optional]
