@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **check_out_time** | **string** |  | [optional]
 **city** | **string** |  | [optional]
 **country** | **string** |  | [optional]
+**country_code** | **string** |  | [optional]
 **currency** | **string** |  | [optional]
 **description** | **string** |  | [optional]
 **email** | **string** |  | [optional]
