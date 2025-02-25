@@ -10,7 +10,7 @@ All URIs are relative to https://api.katanox.com/v2, except if the operation def
 ## `getAvailableProperties()`
 
 ```php
-getAvailableProperties($check_in, $check_out, $authorization, $adults, $children, $lat, $lng, $radius, $property_ids, $negotiated_rate_plans, $corporate_profile_id, $number_of_units, $page, $limit, $lowest, $price_breakdown, $unit_type, $occupancy): \Katanox\Model\AvailabilityGetAvailabilityResponse
+getAvailableProperties($check_in, $check_out, $authorization, $adults, $children, $lat, $lng, $radius, $property_ids, $negotiated_rate_plans, $corporate_profile_id, $number_of_units, $page, $limit, $lowest, $price_breakdown, $unit_type, $occupancy, $separate_rates_per_payment): \Katanox\Model\AvailabilityGetAvailabilityResponse
 ```
 
 Retrieve the list of available properties
@@ -48,9 +48,10 @@ $lowest = false; // bool | If set to true returns only the cheapest price per pr
 $price_breakdown = false; // bool | If set to true then each offer will contain the nightly price alongside the total price
 $unit_type = 'unit_type_example'; // string | The unit type
 $occupancy = 'occupancy_example'; // string | Represents the occupancy for a room. Format: occupancy=numberOfAdults-firstChildAge;nextChildAge
+$separate_rates_per_payment = false; // bool | If true, a rate plan with multiple payment modes will generate multiple offers using the same rate/unit combination
 
 try {
-    $result = $apiInstance->getAvailableProperties($check_in, $check_out, $authorization, $adults, $children, $lat, $lng, $radius, $property_ids, $negotiated_rate_plans, $corporate_profile_id, $number_of_units, $page, $limit, $lowest, $price_breakdown, $unit_type, $occupancy);
+    $result = $apiInstance->getAvailableProperties($check_in, $check_out, $authorization, $adults, $children, $lat, $lng, $radius, $property_ids, $negotiated_rate_plans, $corporate_profile_id, $number_of_units, $page, $limit, $lowest, $price_breakdown, $unit_type, $occupancy, $separate_rates_per_payment);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AvailabilityApi->getAvailableProperties: ', $e->getMessage(), PHP_EOL;
@@ -79,6 +80,7 @@ try {
 | **price_breakdown** | **bool**| If set to true then each offer will contain the nightly price alongside the total price | [optional] [default to false] |
 | **unit_type** | **string**| The unit type | [optional] |
 | **occupancy** | **string**| Represents the occupancy for a room. Format: occupancy&#x3D;numberOfAdults-firstChildAge;nextChildAge | [optional] |
+| **separate_rates_per_payment** | **bool**| If true, a rate plan with multiple payment modes will generate multiple offers using the same rate/unit combination | [optional] [default to false] |
 
 ### Return type
 
