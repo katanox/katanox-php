@@ -191,7 +191,7 @@ No authorization required
 ## `createBooking()`
 
 ```php
-createBooking($authorization, $http_booking_creation_request): \Katanox\Model\HttpBookingResponse
+createBooking($authorization, $x_ktnx_source, $http_booking_creation_request): \Katanox\Model\HttpBookingResponse
 ```
 
 Create a booking
@@ -212,10 +212,11 @@ $apiInstance = new Katanox\Api\BookingsApi(
     new GuzzleHttp\Client()
 );
 $authorization = 'authorization_example'; // string | Type 'Bearer' and then your API Token
+$x_ktnx_source = 'x_ktnx_source_example'; // string | Type 'Bearer' and then your API Token
 $http_booking_creation_request = new \Katanox\Model\HttpBookingCreationRequest(); // \Katanox\Model\HttpBookingCreationRequest | Booking body
 
 try {
-    $result = $apiInstance->createBooking($authorization, $http_booking_creation_request);
+    $result = $apiInstance->createBooking($authorization, $x_ktnx_source, $http_booking_creation_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling BookingsApi->createBooking: ', $e->getMessage(), PHP_EOL;
@@ -227,6 +228,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **authorization** | **string**| Type &#39;Bearer&#39; and then your API Token | |
+| **x_ktnx_source** | **string**| Type &#39;Bearer&#39; and then your API Token | |
 | **http_booking_creation_request** | [**\Katanox\Model\HttpBookingCreationRequest**](../Model/HttpBookingCreationRequest.md)| Booking body | |
 
 ### Return type
