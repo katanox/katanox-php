@@ -10,7 +10,7 @@ All URIs are relative to https://api.katanox.com/v2, except if the operation def
 ## `corporateProfilesList()`
 
 ```php
-corporateProfilesList($authorization, $page, $limit): \Katanox\Model\DtoListCorporateProfileResponse
+corporateProfilesList($authorization, $page, $limit)
 ```
 
 List corporate profiles
@@ -35,8 +35,7 @@ $page = 0; // int | The returned page number
 $limit = 10; // int | Number of results per page. The maximum value of the limit is 50.
 
 try {
-    $result = $apiInstance->corporateProfilesList($authorization, $page, $limit);
-    print_r($result);
+    $apiInstance->corporateProfilesList($authorization, $page, $limit);
 } catch (Exception $e) {
     echo 'Exception when calling CorporateProfilesApi->corporateProfilesList: ', $e->getMessage(), PHP_EOL;
 }
@@ -52,7 +51,7 @@ try {
 
 ### Return type
 
-[**\Katanox\Model\DtoListCorporateProfileResponse**](../Model/DtoListCorporateProfileResponse.md)
+void (empty response body)
 
 ### Authorization
 

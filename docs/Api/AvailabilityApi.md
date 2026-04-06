@@ -10,7 +10,7 @@ All URIs are relative to https://api.katanox.com/v2, except if the operation def
 ## `getAvailableProperties()`
 
 ```php
-getAvailableProperties($check_in, $check_out, $authorization, $adults, $children, $lat, $lng, $radius, $property_ids, $negotiated_rate_plans, $corporate_profile_id, $number_of_units, $page, $limit, $lowest, $price_breakdown, $unit_type, $occupancy, $separate_rates_per_payment): \Katanox\Model\AvailabilityGetAvailabilityResponse
+getAvailableProperties($check_in, $check_out, $authorization, $adults, $children, $lat, $lng, $radius, $property_ids, $negotiated_rate_plans, $corporate_profile_id, $number_of_units, $page, $limit, $lowest, $price_breakdown, $unit_type, $occupancy): \Katanox\Model\AvailabilityGetAvailabilityResponse
 ```
 
 Retrieve the list of available properties
@@ -43,15 +43,14 @@ $negotiated_rate_plans = array('negotiated_rate_plans_example'); // string[] | D
 $corporate_profile_id = 'null'; // string | The corporate_profile_id can be used to fetch specific rates linked to a corporate.
 $number_of_units = 1; // int | The total number of units required
 $page = 0; // int | The returned page number
-$limit = 10; // int | Limits the number of properties that will be used to search for availability when searching with coordinates. In case of a search using property ids, `page` and `limit` are ignored
+$limit = 10; // int | Number of results per page. The maximum value of the limit is 50.
 $lowest = false; // bool | If set to true returns only the cheapest price per property
 $price_breakdown = false; // bool | If set to true then each offer will contain the nightly price alongside the total price
 $unit_type = 'unit_type_example'; // string | The unit type
-$occupancy = 'occupancy_example'; // string | Represents the occupancy for a room. Format: occupancy=numberOfAdults-firstChildAge;nextChildAge
-$separate_rates_per_payment = false; // bool | If true, a rate plan with multiple payment modes will generate multiple offers using the same rate/unit combination
+$occupancy = 'occupancy_example'; // string | Represents the occupancy for a room. Format: occupancy=numberOfAdults-firstChildAge,nextChildAge
 
 try {
-    $result = $apiInstance->getAvailableProperties($check_in, $check_out, $authorization, $adults, $children, $lat, $lng, $radius, $property_ids, $negotiated_rate_plans, $corporate_profile_id, $number_of_units, $page, $limit, $lowest, $price_breakdown, $unit_type, $occupancy, $separate_rates_per_payment);
+    $result = $apiInstance->getAvailableProperties($check_in, $check_out, $authorization, $adults, $children, $lat, $lng, $radius, $property_ids, $negotiated_rate_plans, $corporate_profile_id, $number_of_units, $page, $limit, $lowest, $price_breakdown, $unit_type, $occupancy);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AvailabilityApi->getAvailableProperties: ', $e->getMessage(), PHP_EOL;
@@ -75,12 +74,11 @@ try {
 | **corporate_profile_id** | **string**| The corporate_profile_id can be used to fetch specific rates linked to a corporate. | [optional] [default to &#39;null&#39;] |
 | **number_of_units** | **int**| The total number of units required | [optional] [default to 1] |
 | **page** | **int**| The returned page number | [optional] [default to 0] |
-| **limit** | **int**| Limits the number of properties that will be used to search for availability when searching with coordinates. In case of a search using property ids, &#x60;page&#x60; and &#x60;limit&#x60; are ignored | [optional] [default to 10] |
+| **limit** | **int**| Number of results per page. The maximum value of the limit is 50. | [optional] [default to 10] |
 | **lowest** | **bool**| If set to true returns only the cheapest price per property | [optional] [default to false] |
 | **price_breakdown** | **bool**| If set to true then each offer will contain the nightly price alongside the total price | [optional] [default to false] |
 | **unit_type** | **string**| The unit type | [optional] |
-| **occupancy** | **string**| Represents the occupancy for a room. Format: occupancy&#x3D;numberOfAdults-firstChildAge;nextChildAge | [optional] |
-| **separate_rates_per_payment** | **bool**| If true, a rate plan with multiple payment modes will generate multiple offers using the same rate/unit combination | [optional] [default to false] |
+| **occupancy** | **string**| Represents the occupancy for a room. Format: occupancy&#x3D;numberOfAdults-firstChildAge,nextChildAge | [optional] |
 
 ### Return type
 
